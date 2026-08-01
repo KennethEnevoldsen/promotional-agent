@@ -1,0 +1,459 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Bekko — MTEB score in context</title>
+<!--
+  Card for the Bekko post. Each post owns its card markup, so the image, the data behind
+  it and the markup that drew it sit together. There is no shared template to inherit
+  from and none to keep in sync — copy this file for the next card and change it freely.
+  Extracting the common parts is worth doing once several posts exist and the repetition
+  is real rather than anticipated.
+
+  Plots the subjects against every size peer with results on the same benchmark. A bare
+  score is unreadable: "56.73" means nothing without knowing what a model of that size
+  normally gets, so the peer set IS the interpretation.
+
+  Form is emphasis (one hue + gray), not categorical: peers are context, not series
+  competing for identity, so they are deliberately not color-coded.
+
+  Models carry their full Hugging Face name, split across two lines at the "/".
+  Abbreviating saves room but makes a claim harder to check against the leaderboard,
+  and two models can abbreviate to the same string.
+
+  This file is self-contained: fetch.py writes the numbers into #card-data below, and
+  the copy lives in the COPY object further down. Open it in a browser and you see
+  exactly what renders — there is no separate data file to fall out of sync with.
+
+    .venv/bin/python posts/2026-08-03-bekko-frontier/fetch.py        # refresh the numbers
+    uv run visuals/render.py --card posts/2026-08-03-bekko-frontier/card.html \
+      --out posts/2026-08-03-bekko-frontier/card.png          # ~3s
+
+  Edit copy freely — it costs a re-render, not a re-fetch. Only re-run fetch.py when
+  the cohort query itself changes, or before posting to confirm the numbers still hold.
+
+  PALETTE IS A PLACEHOLDER — swap the :root block only.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "benchmark": "MTEB(Multilingual, v2)",
+  "n_tasks": 131,
+  "max_active_params": 60000000,
+  "n_models": 6,
+  "points": [
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a25m",
+      "x": 24930432,
+      "total": 123234432,
+      "y": 58.36,
+      "subject": true
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a8m",
+      "x": 7671168,
+      "total": 105975168,
+      "y": 56.73,
+      "subject": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "x": 31550208,
+      "total": 80084288,
+      "y": 55.23
+    },
+    {
+      "model": "ibm-granite/granite-embedding-97m-multilingual-r2",
+      "x": 28321152,
+      "total": 97441152,
+      "y": 51.92
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "x": 21639552,
+      "total": 117653760,
+      "y": 48.73
+    },
+    {
+      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+      "x": 0,
+      "total": 108420096,
+      "y": 47.21
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-8B",
+      "x": 6946075648,
+      "total": 7567295488,
+      "y": 70.58,
+      "reference": true
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,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");
+    /* --- swap these for MTEB brand values --- */
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --peer:           #b9b7b0;
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --peer:           #55534e;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow {
+    font-size: 18px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 { font-size: 46px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; }
+  .specs { font-size: 15px; color: var(--text-muted); margin-top: 8px; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 5px; }
+
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name {
+    font-size: 30px; font-weight: 700; letter-spacing: 0.01em;
+    color: var(--text-primary);
+  }
+
+  .plot { flex: 1; margin-top: 34px; }
+  svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .grid { stroke: var(--gridline); stroke-width: 1; }
+  .axis-line { stroke: var(--axis); stroke-width: 1; }
+  .tick { fill: var(--text-muted); font-size: 18px; }
+  .axis-title { fill: var(--text-secondary); font-size: 19px; font-weight: 550; }
+  /* No surface ring on either dot: it was there to separate overlapping marks, but the
+     points are well spread and over the shaded region the ring reads as a white halo. */
+  .peer-dot { fill: var(--peer); }
+  .subject-dot { fill: var(--accent); }
+  .subject-label { fill: var(--text-primary); font-size: 22px; font-weight: 640; }
+  .subject-org { fill: var(--text-secondary); font-size: 15px; }
+  .subject-score { fill: var(--text-secondary); font-size: 20px; }
+  .peer-label { fill: var(--text-muted); font-size: 17px; }
+  .peer-org { fill: var(--text-muted); font-size: 13px; opacity: 0.8; }
+  /* The frontier is drawn as a region, not a line: its top edge IS the boundary, so a
+     separate stroke along it only restates what the shading already says. Slightly
+     stronger than a pure background tint because it is now the sole marker. */
+  .frontier-fill { fill: var(--accent); opacity: 0.09; stroke: none; }
+  .zero-note { fill: var(--text-muted); font-size: 15px; font-style: italic; }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 12px; padding-top: 14px; border-top: 1px solid var(--hairline);
+    font-size: 17px; color: var(--text-muted);
+  }
+  .foot-left { display: flex; flex-direction: column; gap: 5px; }
+  footer .context { color: var(--text-secondary); font-weight: 550; }
+  .source { font-size: 14px; color: var(--text-muted); }
+
+  /* The dots icon is multi-colour with transparency, so it is drawn as an image rather
+     than a mask — masking would flatten its blues to a single ink and lose the mark.
+     Its own blues read on both surfaces, so no per-mode variant is needed. Embedded as
+     a data URI because render.py renders from a temp directory, where a relative path
+     would not resolve. */
+  .logo {
+    width: 39px; height: 41px; flex: none;   /* asset aspect 0.958 */
+    background: var(--logo-uri) left center / contain no-repeat;
+  }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <!-- specs above the headline: the hard facts (languages, context, dims) frame the
+         claim rather than trailing it as a footnote -->
+    <div class="specs" id="specs"></div>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <!-- Brand block, top right on every post. Replaces the legend: the subtitle already
+       names the Pareto frontier, each dot carries its own model name, and the subjects
+       are the only ones in accent with a score beside them — so the legend was
+       restating what the card says elsewhere. -->
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="plot"><svg id="plot"></svg></div>
+
+<footer>
+  <!-- The cohort statement is no longer printed on the card. It still reaches the alt
+       text, which describes the plot as covering N multilingual models under the size
+       cap, so the scope survives for anyone reading the description. -->
+  <div class="foot-left">
+    <span class="source">Source · MTEB (leaderboard.mteb.org)</span>
+  </div>
+  <span id="footer"></span>
+</footer>
+
+<script>
+// ---------------------------------------------------------------------------
+// COPY. Every sentence a human chose lives here, not in fetch.py, so editing a
+// word costs a re-render (seconds) rather than a re-fetch (minutes).
+// #card-data above supplies only query-derived values, written there by fetch.py.
+// ---------------------------------------------------------------------------
+const COPY = {
+  eyebrow: "New model on MTEB",
+  title: "Bekko",
+  subtitle: "A new Pareto frontier for parameter-efficient multilingual embeddings",
+  specs: "110 languages · 8k context · Matryoshka 64–384",
+  x_label: "Active parameters",
+  footer: "Contributed by hotchpotch",
+};
+
+// Per-model label placement overrides — presentation, same rule as the copy above.
+const LABEL_SIDE = {
+  "hotchpotch/bekko-embedding-v1-a8m": "left",
+};
+
+const data = JSON.parse(document.getElementById("card-data").textContent);
+const d = {
+  ...COPY,
+  ...data,
+  // Derived here, not in fetch.py: fetch supplies the value (60000000), the card
+  // decides the words. The y-axis names the benchmark; `context` is alt-text only,
+  // and is what tells a screen-reader user the scope of the frontier claim.
+  y_label: data.benchmark,
+  context: `multilingual models ≤ ${Math.round(data.max_active_params / 1e6)}M active params`,
+};
+// Null-safe: removing an element from the markup should drop that line from the card,
+// not throw and leave the whole chart unrendered.
+const set = (id, v) => {
+  const n = document.getElementById(id);
+  if (n) n.textContent = v ?? "";
+};
+set("eyebrow", d.eyebrow); set("title", d.title); set("subtitle", d.subtitle);
+set("specs", d.specs);
+set("footer", d.footer);   // d.context is alt-text only — it has no element on the card
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+// Size the viewBox to the plot box's real pixel dimensions so 1 SVG unit == 1 px.
+// A fixed viewBox stretched to fit would turn every circle into an ellipse.
+const svgEl = document.getElementById("plot");
+const box = svgEl.getBoundingClientRect();
+const W = Math.round(box.width), H = Math.round(box.height);
+svgEl.setAttribute("viewBox", `0 0 ${W} ${H}`);
+
+const M = { t: 30, r: 24, b: 58, l: 58 };
+// The reference model is carried in the data for the bar card; here it would stretch a
+// log axis out to 7B and squash the whole 0-32M cohort into the left margin.
+const pts = d.points.filter(p => !p.reference);
+
+// Static embedding models have exactly 0 active parameters — a real value, not a gap.
+// log(0) is undefined, so they get their own band at the left of the axis, separated by
+// an explicit break marker. Faking them as "0.1M" would misstate the one number that
+// makes them interesting.
+const hasZero = pts.some(p => p.x === 0);
+const ZERO_W = hasZero ? 74 : 0;
+const BREAK_W = hasZero ? 26 : 0;
+
+const nz = pts.filter(p => p.x > 0);
+const xs = nz.map(p => Math.log10(p.x)), ys = pts.map(p => p.y);
+const xmin = Math.floor(Math.min(...xs) * 2) / 2 - 0.15;
+const xmax = Math.ceil(Math.max(...xs) * 2) / 2 + 0.15;
+const pad = Math.max(2, (Math.max(...ys) - Math.min(...ys)) * 0.18);
+const ymin = Math.min(...ys) - pad, ymax = Math.max(...ys) + pad;
+
+const LOG_L = M.l + ZERO_W + BREAK_W;  // where the log scale starts
+const X = v => v === 0
+  ? M.l + ZERO_W / 2
+  : LOG_L + (Math.log10(v) - xmin) / (xmax - xmin) * (W - LOG_L - M.r);
+const Y = v => H - M.b - (v - ymin) / (ymax - ymin) * (H - M.t - M.b);
+
+const fmt = n => n === 0 ? "0 (static)"
+  : n >= 1e9 ? (n/1e9) + "B" : n >= 1e6 ? Math.round(n/1e6) + "M" : Math.round(n/1e3) + "K";
+const svg = svgEl;
+const el = (t, a, txt) => {
+  const n = document.createElementNS("http://www.w3.org/2000/svg", t);
+  for (const k in a) n.setAttribute(k, a[k]);
+  if (txt != null) n.textContent = txt;
+  svg.appendChild(n); return n;
+};
+
+// y gridlines — recessive, and they carry the ticks so no separate y axis rule is needed
+const yStep = (ymax - ymin) > 30 ? 10 : (ymax - ymin) > 12 ? 5 : 2;
+for (let v = Math.ceil(ymin / yStep) * yStep; v <= ymax; v += yStep) {
+  el("line", { x1: M.l, x2: W - M.r, y1: Y(v), y2: Y(v), class: "grid" });
+  el("text", { x: M.l - 12, y: Y(v) + 5, class: "tick", "text-anchor": "end" }, v);
+}
+// x ticks: decades when the range spans several, else 1-2-5 steps within the decade.
+// A narrow range (7M-32M) would otherwise show a single lonely "10M".
+const decades = [];
+for (let e = Math.ceil(xmin); e <= Math.floor(xmax); e++) decades.push(Math.pow(10, e));
+let xticks = decades;
+if (decades.length < 3) {
+  xticks = [];
+  for (let e = Math.floor(xmin); e <= Math.ceil(xmax); e++) {
+    for (const m of [1, 2, 5]) {
+      const v = m * Math.pow(10, e);
+      const lv = Math.log10(v);
+      if (lv >= xmin && lv <= xmax) xticks.push(v);
+    }
+  }
+}
+for (const v of xticks) {
+  el("text", { x: X(v), y: H - M.b + 26, class: "tick", "text-anchor": "middle" }, fmt(v));
+}
+if (hasZero) {
+  el("text", { x: X(0), y: H - M.b + 26, class: "tick", "text-anchor": "middle" }, "0");
+  el("text", { x: X(0), y: H - M.b + 44, class: "zero-note", "text-anchor": "middle" }, "static");
+}
+el("line", { x1: M.l, x2: W - M.r, y1: H - M.b, y2: H - M.b, class: "axis-line" });
+if (hasZero) {
+  // explicit break: the axis is discontinuous between the zero band and the log scale
+  const bx = M.l + ZERO_W + BREAK_W / 2, by = H - M.b;
+  el("rect", { x: bx - 9, y: by - 6, width: 18, height: 12, fill: "var(--surface)" });
+  for (const dx of [-4, 3]) {
+    el("line", { x1: bx + dx, y1: by + 7, x2: bx + dx + 6, y2: by - 7, class: "axis-line" });
+  }
+}
+// axis titles get their own line: centred below the ticks, and above the top gridline,
+// so neither can collide with a tick label at the edge of the range
+el("text", { x: (M.l + W - M.r) / 2, y: H - 8, class: "axis-title", "text-anchor": "middle" }, d.x_label);
+el("text", { x: 0, y: 12, class: "axis-title", "text-anchor": "start" }, d.y_label);
+
+// peers first so subjects always sit on top.
+// Peers get named whenever the cohort is small enough to read: an anonymous gray cloud
+// asks the viewer to trust the comparison, whereas naming them makes it checkable —
+// which is the entire point of showing peers at all.
+// Pareto frontier: the models no other model beats on both axes at once — nothing here
+// is smaller *and* scores higher. Drawn as a staircase rather than a straight line
+// between points, because that is the actual boundary of what has been achieved: at a
+// given size you can have the best score at or below that size, not an interpolation
+// between two models that would imply a model nobody has trained.
+// Drawn first so the dots sit on top of it.
+const frontier = [...pts]
+  .sort((a, b) => a.x - b.x || b.y - a.y)
+  .reduce((acc, p) => {
+    if (!acc.length || p.y > acc[acc.length - 1].y) acc.push(p);
+    return acc;
+  }, []);
+
+if (frontier.length > 1) {
+  // The region spans the plot and stops at its edges — it is a property of the plotting
+  // area, and bleeding it past the axes would read as a background wash rather than as
+  // a bounded claim about the models shown.
+  const X0 = M.l, X1 = W - M.r;
+  const last = frontier[frontier.length - 1];
+
+  // The staircase carries the frontier out to the right edge at the last model's score:
+  // at any larger size you can still just use that model, so the guarantee continues.
+  let path = `M ${X0} ${Y(frontier[0].y)} L ${X(frontier[0].x)} ${Y(frontier[0].y)}`;
+  for (let i = 1; i < frontier.length; i++) {
+    path += ` L ${X(frontier[i].x)} ${Y(frontier[i - 1].y)}`;  // hold the score…
+    path += ` L ${X(frontier[i].x)} ${Y(frontier[i].y)}`;      // …then step up
+  }
+  path += ` L ${X1} ${Y(last.y)}`;
+
+  // Everything below the staircase is dominated: for any point in it there is a model
+  // that is no larger and scores at least as well.
+  const floor = H - M.b;
+  el("path", { d: `${path} L ${X1} ${floor} L ${X0} ${floor} Z`, class: "frontier-fill" });
+}
+
+// Full HF names are too wide for one line, so split at the "/": org above, model below.
+const splitName = n => {
+  const i = n.indexOf("/");
+  return i === -1 ? [null, n] : [n.slice(0, i + 1), n.slice(i + 1)];
+};
+
+// Place a multi-line label above a point, always anchored *to the point* and running
+// inward — start for a point on the left half, end on the right. Never centred.
+//
+// Centring was the earlier default and only broke out to an anchor when a label would
+// have overflowed, which meant most labels were centred and the one awkward one was not.
+// Mixed alignment reads as a mistake even when each individual label is placed legally,
+// so every reference label now gets the same treatment.
+//
+// The anchor is decided once from the widest line and applied to every line, so org and
+// model lines always align with each other. Deciding per line lets a narrow org sit
+// differently from the wide name below it — the same inconsistency one level down.
+//
+// Widths are measured after insertion rather than estimated from character count,
+// because a guess is wrong exactly for the long HF names this card is full of.
+const labelBlock = (x, lines, side) => {
+  const anchor = (side ?? (x > W / 2 ? "right" : "left")) === "right" ? "end" : "start";
+  const els = lines.map(l =>
+    el("text", { x, y: l.y, class: l.cls, "text-anchor": anchor }, l.txt)
+  );
+  const w = Math.max(...els.map(t => t.getComputedTextLength()));
+
+  // Only if the label would leave the plot does it give up its anchor to the point.
+  let lx = x;
+  if (anchor === "start" && x + w > W - 2) lx = Math.max(2, W - 2 - w);
+  if (anchor === "end" && x - w < 2) lx = Math.min(W - 2, 2 + w);
+  if (lx !== x) for (const t of els) t.setAttribute("x", lx);
+};
+
+const peers = pts.filter(p => !p.subject);
+const namePeers = peers.length <= 6;
+for (const p of peers) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 5, class: "peer-dot" });
+  if (!namePeers) continue;
+  // Above the dot, not beside it: the frontier runs horizontally *through* a point's
+  // own y, so a side label collides with it by construction wherever a peer sits on or
+  // near the frontier. Above is clear of that line everywhere.
+  const [org, name] = splitName(p.model);
+  labelBlock(X(p.x), [
+    ...(org ? [{ txt: org, cls: "peer-org", y: Y(p.y) - 26 }] : []),
+    { txt: name, cls: "peer-label", y: Y(p.y) - 12 },
+  ]);
+}
+for (const p of pts.filter(p => p.subject)) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 7.5, class: "subject-dot" });
+  // Default: flip the label inside the plot when the point sits right of centre.
+  // LABEL_SIDE overrides that per model — a8m reads better pointing left, away from
+  // a25m's label, which the automatic rule puts on a collision course with it.
+  const [org, name] = splitName(p.model);
+  const right = LABEL_SIDE[p.model] ? LABEL_SIDE[p.model] === "left" : X(p.x) > W / 2;
+  const lx = X(p.x) + (right ? -14 : 14);
+  const a = { x: lx, "text-anchor": right ? "end" : "start" };
+  if (org) el("text", { ...a, y: Y(p.y) - 26, class: "subject-org" }, org);
+  el("text", { ...a, y: Y(p.y) - 8, class: "subject-label" }, name);
+  el("text", { ...a, y: Y(p.y) + 13, class: "subject-score" }, p.y.toFixed(2));
+}
+
+window.__altText = [
+  `${d.eyebrow}: ${d.title} — ${d.subtitle}.`,
+  `Scatter plot of ${d.y_label} against ${d.x_label} for ${pts.length} ${d.cohort_label}.`,
+  pts.filter(p => p.subject)
+     .map(p => `${p.model} scores ${p.y.toFixed(2)} at ${fmt(p.x)} active parameters`)
+     .join("; ") + ".",
+  // name the peers in alt text too — the cohort should be checkable without the image
+  peers.length
+    ? "Compared against " + peers.map(p => `${p.model} at ${fmt(p.x)}, ${p.y.toFixed(2)}`).join("; ") + "."
+    : "",
+  frontier.length > 1
+    ? "On the Pareto frontier (nothing is both smaller and higher-scoring): "
+      + frontier.map(p => p.model).join(", ") + "."
+    : "",
+  `${d.context}. ${d.footer}.`,
+  "Source: MTEB, leaderboard.mteb.org."
+].filter(Boolean).join(" ");
+</script>

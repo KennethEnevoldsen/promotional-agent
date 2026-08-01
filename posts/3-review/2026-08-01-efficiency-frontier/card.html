@@ -1,0 +1,465 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Bekko — MTEB score in context</title>
+<!--
+  Card for the Bekko post. Each post owns its card markup, so the image, the data behind
+  it and the markup that drew it sit together. There is no shared template to inherit
+  from and none to keep in sync — copy this file for the next card and change it freely.
+  Extracting the common parts is worth doing once several posts exist and the repetition
+  is real rather than anticipated.
+
+  Plots the subjects against every size peer with results on the same benchmark. A bare
+  score is unreadable: "56.73" means nothing without knowing what a model of that size
+  normally gets, so the peer set IS the interpretation.
+
+  Form is emphasis (one hue + gray), not categorical: peers are context, not series
+  competing for identity, so they are deliberately not color-coded.
+
+  Models carry their full Hugging Face name, split across two lines at the "/".
+  Abbreviating saves room but makes a claim harder to check against the leaderboard,
+  and two models can abbreviate to the same string.
+
+  This file is self-contained: fetch.py writes the numbers into #card-data below, and
+  the copy lives in the COPY object further down. Open it in a browser and you see
+  exactly what renders — there is no separate data file to fall out of sync with.
+
+    .venv/bin/python posts/2026-08-17-efficiency-frontier/fetch.py        # refresh the numbers
+    uv run visuals/render.py --card posts/2026-08-17-efficiency-frontier/card.html \
+      --out posts/2026-08-17-efficiency-frontier/card.png                 # ~3s
+
+  Edit copy freely — it costs a re-render, not a re-fetch. Only re-run fetch.py when
+  the cohort query itself changes, or before posting to confirm the numbers still hold.
+
+  PALETTE IS A PLACEHOLDER — swap the :root block only.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "benchmark": "MTEB(eng, v2)",
+  "n_tasks": 41,
+  "n_models": 87,
+  "headline": {
+    "best_2023": {
+      "model": "sdadas/mmlw-e5-large",
+      "x": 303888384,
+      "y": 62.32,
+      "released": "2023-11-17"
+    },
+    "cheapest_match_today": {
+      "model": "MongoDB/mdbr-leaf-mt",
+      "x": 10992768,
+      "y": 63.97,
+      "released": "2025-08-27"
+    },
+    "shrink_factor": 27.6
+  },
+  "cohorts": [
+    {
+      "label": "2023",
+      "cutoff": "2023-12-31",
+      "n_models": 20,
+      "points": [
+        {
+          "model": "cointegrated/rubert-tiny",
+          "x": 2676032,
+          "y": 40.1,
+          "released": "2021-05-24"
+        },
+        {
+          "model": "cointegrated/rubert-tiny2",
+          "x": 3245664,
+          "y": 41.56,
+          "released": "2021-10-28"
+        },
+        {
+          "model": "sentence-transformers/all-MiniLM-L6-v2",
+          "x": 10992768,
+          "y": 59.03,
+          "released": "2021-08-30"
+        },
+        {
+          "model": "sdadas/mmlw-e5-base",
+          "x": 86042112,
+          "y": 61.43,
+          "released": "2023-11-17"
+        },
+        {
+          "model": "sdadas/mmlw-e5-large",
+          "x": 303888384,
+          "y": 62.32,
+          "released": "2023-11-17"
+        }
+      ]
+    },
+    {
+      "label": "2024",
+      "cutoff": "2024-12-31",
+      "n_models": 42,
+      "points": [
+        {
+          "model": "sentence-transformers/static-retrieval-mrl-en-v1",
+          "x": 0,
+          "y": 51.25,
+          "released": "2024-10-24"
+        },
+        {
+          "model": "sentence-transformers/all-MiniLM-L6-v2",
+          "x": 10992768,
+          "y": 59.03,
+          "released": "2021-08-30"
+        },
+        {
+          "model": "ibm-granite/granite-embedding-30m-english",
+          "x": 10993536,
+          "y": 60.2,
+          "released": "2024-12-18"
+        },
+        {
+          "model": "intfloat/multilingual-e5-base",
+          "x": 85998464,
+          "y": 61.0,
+          "released": "2024-02-08"
+        },
+        {
+          "model": "ibm-granite/granite-embedding-125m-english",
+          "x": 86042112,
+          "y": 62.08,
+          "released": "2024-12-18"
+        },
+        {
+          "model": "mixedbread-ai/mxbai-embed-large-v1",
+          "x": 303887360,
+          "y": 66.26,
+          "released": "2024-03-07"
+        },
+        {
+          "model": "intfloat/e5-mistral-7b-instruct",
+          "x": 6979928000,
+          "y": 67.97,
+          "released": "2024-02-08"
+        }
+      ]
+    },
+    {
+      "label": "today",
+      "cutoff": "2099-12-31",
+      "n_models": 87,
+      "points": [
+        {
+          "model": "minishlab/potion-base-32M",
+          "x": 0,
+          "y": 54.63,
+          "released": "2025-01-22"
+        },
+        {
+          "model": "MongoDB/mdbr-leaf-mt",
+          "x": 10992768,
+          "y": 63.97,
+          "released": "2025-08-27"
+        },
+        {
+          "model": "codefuse-ai/F2LLM-v2-80M",
+          "x": 31550208,
+          "y": 64.55,
+          "released": "2026-03-09"
+        },
+        {
+          "model": "prdev/mini-gte",
+          "x": 42921984,
+          "y": 65.06,
+          "released": "2025-01-28"
+        },
+        {
+          "model": "codefuse-ai/F2LLM-v2-160M",
+          "x": 62116864,
+          "y": 65.93,
+          "released": "2026-03-09"
+        },
+        {
+          "model": "google/embeddinggemma-300m",
+          "x": 106255104,
+          "y": 69.67,
+          "released": "2025-09-04"
+        },
+        {
+          "model": "jinaai/jina-embeddings-v5-text-nano",
+          "x": 113265408,
+          "y": 71.11,
+          "released": "2026-02-17"
+        },
+        {
+          "model": "KaLM-Embedding/KaLM-embedding-multilingual-mini-instruct-v2.5",
+          "x": 357898112,
+          "y": 71.29,
+          "released": "2025-09-30"
+        },
+        {
+          "model": "jinaai/jina-embeddings-v5-text-small",
+          "x": 440467456,
+          "y": 71.78,
+          "released": "2026-02-17"
+        },
+        {
+          "model": "infgrad/Jasper-Token-Compression-600M",
+          "x": 452003840,
+          "y": 74.75,
+          "released": "2025-11-14"
+        },
+        {
+          "model": "Kingsoft-LLM/QZhou-Embedding",
+          "x": 6525621760,
+          "y": 75.97,
+          "released": "2025-08-24"
+        },
+        {
+          "model": "jcorners/ingot-8b-r3",
+          "x": 6946075648,
+          "y": 75.98,
+          "released": "2026-05-23"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,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");
+    /* --- swap these for MTEB brand values --- */
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --peer:           #b9b7b0;
+    --now:            #3d7bff;   /* MTEB brand blue — the cohort that carries the point */
+    --mid:            #a06bff;   /* MTEB brand purple, the front-page gradient's partner */
+    --old:            #b9b7b0;   /* context grey: the oldest frontier is background */
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --peer:           #55534e;
+    --now:            #5b8fff;
+    --mid:            #b98cff;
+    --old:            #6f6d67;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow {
+    font-size: 18px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 { font-size: 46px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 4px; }
+  .specs { font-size: 15px; color: var(--text-muted); margin-top: 6px; }
+
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name {
+    font-size: 30px; font-weight: 700; letter-spacing: 0.01em;
+    color: var(--text-primary);
+  }
+
+  .plot { flex: 1; margin-top: 10px; }
+  svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .grid { stroke: var(--gridline); stroke-width: 1; }
+  .axis-line { stroke: var(--axis); stroke-width: 1; }
+  .tick { fill: var(--text-muted); font-size: 15px; }
+  .axis-title { fill: var(--text-secondary); font-size: 16px; font-weight: 550; }
+  /* No surface ring on either dot: it was there to separate overlapping marks, but the
+     points are well spread and over the shaded region the ring reads as a white halo. */
+  .peer-dot { fill: var(--peer); }
+  .subject-dot { fill: var(--accent); }
+  .subject-label { fill: var(--text-primary); font-size: 18px; font-weight: 640; }
+  .subject-org { fill: var(--text-secondary); font-size: 12px; }
+  .subject-score { fill: var(--text-secondary); font-size: 17px; }
+  .peer-label { fill: var(--text-muted); font-size: 14px; }
+  .peer-org { fill: var(--text-muted); font-size: 10.5px; opacity: 0.8; }
+  /* The frontier is drawn as a region, not a line: its top edge IS the boundary, so a
+     separate stroke along it only restates what the shading already says. Slightly
+     stronger than a pure background tint because it is now the sole marker. */
+  .frontier-fill { fill: var(--accent); opacity: 0.09; stroke: none; }
+  .zero-note { fill: var(--text-muted); font-size: 13px; font-style: italic; }
+  .fline { fill: none; stroke-width: 2.5; stroke-linejoin: round; }
+  .fdot { r: 4; }
+  .flabel { font-size: 15px; font-weight: 620; }
+  .callout { stroke: var(--text-muted); stroke-width: 1; stroke-dasharray: 5 4; fill: none; }
+  .callout-text { fill: var(--text-primary); font-size: 15px; font-weight: 620; }
+  .callout-sub { fill: var(--text-secondary); font-size: 13px; }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 12px; padding-top: 14px; border-top: 1px solid var(--hairline);
+    font-size: 17px; color: var(--text-muted);
+  }
+  .foot-left { display: flex; flex-direction: column; gap: 5px; }
+  footer .context { color: var(--text-secondary); font-weight: 550; }
+  .source { font-size: 14px; color: var(--text-muted); }
+
+  /* The dots icon is multi-colour with transparency, so it is drawn as an image rather
+     than a mask — masking would flatten its blues to a single ink and lose the mark.
+     Its own blues read on both surfaces, so no per-mode variant is needed. Embedded as
+     a data URI because render.py renders from a temp directory, where a relative path
+     would not resolve. */
+  .logo {
+    width: 39px; height: 41px; flex: none;   /* asset aspect 0.958 */
+    background: var(--logo-uri) left center / contain no-repeat;
+  }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="subtitle" id="subtitle"></div>
+    <div class="specs" id="specs"></div>
+  </div>
+  <!-- Brand block, top right on every post. Replaces the legend: the subtitle already
+       names the Pareto frontier, each dot carries its own model name, and the subjects
+       are the only ones in accent with a score beside them — so the legend was
+       restating what the card says elsewhere. -->
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="plot"><svg id="plot"></svg></div>
+
+<footer>
+  <!-- The cohort statement is no longer printed on the card. It still reaches the alt
+       text, which describes the plot as covering N multilingual models under the size
+       cap, so the scope survives for anyone reading the description. -->
+  <div class="foot-left">
+    <span class="source">Source · MTEB (leaderboard.mteb.org)</span>
+  </div>
+  <span id="footer"></span>
+</footer>
+
+<script>
+// ---------------------------------------------------------------------------
+// COPY — sentences here; fetch.py supplies only values.
+// ---------------------------------------------------------------------------
+const COPY = {
+  eyebrow: "The state of the field",
+  title: "Frontier quality keeps getting cheaper",
+  subtitle: "Best score achievable at a given size, on English",
+  footer: "",
+};
+
+const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
+const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+set("eyebrow", d.eyebrow); set("title", d.title); set("subtitle", d.subtitle);
+set("footer", d.footer);
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+const H1 = d.headline;
+set("specs", `The best score of 2023 now costs ${H1.shrink_factor}\u00d7 fewer active parameters`);
+
+const COLORS = ["var(--old)", "var(--mid)", "var(--now)"];  // oldest → newest
+const svg = document.getElementById("plot");
+const box = svg.getBoundingClientRect();
+const W = Math.round(box.width), H = Math.round(box.height);
+svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+const el = (t, a, txt) => {
+  const n = document.createElementNS("http://www.w3.org/2000/svg", t);
+  for (const k in a) n.setAttribute(k, a[k]);
+  if (txt != null) n.textContent = txt;
+  svg.appendChild(n); return n;
+};
+
+const pts = d.cohorts.flatMap(c => c.points);
+// Static models sit at exactly 0 active parameters — a real value that log() cannot
+// take, so they get their own band behind an explicit axis break.
+const hasZero = pts.some(p => p.x === 0);
+const M = { t: 26, r: 24, b: 54, l: 54 };
+const ZERO_W = hasZero ? 62 : 0, BREAK_W = hasZero ? 22 : 0;
+const nz = pts.filter(p => p.x > 0).map(p => Math.log10(p.x));
+const xmin = Math.floor(Math.min(...nz) * 2) / 2 - 0.1;
+const xmax = Math.ceil(Math.max(...nz) * 2) / 2 + 0.1;
+const ys = pts.map(p => p.y);
+const ymin = Math.floor((Math.min(...ys) - 2) / 5) * 5, ymax = Math.ceil((Math.max(...ys) + 2) / 5) * 5;
+
+const LOG_L = M.l + ZERO_W + BREAK_W;
+const X = v => v === 0 ? M.l + ZERO_W / 2
+  : LOG_L + (Math.log10(v) - xmin) / (xmax - xmin) * (W - LOG_L - M.r);
+const Y = v => H - M.b - (v - ymin) / (ymax - ymin) * (H - M.t - M.b);
+
+for (let v = ymin; v <= ymax; v += 5) {
+  el("line", { class: "grid", x1: M.l, x2: W - M.r, y1: Y(v), y2: Y(v) });
+  el("text", { class: "tick", x: M.l - 10, y: Y(v) + 5, "text-anchor": "end" }, v);
+}
+const fmt = n => n === 0 ? "0" : n >= 1e9 ? (n / 1e9) + "B" : n >= 1e6 ? Math.round(n / 1e6) + "M" : Math.round(n / 1e3) + "K";
+for (let e = Math.ceil(xmin); e <= Math.floor(xmax); e++) {
+  const v = Math.pow(10, e);
+  el("text", { class: "tick", x: X(v), y: H - M.b + 24, "text-anchor": "middle" }, fmt(v));
+}
+if (hasZero) {
+  el("text", { class: "tick", x: X(0), y: H - M.b + 24, "text-anchor": "middle" }, "0");
+  el("text", { class: "zero-note", x: X(0), y: H - M.b + 41, "text-anchor": "middle" }, "static");
+}
+el("line", { class: "axis-line", x1: M.l, x2: W - M.r, y1: H - M.b, y2: H - M.b });
+if (hasZero) {
+  const bx = M.l + ZERO_W + BREAK_W / 2, by = H - M.b;
+  el("rect", { x: bx - 9, y: by - 6, width: 18, height: 12, fill: "var(--surface)" });
+  for (const dx of [-4, 3]) el("line", { class: "axis-line", x1: bx + dx, y1: by + 7, x2: bx + dx + 6, y2: by - 7 });
+}
+el("text", { class: "axis-title", x: (LOG_L + W - M.r) / 2, y: H - 6, "text-anchor": "middle" }, "Active parameters");
+el("text", { class: "axis-title", x: 0, y: 12, "text-anchor": "start" }, "MTEB(eng, v2)");
+
+// the callout: 2023's best score, and where that score is available now
+el("line", { class: "callout", x1: X(H1.cheapest_match_today.x), x2: X(H1.best_2023.x),
+             y1: Y(H1.best_2023.y), y2: Y(H1.best_2023.y) });
+
+d.cohorts.forEach((c, i) => {
+  // staircase: hold the score until a bigger model beats it, then step up
+  const f = c.points;
+  if (!f.length) return;
+  let path = `M ${X(f[0].x)} ${Y(f[0].y)}`;
+  for (let j = 1; j < f.length; j++) {
+    path += ` L ${X(f[j].x)} ${Y(f[j - 1].y)} L ${X(f[j].x)} ${Y(f[j].y)}`;
+  }
+  el("path", { d: path, class: "fline", stroke: COLORS[i] });
+  f.forEach(p => el("circle", { class: "fdot", cx: X(p.x), cy: Y(p.y), fill: COLORS[i] }));
+  const last = f[f.length - 1];
+  el("text", { class: "flabel", x: X(last.x) + 10, y: Y(last.y) + 5, fill: COLORS[i] }, c.label);
+});
+
+// Callout lives left of the cheap model, in the one genuinely empty region of the plot:
+// below 10M active parameters every frontier is under 55, so anything above that line
+// and left of the 10M step is clear. Earlier placements ran through the "today"
+// staircase, which is the line the callout exists to point at.
+const cm = H1.cheapest_match_today;
+el("text", { class: "callout-text", x: X(cm.x) - 14, y: Y(64.2), "text-anchor": "end" },
+   `${H1.shrink_factor}\u00d7 smaller`);
+el("text", { class: "callout-sub", x: X(cm.x) - 14, y: Y(61.2), "text-anchor": "end" },
+   `${fmt(cm.x)} now beats 2023's best (${fmt(H1.best_2023.x)})`);
+
+window.__altText = [
+  `${d.eyebrow}: ${d.title}. ${d.subtitle}.`,
+  `Three Pareto frontiers of score against active parameters on ${d.benchmark}, for models released by end-2023, by end-2024, and today, across ${d.n_models} models with complete results.`,
+  `The best score available by end-2023 was ${H1.best_2023.y} from ${H1.best_2023.model} at ${fmt(H1.best_2023.x)} active parameters. Today ${H1.cheapest_match_today.model} matches it at ${fmt(H1.cheapest_match_today.x)} — ${H1.shrink_factor} times fewer.`,
+  `Static embedding models appear at zero active parameters, behind an axis break.`,
+  "Source: MTEB, leaderboard.mteb.org.",
+].join(" ");
+</script>

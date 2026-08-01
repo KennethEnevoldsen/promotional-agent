@@ -1,0 +1,617 @@
+{
+  "generated": "2026-08-01",
+  "benchmark": "MTEB(eng, v2)",
+  "n_benchmark_tasks": 41,
+  "tier_rule": {
+    "proprietary": "open_weights is false",
+    "open weights": "weights published, but not both training code and data",
+    "open source": "weights + training code + training data"
+  },
+  "coverage": {
+    "proprietary": {
+      "registered": 57,
+      "any_results": 41,
+      "complete_results": 9
+    },
+    "open weights": {
+      "registered": 628,
+      "any_results": 302,
+      "complete_results": 75
+    },
+    "open source": {
+      "registered": 149,
+      "any_results": 49,
+      "complete_results": 14
+    }
+  },
+  "models": [
+    {
+      "model": "jcorners/ingot-8b-r3",
+      "tier": "proprietary",
+      "score": 75.98,
+      "release_date": "2026-05-23"
+    },
+    {
+      "model": "Kingsoft-LLM/QZhou-Embedding",
+      "tier": "open weights",
+      "score": 75.97,
+      "release_date": "2025-08-24"
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-8B",
+      "tier": "open weights",
+      "score": 75.23,
+      "release_date": "2025-06-05"
+    },
+    {
+      "model": "ByteDance-Seed/Seed1.5-Embedding",
+      "tier": "proprietary",
+      "score": 74.76,
+      "release_date": "2025-04-25"
+    },
+    {
+      "model": "infgrad/Jasper-Token-Compression-600M",
+      "tier": "open source",
+      "score": 74.75,
+      "release_date": "2025-11-14"
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-4B",
+      "tier": "open weights",
+      "score": 74.61,
+      "release_date": "2025-06-05"
+    },
+    {
+      "model": "annamodels/LGAI-Embedding-Preview",
+      "tier": "open weights",
+      "score": 74.12,
+      "release_date": "2025-06-11"
+    },
+    {
+      "model": "Bytedance/Seed1.6-embedding",
+      "tier": "proprietary",
+      "score": 74.07,
+      "release_date": "2025-06-18"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-4B",
+      "tier": "open source",
+      "score": 73.67,
+      "release_date": "2025-09-18"
+    },
+    {
+      "model": "google/gemini-embedding-001",
+      "tier": "proprietary",
+      "score": 73.3,
+      "release_date": "2025-03-07"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-14B",
+      "tier": "open source",
+      "score": 73.08,
+      "release_date": "2026-03-09"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-8B",
+      "tier": "open source",
+      "score": 72.86,
+      "release_date": "2026-03-09"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-4B",
+      "tier": "open source",
+      "score": 72.41,
+      "release_date": "2026-03-09"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-1.7B",
+      "tier": "open source",
+      "score": 72.01,
+      "release_date": "2025-09-18"
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-omni-small",
+      "tier": "open weights",
+      "score": 71.78,
+      "release_date": "2026-04-01"
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-text-small",
+      "tier": "open weights",
+      "score": 71.78,
+      "release_date": "2026-02-17"
+    },
+    {
+      "model": "IEITYuan/Yuan-embedding-2.0-en",
+      "tier": "open weights",
+      "score": 71.74,
+      "release_date": "2025-11-27"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-1.7B",
+      "tier": "open source",
+      "score": 71.63,
+      "release_date": "2026-03-09"
+    },
+    {
+      "model": "KaLM-Embedding/KaLM-embedding-multilingual-mini-instruct-v2.5",
+      "tier": "open weights",
+      "score": 71.29,
+      "release_date": "2025-09-30"
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-omni-nano",
+      "tier": "open weights",
+      "score": 71.11,
+      "release_date": "2026-04-01"
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-text-nano",
+      "tier": "open weights",
+      "score": 71.11,
+      "release_date": "2026-02-17"
+    },
+    {
+      "model": "ai-sage/Giga-Embeddings-instruct",
+      "tier": "open weights",
+      "score": 71.07,
+      "release_date": "2025-09-23"
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "tier": "open weights",
+      "score": 70.47,
+      "release_date": "2025-06-05"
+    },
+    {
+      "model": "GeoGPT-Research-Project/GeoEmbedding",
+      "tier": "open weights",
+      "score": 70.21,
+      "release_date": "2025-04-22"
+    },
+    {
+      "model": "ICT-TIME-and-Querit/ICT-TIME-and-Querit-embedding-v1",
+      "tier": "open weights",
+      "score": 70.12,
+      "release_date": "2026-05-02"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-0.6B",
+      "tier": "open source",
+      "score": 70.03,
+      "release_date": "2025-09-18"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-0.6B",
+      "tier": "open source",
+      "score": 69.97,
+      "release_date": "2026-03-09"
+    },
+    {
+      "model": "google/embeddinggemma-300m",
+      "tier": "open weights",
+      "score": 69.67,
+      "release_date": "2025-09-04"
+    },
+    {
+      "model": "google/text-embedding-005",
+      "tier": "proprietary",
+      "score": 69.6,
+      "release_date": "2024-11-18"
+    },
+    {
+      "model": "google/text-embedding-004",
+      "tier": "proprietary",
+      "score": 69.53,
+      "release_date": "2024-05-14"
+    },
+    {
+      "model": "Tarka-AIR/Tarka-Embedding-350M-V1",
+      "tier": "open weights",
+      "score": 69.29,
+      "release_date": "2025-11-11"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-330M",
+      "tier": "open source",
+      "score": 68.86,
+      "release_date": "2026-03-09"
+    },
+    {
+      "model": "intfloat/e5-mistral-7b-instruct",
+      "tier": "open weights",
+      "score": 67.97,
+      "release_date": "2024-02-08"
+    },
+    {
+      "model": "google/text-multilingual-embedding-002",
+      "tier": "proprietary",
+      "score": 67.67,
+      "release_date": "2024-05-14"
+    },
+    {
+      "model": "BidirLM/BidirLM-Omni-2.5B-Embedding",
+      "tier": "open weights",
+      "score": 67.47,
+      "release_date": "2026-04-07"
+    },
+    {
+      "model": "GritLM/GritLM-7B",
+      "tier": "open weights",
+      "score": 67.07,
+      "release_date": "2024-02-15"
+    },
+    {
+      "model": "Tarka-AIR/Tarka-Embedding-150M-V1",
+      "tier": "open weights",
+      "score": 66.39,
+      "release_date": "2025-11-04"
+    },
+    {
+      "model": "mixedbread-ai/mxbai-embed-large-v1",
+      "tier": "open weights",
+      "score": 66.26,
+      "release_date": "2024-03-07"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-160M",
+      "tier": "open source",
+      "score": 65.93,
+      "release_date": "2026-03-09"
+    },
+    {
+      "model": "intfloat/multilingual-e5-large-instruct",
+      "tier": "open weights",
+      "score": 65.53,
+      "release_date": "2024-02-08"
+    },
+    {
+      "model": "prdev/mini-gte",
+      "tier": "open weights",
+      "score": 65.06,
+      "release_date": "2025-01-28"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "tier": "open source",
+      "score": 64.55,
+      "release_date": "2026-03-09"
+    },
+    {
+      "model": "VPLabs/SearchMap_Preview",
+      "tier": "open weights",
+      "score": 64.08,
+      "release_date": "2025-03-05"
+    },
+    {
+      "model": "MongoDB/mdbr-leaf-mt",
+      "tier": "open weights",
+      "score": 63.97,
+      "release_date": "2025-08-27"
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-l-v2.0",
+      "tier": "open weights",
+      "score": 63.6,
+      "release_date": "2024-12-04"
+    },
+    {
+      "model": "mixedbread-ai/deepset-mxbai-embed-de-large-v1",
+      "tier": "open weights",
+      "score": 63.43,
+      "release_date": "2024-07-12"
+    },
+    {
+      "model": "LCO-Embedding/LCO-Embedding-Omni-7B",
+      "tier": "open weights",
+      "score": 63.24,
+      "release_date": "2025-10-15"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-english-r2",
+      "tier": "open weights",
+      "score": 62.84,
+      "release_date": "2025-08-15"
+    },
+    {
+      "model": "LCO-Embedding/LCO-Embedding-Omni-3B",
+      "tier": "open weights",
+      "score": 62.33,
+      "release_date": "2025-10-23"
+    },
+    {
+      "model": "sdadas/mmlw-e5-large",
+      "tier": "open weights",
+      "score": 62.32,
+      "release_date": "2023-11-17"
+    },
+    {
+      "model": "ManiacLabs/miniac-embed",
+      "tier": "open weights",
+      "score": 62.08,
+      "release_date": "2026-02-19"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-125m-english",
+      "tier": "open weights",
+      "score": 62.08,
+      "release_date": "2024-12-18"
+    },
+    {
+      "model": "deepvk/USER-bge-m3",
+      "tier": "open weights",
+      "score": 62.06,
+      "release_date": "2024-07-05"
+    },
+    {
+      "model": "sdadas/mmlw-roberta-large",
+      "tier": "open weights",
+      "score": 61.8,
+      "release_date": "2023-11-17"
+    },
+    {
+      "model": "OrdalieTech/Solon-embeddings-large-0.1",
+      "tier": "open weights",
+      "score": 61.48,
+      "release_date": "2023-12-09"
+    },
+    {
+      "model": "sdadas/mmlw-e5-base",
+      "tier": "open weights",
+      "score": 61.43,
+      "release_date": "2023-11-17"
+    },
+    {
+      "model": "voyageai/voyage-3",
+      "tier": "proprietary",
+      "score": 61.38,
+      "release_date": "2024-09-18"
+    },
+    {
+      "model": "manu/bge-m3-custom-fr",
+      "tier": "open weights",
+      "score": 61.22,
+      "release_date": "2024-04-11"
+    },
+    {
+      "model": "sdadas/mmlw-roberta-base",
+      "tier": "open weights",
+      "score": 61.15,
+      "release_date": "2023-11-17"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-small-english-r2",
+      "tier": "open weights",
+      "score": 61.07,
+      "release_date": "2025-08-15"
+    },
+    {
+      "model": "intfloat/multilingual-e5-base",
+      "tier": "open weights",
+      "score": 61.0,
+      "release_date": "2024-02-08"
+    },
+    {
+      "model": "voyageai/voyage-3-lite",
+      "tier": "proprietary",
+      "score": 60.44,
+      "release_date": "2024-09-18"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-278m-multilingual",
+      "tier": "open weights",
+      "score": 60.36,
+      "release_date": "2024-12-18"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-30m-english",
+      "tier": "open weights",
+      "score": 60.2,
+      "release_date": "2024-12-18"
+    },
+    {
+      "model": "Haon-Chen/e5-omni-3B",
+      "tier": "open weights",
+      "score": 59.7,
+      "release_date": "2026-01-06"
+    },
+    {
+      "model": "intfloat/multilingual-e5-small",
+      "tier": "open weights",
+      "score": 59.69,
+      "release_date": "2024-02-08"
+    },
+    {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "tier": "open weights",
+      "score": 59.03,
+      "release_date": "2021-08-30"
+    },
+    {
+      "model": "sdadas/mmlw-e5-small",
+      "tier": "open weights",
+      "score": 58.86,
+      "release_date": "2023-11-17"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-107m-multilingual",
+      "tier": "open weights",
+      "score": 58.76,
+      "release_date": "2024-12-18"
+    },
+    {
+      "model": "Haon-Chen/e5-omni-7B",
+      "tier": "open weights",
+      "score": 58.67,
+      "release_date": "2026-01-06"
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "tier": "open weights",
+      "score": 58.27,
+      "release_date": "2019-11-01"
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.3",
+      "tier": "open weights",
+      "score": 57.8,
+      "release_date": "2024-04-26"
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.4",
+      "tier": "open weights",
+      "score": 57.71,
+      "release_date": "2024-04-27"
+    },
+    {
+      "model": "Tevatron/OmniEmbed-v0.1",
+      "tier": "open source",
+      "score": 57.7,
+      "release_date": "2025-04-12"
+    },
+    {
+      "model": "ai-forever/ru-en-RoSBERTa",
+      "tier": "open weights",
+      "score": 57.26,
+      "release_date": "2024-07-29"
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.2",
+      "tier": "open weights",
+      "score": 56.56,
+      "release_date": "2024-03-15"
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "tier": "open weights",
+      "score": 56.42,
+      "release_date": "2019-11-01"
+    },
+    {
+      "model": "sergeyzh/LaBSE-ru-turbo",
+      "tier": "open weights",
+      "score": 55.68,
+      "release_date": "2024-06-27"
+    },
+    {
+      "model": "minishlab/potion-base-32M",
+      "tier": "open weights",
+      "score": 54.63,
+      "release_date": "2025-01-22"
+    },
+    {
+      "model": "minishlab/potion-retrieval-32M",
+      "tier": "open weights",
+      "score": 53.92,
+      "release_date": "2025-01-23"
+    },
+    {
+      "model": "encord-team/ebind-full",
+      "tier": "open weights",
+      "score": 52.64,
+      "release_date": "2025-11-19"
+    },
+    {
+      "model": "sentence-transformers/static-retrieval-mrl-en-v1",
+      "tier": "open weights",
+      "score": 51.25,
+      "release_date": "2024-10-24"
+    },
+    {
+      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+      "tier": "open source",
+      "score": 50.83,
+      "release_date": "2025-01-15"
+    },
+    {
+      "model": "aari1995/German_Semantic_STS_V2",
+      "tier": "open weights",
+      "score": 50.31,
+      "release_date": "2022-11-17"
+    },
+    {
+      "model": "deepvk/USER-base",
+      "tier": "open weights",
+      "score": 48.85,
+      "release_date": "2024-06-10"
+    },
+    {
+      "model": "sentence-transformers/LaBSE",
+      "tier": "open weights",
+      "score": 48.81,
+      "release_date": "2019-11-01"
+    },
+    {
+      "model": "cointegrated/LaBSE-en-ru",
+      "tier": "open weights",
+      "score": 48.22,
+      "release_date": "2021-06-10"
+    },
+    {
+      "model": "sergeyzh/rubert-tiny-turbo",
+      "tier": "open weights",
+      "score": 45.98,
+      "release_date": "2024-06-21"
+    },
+    {
+      "model": "cointegrated/rubert-tiny2",
+      "tier": "open weights",
+      "score": 41.56,
+      "release_date": "2021-10-28"
+    },
+    {
+      "model": "cointegrated/rubert-tiny",
+      "tier": "open weights",
+      "score": 40.1,
+      "release_date": "2021-05-24"
+    },
+    {
+      "model": "DeepPavlov/distilrubert-small-cased-conversational",
+      "tier": "open weights",
+      "score": 36.61,
+      "release_date": "2022-06-28"
+    },
+    {
+      "model": "ai-forever/sbert_large_mt_nlu_ru",
+      "tier": "open weights",
+      "score": 35.5,
+      "release_date": "2021-05-18"
+    },
+    {
+      "model": "DeepPavlov/rubert-base-cased-sentence",
+      "tier": "open weights",
+      "score": 35.33,
+      "release_date": "2020-03-04"
+    },
+    {
+      "model": "ai-forever/sbert_large_nlu_ru",
+      "tier": "open weights",
+      "score": 32.93,
+      "release_date": "2020-11-20"
+    },
+    {
+      "model": "deepvk/deberta-v1-base",
+      "tier": "open weights",
+      "score": 32.9,
+      "release_date": "2023-02-07"
+    },
+    {
+      "model": "malenia1/ternary-weight-embedding",
+      "tier": "open weights",
+      "score": 32.81,
+      "release_date": "2024-10-23"
+    },
+    {
+      "model": "DeepPavlov/rubert-base-cased",
+      "tier": "open weights",
+      "score": 30.79,
+      "release_date": "2020-03-04"
+    },
+    {
+      "model": "mteb/baseline-random-encoder",
+      "tier": "open weights",
+      "score": 13.26,
+      "release_date": null
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[project]
+name = "mtebpost"
+version = "0.1.0"
+description = "Tooling for drafting MTEB social posts: candidate detection, leaderboard queries, card rendering."
+requires-python = ">=3.11"
+
+# Base install is deliberately light. `mteb` pulls torch, transformers and
+# sentence-transformers — around 2 GB — and only `scoreboard` needs it, so it lives
+# behind an extra. Rendering a card is a three-second job and should not cost a
+# deep-learning stack.
+dependencies = [
+    "playwright>=1.49",
+]
+
+[project.optional-dependencies]
+leaderboard = ["mteb>=2.18.11"]
+
+[project.scripts]
+mteb-scan = "mtebpost.scan:main"
+mteb-render = "mtebpost.render:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mtebpost"]
+
+# Pins resolution by date so the same command resolves the same versions later.
+# Each post's fetch.py repeats this in its own PEP 723 header — those stay standalone
+# scripts on purpose, because a post's provenance should not depend on the state of a
+# shared environment.
+[tool.uv]
+exclude-newer = "2026-08-01T00:00:00Z"

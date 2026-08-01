@@ -1,0 +1,48 @@
+# GitHub handle -> social handle mapping, for credit lines in posts.
+#
+# Credit is not optional: every post names the people whose work it describes.
+# Tagging is. A `bluesky:` entry is an opt-in signal — the agent may @-mention that
+# handle. With no entry, the post still credits the person by their GitHub handle as
+# plain text, which is a statement of fact rather than a notification.
+#
+# Do not guess a Bluesky handle from a name or a GitHub profile. Wrong-person mentions
+# are the exact failure mode that makes an automated account feel spammy. Populate this
+# file only from handles people have volunteered.
+#
+# affiliation is optional and used only where the org is the more natural credit
+# (e.g. a lab releasing a model family).
+
+contributors:
+  hotchpotch:
+    bluesky: null
+    affiliation: null
+  NohTow:
+    bluesky: null
+    affiliation: LightOn
+  paulomouraj:
+    bluesky: null
+    affiliation: LightOn
+  wissam-sib:
+    bluesky: null
+    affiliation: null
+  dukesun99:
+    bluesky: null
+    affiliation: null
+  Rakshitha-Ireddi:
+    bluesky: null
+    affiliation: null
+  Samoed:
+    bluesky: null
+    affiliation: null
+  trashhalo:
+    bluesky: null
+    affiliation: Hanno Labs
+  KennethEnevoldsen:
+    bluesky: kennethenevoldsen.eurosky.social
+    affiliation: Aarhus University
+
+organizations:
+  lightonai:
+    bluesky: null
+  jinaai:
+    bluesky: null

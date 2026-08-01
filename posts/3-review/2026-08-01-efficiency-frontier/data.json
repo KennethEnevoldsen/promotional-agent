@@ -1,0 +1,713 @@
+{
+  "generated": "2026-08-01",
+  "benchmark": "MTEB(eng, v2)",
+  "n_benchmark_tasks": 41,
+  "rule": "complete task coverage, known active-parameter count, known release date",
+  "note": "release dates, not evaluation dates; the 2023 cohort is sparse",
+  "headline": {
+    "best_2023": {
+      "model": "sdadas/mmlw-e5-large",
+      "x": 303888384,
+      "y": 62.32,
+      "released": "2023-11-17"
+    },
+    "cheapest_match_today": {
+      "model": "MongoDB/mdbr-leaf-mt",
+      "x": 10992768,
+      "y": 63.97,
+      "released": "2025-08-27"
+    },
+    "shrink_factor": 27.6
+  },
+  "cohorts": [
+    {
+      "label": "2023",
+      "cutoff": "2023-12-31",
+      "n_models": 20,
+      "points": [
+        {
+          "model": "cointegrated/rubert-tiny",
+          "x": 2676032,
+          "y": 40.1,
+          "released": "2021-05-24"
+        },
+        {
+          "model": "cointegrated/rubert-tiny2",
+          "x": 3245664,
+          "y": 41.56,
+          "released": "2021-10-28"
+        },
+        {
+          "model": "sentence-transformers/all-MiniLM-L6-v2",
+          "x": 10992768,
+          "y": 59.03,
+          "released": "2021-08-30"
+        },
+        {
+          "model": "sdadas/mmlw-e5-base",
+          "x": 86042112,
+          "y": 61.43,
+          "released": "2023-11-17"
+        },
+        {
+          "model": "sdadas/mmlw-e5-large",
+          "x": 303888384,
+          "y": 62.32,
+          "released": "2023-11-17"
+        }
+      ]
+    },
+    {
+      "label": "2024",
+      "cutoff": "2024-12-31",
+      "n_models": 42,
+      "points": [
+        {
+          "model": "sentence-transformers/static-retrieval-mrl-en-v1",
+          "x": 0,
+          "y": 51.25,
+          "released": "2024-10-24"
+        },
+        {
+          "model": "sentence-transformers/all-MiniLM-L6-v2",
+          "x": 10992768,
+          "y": 59.03,
+          "released": "2021-08-30"
+        },
+        {
+          "model": "ibm-granite/granite-embedding-30m-english",
+          "x": 10993536,
+          "y": 60.2,
+          "released": "2024-12-18"
+        },
+        {
+          "model": "intfloat/multilingual-e5-base",
+          "x": 85998464,
+          "y": 61.0,
+          "released": "2024-02-08"
+        },
+        {
+          "model": "ibm-granite/granite-embedding-125m-english",
+          "x": 86042112,
+          "y": 62.08,
+          "released": "2024-12-18"
+        },
+        {
+          "model": "mixedbread-ai/mxbai-embed-large-v1",
+          "x": 303887360,
+          "y": 66.26,
+          "released": "2024-03-07"
+        },
+        {
+          "model": "intfloat/e5-mistral-7b-instruct",
+          "x": 6979928000,
+          "y": 67.97,
+          "released": "2024-02-08"
+        }
+      ]
+    },
+    {
+      "label": "today",
+      "cutoff": "2099-12-31",
+      "n_models": 87,
+      "points": [
+        {
+          "model": "minishlab/potion-base-32M",
+          "x": 0,
+          "y": 54.63,
+          "released": "2025-01-22"
+        },
+        {
+          "model": "MongoDB/mdbr-leaf-mt",
+          "x": 10992768,
+          "y": 63.97,
+          "released": "2025-08-27"
+        },
+        {
+          "model": "codefuse-ai/F2LLM-v2-80M",
+          "x": 31550208,
+          "y": 64.55,
+          "released": "2026-03-09"
+        },
+        {
+          "model": "prdev/mini-gte",
+          "x": 42921984,
+          "y": 65.06,
+          "released": "2025-01-28"
+        },
+        {
+          "model": "codefuse-ai/F2LLM-v2-160M",
+          "x": 62116864,
+          "y": 65.93,
+          "released": "2026-03-09"
+        },
+        {
+          "model": "google/embeddinggemma-300m",
+          "x": 106255104,
+          "y": 69.67,
+          "released": "2025-09-04"
+        },
+        {
+          "model": "jinaai/jina-embeddings-v5-text-nano",
+          "x": 113265408,
+          "y": 71.11,
+          "released": "2026-02-17"
+        },
+        {
+          "model": "KaLM-Embedding/KaLM-embedding-multilingual-mini-instruct-v2.5",
+          "x": 357898112,
+          "y": 71.29,
+          "released": "2025-09-30"
+        },
+        {
+          "model": "jinaai/jina-embeddings-v5-text-small",
+          "x": 440467456,
+          "y": 71.78,
+          "released": "2026-02-17"
+        },
+        {
+          "model": "infgrad/Jasper-Token-Compression-600M",
+          "x": 452003840,
+          "y": 74.75,
+          "released": "2025-11-14"
+        },
+        {
+          "model": "Kingsoft-LLM/QZhou-Embedding",
+          "x": 6525621760,
+          "y": 75.97,
+          "released": "2025-08-24"
+        },
+        {
+          "model": "jcorners/ingot-8b-r3",
+          "x": 6946075648,
+          "y": 75.98,
+          "released": "2026-05-23"
+        }
+      ]
+    }
+  ],
+  "models": [
+    {
+      "model": "jcorners/ingot-8b-r3",
+      "x": 6946075648,
+      "y": 75.98,
+      "released": "2026-05-23"
+    },
+    {
+      "model": "Kingsoft-LLM/QZhou-Embedding",
+      "x": 6525621760,
+      "y": 75.97,
+      "released": "2025-08-24"
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-8B",
+      "x": 6946075648,
+      "y": 75.23,
+      "released": "2025-06-05"
+    },
+    {
+      "model": "infgrad/Jasper-Token-Compression-600M",
+      "x": 452003840,
+      "y": 74.75,
+      "released": "2025-11-14"
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-4B",
+      "x": 3633511936,
+      "y": 74.61,
+      "released": "2025-06-05"
+    },
+    {
+      "model": "annamodels/LGAI-Embedding-Preview",
+      "x": 6978915712,
+      "y": 74.12,
+      "released": "2025-06-11"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-4B",
+      "x": 3633511936,
+      "y": 73.67,
+      "released": "2025-09-18"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-14B",
+      "x": 13213849600,
+      "y": 73.08,
+      "released": "2026-03-09"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-8B",
+      "x": 6947169280,
+      "y": 72.86,
+      "released": "2026-03-09"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-4B",
+      "x": 3634195456,
+      "y": 72.41,
+      "released": "2026-03-09"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-1.7B",
+      "x": 1409410048,
+      "y": 72.01,
+      "released": "2025-09-18"
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-omni-small",
+      "x": 1470956544,
+      "y": 71.78,
+      "released": "2026-04-01"
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-text-small",
+      "x": 440467456,
+      "y": 71.78,
+      "released": "2026-02-17"
+    },
+    {
+      "model": "IEITYuan/Yuan-embedding-2.0-en",
+      "x": 440467456,
+      "y": 71.74,
+      "released": "2025-11-27"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-1.7B",
+      "x": 1409956864,
+      "y": 71.63,
+      "released": "2026-03-09"
+    },
+    {
+      "model": "KaLM-Embedding/KaLM-embedding-multilingual-mini-instruct-v2.5",
+      "x": 357898112,
+      "y": 71.29,
+      "released": "2025-09-30"
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-omni-nano",
+      "x": 887480832,
+      "y": 71.11,
+      "released": "2026-04-01"
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-text-nano",
+      "x": 113265408,
+      "y": 71.11,
+      "released": "2026-02-17"
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "x": 440467456,
+      "y": 70.47,
+      "released": "2025-06-05"
+    },
+    {
+      "model": "GeoGPT-Research-Project/GeoEmbedding",
+      "x": 6979588096,
+      "y": 70.21,
+      "released": "2025-04-22"
+    },
+    {
+      "model": "ICT-TIME-and-Querit/ICT-TIME-and-Querit-embedding-v1",
+      "x": 3632818176,
+      "y": 70.12,
+      "released": "2026-05-02"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-0.6B",
+      "x": 440467456,
+      "y": 70.03,
+      "released": "2025-09-18"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-0.6B",
+      "x": 440740864,
+      "y": 69.97,
+      "released": "2026-03-09"
+    },
+    {
+      "model": "google/embeddinggemma-300m",
+      "x": 106255104,
+      "y": 69.67,
+      "released": "2025-09-04"
+    },
+    {
+      "model": "Tarka-AIR/Tarka-Embedding-350M-V1",
+      "x": 287375104,
+      "y": 69.29,
+      "released": "2025-11-11"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-330M",
+      "x": 198453760,
+      "y": 68.86,
+      "released": "2026-03-09"
+    },
+    {
+      "model": "intfloat/e5-mistral-7b-instruct",
+      "x": 6979928000,
+      "y": 67.97,
+      "released": "2024-02-08"
+    },
+    {
+      "model": "BidirLM/BidirLM-Omni-2.5B-Embedding",
+      "x": 2129911424,
+      "y": 67.47,
+      "released": "2026-04-07"
+    },
+    {
+      "model": "GritLM/GritLM-7B",
+      "x": 7108928000,
+      "y": 67.07,
+      "released": "2024-02-15"
+    },
+    {
+      "model": "Tarka-AIR/Tarka-Embedding-150M-V1",
+      "x": 106255104,
+      "y": 66.39,
+      "released": "2025-11-04"
+    },
+    {
+      "model": "mixedbread-ai/mxbai-embed-large-v1",
+      "x": 303887360,
+      "y": 66.26,
+      "released": "2024-03-07"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-160M",
+      "x": 62116864,
+      "y": 65.93,
+      "released": "2026-03-09"
+    },
+    {
+      "model": "intfloat/multilingual-e5-large-instruct",
+      "x": 303997952,
+      "y": 65.53,
+      "released": "2024-02-08"
+    },
+    {
+      "model": "prdev/mini-gte",
+      "x": 42921984,
+      "y": 65.06,
+      "released": "2025-01-28"
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "x": 31550208,
+      "y": 64.55,
+      "released": "2026-03-09"
+    },
+    {
+      "model": "VPLabs/SearchMap_Preview",
+      "x": 403739328,
+      "y": 64.08,
+      "released": "2025-03-05"
+    },
+    {
+      "model": "MongoDB/mdbr-leaf-mt",
+      "x": 10992768,
+      "y": 63.97,
+      "released": "2025-08-27"
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-l-v2.0",
+      "x": 311752704,
+      "y": 63.6,
+      "released": "2024-12-04"
+    },
+    {
+      "model": "mixedbread-ai/deepset-mxbai-embed-de-large-v1",
+      "x": 303888384,
+      "y": 63.43,
+      "released": "2024-07-12"
+    },
+    {
+      "model": "LCO-Embedding/LCO-Embedding-Omni-7B",
+      "x": 8386816512,
+      "y": 63.24,
+      "released": "2025-10-15"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-english-r2",
+      "x": 110331648,
+      "y": 62.84,
+      "released": "2025-08-15"
+    },
+    {
+      "model": "LCO-Embedding/LCO-Embedding-Omni-3B",
+      "x": 4392299520,
+      "y": 62.33,
+      "released": "2025-10-23"
+    },
+    {
+      "model": "sdadas/mmlw-e5-large",
+      "x": 303888384,
+      "y": 62.32,
+      "released": "2023-11-17"
+    },
+    {
+      "model": "ManiacLabs/miniac-embed",
+      "x": 21442944,
+      "y": 62.08,
+      "released": "2026-02-19"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-125m-english",
+      "x": 86042112,
+      "y": 62.08,
+      "released": "2024-12-18"
+    },
+    {
+      "model": "deepvk/USER-bge-m3",
+      "x": 311752704,
+      "y": 62.06,
+      "released": "2024-07-05"
+    },
+    {
+      "model": "sdadas/mmlw-roberta-large",
+      "x": 303888384,
+      "y": 61.8,
+      "released": "2023-11-17"
+    },
+    {
+      "model": "OrdalieTech/Solon-embeddings-large-0.1",
+      "x": 303888384,
+      "y": 61.48,
+      "released": "2023-12-09"
+    },
+    {
+      "model": "sdadas/mmlw-e5-base",
+      "x": 86042112,
+      "y": 61.43,
+      "released": "2023-11-17"
+    },
+    {
+      "model": "manu/bge-m3-custom-fr",
+      "x": 311752704,
+      "y": 61.22,
+      "released": "2024-04-11"
+    },
+    {
+      "model": "sdadas/mmlw-roberta-base",
+      "x": 86042112,
+      "y": 61.15,
+      "released": "2023-11-17"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-small-english-r2",
+      "x": 28321152,
+      "y": 61.07,
+      "released": "2025-08-15"
+    },
+    {
+      "model": "intfloat/multilingual-e5-base",
+      "x": 85998464,
+      "y": 61.0,
+      "released": "2024-02-08"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-278m-multilingual",
+      "x": 86042112,
+      "y": 60.36,
+      "released": "2024-12-18"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-30m-english",
+      "x": 10993536,
+      "y": 60.2,
+      "released": "2024-12-18"
+    },
+    {
+      "model": "Haon-Chen/e5-omni-3B",
+      "x": 4392299520,
+      "y": 59.7,
+      "released": "2026-01-06"
+    },
+    {
+      "model": "intfloat/multilingual-e5-small",
+      "x": 21985792,
+      "y": 59.69,
+      "released": "2024-02-08"
+    },
+    {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "x": 10992768,
+      "y": 59.03,
+      "released": "2021-08-30"
+    },
+    {
+      "model": "sdadas/mmlw-e5-small",
+      "x": 21639552,
+      "y": 58.86,
+      "released": "2023-11-17"
+    },
+    {
+      "model": "ibm-granite/granite-embedding-107m-multilingual",
+      "x": 10993536,
+      "y": 58.76,
+      "released": "2024-12-18"
+    },
+    {
+      "model": "Haon-Chen/e5-omni-7B",
+      "x": 8386816512,
+      "y": 58.67,
+      "released": "2026-01-06"
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "x": 86042112,
+      "y": 58.27,
+      "released": "2019-11-01"
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.3",
+      "x": 1214351360,
+      "y": 57.8,
+      "released": "2024-04-26"
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.4",
+      "x": 1214351360,
+      "y": 57.71,
+      "released": "2024-04-27"
+    },
+    {
+      "model": "Tevatron/OmniEmbed-v0.1",
+      "x": 8386816512,
+      "y": 57.7,
+      "released": "2025-04-12"
+    },
+    {
+      "model": "ai-forever/ru-en-RoSBERTa",
+      "x": 303130880,
+      "y": 57.26,
+      "released": "2024-07-29"
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.2",
+      "x": 1214351360,
+      "y": 56.56,
+      "released": "2024-03-15"
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "x": 21639552,
+      "y": 56.42,
+      "released": "2019-11-01"
+    },
+    {
+      "model": "sergeyzh/LaBSE-ru-turbo",
+      "x": 86696256,
+      "y": 55.68,
+      "released": "2024-06-27"
+    },
+    {
+      "model": "minishlab/potion-base-32M",
+      "x": 0,
+      "y": 54.63,
+      "released": "2025-01-22"
+    },
+    {
+      "model": "minishlab/potion-retrieval-32M",
+      "x": 0,
+      "y": 53.92,
+      "released": "2025-01-23"
+    },
+    {
+      "model": "encord-team/ebind-full",
+      "x": 1739406208,
+      "y": 52.64,
+      "released": "2025-11-19"
+    },
+    {
+      "model": "sentence-transformers/static-retrieval-mrl-en-v1",
+      "x": 0,
+      "y": 51.25,
+      "released": "2024-10-24"
+    },
+    {
+      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+      "x": 0,
+      "y": 50.83,
+      "released": "2025-01-15"
+    },
+    {
+      "model": "aari1995/German_Semantic_STS_V2",
+      "x": 303887872,
+      "y": 50.31,
+      "released": "2022-11-17"
+    },
+    {
+      "model": "deepvk/USER-base",
+      "x": 388396480,
+      "y": 48.85,
+      "released": "2024-06-10"
+    },
+    {
+      "model": "sentence-transformers/LaBSE",
+      "x": 86041344,
+      "y": 48.81,
+      "released": "2019-11-01"
+    },
+    {
+      "model": "cointegrated/LaBSE-en-ru",
+      "x": 86696256,
+      "y": 48.22,
+      "released": "2021-06-10"
+    },
+    {
+      "model": "sergeyzh/rubert-tiny-turbo",
+      "x": 3045664,
+      "y": 45.98,
+      "released": "2024-06-21"
+    },
+    {
+      "model": "cointegrated/rubert-tiny2",
+      "x": 3245664,
+      "y": 41.56,
+      "released": "2021-10-28"
+    },
+    {
+      "model": "cointegrated/rubert-tiny",
+      "x": 2676032,
+      "y": 40.1,
+      "released": "2021-05-24"
+    },
+    {
+      "model": "DeepPavlov/distilrubert-small-cased-conversational",
+      "x": 15187904,
+      "y": 36.61,
+      "released": "2022-06-28"
+    },
+    {
+      "model": "ai-forever/sbert_large_mt_nlu_ru",
+      "x": 303978688,
+      "y": 35.5,
+      "released": "2021-05-18"
+    },
+    {
+      "model": "DeepPavlov/rubert-base-cased-sentence",
+      "x": 15187904,
+      "y": 35.33,
+      "released": "2020-03-04"
+    },
+    {
+      "model": "ai-forever/sbert_large_nlu_ru",
+      "x": 303978688,
+      "y": 32.93,
+      "released": "2020-11-20"
+    },
+    {
+      "model": "deepvk/deberta-v1-base",
+      "x": 85396480,
+      "y": 32.9,
+      "released": "2023-02-07"
+    },
+    {
+      "model": "DeepPavlov/rubert-base-cased",
+      "x": 1188187904,
+      "y": 30.79,
+      "released": "2020-03-04"
+    }
+  ]
+}

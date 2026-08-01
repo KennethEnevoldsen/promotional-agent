@@ -1,0 +1,246 @@
+#!/usr/bin/env python3
+"""Stage 1 of the pipeline: find things that *might* be worth posting.
+
+    uv run posts/scan.py --since 2026-07-20
+    uv run posts/scan.py --since 2026-07-20 --write     # create candidate folders
+
+Reads merged PRs from the mteb and results repos via `gh`, classifies them by title
+convention, and pairs each model addition with its results PR. Output is a list of
+candidates — *not* drafts. A candidate is a claim that something happened and a guess at
+why it might matter; deciding whether it is postable is the next stage's job.
+
+Two things this deliberately does not do:
+
+* **It does not judge.** Everything merged in the window shows up, including the bug
+  fixes and refactors that will obviously be rejected. Filtering here would hide the
+  denominator — you could no longer see what the pipeline chose not to say.
+* **It does not trust labels.** Roughly half the genuine model additions carry no label
+  at all, and `jina-reranker-v3.5` carried `new model` while being pure plumbing.
+  Classification keys off the title conventions the repos actually use
+  (`model:`, `task:`, `[MOEB]`, `fix:`, `ci:`), which are far more consistent.
+
+The pairing heuristic is crude: it looks for distinctive words from the model PR title
+appearing inside the results PR title. It will miss pairs and occasionally invent one,
+which is why every candidate records both PR numbers for a human to check rather than
+asserting the pairing as fact.
+
+Running it twice is safe. Anything whose trigger PR already appears anywhere in the
+pipeline — including in `rejected/` — is skipped, so a rejected candidate stays rejected
+instead of being re-proposed the next morning.
+"""
+
+import argparse
+import dataclasses
+import json
+import pathlib
+import re
+import subprocess
+import sys
+from datetime import date
+
+@dataclasses.dataclass
+class Candidate:
+    pr: dict
+    results_pr: dict | None
+    type: str
+    hypothesis: str
+
+
+MTEB = "embeddings-benchmark/mteb"
+RESULTS = "embeddings-benchmark/results"
+
+# Ordered: first match wins, so the "not news" patterns must come before the broad ones.
+KINDS = [
+    ("skip",             r"^(ci|chore|build|docs|test|refactor|style)[:(]|^bump |dependabot"),
+    ("fix",              r"^fix[:(]|^hotfix|fix:|^revert"),
+    ("dataset",          r"^\[moeb\]|^task:|add .*(dataset|task)\b"),
+    ("benchmark",        r"benchmark|^\[.*\] add .*bench"),
+    ("model",            r"^model:|add .*model|modelmeta|register .*model"),
+]
+
+
+def gh_json(args: list[str]) -> list[dict]:
+    out = subprocess.run(["gh", *args], capture_output=True, text=True)
+    if out.returncode:
+        sys.exit(f"gh failed: {out.stderr.strip()}")
+    return json.loads(out.stdout)
+
+
+def merged_prs(repo: str, since: str) -> list[dict]:
+    return gh_json([
+        "pr", "list", "--repo", repo, "--state", "merged",
+        "--search", f"merged:>={since}", "--limit", "200",
+        "--json", "number,title,mergedAt,author,url",
+    ])
+
+
+def classify(title: str) -> str:
+    low = title.lower()
+    for kind, pattern in KINDS:
+        if re.search(pattern, low):
+            return kind
+    return "other"
+
+
+# Words that appear in almost every PR title on both sides and so carry no signal.
+STOP = {
+    "add", "adds", "added", "model", "models", "modelmeta", "meta", "metadata",
+    "embedding", "embeddings", "results", "result", "evaluation", "mteb", "eval",
+    "definitions", "definition", "implementation", "with", "and", "the", "for",
+    "new", "update", "updates", "expand", "register", "support", "from",
+}
+
+
+def tokens(title: str) -> set[str]:
+    """Distinctive words in a title — long enough to identify a model, minus boilerplate."""
+    return {
+        w for w in (
+            x.strip(".,()[]:").lower() for x in re.split(r"[\s/]+", title)
+        )
+        if len(w) >= 4 and w not in STOP
+    }
+
+
+def pair_results(model_pr: dict, result_prs: list[dict]) -> dict | None:
+    """Match on substrings, not equal tokens.
+
+    A model PR says "Add Bekko embedding models" while its results PR says
+    "MTEB Evaluation Results: hotchpotch/bekko-embedding-v1-a8m". The shared identity is
+    "bekko" *inside* a longer token, so equality never fires — which is exactly how an
+    earlier version reported Bekko as having no results at all.
+    """
+    mt = tokens(model_pr["title"])
+    if not mt:
+        return None
+    best, best_score = None, 0
+    for r in result_prs:
+        low = r["title"].lower()
+        score = sum(len(w) for w in mt if w in low)
+        if score > best_score:
+            best, best_score = r, score
+    # one short accidental overlap is not a pairing
+    return best if best_score >= 5 else None
+
+
+def slug(title: str) -> str:
+    s = re.sub(r"^\[?\w+\]?:?\s*", "", title.lower())
+    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+    return "-".join(s.split("-")[:5]) or "candidate"
+
+
+STUB = """---
+id: {id}
+type: {type}
+trigger: {trigger}
+trigger_date: {date}
+expires: {expires}
+sources:
+{sources}
+---
+
+## Why this might be a post
+
+{hypothesis}
+
+## Before it can move to 2-drafting
+
+- [ ] confirm the pairing above is real (the scanner guesses it from title overlap)
+- [ ] check the results are merged and complete, not partial
+- [ ] decide the angle, or reject with a reason
+"""
+
+
+def already_tracked(posts: pathlib.Path) -> set[str]:
+    """PR references (`mteb#5043`) that already exist anywhere in the pipeline.
+
+    Without this the scanner re-proposes everything every morning, including candidates
+    that were deliberately rejected — which would make `rejected/` useless as a record.
+    """
+    seen = set()
+    for post in posts.rglob("post.md"):
+        for m in re.finditer(r"(?:mteb|results)#(\d+)", post.read_text()):
+            seen.add(m.group(0))
+    return seen
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--since", required=True, help="ISO date, e.g. 2026-07-20")
+    ap.add_argument("--posts", default="posts", type=pathlib.Path,
+                    help="pipeline root (default: ./posts)")
+    ap.add_argument("--write", action="store_true", help="create folders in 1-candidates/")
+    args = ap.parse_args()
+
+    mteb_prs = merged_prs(MTEB, args.since)
+    result_prs = merged_prs(RESULTS, args.since)
+
+    buckets: dict[str, list[dict]] = {}
+    for pr in mteb_prs:
+        buckets.setdefault(classify(pr["title"]), []).append(pr)
+
+    print(f"merged since {args.since}: {len(mteb_prs)} in mteb, {len(result_prs)} in results\n")
+    for kind in ("model", "dataset", "benchmark", "fix", "skip", "other"):
+        rows = buckets.get(kind, [])
+        note = "  <- candidates" if kind in ("model", "dataset", "benchmark") else ""
+        print(f"{kind:<10} {len(rows):>3}{note}")
+
+    tracked = already_tracked(args.posts)
+    skipped = 0
+
+    candidates: list[Candidate] = []
+    for pr in buckets.get("model", []):
+        if f"mteb#{pr['number']}" in tracked:
+            skipped += 1
+            continue
+        res = pair_results(pr, result_prs)
+        candidates.append(Candidate(
+            pr=pr, results_pr=res, type="model_addition",
+            hypothesis=(
+                "Model addition with a matching results PR — the most reliable trigger "
+                "there is. Worth a post if the scores say something a reader could not "
+                "guess from the model card."
+                if res else
+                "Model addition with **no results PR found**. Not postable on its own: a "
+                "registration without scores is plumbing. Either the results are still "
+                "coming, or this is metadata-only."
+            ),
+        ))
+    for pr in buckets.get("benchmark", []):
+        if f"mteb#{pr['number']}" in tracked:
+            skipped += 1
+            continue
+        candidates.append(Candidate(
+            pr=pr, results_pr=None, type="benchmark_addition",
+            hypothesis="New benchmark. Always worth announcing."))
+
+    print(f"\n{len(candidates)} new candidates ({skipped} already in the pipeline)")
+    for c in candidates:
+        r = f" + results#{c.results_pr['number']}" if c.results_pr else "  (no results PR)"
+        print(f"  {c.pr['mergedAt'][:10]}  mteb#{c.pr['number']}{r}  {c.pr['title'][:64]}")
+
+    if not args.write:
+        print("\n(dry run — pass --write to create candidate folders)")
+        return
+
+    out = args.posts / "1-candidates"
+    out.mkdir(exist_ok=True)
+    for c in candidates:
+        pr, res = c.pr, c.results_pr
+        merged = pr["mergedAt"][:10]
+        name = f"{merged}-{slug(pr['title'])}"
+        d = out / name
+        if d.exists():
+            continue
+        d.mkdir()
+        srcs = [f"  - {pr['url']}"] + ([f"  - {res['url']}"] if res else [])
+        exp = date.fromisoformat(merged).replace(month=(date.fromisoformat(merged).month % 12) + 1)
+        (d / "post.md").write_text(STUB.format(
+            id=name, type=c.type, date=merged, expires=exp.isoformat(),
+            trigger=f"mteb#{pr['number']}" + (f" + results#{res['number']}" if res else " (no results PR)"),
+            sources="\n".join(srcs), hypothesis=c.hypothesis,
+        ))
+        print(f"  wrote {d}")
+
+
+if __name__ == "__main__":
+    main()
