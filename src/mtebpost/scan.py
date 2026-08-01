@@ -227,10 +227,18 @@ def main() -> None:
     for c in candidates:
         pr, res = c.pr, c.results_pr
         merged = pr["mergedAt"][:10]
-        name = f"{merged}-{slug(pr['title'])}"
+        # No date in the folder name: a date only means something once the post is
+        # scheduled, and until then it reads as a promise the pipeline has not made.
+        # `trigger_date` in the frontmatter keeps the "when did this happen" fact.
+        name = slug(pr["title"])
         d = out / name
         if d.exists():
             continue
+        # slugs are derived from PR titles and can collide; disambiguate rather than skip
+        n = 2
+        while (out / name).exists():
+            name, n = f"{slug(pr['title'])}-{n}", n + 1
+        d = out / name
         d.mkdir()
         srcs = [f"  - {pr['url']}"] + ([f"  - {res['url']}"] if res else [])
         exp = date.fromisoformat(merged).replace(month=(date.fromisoformat(merged).month % 12) + 1)

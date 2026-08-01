@@ -140,6 +140,11 @@ what the roundup shape exists for.
 Check `expires:` before scheduling. News older than about a month is not news, and a
 post that sat in review past its window should be rejected rather than shipped stale.
 
+**Add the date to the folder name when you move it here** — `dinghy-law-family` becomes
+`2026-08-06-dinghy-law-family` — and set `scheduled_for:` to match. That is the only
+point in the pipeline where a folder gets a date, which is what keeps the date
+meaningful.
+
 ---
 
 ## Rejecting

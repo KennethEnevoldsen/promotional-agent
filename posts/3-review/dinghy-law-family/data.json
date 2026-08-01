@@ -1,0 +1,1297 @@
+{
+  "generated": "2026-08-01",
+  "source": "https://mteb-leaderboard-backend.hf.space/v1/benchmarks/.../scores",
+  "benchmark": "MTEB(Law, v1)",
+  "n_tasks": 8,
+  "rule": "complete coverage of all 8 Law tasks",
+  "params_note": "total parameters; the API's activeParamsB currently returns total (see issue.md)",
+  "legal_domain_list": [
+    "Hanno-Labs/dinghy-law-0.6b-v1",
+    "Hanno-Labs/dinghy-law-4b-v1",
+    "Mira190/Euler-Legal-Embedding-V1",
+    "minetta/nemotron-3-embed-8b-legal",
+    "voyageai/voyage-law-2"
+  ],
+  "legal_ranks": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "first_general_rank": 6,
+  "rows": [
+    {
+      "model": "Hanno-Labs/dinghy-law-4b-v1",
+      "score": 71.22,
+      "total_params_b": 4.028,
+      "released": "2026-07-22",
+      "open_weights": true,
+      "legal_domain": true
+    },
+    {
+      "model": "Mira190/Euler-Legal-Embedding-V1",
+      "score": 70.37,
+      "total_params_b": 7.567,
+      "released": "2025-11-06",
+      "open_weights": true,
+      "legal_domain": true
+    },
+    {
+      "model": "minetta/nemotron-3-embed-8b-legal",
+      "score": 69.33,
+      "total_params_b": 7.953,
+      "released": "2026-07-25",
+      "open_weights": true,
+      "legal_domain": true
+    },
+    {
+      "model": "Hanno-Labs/dinghy-law-0.6b-v1",
+      "score": 65.83,
+      "total_params_b": 0.597,
+      "released": "2026-07-13",
+      "open_weights": true,
+      "legal_domain": true
+    },
+    {
+      "model": "voyageai/voyage-law-2",
+      "score": 65.39,
+      "total_params_b": null,
+      "released": "2024-04-15",
+      "open_weights": false,
+      "legal_domain": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-14B",
+      "score": 64.66,
+      "total_params_b": 13.99,
+      "released": "2026-03-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "voyageai/voyage-3",
+      "score": 64.13,
+      "total_params_b": null,
+      "released": "2024-09-18",
+      "open_weights": false,
+      "legal_domain": false
+    },
+    {
+      "model": "infly/inf-retriever-v1",
+      "score": 63.68,
+      "total_params_b": 7.069,
+      "released": "2024-12-24",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-8B",
+      "score": 63.54,
+      "total_params_b": 7.568,
+      "released": "2026-03-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "ICT-TIME-and-Querit/ICT-TIME-and-Querit-embedding-v1",
+      "score": 62.23,
+      "total_params_b": 4.022,
+      "released": "2026-05-02",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "infly/inf-retriever-v1-1.5b",
+      "score": 62.03,
+      "total_params_b": 1.543,
+      "released": "2025-02-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-4B",
+      "score": 61.53,
+      "total_params_b": 4.022,
+      "released": "2026-03-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "voyageai/voyage-3-lite",
+      "score": 60.75,
+      "total_params_b": null,
+      "released": "2024-09-18",
+      "open_weights": false,
+      "legal_domain": false
+    },
+    {
+      "model": "ICT-TIME-and-Querit/BOOM_4B_v1",
+      "score": 60.41,
+      "total_params_b": 4.022,
+      "released": "2026-01-31",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-1.7B",
+      "score": 60.32,
+      "total_params_b": 1.721,
+      "released": "2026-03-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "openai/text-embedding-3-large",
+      "score": 59.36,
+      "total_params_b": null,
+      "released": "2024-01-25",
+      "open_weights": false,
+      "legal_domain": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-l-v2.0",
+      "score": 58.96,
+      "total_params_b": 0.568,
+      "released": "2024-12-04",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "NovaSearch/jasper_en_vision_language_v1",
+      "score": 58.78,
+      "total_params_b": 1.565,
+      "released": "2024-12-11",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-0.6B",
+      "score": 57.86,
+      "total_params_b": 0.596,
+      "released": "2026-03-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v3",
+      "score": 56.88,
+      "total_params_b": 0.572,
+      "released": "2024-09-18",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "GritLM/GritLM-7B",
+      "score": 56.73,
+      "total_params_b": 7.24,
+      "released": "2024-02-15",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-330M",
+      "score": 56.68,
+      "total_params_b": 0.334,
+      "released": "2026-03-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-v2.0",
+      "score": 56.61,
+      "total_params_b": 0.305,
+      "released": "2024-12-04",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "openai/text-embedding-3-small",
+      "score": 56.27,
+      "total_params_b": null,
+      "released": "2024-01-25",
+      "open_weights": false,
+      "legal_domain": false
+    },
+    {
+      "model": "Salesforce/SFR-Embedding-2_R",
+      "score": 55.81,
+      "total_params_b": 7.111,
+      "released": "2024-06-14",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen2-1.5B-instruct",
+      "score": 55.63,
+      "total_params_b": 1.543,
+      "released": "2024-07-29",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "mteb/baseline-bm25s",
+      "score": 55.57,
+      "total_params_b": 0.0,
+      "released": "2026-05-06",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Linq-AI-Research/Linq-Embed-Mistral",
+      "score": 55.41,
+      "total_params_b": 7.111,
+      "released": "2024-05-29",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "infgrad/Jasper-Token-Compression-600M",
+      "score": 55.41,
+      "total_params_b": 0.607,
+      "released": "2025-11-14",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Salesforce/SFR-Embedding-Mistral",
+      "score": 55.28,
+      "total_params_b": 7.111,
+      "released": "2024-01-24",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "manu/bge-m3-custom-fr",
+      "score": 55.12,
+      "total_params_b": 0.568,
+      "released": "2024-04-11",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-large-instruct",
+      "score": 54.87,
+      "total_params_b": 0.56,
+      "released": "2024-02-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v1",
+      "score": 54.55,
+      "total_params_b": 0.494,
+      "released": "2024-10-23",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Alibaba-NLP/gte-multilingual-base",
+      "score": 54.52,
+      "total_params_b": 0.305,
+      "released": "2024-07-20",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/e5-mistral-7b-instruct",
+      "score": 54.31,
+      "total_params_b": 7.111,
+      "released": "2024-02-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+      "score": 54.24,
+      "total_params_b": 7.069,
+      "released": "2024-06-15",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "GritLM/GritLM-8x7B",
+      "score": 54.08,
+      "total_params_b": 57.92,
+      "released": "2024-02-15",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "HIT-TMG/KaLM-embedding-multilingual-mini-v1",
+      "score": 53.87,
+      "total_params_b": 0.494,
+      "released": "2024-08-27",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "OrdalieTech/Solon-embeddings-large-0.1",
+      "score": 53.74,
+      "total_params_b": 0.56,
+      "released": "2023-12-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Lajavaness/bilingual-embedding-large",
+      "score": 52.29,
+      "total_params_b": 0.56,
+      "released": "2024-06-24",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Cohere/Cohere-embed-multilingual-v3.0",
+      "score": 52.08,
+      "total_params_b": null,
+      "released": "2023-11-02",
+      "open_weights": false,
+      "legal_domain": false
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen1.5-7B-instruct",
+      "score": 51.62,
+      "total_params_b": 7.099,
+      "released": "2024-04-20",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "NovaSearch/stella_en_1.5B_v5",
+      "score": 50.27,
+      "total_params_b": 1.54,
+      "released": "2024-07-12",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Cohere/Cohere-embed-multilingual-light-v3.0",
+      "score": 50.17,
+      "total_params_b": null,
+      "released": "2023-11-02",
+      "open_weights": false,
+      "legal_domain": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-160M",
+      "score": 49.91,
+      "total_params_b": 0.159,
+      "released": "2026-03-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Lajavaness/bilingual-embedding-small",
+      "score": 49.39,
+      "total_params_b": 0.118,
+      "released": "2024-07-17",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Lajavaness/bilingual-embedding-base",
+      "score": 48.96,
+      "total_params_b": 0.278,
+      "released": "2024-06-26",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-base",
+      "score": 48.53,
+      "total_params_b": 0.278,
+      "released": "2024-02-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-large",
+      "score": 48.39,
+      "total_params_b": 0.56,
+      "released": "2024-02-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "deepvk/USER-bge-m3",
+      "score": 47.4,
+      "total_params_b": 0.359,
+      "released": "2024-07-05",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-small",
+      "score": 47.36,
+      "total_params_b": 0.118,
+      "released": "2024-02-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "nvidia/NV-Embed-v1",
+      "score": 46.49,
+      "total_params_b": 7.85,
+      "released": "2024-09-13",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "ibm-granite/granite-embedding-278m-multilingual",
+      "score": 45.8,
+      "total_params_b": 0.278,
+      "released": "2024-12-18",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "nomic-ai/nomic-embed-text-v1-unsupervised",
+      "score": 45.48,
+      "total_params_b": 0.137,
+      "released": "2024-01-15",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "NovaSearch/stella_en_400M_v5",
+      "score": 44.91,
+      "total_params_b": 0.435,
+      "released": "2024-07-12",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+      "score": 44.82,
+      "total_params_b": 0.108,
+      "released": "2025-01-15",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "nvidia/NV-Embed-v2",
+      "score": 44.32,
+      "total_params_b": 7.85,
+      "released": "2024-09-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.4",
+      "score": 43.93,
+      "total_params_b": 1.28,
+      "released": "2024-04-27",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.3",
+      "score": 43.47,
+      "total_params_b": 1.28,
+      "released": "2024-04-26",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Cohere/Cohere-embed-english-v3.0",
+      "score": 43.09,
+      "total_params_b": null,
+      "released": "2023-11-02",
+      "open_weights": false,
+      "legal_domain": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "score": 43.03,
+      "total_params_b": 0.08,
+      "released": "2026-03-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Haon-Chen/speed-embedding-7b-instruct",
+      "score": 42.95,
+      "total_params_b": 7.111,
+      "released": "2024-10-31",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.2",
+      "score": 42.35,
+      "total_params_b": 1.28,
+      "released": "2024-03-15",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "dwzhu/e5-base-4k",
+      "score": 41.92,
+      "total_params_b": 0.112,
+      "released": "2024-03-28",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "ibm-granite/granite-embedding-107m-multilingual",
+      "score": 41.81,
+      "total_params_b": 0.107,
+      "released": "2024-12-18",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "w601sxs/b1ade-embed",
+      "score": 41.78,
+      "total_params_b": 0.335,
+      "released": "2025-03-10",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "nomic-ai/nomic-embed-text-v1",
+      "score": 41.78,
+      "total_params_b": 0.137,
+      "released": "2024-01-31",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/e5-large-v2",
+      "score": 41.73,
+      "total_params_b": 0.335,
+      "released": "2024-02-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "deepfile/embedder-100p",
+      "score": 41.63,
+      "total_params_b": 0.278,
+      "released": "2023-07-24",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-l",
+      "score": 41.51,
+      "total_params_b": 0.335,
+      "released": "2024-04-12",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "avsolatorio/GIST-large-Embedding-v0",
+      "score": 41.48,
+      "total_params_b": 0.335,
+      "released": "2024-02-14",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/e5-large",
+      "score": 41.24,
+      "total_params_b": 0.335,
+      "released": "2022-12-26",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "thenlper/gte-large",
+      "score": 41.2,
+      "total_params_b": 0.335,
+      "released": "2023-07-27",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "jinaai/jina-embedding-b-en-v1",
+      "score": 40.77,
+      "total_params_b": 0.11,
+      "released": "2023-07-07",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "avsolatorio/GIST-Embedding-v0",
+      "score": 40.7,
+      "total_params_b": 0.109,
+      "released": "2024-01-31",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Cohere/Cohere-embed-english-light-v3.0",
+      "score": 40.39,
+      "total_params_b": null,
+      "released": "2023-11-02",
+      "open_weights": false,
+      "legal_domain": false
+    },
+    {
+      "model": "ibm-granite/granite-embedding-125m-english",
+      "score": 40.32,
+      "total_params_b": 0.125,
+      "released": "2024-12-18",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Mihaiii/Ivysaur",
+      "score": 40.25,
+      "total_params_b": 0.023,
+      "released": "2024-04-27",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "score": 40.24,
+      "total_params_b": 0.109,
+      "released": "2023-09-11",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "thenlper/gte-base",
+      "score": 40.01,
+      "total_params_b": 0.109,
+      "released": "2023-07-27",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "thenlper/gte-small",
+      "score": 39.94,
+      "total_params_b": 0.033,
+      "released": "2023-07-27",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "mixedbread-ai/mxbai-embed-large-v1",
+      "score": 39.86,
+      "total_params_b": 0.335,
+      "released": "2024-03-07",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-v1.5",
+      "score": 39.85,
+      "total_params_b": 0.109,
+      "released": "2024-07-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m",
+      "score": 39.84,
+      "total_params_b": 0.109,
+      "released": "2024-04-12",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "BAAI/bge-large-en-v1.5",
+      "score": 39.58,
+      "total_params_b": 0.335,
+      "released": "2023-09-12",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/e5-base-v2",
+      "score": 39.53,
+      "total_params_b": 0.109,
+      "released": "2024-02-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "avsolatorio/GIST-small-Embedding-v0",
+      "score": 39.38,
+      "total_params_b": 0.033,
+      "released": "2024-02-03",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "WhereIsAI/UAE-Large-V1",
+      "score": 39.29,
+      "total_params_b": 0.335,
+      "released": "2023-12-04",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sdadas/mmlw-e5-large",
+      "score": 39.29,
+      "total_params_b": 0.56,
+      "released": "2023-11-17",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/e5-small-v2",
+      "score": 39.26,
+      "total_params_b": 0.033,
+      "released": "2024-02-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "avsolatorio/GIST-all-MiniLM-L6-v2",
+      "score": 39.16,
+      "total_params_b": 0.023,
+      "released": "2024-02-03",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "omarelshehy/arabic-english-sts-matryoshka",
+      "score": 39.0,
+      "total_params_b": 0.56,
+      "released": "2024-10-13",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "avsolatorio/NoInstruct-small-Embedding-v0",
+      "score": 38.94,
+      "total_params_b": 0.033,
+      "released": "2024-05-01",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "infgrad/stella-base-en-v2",
+      "score": 38.85,
+      "total_params_b": 0.109,
+      "released": "2023-10-19",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "score": 38.23,
+      "total_params_b": 0.033,
+      "released": "2023-09-12",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-s",
+      "score": 38.04,
+      "total_params_b": 0.033,
+      "released": "2024-04-12",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "jinaai/jina-embedding-s-en-v1",
+      "score": 37.93,
+      "total_params_b": 0.035,
+      "released": "2023-07-07",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "minishlab/potion-multilingual-128M",
+      "score": 37.93,
+      "total_params_b": 0.128,
+      "released": "2025-05-23",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/e5-small",
+      "score": 37.81,
+      "total_params_b": 0.033,
+      "released": "2024-02-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sdadas/mmlw-e5-base",
+      "score": 37.69,
+      "total_params_b": 0.278,
+      "released": "2023-11-17",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-long",
+      "score": 37.51,
+      "total_params_b": 0.137,
+      "released": "2024-04-12",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "abhinand/MedEmbed-small-v0.1",
+      "score": 37.51,
+      "total_params_b": 0.033,
+      "released": "2024-10-20",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sentence-transformers/all-mpnet-base-v2",
+      "score": 37.4,
+      "total_params_b": 0.109,
+      "released": "2021-08-30",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sdadas/mmlw-roberta-large",
+      "score": 37.27,
+      "total_params_b": 0.435,
+      "released": "2023-11-17",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "intfloat/e5-base",
+      "score": 36.98,
+      "total_params_b": 0.109,
+      "released": "2022-12-26",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "McGill-NLP/LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised",
+      "score": 36.52,
+      "total_params_b": 7.153,
+      "released": "2024-04-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "score": 36.4,
+      "total_params_b": 0.278,
+      "released": "2019-11-01",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Mihaiii/gte-micro-v4",
+      "score": 36.26,
+      "total_params_b": 0.019,
+      "released": "2024-04-22",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-labse-Matryoshka",
+      "score": 35.91,
+      "total_params_b": 0.471,
+      "released": "2024-06-16",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "nomic-ai/nomic-embed-text-v1.5",
+      "score": 35.8,
+      "total_params_b": 0.137,
+      "released": "2024-02-10",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Mihaiii/Bulbasaur",
+      "score": 35.79,
+      "total_params_b": 0.017,
+      "released": "2024-04-27",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "ibm-granite/granite-embedding-30m-english",
+      "score": 35.74,
+      "total_params_b": 0.03,
+      "released": "2024-12-18",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-xs",
+      "score": 35.73,
+      "total_params_b": 0.023,
+      "released": "2024-07-08",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sdadas/mmlw-e5-small",
+      "score": 35.72,
+      "total_params_b": 0.118,
+      "released": "2023-11-17",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "brahmairesearch/slx-v0.1",
+      "score": 35.37,
+      "total_params_b": 0.023,
+      "released": "2024-08-13",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "score": 35.37,
+      "total_params_b": 0.023,
+      "released": "2021-08-30",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sdadas/mmlw-roberta-base",
+      "score": 35.31,
+      "total_params_b": 0.124,
+      "released": "2023-11-17",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "bigscience/sgpt-bloom-7b1-msmarco",
+      "score": 35.25,
+      "total_params_b": 7.068,
+      "released": "2022-08-26",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-all-nli-triplet-Matryoshka",
+      "score": 35.03,
+      "total_params_b": 0.278,
+      "released": "2024-06-14",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "minishlab/potion-base-8M",
+      "score": 34.77,
+      "total_params_b": 0.008,
+      "released": "2024-10-29",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "aari1995/German_Semantic_STS_V2",
+      "score": 34.58,
+      "total_params_b": 0.336,
+      "released": "2022-11-17",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "score": 34.43,
+      "total_params_b": 0.118,
+      "released": "2019-11-01",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sentence-transformers/all-MiniLM-L12-v2",
+      "score": 33.92,
+      "total_params_b": 0.033,
+      "released": "2021-08-30",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sergeyzh/LaBSE-ru-turbo",
+      "score": 33.35,
+      "total_params_b": 0.129,
+      "released": "2024-06-27",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-MiniLM-L12-v2-all-nli-triplet",
+      "score": 33.24,
+      "total_params_b": 0.118,
+      "released": "2024-06-25",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Mihaiii/Wartortle",
+      "score": 32.96,
+      "total_params_b": 0.017,
+      "released": "2024-04-30",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "minishlab/potion-base-4M",
+      "score": 32.92,
+      "total_params_b": 0.004,
+      "released": "2024-10-29",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "ai-forever/ru-en-RoSBERTa",
+      "score": 32.57,
+      "total_params_b": 0.404,
+      "released": "2024-07-29",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sentence-transformers/LaBSE",
+      "score": 32.28,
+      "total_params_b": 0.471,
+      "released": "2019-11-01",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Gameselo/STS-multilingual-mpnet-base-v2",
+      "score": 32.26,
+      "total_params_b": 0.278,
+      "released": "2024-06-07",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Mihaiii/Venusaur",
+      "score": 31.4,
+      "total_params_b": 0.016,
+      "released": "2024-04-29",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "minishlab/M2V_base_output",
+      "score": 31.23,
+      "total_params_b": 0.008,
+      "released": "2024-09-21",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "minishlab/M2V_base_glove_subword",
+      "score": 31.0,
+      "total_params_b": 0.103,
+      "released": "2024-09-21",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "shibing624/text2vec-base-multilingual",
+      "score": 30.62,
+      "total_params_b": 0.118,
+      "released": "2023-06-22",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Mihaiii/Squirtle",
+      "score": 30.14,
+      "total_params_b": 0.016,
+      "released": "2024-04-30",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "cointegrated/LaBSE-en-ru",
+      "score": 30.12,
+      "total_params_b": 0.129,
+      "released": "2021-06-10",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "minishlab/potion-base-2M",
+      "score": 29.44,
+      "total_params_b": 0.002,
+      "released": "2024-10-29",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "consciousAI/cai-lunaris-text-embeddings",
+      "score": 28.88,
+      "total_params_b": 0.335,
+      "released": "2023-06-22",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "minishlab/M2V_base_glove",
+      "score": 28.31,
+      "total_params_b": 0.102,
+      "released": "2024-09-21",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "McGill-NLP/LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse",
+      "score": 27.05,
+      "total_params_b": 7.153,
+      "released": "2024-04-09",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Mihaiii/gte-micro",
+      "score": 26.45,
+      "total_params_b": 0.017,
+      "released": "2024-04-21",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "deepvk/USER-base",
+      "score": 26.25,
+      "total_params_b": 0.427,
+      "released": "2024-06-10",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Jaume/gemma-2b-embeddings",
+      "score": 23.88,
+      "total_params_b": 2.506,
+      "released": "2024-06-29",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "sergeyzh/rubert-tiny-turbo",
+      "score": 23.03,
+      "total_params_b": 0.029,
+      "released": "2024-06-21",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "cointegrated/rubert-tiny2",
+      "score": 22.44,
+      "total_params_b": 0.029,
+      "released": "2021-10-28",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-mpnet-base-all-nli-triplet",
+      "score": 20.11,
+      "total_params_b": 0.109,
+      "released": "2024-06-15",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "cointegrated/rubert-tiny",
+      "score": 19.98,
+      "total_params_b": 0.012,
+      "released": "2021-05-24",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "silma-ai/silma-embeddding-matryoshka-v0.1",
+      "score": 19.88,
+      "total_params_b": 0.135,
+      "released": "2024-10-12",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabert-all-nli-triplet-Matryoshka",
+      "score": 16.41,
+      "total_params_b": 0.135,
+      "released": "2024-06-16",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v2-small-en",
+      "score": 15.99,
+      "total_params_b": 0.033,
+      "released": "2023-09-27",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "DeepPavlov/rubert-base-cased-sentence",
+      "score": 15.08,
+      "total_params_b": 0.107,
+      "released": "2020-03-04",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "DeepPavlov/distilrubert-small-cased-conversational",
+      "score": 14.91,
+      "total_params_b": 0.107,
+      "released": "2022-06-28",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "ai-forever/sbert_large_nlu_ru",
+      "score": 11.89,
+      "total_params_b": 0.427,
+      "released": "2020-11-20",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Marbert-all-nli-triplet-Matryoshka",
+      "score": 11.84,
+      "total_params_b": 0.163,
+      "released": "2024-06-17",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "DeepPavlov/rubert-base-cased",
+      "score": 11.72,
+      "total_params_b": 1.28,
+      "released": "2020-03-04",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "malenia1/ternary-weight-embedding",
+      "score": 11.57,
+      "total_params_b": 0.099,
+      "released": "2024-10-23",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "ai-forever/sbert_large_mt_nlu_ru",
+      "score": 10.64,
+      "total_params_b": 0.427,
+      "released": "2021-05-18",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "deepvk/deberta-v1-base",
+      "score": 9.28,
+      "total_params_b": 0.124,
+      "released": "2023-02-07",
+      "open_weights": true,
+      "legal_domain": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v2-base-en",
+      "score": 3.2,
+      "total_params_b": 0.137,
+      "released": "2023-09-27",
+      "open_weights": true,
+      "legal_domain": false
+    }
+  ]
+}

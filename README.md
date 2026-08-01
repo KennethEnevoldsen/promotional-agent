@@ -65,9 +65,11 @@ field — a folder and a field would drift the moment one changed without the ot
 | `5-posted` | archive of what went out | `posted_on:` `url:` |
 | `rejected` | dropped, and why | `reason:` (required) |
 
-Folders are named `<trigger-date>-<slug>` — the date the *thing happened*, not the date
-it posts. A candidate has no schedule yet, so a schedule-keyed name would be a lie until
-stage 4.
+Folders carry **no date until they are scheduled**. A candidate is just `dinghy-law-family`;
+at stage 4 it becomes `2026-08-06-dinghy-law-family`. A date in a folder name therefore
+means exactly one thing — when the post goes out — and it appears at the moment it stops
+being a guess. When the thing *happened* is `trigger_date:` in the frontmatter, which is
+a different fact and belongs there.
 
 Everything behind a post lives in its folder, so any number can be traced without
 leaving the folder it was published from:

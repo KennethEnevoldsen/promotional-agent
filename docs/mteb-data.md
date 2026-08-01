@@ -6,10 +6,24 @@ Facts that cost time to discover and are not recoverable by reading the code.
 
 - **The results repo is cached at `~/.cache/mteb/remote`** (~3.1 GB, 659 model dirs).
   `mteb.load_results()` pulls the latest into it.
-- **`load_results()` over all models is far too slow** — loading all 659 models across
-  the 131 tasks of `MTEB(Multilingual, v2)` did not finish in 10 minutes. *Always* pass
-  a `models=` filter. Select the cohort first from `mteb.get_model_metas()`, which is
-  in-memory and instant, then load results only for those names.
+- **Budget ~3 minutes before anything happens.** `import mteb` measured **190 s** on this
+  machine — it pulls torch, transformers and the whole task registry. Everything else is
+  cheap by comparison: `get_benchmark` ~1.6 s, `get_model_metas()` effectively free,
+  `load_results` roughly **4.5 s per model** regardless of how many tasks the benchmark
+  has.
+
+  So the cost model is `190 + 4.5 x models` seconds, near enough. A 6-model cohort is
+  ~3.5 min, 152 models is ~15 min, the whole registry is an hour plus. **Task count
+  barely matters** — an 8-task benchmark over 152 models is no cheaper than a 41-task one
+  over the same models.
+
+  Two consequences: always pass a `models=` filter, and never assume a small benchmark
+  means a fast load. Pick the cohort first from the filesystem or
+  `mteb.get_model_metas()`, both of which are instant.
+
+- **Run long loads unbuffered.** Python buffers stdout through a pipe, so a script killed
+  by a timeout prints *nothing* — not even the progress it had made. Use `python -u` or
+  `flush=True`; otherwise a 10-minute failure tells you nothing about where it went.
 - **Aggregate with `Benchmark.get_score(results)`**, never by averaging task scores by
   hand. It is the same path the leaderboard uses and returns `{"Mean(Task)": …,
   "Mean(TaskType)": …}` per model.
@@ -59,7 +73,14 @@ a half-finished card.
   `get_score` result. So a "how many models have any results" count must come from the
   keys of `agg`, not from `model_results` and not from rows with a non-null score. Both
   of the latter silently report "any results" as identical to "complete results".
-- On eng v2: ~400 models have some results, **99 have all 41 tasks**.
+- On eng v2: ~400 models have some results, **99 have all 41 tasks**. On
+  `MTEB(Law, v1)`: **152 models have all 8 tasks**, five of them legal-domain
+  specialists.
+
+- **Find a cohort from the filesystem when you only need coverage, not scores.** Walking
+  `~/.cache/mteb/remote/results/<model>/<revision>/<Task>.json` and intersecting with the
+  benchmark's task names takes seconds and needs no import. That is how to answer "who
+  has complete results here" before paying the 190 s.
 
 ### Coverage is sparse at the small end
 
