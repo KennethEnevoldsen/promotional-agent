@@ -51,10 +51,15 @@ API = "https://mteb-leaderboard-backend.hf.space"
 BENCHMARK = "MTEB(Law, v1)"
 SUBJECTS = ["Hanno-Labs/dinghy-law-4b-v1", "Hanno-Labs/dinghy-law-0.6b-v1"]
 
-# Legal-domain models. There is no metadata flag for "trained for law", so this is a
-# hand-maintained list — an editorial judgement, and the one thing in this post a reader
-# cannot check against the leaderboard. Keeping it here rather than in prose is the
-# point: it is inspectable, and wrong entries are visible in the diff.
+# Legal-domain models, identified by the model name declaring a legal domain.
+#
+# That is the strongest signal available, not a shortcut: none of these five declares a
+# legal training dataset in its metadata and three list no training data at all, so there
+# is no flag to prefer. Note the converse — `codefuse-ai/F2LLM-v2-14B` is a generalist
+# that *does* list a legal dataset (Lawzhidao, one of 152). The line is "built for the
+# domain", not "has seen the domain".
+#
+# Kept here rather than in prose so it is inspectable and a wrong entry shows in a diff.
 LEGAL_DOMAIN = {
     "Hanno-Labs/dinghy-law-4b-v1",
     "Hanno-Labs/dinghy-law-0.6b-v1",
@@ -118,6 +123,7 @@ def main() -> None:
         "first_general_rank": first_general,
         "rows": [
             {"model": r["model"], "score": r["score"], "params": r["total_params_b"],
+             **({"proprietary": True} if not r["open_weights"] else {}),
              **({"legal": True} if r["legal_domain"] else {}),
              **({"subject": True} if r["model"] in SUBJECTS else {})}
             for r in top

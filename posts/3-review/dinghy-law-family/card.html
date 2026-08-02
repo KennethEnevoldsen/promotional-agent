@@ -58,6 +58,7 @@
       "model": "voyageai/voyage-law-2",
       "score": 65.39,
       "params": null,
+      "proprietary": true,
       "legal": true
     },
     {
@@ -68,7 +69,8 @@
     {
       "model": "voyageai/voyage-3",
       "score": 64.13,
-      "params": null
+      "params": null,
+      "proprietary": true
     },
     {
       "model": "infly/inf-retriever-v1",
@@ -88,7 +90,6 @@
     --text-secondary: #52514e;
     --text-muted:     #898781;
     --accent:         #3d7bff;
-    --legal:          #a06bff;
     --peer:           #b9b7b0;
     --gridline:       #e1e0d9;
     --axis:           #c3c2b7;
@@ -101,7 +102,6 @@
     --text-secondary: #c3c2b7;
     --text-muted:     #898781;
     --accent:         #5b8fff;
-    --legal:          #b98cff;
     --peer:           #55534e;
     --gridline:       #2c2c2a;
     --axis:           #383835;
@@ -149,7 +149,6 @@
     width: 32px; height: 32px; line-height: 30px;
   }
   .row.subject .rank { color: var(--accent); border-color: var(--accent); font-weight: 650; }
-  .row.legal .rank { color: var(--legal); border-color: var(--legal); }
 
   /* Three lines: org, model, size. Splitting them stops the long HF names wrapping
      mid-word and gives the parameter counts somewhere to live that is not a caption
@@ -158,7 +157,6 @@
   .mname .org { display: block; color: var(--text-muted); font-size: 15px; }
   .mname .name { display: block; font-size: 20px; color: var(--text-secondary); }
   .row.subject .mname .name { color: var(--text-primary); font-weight: 640; }
-  .row.legal .mname .name { color: var(--text-primary); }
   .mname .size { display: block; color: var(--text-muted); font-size: 15px; }
 
   .track { height: 40px; position: relative; }
@@ -167,7 +165,6 @@
     background: var(--peer); border-radius: 0 5px 5px 0;   /* rounded data-end */
   }
   .row.subject .fill { background: var(--accent); }
-  .row.legal .fill { background: var(--legal); }
   .val { font-size: 23px; color: var(--text-secondary); text-align: right; }
   .row.subject .val { color: var(--text-primary); font-weight: 640; }
 
@@ -256,12 +253,13 @@
 
 <script>
 const COPY = {
-  eyebrow: "New on MTEB",
+  eyebrow: "New model on MTEB",
   title: "dinghy-law",
-  specs: "Legal-domain embedding models · 0.6B and 4B · from trashhalo",
-  subtitle: "On legal retrieval, domain beats scale",
+  specs: "Specialised legal embedding models from Hanno-Labs · 0.6B and 4B",
+  subtitle: "1st and 4th on MTEB(Law, v1)",
   footer: "Contributed by trashhalo",
-  axis_label: "MTEB(Law, v1)",
+  // states the selection: without this the ranking could be any subset
+  axis_label: "MTEB(Law, v1) · top 8 of 159 models with complete results",
 };
 
 const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
@@ -279,13 +277,15 @@ const splitName = n => {
   const i = n.indexOf("/");
   return i === -1 ? ["", n] : [n.slice(0, i + 1), n.slice(i + 1)];
 };
-// Proprietary models do not publish a size. Say so rather than dropping them or
-// printing a zero — an undisclosed number is not a small one.
-const sizeLine = r => r.params ? `${r.params}B parameters` : "size undisclosed";
+// Two significant figures: 4.028B is false precision on a card, and the comparison
+// being made is order-of-magnitude. Proprietary models report no size at all — say
+// "proprietary" rather than printing a zero or an empty gap.
+const fmtB = b => b >= 10 ? `${b.toFixed(0)}B` : `${b.toFixed(1)}B`;
+const sizeLine = r => r.proprietary ? "proprietary" : r.params ? `${fmtB(r.params)} parameters` : "size not published";
 
 document.getElementById("bars").innerHTML = rows.map((r, i) => {
   const [org, name] = splitName(r.model);
-  const cls = r.subject ? " subject" : r.legal ? " legal" : "";
+  const cls = r.subject ? " subject" : "";
   return `
     <div class="row${cls}">
       <span class="rank">${i + 1}</span>
@@ -310,11 +310,9 @@ document.getElementById("axis").innerHTML = `
   <span class="axis-name">${d.axis_label}</span>
   <span></span>`;
 
-const legal = rows.filter(r => r.legal || r.subject).length;
 window.__altText = [
   `${d.eyebrow}: ${d.title} — ${d.subtitle}.`,
-  `Bar chart of the top ${rows.length} models on ${d.benchmark} (${d.n_tasks} tasks), out of ${d.n_models} with complete results.`,
-  `Legal-domain models take the first ${d.first_general_rank - 1} places; the first general-purpose model is rank ${d.first_general_rank}.`,
+  `Bar chart of the top ${rows.length} models on ${d.benchmark} (${d.n_tasks} tasks), out of ${d.n_models} models with complete results.`,
   rows.map((r, i) => `${i + 1}. ${r.model}, ${r.score.toFixed(2)}, ${sizeLine(r)}`).join("; ") + ".",
   `${d.footer}. Source: MTEB, leaderboard.mteb.org.`,
 ].join(" ");

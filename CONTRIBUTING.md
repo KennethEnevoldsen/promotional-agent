@@ -63,6 +63,52 @@ compare. If recomputation disagrees with the PR, the post does not run.
 
 `docs/mteb-data.md` covers the API and the several ways this goes silently wrong.
 
+### Ask who is missing before believing a ranking
+
+A leaderboard rank is a fact about **who submitted**, not about who is best. On the big
+general benchmarks the two are close enough to ignore. On a domain benchmark they are
+not: a domain model has every incentive to submit domain results, and a frontier
+generalist has none.
+
+This is measurable, so measure it. Take the top ~20 models on a broad benchmark and check
+how many appear in the cohort you are about to rank. For `MTEB(Law, v1)`: **14 of the top
+20 `MTEB(eng, v2)` models had no complete Law results**, including the top four overall.
+A post concluding "specialists beat generalists" from that ranking would have been
+measuring submission behaviour and calling it capability.
+
+Two ways out, in order of preference:
+
+1. **Find the claim that survives.** A *within-model* comparison — the same model on two
+   benchmarks — is untouched by who else submitted. `Jasper-Token-Compression-600M` is
+   5th on English and 29th on legal; that holds no matter who is absent, and it turned
+   out to be the more interesting finding anyway.
+2. **Scope the claim to the cohort.** "Of models evaluated on X" is honest and often
+   enough. Say it in the post, not only in the notes.
+
+Never state or imply the unscoped version. The absent models are usually absent precisely
+because they are the ones that would test the claim.
+
+### One post, one claim
+
+A model announcement and a claim about the field are different posts even when they use
+the same query and the same chart. `dinghy-law-family` says "this model is first";
+`legal-specialisation` says "specialists beat generalists here". Same eight rows, but the
+subject differs and so does the risk: an announcement is wrong only if a number is wrong,
+while a field claim is wrong if a *category* is wrong.
+
+The tell is in the card. An early dinghy-law card coloured every legal-domain model,
+which encoded the field claim on a post that was announcing a model — and left a reader
+asking what the colour meant, because nothing on the card was making that argument.
+
+**Colour may only encode the claim the post is actually making.** If a distinction is
+worth colouring, it is worth a sentence; if it does not get a sentence, it should be
+context grey.
+
+When two posts do overlap, mark it (`competes_with:` in the frontmatter) and choose
+between them rather than running both in a week. Merging is sometimes the better answer,
+but a merged post is a third thing that needs its own draft, not either original with a
+paragraph bolted on.
+
 ### Choose the cohort, and record it
 
 Any comparison names *other people's models*, so the cohort has to be one those authors
