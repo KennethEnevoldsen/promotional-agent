@@ -60,7 +60,7 @@ field — a folder and a field would drift the moment one changed without the ot
 |---|---|---|
 | `1-candidates` | something happened; a guess at why it matters. No numbers yet. | — |
 | `2-drafting` | being built, or stuck | `todo:` (our work) / `blocked_on:` (waiting on someone else) |
-| `3-review` | everything checkable has been checked; awaiting the editorial call | `verified:` `evidence:` `media:` `alt:` |
+| `3-review` | everything checkable has been checked; awaiting the editorial call | `verified:` `evidence:` `media:` |
 | `4-scheduled` | approved, with a date | `scheduled_for:` |
 | `5-posted` | archive of what went out | `posted_on:` `url:` |
 | `rejected` | dropped, and why | `reason:` (required) |
@@ -79,9 +79,8 @@ posts/3-review/2026-07-30-bekko-frontier/
   post.md      the text, frontmatter and editorial notes
   fetch.py     the exact query that produced the numbers
   data.json    its output — the full cohort, not just the flattering rows
-  card.html    the card: its data, its copy, and the markup that draws it
+  card.html    the card: its data, its copy, the markup that draws it, and its alt text
   card.png     the rendered image
-  card.txt     its alt text
 ```
 
 A candidate has only `post.md`. The rest appear as it earns them, so the stage is
@@ -98,6 +97,9 @@ uv run mteb-scan --since 2026-07-24 --write    # create folders in posts/1-candi
 
 # recompute a post's numbers from the results repo (~4 min; ~15 for a whole-registry post)
 uv run posts/3-review/2026-07-30-bekko-frontier/fetch.py
+
+# check every post against the mechanical rules (instant)
+uv run mteb-validate
 
 # render its card (~3 s)
 uv run mteb-render --card posts/3-review/2026-07-30-bekko-frontier/card.html \
@@ -122,10 +124,12 @@ docs/
   mteb-data.md       working with the MTEB API — the parts that surprise
 src/mtebpost/
   scan.py            stage 0: candidate detection from merged PRs
+  validate.py        checks the rules a machine can check
   scoreboard.py      leaderboard queries and cohort selection
   cards.py           writes query results into a card's #card-data block
   render.py          card.html -> png + alt text
 posts/               the pipeline (above)
+profile.md           account identity, voice, and the bio text
 social-handles.yaml  GitHub -> social handle map; opt-in, drives tagging
 assets/              MTEB logo
 ```

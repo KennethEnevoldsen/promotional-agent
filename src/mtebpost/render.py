@@ -12,11 +12,14 @@ the checked-in markup.
 The only thing injected at render time is `mode`, merged into the existing card data
 rather than replacing it, so dark and light come from one file.
 
-Alt text is read back out of the rendered page (`window.__altText`) rather than
-recomputed here — one definition, in the card, that cannot disagree with the image. It
-is written next to the *card*, not the output, so `card.html` yields exactly one
-`card.txt` no matter how many PNGs get rendered from it. A PNG cannot carry alt text and
-Bluesky wants it as a separate field, which is why the sidecar exists at all.
+Alt text is read back out of the rendered page (`window.__altText`) and written into the
+card itself as `<script type="text/plain" id="alt-text">`. So it stays generated from the
+same data that drew the image — it cannot disagree with the picture — while remaining
+readable by anything that can parse HTML, with no browser required at publish time.
+
+There is deliberately no `.txt` sidecar. A derived file next to a source file is a file
+that drifts; the card already carries its own data and copy, and the alt text belongs
+there for the same reason.
 
 `--mode dark` is for previewing: only one image can be posted, so the light render is
 the artifact and a dark PNG would just be a second copy of the same numbers.
@@ -55,6 +58,26 @@ def build_page(card: pathlib.Path, mode: str) -> str:
     return html[: m.start(2)] + "\n" + blob + "\n" + html[m.end(2) :]
 
 
+ALT_BLOCK = re.compile(
+    r'<script type="text/plain" id="alt-text">.*?</script>\n?', re.S
+)
+
+
+def write_alt(card: pathlib.Path, alt: str) -> None:
+    """Store the generated alt text in the card, replacing any previous copy.
+
+    Kept as `type="text/plain"` so the browser neither executes nor renders it; it is
+    inert payload that a publisher can lift out with a regex.
+    """
+    html = card.read_text()
+    block = f'<script type="text/plain" id="alt-text">\n{alt}\n</script>\n'
+    html = ALT_BLOCK.sub("", html)
+    # sits directly after the card data, where anything generated lives
+    marker = "</script>\n"
+    i = html.index(marker) + len(marker)
+    card.write_text(html[:i] + block + html[i:])
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--card", required=True, help="path to the post's card.html")
@@ -82,11 +105,9 @@ def main() -> None:
             alt = page.evaluate("window.__altText")
             browser.close()
 
-    # sidecar belongs to the card, not to this particular render
-    alt_path = pathlib.Path(args.card).with_suffix(".txt")
-    alt_path.write_text(alt + "\n")
+    write_alt(pathlib.Path(args.card), alt)
     print(f"{out}  ({out.stat().st_size // 1024} KB)")
-    print(f"{alt_path}  alt text")
+    print(f"alt text -> {args.card} (#alt-text)")
 
 
 if __name__ == "__main__":

@@ -63,6 +63,49 @@ compare. If recomputation disagrees with the PR, the post does not run.
 
 `docs/mteb-data.md` covers the API and the several ways this goes silently wrong.
 
+### Default to MTEB(Multilingual, v2)
+
+Unless the post is specifically about English, or about a domain or modality that has its
+own benchmark, **`MTEB(Multilingual, v2)` is the general-purpose benchmark**. It is newer,
+less exposed to overfitting than the English set, and it describes performance for far
+more people. `MTEB(eng, v2)` answers a narrower question and should be chosen on purpose,
+not by default.
+
+This is worth stating because the default slipped once already. Two state-of-the-field
+posts were built on `eng v2` for a purely mechanical reason — 41 tasks loaded faster than
+131 — which stopped being true once load cost turned out to scale with model count rather
+than task count, and stopped mattering entirely once the leaderboard API made either
+about a second. A performance workaround outlived its cause and quietly narrowed the
+claims to English.
+
+If you use `eng v2`, say in the post why English is the right scope for that claim.
+
+### Curate for breadth
+
+This account exists to encourage embedding models that work broadly — across languages,
+domains and modalities. What it chooses to cover is itself a signal about what counts as
+progress, so the *mix* of posts is an editorial object, not just the individual posts.
+
+Check the mix at scheduling, over roughly the last ten posts:
+
+- **Languages.** English-only results are a narrow slice. If several posts running have
+  been English, prefer a multilingual or non-English one.
+- **Modalities.** Text dominates by volume. Audio, image and video work is
+  under-represented relative to how much of it is landing — the MOEB cluster added 18
+  audio and video tasks in a month and none of it has been posted.
+- **Domains.** Legal, code, medical and finance benchmarks exist and get far less
+  attention than the general leaderboards.
+- **Kinds of post.** Model announcements are the easiest to produce and will crowd out
+  dataset, benchmark and feature posts if nothing pushes back.
+
+When two candidates are otherwise close, **prefer the one that broadens coverage**. When
+a whole area has gone quiet in the feed but not in the repos, that is a reason to go
+looking rather than to wait.
+
+This is a bias correction, not a quota. A genuinely important English text model should
+still be posted; the rule is to notice when a run of posts has narrowed, and to reach for
+breadth when the choice is otherwise a toss-up.
+
 ### Ask who is missing before believing a ranking
 
 A leaderboard rank is a fact about **who submitted**, not about who is best. On the big
@@ -140,6 +183,14 @@ long structurally.
 House style: factual, specific, understated. Lead with the concrete thing. No hype
 adjectives, no emoji strings, no hashtag stuffing.
 
+**Voice is "we", meaning the MTEB team** — the org is accountable for what goes out
+whoever drafted it. Never first-person-singular: the tooling is not a character, and a
+character invites the replies this account does not make. "We" is for accountability, not
+warmth. `profile.md` has the account-level identity.
+
+**Anything true of every post belongs in the bio, not the feed.** If a draft is mostly
+explaining what the account is, it is competing with `profile.md` and will lose.
+
 **Name models by their full Hugging Face id** — `hotchpotch/bekko-embedding-v1-a8m`, not
 `bekko`. It costs characters, but an abbreviation is harder to check against the
 leaderboard and two models can abbreviate to the same string.
@@ -158,6 +209,32 @@ Post shapes that have worked:
 a benchmark name and a credit line it is already at ~290 characters with nothing left to
 say why anyone should care. Moving the numbers into the image frees the text to make the
 argument. See `docs/card-design.md`.
+
+### The LinkedIn version
+
+A post that runs on Bluesky may also carry a `linkedin.md` in its folder, referenced as
+`linkedin:` in the frontmatter. LinkedIn allows far more room, so the long form can
+explain rather than compress.
+
+**It is the same voice, not a second one.** The failure mode is obvious once stated: two
+formats drift into two personalities, one terse and factual, the other doing thought
+leadership. Everything true of the Bluesky text is true here — no hype adjectives, every
+number recomputed, the same scoping on every claim, the same credit rules.
+
+What the extra room is *for*:
+
+- the caveat that would not fit — coverage limits, what the cohort excludes, why the
+  benchmark was chosen
+- one more level of "why this is interesting", where Bluesky can only state the finding
+- naming the people involved properly rather than compressing to a handle
+
+What it is **not** for: restating the same sentence at greater length, adding a
+call-to-action, or reaching for a broader claim than the evidence carries. If the long
+version needs a bigger claim to justify its length, it does not need the length.
+
+Write it from the same `data.json`. If the two versions ever disagree on a number, that
+is a bug, not a style difference — which is a reason to derive both from the evidence
+rather than writing the second from the first.
 
 ### Credit
 
@@ -186,12 +263,35 @@ what the roundup shape exists for.
 Check `expires:` before scheduling. News older than about a month is not news, and a
 post that sat in review past its window should be rejected rather than shipped stale.
 
+**This move is the human's, and only the human's.** `3-review` means "a person has not
+looked yet". An agent that drafts a post and then schedules it has removed the only step
+that makes any of the rest trustworthy — and it is an easy mistake, because the work
+feels finished. Record who decided in `approved_by:`; `mteb-validate` refuses a scheduled
+post without a named approver.
+
 **Add the date to the folder name when you move it here** — `dinghy-law-family` becomes
 `2026-08-06-dinghy-law-family` — and set `scheduled_for:` to match. That is the only
 point in the pipeline where a folder gets a date, which is what keeps the date
 meaningful.
 
 ---
+
+## Validate before moving a post forward
+
+```bash
+uv run mteb-validate                    # whole pipeline
+uv run mteb-validate --stage 3-review   # one stage
+```
+
+It checks what a machine can: the 300-character limit, required frontmatter per stage,
+that `media:`/`linkedin:` point at files that exist, that a thread declares as many
+posts as it contains, that every card carries alt text and has been rendered, that folder dates
+appear only once scheduled and match `scheduled_for:`, and that no two posts share a day.
+
+**A clean run means nothing is obviously broken. It does not mean the post is good.**
+Whether a cohort is fair, whether a claim is scoped to its evidence, whether the subject
+is worth anyone's attention — none of that is checkable, and all of it is in this file.
+Treat the validator as the floor, never the bar.
 
 ## Rejecting
 

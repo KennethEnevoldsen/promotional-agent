@@ -23,11 +23,9 @@
   the copy lives in the COPY object further down. Open it in a browser and you see
   exactly what renders — there is no separate data file to fall out of sync with.
 
-    .venv/bin/python posts/2026-08-06-bekko-size-class/fetch.py        # refresh the numbers
-    uv run visuals/render.py --card posts/2026-08-06-bekko-size-class/card.html \
-      --out posts/2026-08-06-bekko-size-class/card.png                 # ~3s
-    uv run visuals/render.py --card posts/2026-08-06-bekko-size-class/card.html --mode dark \
-      --out posts/2026-08-06-bekko-size-class/card.png
+    .venv/bin/python posts/2026-08-03-bekko-frontier/fetch.py        # refresh the numbers
+    uv run visuals/render.py --card posts/2026-08-03-bekko-frontier/card.html \
+      --out posts/2026-08-03-bekko-frontier/card.png          # ~3s
 
   Edit copy freely — it costs a re-render, not a re-fetch. Only re-run fetch.py when
   the cohort query itself changes, or before posting to confirm the numbers still hold.
@@ -90,6 +88,9 @@
   ]
 }
 </script>
+<script type="text/plain" id="alt-text">
+New model on MTEB: Bekko — A new Pareto frontier for parameter-efficient multilingual embeddings. Scatter plot of MTEB(Multilingual, v2) against Active parameters for 6 undefined. hotchpotch/bekko-embedding-v1-a25m scores 58.36 at 25M active parameters; hotchpotch/bekko-embedding-v1-a8m scores 56.73 at 8M active parameters. Compared against codefuse-ai/F2LLM-v2-80M at 32M, 55.23; ibm-granite/granite-embedding-97m-multilingual-r2 at 28M, 51.92; sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 at 22M, 48.73; sentence-transformers/static-similarity-mrl-multilingual-v1 at 0 (static), 47.21. On the Pareto frontier (nothing is both smaller and higher-scoring): sentence-transformers/static-similarity-mrl-multilingual-v1, hotchpotch/bekko-embedding-v1-a8m, hotchpotch/bekko-embedding-v1-a25m. multilingual models ≤ 60M active params. Contributed by hotchpotch. Source: MTEB, leaderboard.mteb.org.
+</script>
 
 <style>
   :root {
@@ -142,81 +143,26 @@
     color: var(--text-primary);
   }
 
-  .plot { flex: 1; margin-top: 10px; display: flex; flex-direction: column; min-height: 0; }
+  .plot { flex: 1; margin-top: 34px; }
   svg { width: 100%; height: 100%; display: block; overflow: visible; }
-
-  /* Ranked rows. One grid so rank / name / track / value stay in columns and the
-     axis ticks below line up with the track. */
-  .bars { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 44px; }
-  .row, .axis {
-    display: grid;
-    grid-template-columns: 38px 420px 1fr 84px;
-    align-items: center; gap: 14px;
-  }
-  .rank {
-    font-size: 17px; color: var(--text-muted); text-align: center;
-    border: 1px solid var(--hairline); border-radius: 50%;
-    width: 32px; height: 32px; line-height: 30px;
-  }
-  .row.subject .rank { color: var(--accent); border-color: var(--accent); font-weight: 650; }
-  .row.reference .rank { border: none; }
-
-  /* Three lines: org, model, size. Splitting them stops the long HF names wrapping
-     mid-word and gives the parameter counts somewhere to live that is not a caption
-     tacked onto the end of the name. */
-  .mname { line-height: 1.2; }
-  .mname .org { display: block; color: var(--text-muted); font-size: 15px; }
-  .mname .name { display: block; font-size: 20px; color: var(--text-secondary); }
-  .row.subject .mname .name { color: var(--text-primary); font-weight: 640; }
-  .mname .size { display: block; color: var(--text-muted); font-size: 15px; }
-
-  .track { height: 40px; position: relative; }
-  .fill {
-    position: absolute; left: 0; top: 0; bottom: 0;
-    background: var(--peer); border-radius: 0 5px 5px 0;   /* rounded data-end */
-  }
-  .row.subject .fill { background: var(--accent); }
-  /* The reference gets a 45-degree hatch rather than a solid fill: it is a scale marker,
-     not a competitor, and texture reads as "different kind of thing" where a lighter
-     solid would just read as "smaller number". 45 degrees is the texture convention. */
-  .row.reference .fill {
-    background-color: transparent;
-    background-image: repeating-linear-gradient(45deg,
-      var(--peer) 0 5px, transparent 5px 11px);
-  }
-  .val { font-size: 23px; color: var(--text-secondary); text-align: right; }
-  .row.subject .val { color: var(--text-primary); font-weight: 640; }
-  .row.reference .val { color: var(--text-muted); }
-  .row.reference .mname .name { color: var(--text-muted); }
-
-  .row.reference { border-bottom: 1px solid var(--hairline); padding-bottom: 18px; }
-
-  .axis { margin-top: 8px; padding-top: 6px; row-gap: 4px; }
-  .axis .ticks { position: relative; height: 16px; }
-  .axis .ticks span {
-    position: absolute; transform: translateX(-50%);
-    font-size: 16px; color: var(--text-muted);
-  }
-  .axis .rule { grid-column: 3 / 4; height: 1px; background: var(--axis); }
-  .axis-name { font-size: 17px; color: var(--text-secondary); font-weight: 550; text-align: center; }
   .grid { stroke: var(--gridline); stroke-width: 1; }
   .axis-line { stroke: var(--axis); stroke-width: 1; }
-  .tick { fill: var(--text-muted); font-size: 15px; }
-  .axis-title { fill: var(--text-secondary); font-size: 16px; font-weight: 550; }
+  .tick { fill: var(--text-muted); font-size: 18px; }
+  .axis-title { fill: var(--text-secondary); font-size: 19px; font-weight: 550; }
   /* No surface ring on either dot: it was there to separate overlapping marks, but the
      points are well spread and over the shaded region the ring reads as a white halo. */
   .peer-dot { fill: var(--peer); }
   .subject-dot { fill: var(--accent); }
-  .subject-label { fill: var(--text-primary); font-size: 18px; font-weight: 640; }
-  .subject-org { fill: var(--text-secondary); font-size: 12px; }
-  .subject-score { fill: var(--text-secondary); font-size: 17px; }
-  .peer-label { fill: var(--text-muted); font-size: 14px; }
-  .peer-org { fill: var(--text-muted); font-size: 10.5px; opacity: 0.8; }
+  .subject-label { fill: var(--text-primary); font-size: 22px; font-weight: 640; }
+  .subject-org { fill: var(--text-secondary); font-size: 15px; }
+  .subject-score { fill: var(--text-secondary); font-size: 20px; }
+  .peer-label { fill: var(--text-muted); font-size: 17px; }
+  .peer-org { fill: var(--text-muted); font-size: 13px; opacity: 0.8; }
   /* The frontier is drawn as a region, not a line: its top edge IS the boundary, so a
      separate stroke along it only restates what the shading already says. Slightly
      stronger than a pure background tint because it is now the sole marker. */
   .frontier-fill { fill: var(--accent); opacity: 0.09; stroke: none; }
-  .zero-note { fill: var(--text-muted); font-size: 13px; font-style: italic; }
+  .zero-note { fill: var(--text-muted); font-size: 15px; font-style: italic; }
 
   footer {
     display: flex; justify-content: space-between; align-items: flex-end;
@@ -257,10 +203,7 @@
   </div>
 </header>
 
-<div class="plot">
-  <div class="bars" id="bars"></div>
-  <div class="axis" id="axis"></div>
-</div>
+<div class="plot"><svg id="plot"></svg></div>
 
 <footer>
   <!-- The cohort statement is no longer printed on the card. It still reaches the alt
@@ -272,89 +215,248 @@
   <span id="footer"></span>
 </footer>
 
-
 <script>
 // ---------------------------------------------------------------------------
-// COPY — see card.html for why this is here and not in fetch.py.
+// COPY. Every sentence a human chose lives here, not in fetch.py, so editing a
+// word costs a re-render (seconds) rather than a re-fetch (minutes).
+// #card-data above supplies only query-derived values, written there by fetch.py.
 // ---------------------------------------------------------------------------
 const COPY = {
   eyebrow: "New model on MTEB",
   title: "Bekko",
-  subtitle: "Top of its size class for multilingual models",
+  subtitle: "A new Pareto frontier for parameter-efficient multilingual embeddings",
   specs: "110 languages · 8k context · Matryoshka 64–384",
+  x_label: "Active parameters",
   footer: "Contributed by hotchpotch",
-  // the benchmark names the axis under the bars rather than crowding the headline
-  axis_label: "MTEB(Multilingual, v2)",
+};
+
+// Per-model label placement overrides — presentation, same rule as the copy above.
+const LABEL_SIDE = {
+  "hotchpotch/bekko-embedding-v1-a8m": "left",
 };
 
 const data = JSON.parse(document.getElementById("card-data").textContent);
-const d = { ...COPY, ...data,
-  context: `multilingual models ≤ ${Math.round(data.max_active_params / 1e6)}M active params` };
-
-const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+const d = {
+  ...COPY,
+  ...data,
+  // Derived here, not in fetch.py: fetch supplies the value (60000000), the card
+  // decides the words. The y-axis names the benchmark; `context` is alt-text only,
+  // and is what tells a screen-reader user the scope of the frontier claim.
+  y_label: data.benchmark,
+  context: `multilingual models ≤ ${Math.round(data.max_active_params / 1e6)}M active params`,
+};
+// Null-safe: removing an element from the markup should drop that line from the card,
+// not throw and leave the whole chart unrendered.
+const set = (id, v) => {
+  const n = document.getElementById(id);
+  if (n) n.textContent = v ?? "";
+};
 set("eyebrow", d.eyebrow); set("title", d.title); set("subtitle", d.subtitle);
-set("specs", d.specs); set("footer", d.footer);
+set("specs", d.specs);
+set("footer", d.footer);   // d.context is alt-text only — it has no element on the card
 if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
 
-// The reference is pulled out of the ranking: it is 280x over the size cap, so ranking
-// it against the cohort would be the exact unfair comparison the cohort filter exists
-// to prevent. It sits above the divider as scale, unnumbered.
-const ranked = [...d.points].filter(p => !p.reference).sort((a, b) => b.y - a.y);
-const reference = d.points.find(p => p.reference);
-const pts = reference ? [reference, ...ranked] : ranked;
+// Size the viewBox to the plot box's real pixel dimensions so 1 SVG unit == 1 px.
+// A fixed viewBox stretched to fit would turn every circle into an ellipse.
+const svgEl = document.getElementById("plot");
+const box = svgEl.getBoundingClientRect();
+const W = Math.round(box.width), H = Math.round(box.height);
+svgEl.setAttribute("viewBox", `0 0 ${W} ${H}`);
 
-// Bars start at zero. The Arena reference this borrows from truncates its axis (1,450
-// upward), which exaggerates small Elo gaps; on a 0-100 score, zero is meaningful and
-// truncating would misstate the differences as far larger than they are. The cost is a
-// less dramatic chart — the ranking and the printed values carry the detail instead.
-const AXIS_MAX = Math.ceil(Math.max(...pts.map(p => p.y)) / 20) * 20;
+const M = { t: 30, r: 24, b: 58, l: 58 };
+// The reference model is carried in the data for the bar card; here it would stretch a
+// log axis out to 7B and squash the whole 0-32M cohort into the left margin.
+const pts = d.points.filter(p => !p.reference);
 
-const M = n => n >= 1e9 ? `${(n / 1e9).toFixed(1)}B` : `${(n / 1e6).toFixed(1)}M`;
-const sizeLine = p => (p.x === 0
-  ? `${M(p.total)} params · static`
-  : `${M(p.total)} params · ${M(p.x)} active`)
-  + (p.reference ? " · shown for scale" : "");
-const splitName = n => {
-  const i = n.indexOf("/");
-  return i === -1 ? ["", n] : [n.slice(0, i + 1), n.slice(i + 1)];
+// Static embedding models have exactly 0 active parameters — a real value, not a gap.
+// log(0) is undefined, so they get their own band at the left of the axis, separated by
+// an explicit break marker. Faking them as "0.1M" would misstate the one number that
+// makes them interesting.
+const hasZero = pts.some(p => p.x === 0);
+const ZERO_W = hasZero ? 74 : 0;
+const BREAK_W = hasZero ? 26 : 0;
+
+const nz = pts.filter(p => p.x > 0);
+const xs = nz.map(p => Math.log10(p.x)), ys = pts.map(p => p.y);
+const xmin = Math.floor(Math.min(...xs) * 2) / 2 - 0.15;
+const xmax = Math.ceil(Math.max(...xs) * 2) / 2 + 0.15;
+const pad = Math.max(2, (Math.max(...ys) - Math.min(...ys)) * 0.18);
+const ymin = Math.min(...ys) - pad, ymax = Math.max(...ys) + pad;
+
+const LOG_L = M.l + ZERO_W + BREAK_W;  // where the log scale starts
+const X = v => v === 0
+  ? M.l + ZERO_W / 2
+  : LOG_L + (Math.log10(v) - xmin) / (xmax - xmin) * (W - LOG_L - M.r);
+const Y = v => H - M.b - (v - ymin) / (ymax - ymin) * (H - M.t - M.b);
+
+const fmt = n => n === 0 ? "0 (static)"
+  : n >= 1e9 ? (n/1e9) + "B" : n >= 1e6 ? Math.round(n/1e6) + "M" : Math.round(n/1e3) + "K";
+const svg = svgEl;
+const el = (t, a, txt) => {
+  const n = document.createElementNS("http://www.w3.org/2000/svg", t);
+  for (const k in a) n.setAttribute(k, a[k]);
+  if (txt != null) n.textContent = txt;
+  svg.appendChild(n); return n;
 };
 
-let rank = 0;
-document.getElementById("bars").innerHTML = pts.map(p => {
-  const [org, name] = splitName(p.model);
-  const cls = p.reference ? " reference" : p.subject ? " subject" : "";
-  const badge = p.reference ? "" : ++rank;
-  const row = `
-    <div class="row${cls}">
-      <span class="rank">${badge}</span>
-      <span class="mname">
-        <span class="org">${org}</span>
-        <span class="name">${name}</span>
-        <span class="size">${sizeLine(p)}</span>
-      </span>
-      <span class="track"><span class="fill" style="width:${(p.y / AXIS_MAX * 100).toFixed(2)}%"></span></span>
-      <span class="val">${p.y.toFixed(2)}</span>
-    </div>`;
-  // divider marks where the size class begins; everything above it is scale only
-  return row;
-}).join("");
+// y gridlines — recessive, and they carry the ticks so no separate y axis rule is needed
+const yStep = (ymax - ymin) > 30 ? 10 : (ymax - ymin) > 12 ? 5 : 2;
+for (let v = Math.ceil(ymin / yStep) * yStep; v <= ymax; v += yStep) {
+  el("line", { x1: M.l, x2: W - M.r, y1: Y(v), y2: Y(v), class: "grid" });
+  el("text", { x: M.l - 12, y: Y(v) + 5, class: "tick", "text-anchor": "end" }, v);
+}
+// x ticks: decades when the range spans several, else 1-2-5 steps within the decade.
+// A narrow range (7M-32M) would otherwise show a single lonely "10M".
+const decades = [];
+for (let e = Math.ceil(xmin); e <= Math.floor(xmax); e++) decades.push(Math.pow(10, e));
+let xticks = decades;
+if (decades.length < 3) {
+  xticks = [];
+  for (let e = Math.floor(xmin); e <= Math.ceil(xmax); e++) {
+    for (const m of [1, 2, 5]) {
+      const v = m * Math.pow(10, e);
+      const lv = Math.log10(v);
+      if (lv >= xmin && lv <= xmax) xticks.push(v);
+    }
+  }
+}
+for (const v of xticks) {
+  el("text", { x: X(v), y: H - M.b + 26, class: "tick", "text-anchor": "middle" }, fmt(v));
+}
+if (hasZero) {
+  el("text", { x: X(0), y: H - M.b + 26, class: "tick", "text-anchor": "middle" }, "0");
+  el("text", { x: X(0), y: H - M.b + 44, class: "zero-note", "text-anchor": "middle" }, "static");
+}
+el("line", { x1: M.l, x2: W - M.r, y1: H - M.b, y2: H - M.b, class: "axis-line" });
+if (hasZero) {
+  // explicit break: the axis is discontinuous between the zero band and the log scale
+  const bx = M.l + ZERO_W + BREAK_W / 2, by = H - M.b;
+  el("rect", { x: bx - 9, y: by - 6, width: 18, height: 12, fill: "var(--surface)" });
+  for (const dx of [-4, 3]) {
+    el("line", { x1: bx + dx, y1: by + 7, x2: bx + dx + 6, y2: by - 7, class: "axis-line" });
+  }
+}
+// axis titles get their own line: centred below the ticks, and above the top gridline,
+// so neither can collide with a tick label at the edge of the range
+el("text", { x: (M.l + W - M.r) / 2, y: H - 8, class: "axis-title", "text-anchor": "middle" }, d.x_label);
+el("text", { x: 0, y: 12, class: "axis-title", "text-anchor": "start" }, d.y_label);
 
-const ticks = [];
-for (let v = 0; v <= AXIS_MAX; v += 20) ticks.push(v);
-document.getElementById("axis").innerHTML = `
-  <span></span><span></span>
-  <span class="ticks">${ticks.map(v =>
-    `<span style="left:${(v / AXIS_MAX * 100).toFixed(2)}%">${v}</span>`).join("")}</span>
-  <span></span>
-  <span></span><span></span>
-  <span class="axis-name">${d.axis_label}</span>
-  <span></span>`;
+// peers first so subjects always sit on top.
+// Peers get named whenever the cohort is small enough to read: an anonymous gray cloud
+// asks the viewer to trust the comparison, whereas naming them makes it checkable —
+// which is the entire point of showing peers at all.
+// Pareto frontier: the models no other model beats on both axes at once — nothing here
+// is smaller *and* scores higher. Drawn as a staircase rather than a straight line
+// between points, because that is the actual boundary of what has been achieved: at a
+// given size you can have the best score at or below that size, not an interpolation
+// between two models that would imply a model nobody has trained.
+// Drawn first so the dots sit on top of it.
+const frontier = [...pts]
+  .sort((a, b) => a.x - b.x || b.y - a.y)
+  .reduce((acc, p) => {
+    if (!acc.length || p.y > acc[acc.length - 1].y) acc.push(p);
+    return acc;
+  }, []);
+
+if (frontier.length > 1) {
+  // The region spans the plot and stops at its edges — it is a property of the plotting
+  // area, and bleeding it past the axes would read as a background wash rather than as
+  // a bounded claim about the models shown.
+  const X0 = M.l, X1 = W - M.r;
+  const last = frontier[frontier.length - 1];
+
+  // The staircase carries the frontier out to the right edge at the last model's score:
+  // at any larger size you can still just use that model, so the guarantee continues.
+  let path = `M ${X0} ${Y(frontier[0].y)} L ${X(frontier[0].x)} ${Y(frontier[0].y)}`;
+  for (let i = 1; i < frontier.length; i++) {
+    path += ` L ${X(frontier[i].x)} ${Y(frontier[i - 1].y)}`;  // hold the score…
+    path += ` L ${X(frontier[i].x)} ${Y(frontier[i].y)}`;      // …then step up
+  }
+  path += ` L ${X1} ${Y(last.y)}`;
+
+  // Everything below the staircase is dominated: for any point in it there is a model
+  // that is no larger and scores at least as well.
+  const floor = H - M.b;
+  el("path", { d: `${path} L ${X1} ${floor} L ${X0} ${floor} Z`, class: "frontier-fill" });
+}
+
+// Full HF names are too wide for one line, so split at the "/": org above, model below.
+const splitName = n => {
+  const i = n.indexOf("/");
+  return i === -1 ? [null, n] : [n.slice(0, i + 1), n.slice(i + 1)];
+};
+
+// Place a multi-line label above a point, always anchored *to the point* and running
+// inward — start for a point on the left half, end on the right. Never centred.
+//
+// Centring was the earlier default and only broke out to an anchor when a label would
+// have overflowed, which meant most labels were centred and the one awkward one was not.
+// Mixed alignment reads as a mistake even when each individual label is placed legally,
+// so every reference label now gets the same treatment.
+//
+// The anchor is decided once from the widest line and applied to every line, so org and
+// model lines always align with each other. Deciding per line lets a narrow org sit
+// differently from the wide name below it — the same inconsistency one level down.
+//
+// Widths are measured after insertion rather than estimated from character count,
+// because a guess is wrong exactly for the long HF names this card is full of.
+const labelBlock = (x, lines, side) => {
+  const anchor = (side ?? (x > W / 2 ? "right" : "left")) === "right" ? "end" : "start";
+  const els = lines.map(l =>
+    el("text", { x, y: l.y, class: l.cls, "text-anchor": anchor }, l.txt)
+  );
+  const w = Math.max(...els.map(t => t.getComputedTextLength()));
+
+  // Only if the label would leave the plot does it give up its anchor to the point.
+  let lx = x;
+  if (anchor === "start" && x + w > W - 2) lx = Math.max(2, W - 2 - w);
+  if (anchor === "end" && x - w < 2) lx = Math.min(W - 2, 2 + w);
+  if (lx !== x) for (const t of els) t.setAttribute("x", lx);
+};
+
+const peers = pts.filter(p => !p.subject);
+const namePeers = peers.length <= 6;
+for (const p of peers) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 5, class: "peer-dot" });
+  if (!namePeers) continue;
+  // Above the dot, not beside it: the frontier runs horizontally *through* a point's
+  // own y, so a side label collides with it by construction wherever a peer sits on or
+  // near the frontier. Above is clear of that line everywhere.
+  const [org, name] = splitName(p.model);
+  labelBlock(X(p.x), [
+    ...(org ? [{ txt: org, cls: "peer-org", y: Y(p.y) - 26 }] : []),
+    { txt: name, cls: "peer-label", y: Y(p.y) - 12 },
+  ]);
+}
+for (const p of pts.filter(p => p.subject)) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 7.5, class: "subject-dot" });
+  // Default: flip the label inside the plot when the point sits right of centre.
+  // LABEL_SIDE overrides that per model — a8m reads better pointing left, away from
+  // a25m's label, which the automatic rule puts on a collision course with it.
+  const [org, name] = splitName(p.model);
+  const right = LABEL_SIDE[p.model] ? LABEL_SIDE[p.model] === "left" : X(p.x) > W / 2;
+  const lx = X(p.x) + (right ? -14 : 14);
+  const a = { x: lx, "text-anchor": right ? "end" : "start" };
+  if (org) el("text", { ...a, y: Y(p.y) - 26, class: "subject-org" }, org);
+  el("text", { ...a, y: Y(p.y) - 8, class: "subject-label" }, name);
+  el("text", { ...a, y: Y(p.y) + 13, class: "subject-score" }, p.y.toFixed(2));
+}
 
 window.__altText = [
   `${d.eyebrow}: ${d.title} — ${d.subtitle}.`,
-  `Bar chart ranking ${ranked.length} ${d.context} by score on ${d.benchmark}, ${d.n_tasks} tasks.`,
-  ranked.map((p, i) => `${i + 1}. ${p.model}, ${p.y.toFixed(2)}, ${sizeLine(p)}`).join("; ") + ".",
-  reference ? `Shown above for scale only, far outside the size class: ${reference.model}, ${reference.y.toFixed(2)}, ${sizeLine(reference)}.` : "",
-  `${d.footer}. Source: MTEB, leaderboard.mteb.org.`,
+  `Scatter plot of ${d.y_label} against ${d.x_label} for ${pts.length} ${d.cohort_label}.`,
+  pts.filter(p => p.subject)
+     .map(p => `${p.model} scores ${p.y.toFixed(2)} at ${fmt(p.x)} active parameters`)
+     .join("; ") + ".",
+  // name the peers in alt text too — the cohort should be checkable without the image
+  peers.length
+    ? "Compared against " + peers.map(p => `${p.model} at ${fmt(p.x)}, ${p.y.toFixed(2)}`).join("; ") + "."
+    : "",
+  frontier.length > 1
+    ? "On the Pareto frontier (nothing is both smaller and higher-scoring): "
+      + frontier.map(p => p.model).join(", ") + "."
+    : "",
+  `${d.context}. ${d.footer}.`,
+  "Source: MTEB, leaderboard.mteb.org."
 ].filter(Boolean).join(" ");
 </script>

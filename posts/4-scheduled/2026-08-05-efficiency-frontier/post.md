@@ -1,23 +1,22 @@
 ---
-id: efficiency-frontier
+id: 2026-08-05-efficiency-frontier
 type: state_of_field
 trigger_date: 2026-08-01
 trigger: standing survey of the registry (no single event)
+approved_by: kennethenevoldsen (explicit instruction, 2026-08-02)
+scheduled_for: 2026-08-05
 expires: 2026-11-01
 sources:
   - https://leaderboard.mteb.org
 verified: true
 evidence: data.json
 media: card.png
-alt: card.txt
 ---
 
 ```
 The best embedding score available at the end of 2023 needed a 304M-parameter model.
 
 Today the same score comes from an 11M one — 28× less compute per token, on MTEB(eng, v2).
-
-Peak scores have risen. What moved further is the price.
 ```
 
 ## Why this post
@@ -74,13 +73,3 @@ where the true 2023 state of the art would have been. Both caveats are in `fetch
 **Not a claim about total size.** The axis is active parameters. `mdbr-leaf-mt` has more
 weights than 11M — active is what a GPU pays per token, which is the quantity that makes
 "cheaper" mean anything.
-
-## Notes
-
-MTEB(eng, v2) rather than the multilingual benchmark: 41 tasks instead of 131 is the
-difference between a whole-registry load that finishes and one that does not, and it has
-the broadest model coverage.
-
-Contributor credit is absent because no single submission is being described. Same open
-question as the openness post — whether state-of-the-field posts should carry a credit
-line at all.

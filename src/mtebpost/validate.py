@@ -1,0 +1,218 @@
+#!/usr/bin/env python3
+"""Check posts against the rules a machine can check.
+
+    uv run mteb-validate                    # whole pipeline
+    uv run mteb-validate --stage 3-review   # one stage
+    uv run mteb-validate --strict           # warnings become failures
+
+This covers the mechanical rules only — 300 characters, required fields per stage, files
+that must exist, dates that must be consistent. It cannot tell you whether a post is
+worth publishing, whether a cohort is fair, or whether a claim is scoped correctly. Those
+are in CONTRIBUTING.md and they need a person.
+
+The split matters: a check that runs is worth more than a rule that is merely written
+down, but a passing run says only that nothing obvious is broken.
+"""
+
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import pathlib
+import re
+import sys
+
+BLUESKY_LIMIT = 300
+
+STAGES = ("1-candidates", "2-drafting", "3-review", "4-scheduled", "5-posted", "rejected")
+
+# Fields each stage requires beyond the common set. A stage inherits nothing: what is
+# listed here is what that stage must have, because the point is to catch a folder that
+# was moved without the work that move implies.
+REQUIRED = {
+    "1-candidates": {"id", "type", "trigger", "trigger_date"},
+    "2-drafting": {"id", "type", "trigger", "trigger_date"},
+    "3-review": {"id", "type", "trigger", "trigger_date", "verified", "media"},
+    "4-scheduled": {"id", "type", "trigger", "trigger_date", "verified", "media",
+                    "scheduled_for", "approved_by"},
+    "5-posted": {"id", "type", "trigger", "trigger_date", "verified", "media",
+                 "scheduled_for", "posted_on", "approved_by"},
+    "rejected": {"id", "type", "trigger", "trigger_date", "reason"},
+}
+
+# Stages that must have a rendered card. Which *files* those are comes from the
+# frontmatter rather than a fixed list: a threaded post has card-1-*.png, card-2-*.png
+# and no card.png at all, and hardcoding names would fail every thread.
+NEEDS_CARD = ("3-review", "4-scheduled", "5-posted")
+
+DATED_STAGES = ("4-scheduled", "5-posted")
+DATE_PREFIX = re.compile(r"^(\d{4}-\d{2}-\d{2})-")
+ALT_IN_CARD = re.compile(r'id="alt-text"')
+
+
+class Report:
+    def __init__(self) -> None:
+        self.errors: list[str] = []
+        self.warnings: list[str] = []
+
+    def error(self, where: str, msg: str) -> None:
+        self.errors.append(f"{where}: {msg}")
+
+    def warn(self, where: str, msg: str) -> None:
+        self.warnings.append(f"{where}: {msg}")
+
+
+def frontmatter(text: str) -> dict[str, str]:
+    if not text.startswith("---"):
+        return {}
+    end = text.find("\n---", 3)
+    if end == -1:
+        return {}
+    out: dict[str, str] = {}
+    for line in text[3:end].splitlines():
+        if line.startswith((" ", "-")) or ":" not in line:
+            continue  # nested list items belong to the key above
+        k, _, v = line.partition(":")
+        out[k.strip()] = v.strip()
+    return out
+
+
+def post_blocks(text: str) -> list[str]:
+    """Fenced blocks are the text that actually gets posted."""
+    return re.findall(r"```\n(.*?)\n```", text, re.S)
+
+
+def check_post(path: pathlib.Path, stage: str, rep: Report) -> None:
+    where = f"{stage}/{path.parent.name}"
+    text = path.read_text()
+    fm = frontmatter(text)
+
+    missing = REQUIRED[stage] - set(fm)
+    if missing:
+        rep.error(where, f"missing frontmatter: {', '.join(sorted(missing))}")
+
+    if fm.get("id") and fm["id"] != path.parent.name:
+        rep.error(where, f"id '{fm['id']}' does not match folder name")
+
+    # The date rule: it means "when this goes out", so it exists only once scheduled.
+    m = DATE_PREFIX.match(path.parent.name)
+    if stage in DATED_STAGES and not m:
+        rep.error(where, "scheduled/posted folders must be named <date>-<slug>")
+    if stage not in DATED_STAGES and m:
+        rep.error(where, "only scheduled/posted folders carry a date in the name")
+    if m and fm.get("scheduled_for") and m.group(1) != fm["scheduled_for"]:
+        rep.error(where, f"folder date {m.group(1)} != scheduled_for {fm['scheduled_for']}")
+
+    blocks = post_blocks(text)
+    if stage in NEEDS_CARD and not blocks:
+        rep.error(where, "no post text (expected a fenced block)")
+    for i, b in enumerate(blocks, 1):
+        if len(b) > BLUESKY_LIMIT:
+            rep.error(where, f"post text block {i} is {len(b)} chars (limit {BLUESKY_LIMIT})")
+
+    # "media: none" is a deliberate choice, not a missing file — the pinned meta post
+    # has no measurement to show, and inventing a chart would undercut its own point.
+    has_card = fm.get("media", "none") != "none"
+    if stage in NEEDS_CARD and has_card:
+        named = fm.get("media")
+        if named and not (path.parent / named).exists():
+            rep.error(where, f"media: {named} does not exist")
+        if not list(path.parent.glob("card*.html")):
+            rep.error(where, "no card markup (expected card*.html)")
+
+    # A thread declares how many posts it is; check that many fenced blocks exist.
+    if fm.get("thread") and fm["thread"] != "none":
+        try:
+            want = int(fm["thread"])
+            if len(blocks) != want:
+                rep.error(where, f"thread: {want} but {len(blocks)} post blocks found")
+        except ValueError:
+            rep.error(where, f"unparseable thread: {fm['thread']!r}")
+
+    # Alt text lives inside the card, written there by render.py from the same data that
+    # drew the image. A card without it ships an image-only payload, which is unreadable
+    # to screen readers and to anyone whose client fails to load it.
+    for card in path.parent.glob("card*.html"):
+        if not ALT_IN_CARD.search(card.read_text()):
+            rep.error(where, f"{card.name} has no alt text — re-run mteb-render")
+        if not card.with_suffix(".png").exists():
+            rep.error(where, f"{card.name} has never been rendered")
+
+    if fm.get("verified") == "false" and stage in ("3-review", "4-scheduled", "5-posted"):
+        rep.error(where, "reached review with verified: false")
+
+    if stage == "rejected" and not fm.get("reason"):
+        rep.error(where, "rejection without a reason")
+
+    # The whole pipeline rests on a human deciding what goes out. Until this field
+    # exists, nothing distinguishes "someone approved it" from "a folder got moved".
+    if stage in ("4-scheduled", "5-posted"):
+        who = fm.get("approved_by", "")
+        if not who or who.lower() in ("agent", "none", "auto", "self"):
+            rep.error(where, "scheduled without a named human approver")
+
+    # An expired post should be rejected rather than quietly shipped stale.
+    exp = fm.get("expires")
+    if exp and stage in ("3-review", "4-scheduled"):
+        try:
+            if dt.date.fromisoformat(exp) < dt.date.today():
+                rep.warn(where, f"expired on {exp}; reject rather than post stale")
+        except ValueError:
+            rep.error(where, f"unparseable expires: {exp!r}")
+
+    if fm.get("linkedin") and not (path.parent / fm["linkedin"]).exists():
+        rep.error(where, f"linkedin: {fm['linkedin']} does not exist")
+
+    for field in ("todo", "blocked_on"):
+        if stage in ("3-review", "4-scheduled") and field in fm and fm[field] not in ("", "null"):
+            rep.warn(where, f"still carries {field}: while in {stage}")
+
+
+def check_schedule(posts: pathlib.Path, rep: Report) -> None:
+    """One post a day, maximum — a queue that is long should spread, never batch."""
+    seen: dict[str, list[str]] = {}
+    for stage in ("4-scheduled", "5-posted"):
+        for d in sorted((posts / stage).glob("*/")):
+            m = DATE_PREFIX.match(d.name)
+            if m:
+                seen.setdefault(m.group(1), []).append(f"{stage}/{d.name}")
+    for day, items in sorted(seen.items()):
+        if len(items) > 1:
+            rep.error("schedule", f"{day} has {len(items)} posts: {', '.join(items)}")
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--posts", default="posts", type=pathlib.Path)
+    ap.add_argument("--stage", help="check only this stage")
+    ap.add_argument("--strict", action="store_true", help="treat warnings as failures")
+    args = ap.parse_args()
+
+    rep = Report()
+    stages = (args.stage,) if args.stage else STAGES
+    n = 0
+    for stage in stages:
+        d = args.posts / stage
+        if not d.is_dir():
+            continue
+        for post in sorted(d.glob("*/post.md")):
+            check_post(post, stage, rep)
+            n += 1
+    if not args.stage:
+        check_schedule(args.posts, rep)
+
+    for w in rep.warnings:
+        print(f"  warn   {w}")
+    for e in rep.errors:
+        print(f"  ERROR  {e}")
+
+    bad = rep.errors or (rep.warnings and args.strict)
+    print(f"\n{n} posts checked — {len(rep.errors)} errors, {len(rep.warnings)} warnings")
+    if not bad:
+        print("Mechanical checks pass. They say nothing about whether a post is worth "
+              "publishing — see CONTRIBUTING.md.")
+    sys.exit(1 if bad else 0)
+
+
+if __name__ == "__main__":
+    main()

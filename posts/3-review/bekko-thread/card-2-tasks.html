@@ -1,84 +1,174 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>dinghy-law — MTEB(Law, v1)</title>
+<title>Bekko — MTEB score in context</title>
 <!--
-  Card for the dinghy-law post. Ranked bars over MTEB(Law, v1).
+  Card for the Bekko post. Each post owns its card markup, so the image, the data behind
+  it and the markup that drew it sit together. There is no shared template to inherit
+  from and none to keep in sync — copy this file for the next card and change it freely.
+  Extracting the common parts is worth doing once several posts exist and the repetition
+  is real rather than anticipated.
 
-  Colour is by role, not identity: the subject models in brand blue, the other
-  legal-domain models in brand purple, general-purpose models in grey. That encodes the
-  finding directly — the blue and purple band sits above the grey one, which is the whole
-  claim.
+  Plots the subjects against every size peer with results on the same benchmark. A bare
+  score is unreadable: "56.73" means nothing without knowing what a model of that size
+  normally gets, so the peer set IS the interpretation.
 
-  Sizes are TOTAL parameters. The leaderboard API's activeParamsB currently returns total
-  (see issue.md), and total is the right axis for "a small legal model beats a large
-  general one" anyway. Two proprietary models do not disclose size at all; they say so
-  rather than being dropped or shown as zero.
+  Form is emphasis (one hue + gray), not categorical: peers are context, not series
+  competing for identity, so they are deliberately not color-coded.
 
-    uv run posts/2-drafting/dinghy-law-family/fetch.py          # ~2s, hits the API
-    uv run mteb-render --card posts/2-drafting/dinghy-law-family/card.html \
-      --out posts/2-drafting/dinghy-law-family/card.png
+  Models carry their full Hugging Face name, split across two lines at the "/".
+  Abbreviating saves room but makes a claim harder to check against the leaderboard,
+  and two models can abbreviate to the same string.
+
+  This file is self-contained: fetch.py writes the numbers into #card-data below, and
+  the copy lives in the COPY object further down. Open it in a browser and you see
+  exactly what renders — there is no separate data file to fall out of sync with.
+
+    .venv/bin/python posts/2026-08-09-bekko-task-profile/fetch.py        # refresh the numbers
+    uv run visuals/render.py --card posts/2026-08-09-bekko-task-profile/card.html \
+      --out posts/2026-08-09-bekko-task-profile/card.png                 # ~3s
+    uv run visuals/render.py --card posts/2026-08-09-bekko-task-profile/card.html --mode dark \
+      --out posts/2026-08-09-bekko-task-profile/card.png
+
+  Edit copy freely — it costs a re-render, not a re-fetch. Only re-run fetch.py when
+  the cohort query itself changes, or before posting to confirm the numbers still hold.
 
   PALETTE IS A PLACEHOLDER — swap the :root block only.
 -->
 
 <script type="application/json" id="card-data">
 {
-  "benchmark": "MTEB(Law, v1)",
-  "n_tasks": 8,
-  "n_models": 159,
-  "first_general_rank": 6,
-  "rows": [
+  "benchmark": "MTEB(Multilingual, v2)",
+  "n_tasks": 131,
+  "axes": [
     {
-      "model": "Hanno-Labs/dinghy-law-4b-v1",
-      "score": 71.22,
-      "params": 4.028,
-      "legal": true,
-      "subject": true
+      "name": "Classification",
+      "n_tasks": 43
     },
     {
-      "model": "Mira190/Euler-Legal-Embedding-V1",
-      "score": 70.37,
-      "params": 7.567,
-      "legal": true
+      "name": "Retrieval",
+      "n_tasks": 18
     },
     {
-      "model": "minetta/nemotron-3-embed-8b-legal",
-      "score": 69.33,
-      "params": 7.953,
-      "legal": true
+      "name": "Clustering",
+      "n_tasks": 16
     },
     {
-      "model": "Hanno-Labs/dinghy-law-0.6b-v1",
-      "score": 65.83,
-      "params": 0.597,
-      "legal": true,
-      "subject": true
+      "name": "STS",
+      "n_tasks": 16
     },
     {
-      "model": "voyageai/voyage-law-2",
-      "score": 65.39,
-      "params": null,
-      "proprietary": true,
-      "legal": true
+      "name": "BitextMining",
+      "n_tasks": 13
     },
     {
-      "model": "codefuse-ai/F2LLM-v2-14B",
-      "score": 64.66,
-      "params": 13.99
+      "name": "PairClassification",
+      "n_tasks": 11
     },
     {
-      "model": "voyageai/voyage-3",
-      "score": 64.13,
-      "params": null,
-      "proprietary": true
+      "name": "Reranking",
+      "n_tasks": 6
     },
     {
-      "model": "infly/inf-retriever-v1",
-      "score": 63.68,
-      "params": 7.069
+      "name": "MultilabelClassification",
+      "n_tasks": 5
+    }
+  ],
+  "excluded_axes": [
+    "InstructionReranking"
+  ],
+  "shrink_factor": 12.7,
+  "score_gap": 0.01,
+  "series": [
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a25m",
+      "role": "subject",
+      "active": 24930432,
+      "total": 123234432,
+      "mean": 58.36,
+      "values": [
+        57.23,
+        57.52,
+        43.05,
+        73.35,
+        75.4,
+        77.81,
+        61.45,
+        19.11
+      ]
+    },
+    {
+      "model": "jinaai/jina-embeddings-v3",
+      "role": "highlight",
+      "active": 316308348,
+      "total": 572310396,
+      "mean": 58.37,
+      "values": [
+        58.77,
+        55.76,
+        45.65,
+        77.13,
+        65.25,
+        79.27,
+        57.09,
+        18.38
+      ]
+    },
+    {
+      "model": "intfloat/multilingual-e5-large-instruct",
+      "role": "reference",
+      "active": 303997952,
+      "total": 560000000,
+      "mean": 63.22,
+      "values": [
+        64.94,
+        57.11,
+        50.75,
+        76.81,
+        80.13,
+        80.86,
+        62.6,
+        22.97
+      ]
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "role": "reference",
+      "active": 31550208,
+      "total": 80084288,
+      "mean": 55.23,
+      "values": [
+        55.54,
+        50.13,
+        47.66,
+        68.55,
+        61.86,
+        74.98,
+        58.95,
+        21.5
+      ]
+    },
+    {
+      "model": "ibm-granite/granite-embedding-97m-multilingual-r2",
+      "role": "reference",
+      "active": 28321152,
+      "total": 97441152,
+      "mean": 51.92,
+      "values": [
+        49.62,
+        60.32,
+        43.65,
+        65.58,
+        44.2,
+        74.54,
+        59.39,
+        17.91
+      ]
     }
   ]
 }
+</script>
+<script type="text/plain" id="alt-text">
+New model on MTEB: Bekko — Matches jina-embeddings-v3 within 0.01 at 12.7× fewer active parameters. Radar chart over 8 task types on MTEB(Multilingual, v2): Classification (43 tasks), Retrieval (18 tasks), Clustering (16 tasks), STS (16 tasks), BitextMining (13 tasks), PairClassification (11 tasks), Reranking (6 tasks), MultilabelClassification (5 tasks). hotchpotch/bekko-embedding-v1-a25m (25M active, mean 58.36): Classification 57.2, Retrieval 57.5, Clustering 43.0, STS 73.3, BitextMining 75.4, PairClassification 77.8, Reranking 61.5, MultilabelClassification 19.1. jinaai/jina-embeddings-v3 (316M active, mean 58.37): Classification 58.8, Retrieval 55.8, Clustering 45.6, STS 77.1, BitextMining 65.3, PairClassification 79.3, Reranking 57.1, MultilabelClassification 18.4. intfloat/multilingual-e5-large-instruct (304M active, mean 63.22): Classification 64.9, Retrieval 57.1, Clustering 50.8, STS 76.8, BitextMining 80.1, PairClassification 80.9, Reranking 62.6, MultilabelClassification 23.0. codefuse-ai/F2LLM-v2-80M (32M active, mean 55.23): Classification 55.5, Retrieval 50.1, Clustering 47.7, STS 68.5, BitextMining 61.9, PairClassification 75.0, Reranking 59.0, MultilabelClassification 21.5. ibm-granite/granite-embedding-97m-multilingual-r2 (28M active, mean 51.92): Classification 49.6, Retrieval 60.3, Clustering 43.6, STS 65.6, BitextMining 44.2, PairClassification 74.5, Reranking 59.4, MultilabelClassification 17.9. InstructionReranking excluded: its centered metric can be negative and has no position on a zero-based radial axis. Contributed by hotchpotch. Source: MTEB, leaderboard.mteb.org.
 </script>
 
 <style>
@@ -91,6 +181,16 @@
     --text-muted:     #898781;
     --accent:         #3d7bff;
     --peer:           #b9b7b0;
+    /* Categorical slots 1-3 from the dataviz reference palette. The first three
+       validate all-pairs in both modes, which is exactly the cap a radar needs. */
+    /* Roles, not series identities: the subject is the accent, the one comparison
+       worth naming is violet, everything else is context grey. NOTE: MTEB's leaderboard
+       uses a purple on its front page that I could not read — it resolves from a Gradio
+       theme at runtime and gradio is not installed here. This is the dataviz palette's
+       validated violet; swap it for the real token when known. */
+    --subject:        #3d7bff;
+    --highlight:      #a06bff;
+    --context:        #b9b7b0;
     --gridline:       #e1e0d9;
     --axis:           #c3c2b7;
     --hairline:       rgba(11, 11, 11, 0.10);
@@ -103,6 +203,9 @@
     --text-muted:     #898781;
     --accent:         #5b8fff;
     --peer:           #55534e;
+    --subject:        #5b8fff;
+    --highlight:      #a06bff;
+    --context:        #6f6d67;
     --gridline:       #2c2c2a;
     --axis:           #383835;
     --hairline:       rgba(255, 255, 255, 0.10);
@@ -123,8 +226,8 @@
     text-transform: uppercase; color: var(--accent);
   }
   h1 { font-size: 46px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; }
-  .specs { font-size: 15px; color: var(--text-muted); margin-top: 8px; }
-  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 5px; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 4px; }
+  .specs { font-size: 15px; color: var(--text-muted); margin-top: 6px; }
 
   .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
   .brand-name {
@@ -132,51 +235,27 @@
     color: var(--text-primary);
   }
 
-  .plot { flex: 1; margin-top: 10px; display: flex; flex-direction: column; min-height: 0; }
+  .plot { flex: 1; margin-top: 6px; }
   svg { width: 100%; height: 100%; display: block; overflow: visible; }
 
-  /* Ranked rows. One grid so rank / name / track / value stay in columns and the
-     axis ticks below line up with the track. */
-  .bars { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 44px; }
-  .row, .axis {
-    display: grid;
-    grid-template-columns: 38px 420px 1fr 84px;
-    align-items: center; gap: 14px;
-  }
-  .rank {
-    font-size: 17px; color: var(--text-muted); text-align: center;
-    border: 1px solid var(--hairline); border-radius: 50%;
-    width: 32px; height: 32px; line-height: 30px;
-  }
-  .row.subject .rank { color: var(--accent); border-color: var(--accent); font-weight: 650; }
+  /* Radar. Three series, so this is the one card that uses categorical colour —
+     the models ARE the subject here, unlike the scatter where peers are context. */
+  .web { stroke: var(--gridline); fill: none; stroke-width: 1; }
+  .spoke { stroke: var(--gridline); stroke-width: 1; }
+  .ring-label { fill: var(--text-muted); font-size: 12px; }
+  .axis-name { fill: var(--text-secondary); font-size: 15px; font-weight: 550; }
+  .axis-count { fill: var(--text-muted); font-size: 12.5px; }
+  .series-line { fill: none; stroke-width: 2.5; stroke-linejoin: round; }
+  .series-dot { r: 4; }
 
-  /* Three lines: org, model, size. Splitting them stops the long HF names wrapping
-     mid-word and gives the parameter counts somewhere to live that is not a caption
-     tacked onto the end of the name. */
-  .mname { line-height: 1.2; }
-  .mname .org { display: block; color: var(--text-muted); font-size: 15px; }
-  .mname .name { display: block; font-size: 20px; color: var(--text-secondary); }
-  .row.subject .mname .name { color: var(--text-primary); font-weight: 640; }
-  .mname .size { display: block; color: var(--text-muted); font-size: 15px; }
-
-  .track { height: 40px; position: relative; }
-  .fill {
-    position: absolute; left: 0; top: 0; bottom: 0;
-    background: var(--peer); border-radius: 0 5px 5px 0;   /* rounded data-end */
+  .rlegend {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 8px 22px; margin-top: 2px;
   }
-  .row.subject .fill { background: var(--accent); }
-  .val { font-size: 23px; color: var(--text-secondary); text-align: right; }
-  .row.subject .val { color: var(--text-primary); font-weight: 640; }
-
-
-  .axis { margin-top: 8px; padding-top: 6px; row-gap: 4px; }
-  .axis .ticks { position: relative; height: 16px; }
-  .axis .ticks span {
-    position: absolute; transform: translateX(-50%);
-    font-size: 16px; color: var(--text-muted);
-  }
-  .axis .rule { grid-column: 3 / 4; height: 1px; background: var(--axis); }
-  .axis-name { font-size: 17px; color: var(--text-secondary); font-weight: 550; text-align: center; }
+  .rlegend div { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .rlegend .sw { width: 20px; height: 3px; border-radius: 2px; flex: none; }
+  .rlegend .nm { color: var(--text-secondary); }
+  .rlegend .size { color: var(--text-muted); font-size: 12.5px; }
   .grid { stroke: var(--gridline); stroke-width: 1; }
   .axis-line { stroke: var(--axis); stroke-width: 1; }
   .tick { fill: var(--text-muted); font-size: 15px; }
@@ -220,10 +299,8 @@
   <div>
     <div class="eyebrow" id="eyebrow"></div>
     <h1 id="title"></h1>
-    <!-- specs above the headline: the hard facts (languages, context, dims) frame the
-         claim rather than trailing it as a footnote -->
-    <div class="specs" id="specs"></div>
     <div class="subtitle" id="subtitle"></div>
+    <div class="specs" id="specs"></div>
   </div>
   <!-- Brand block, top right on every post. Replaces the legend: the subtitle already
        names the Pareto frontier, each dot carries its own model name, and the subjects
@@ -235,10 +312,10 @@
   </div>
 </header>
 
-<div class="plot">
-  <div class="bars" id="bars"></div>
-  <div class="axis" id="axis"></div>
-</div>
+<div class="plot"><svg id="plot"></svg></div>
+<!-- Legend under the figure: above it, the header stack pushed the radar down until the
+     bottom axis label collided with the footer rule. -->
+<div class="rlegend" id="rlegend"></div>
 
 <footer>
   <!-- The cohort statement is no longer printed on the card. It still reaches the alt
@@ -250,70 +327,118 @@
   <span id="footer"></span>
 </footer>
 
-
 <script>
+// ---------------------------------------------------------------------------
+// COPY — see card.html for why this is here and not in fetch.py.
+// ---------------------------------------------------------------------------
 const COPY = {
   eyebrow: "New model on MTEB",
-  title: "dinghy-law",
-  specs: "Specialised legal embedding models from Hanno-Labs · 0.6B and 4B",
-  subtitle: "1st and 4th on MTEB(Law, v1)",
-  footer: "Contributed by trashhalo",
-  // states the selection: without this the ranking could be any subset
-  axis_label: "MTEB(Law, v1) · top 8 of 159 models with complete results",
+  title: "Bekko",
+  specs: "110 languages · 8k context · Matryoshka 64–384",
+  footer: "Contributed by hotchpotch",
 };
 
 const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
 const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+// The subtitle is built from the data, because the whole point of this card is the
+// pair it compares — a hand-written line would drift the moment either score moves.
+const SUB = d.series.find(s => s.role === "subject");
+const HI = d.series.find(s => s.role === "highlight");
+d.subtitle = `Matches ${HI.model.split("/").pop()} within ${d.score_gap} at ${d.shrink_factor}\u00d7 fewer active parameters`;
 set("eyebrow", d.eyebrow); set("title", d.title); set("subtitle", d.subtitle);
 set("specs", d.specs); set("footer", d.footer);
 if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
 
-const rows = d.rows;
-// Zero baseline: bars encode length, and these scores sit on a 0-100 scale where zero
-// is meaningful. Truncating would turn a 6-point spread into an apparent chasm.
-const AXIS_MAX = Math.ceil(Math.max(...rows.map(r => r.score)) / 20) * 20;
-
-const splitName = n => {
-  const i = n.indexOf("/");
-  return i === -1 ? ["", n] : [n.slice(0, i + 1), n.slice(i + 1)];
+const ROLE_COLOR = {
+  subject: "var(--subject)", highlight: "var(--highlight)", reference: "var(--context)",
 };
-// Two significant figures: 4.028B is false precision on a card, and the comparison
-// being made is order-of-magnitude. Proprietary models report no size at all — say
-// "proprietary" rather than printing a zero or an empty gap.
-const fmtB = b => b >= 10 ? `${b.toFixed(0)}B` : `${b.toFixed(1)}B`;
-const sizeLine = r => r.proprietary ? "proprietary" : r.params ? `${fmtB(r.params)} parameters` : "size not published";
+const colorOf = s => ROLE_COLOR[s.role];
+const M = n => n >= 1e9 ? `${(n / 1e9).toFixed(1)}B` : `${(n / 1e6).toFixed(0)}M`;
 
-document.getElementById("bars").innerHTML = rows.map((r, i) => {
-  const [org, name] = splitName(r.model);
-  const cls = r.subject ? " subject" : "";
-  return `
-    <div class="row${cls}">
-      <span class="rank">${i + 1}</span>
-      <span class="mname">
-        <span class="org">${org}</span>
-        <span class="name">${name}</span>
-        <span class="size">${sizeLine(r)}</span>
-      </span>
-      <span class="track"><span class="fill" style="width:${(r.score / AXIS_MAX * 100).toFixed(2)}%"></span></span>
-      <span class="val">${r.score.toFixed(2)}</span>
-    </div>`;
-}).join("");
+// Size, not mean score: the mean is what the other two cards are for, and printing it
+// here invites reading the radar as a ranking instead of a shape comparison.
+document.getElementById("rlegend").innerHTML = d.series.map(s => `
+  <div>
+    <span class="sw" style="background:${colorOf(s)}"></span>
+    <span class="nm">${s.model}</span>
+    <span class="size">${M(s.active)} active</span>
+  </div>`).join("");
 
-const ticks = [];
-for (let v = 0; v <= AXIS_MAX; v += 20) ticks.push(v);
-document.getElementById("axis").innerHTML = `
-  <span></span><span></span>
-  <span class="ticks">${ticks.map(v =>
-    `<span style="left:${(v / AXIS_MAX * 100).toFixed(2)}%">${v}</span>`).join("")}</span>
-  <span></span>
-  <span></span><span></span>
-  <span class="axis-name">${d.axis_label}</span>
-  <span></span>`;
+const svg = document.getElementById("plot");
+const box = svg.getBoundingClientRect();
+const W = Math.round(box.width), H = Math.round(box.height);
+svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+const el = (t, a, txt) => {
+  const n = document.createElementNS("http://www.w3.org/2000/svg", t);
+  for (const k in a) n.setAttribute(k, a[k]);
+  if (txt != null) n.textContent = txt;
+  svg.appendChild(n); return n;
+};
+
+// Radial scale starts at zero — a radar with a truncated centre exaggerates every
+// difference, and area is already an over-readable channel.
+const RMAX = 80, RINGS = [20, 40, 60, 80];
+const cx = W / 2, cy = H / 2 + 4;
+const R = Math.min(H / 2 - 20, W / 2 - 185);   // leave room for the axis labels
+const axes = d.axes;
+const ang = i => (i / axes.length) * 2 * Math.PI - Math.PI / 2;
+const P = (i, v) => [cx + Math.cos(ang(i)) * R * (v / RMAX),
+                     cy + Math.sin(ang(i)) * R * (v / RMAX)];
+
+// web: one polygon per ring, plus a spoke per axis
+for (const ring of RINGS) {
+  el("polygon", {
+    class: "web",
+    points: axes.map((_, i) => P(i, ring).join(",")).join(" "),
+  });
+}
+axes.forEach((_, i) => {
+  const [x, y] = P(i, RMAX);
+  el("line", { class: "spoke", x1: cx, y1: cy, x2: x, y2: y });
+});
+// Ring labels stop short of the outer ring: the top axis label already sits there and
+// the two collide.
+for (const ring of RINGS.slice(0, -1)) {
+  el("text", { class: "ring-label", x: cx + 6, y: cy - R * (ring / RMAX) - 4 }, ring);
+}
+
+// axis labels, anchored by which side of the circle they sit on
+axes.forEach((a, i) => {
+  const [x, y] = P(i, RMAX);
+  const dx = x - cx, dy = y - cy;
+  const anchor = Math.abs(dx) < 6 ? "middle" : dx > 0 ? "start" : "end";
+  const lx = x + (anchor === "middle" ? 0 : dx > 0 ? 12 : -12);
+  const ly = y + (Math.abs(dx) < 6 ? (dy > 0 ? 20 : -10) : 4);
+  el("text", { class: "axis-name", x: lx, y: ly, "text-anchor": anchor }, a.name);
+  el("text", { class: "axis-count", x: lx, y: ly + 16, "text-anchor": anchor },
+     `${a.n_tasks} tasks`);
+});
+
+// Lines only, no fills. Three translucent fills stack into a muddy wash that belongs to
+// no series, and area over-reads next to position anyway. The MTEB leaderboard's own
+// radar does the same.
+const ORDER = { reference: 0, highlight: 1, subject: 2 };
+[...d.series].sort((a, b) => ORDER[a.role] - ORDER[b.role]).forEach(s => {
+  const pts = s.values.map((v, j) => P(j, Math.max(0, v)).join(",")).join(" ");
+  const isCtx = s.role === "reference";
+  el("polygon", {
+    class: "series-line", points: pts, stroke: colorOf(s),
+    "stroke-width": isCtx ? 1.75 : 2.75, opacity: isCtx ? 0.75 : 1,
+  });
+  if (!isCtx) s.values.forEach((v, j) => {
+    const [x, y] = P(j, Math.max(0, v));
+    el("circle", { class: "series-dot", cx: x, cy: y, fill: colorOf(s) });
+  });
+});
 
 window.__altText = [
   `${d.eyebrow}: ${d.title} — ${d.subtitle}.`,
-  `Bar chart of the top ${rows.length} models on ${d.benchmark} (${d.n_tasks} tasks), out of ${d.n_models} models with complete results.`,
-  rows.map((r, i) => `${i + 1}. ${r.model}, ${r.score.toFixed(2)}, ${sizeLine(r)}`).join("; ") + ".",
+  `Radar chart over ${axes.length} task types on ${d.benchmark}: ` +
+    axes.map(a => `${a.name} (${a.n_tasks} tasks)`).join(", ") + ".",
+  d.series.map(s =>
+    `${s.model} (${M(s.active)} active, mean ${s.mean.toFixed(2)}): ` +
+    axes.map((a, j) => `${a.name} ${s.values[j].toFixed(1)}`).join(", ")).join(". ") + ".",
+  `${d.excluded_axes.join(", ")} excluded: its centered metric can be negative and has no position on a zero-based radial axis.`,
   `${d.footer}. Source: MTEB, leaderboard.mteb.org.`,
 ].join(" ");
 </script>

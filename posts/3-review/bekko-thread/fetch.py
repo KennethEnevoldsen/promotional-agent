@@ -144,7 +144,7 @@ def main() -> None:
             "reference": True,
         }] if reference and reference.plottable else []),
     }
-    write_card_data(HERE / "card.html", card)
+    write_card_data(HERE / "card-1-frontier.html", card)
     print(f"wrote data.json ({len(entries)} rows) and card data ({len(plottable)} points)")
 
     print("\ncomparable cohort:")

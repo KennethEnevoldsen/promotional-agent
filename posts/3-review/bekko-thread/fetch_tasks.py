@@ -105,7 +105,7 @@ def main() -> None:
         "score_gap": round(abs(hi["mean"] - sub["mean"]), 2),
         "series": series,
     }
-    write_card_data(HERE / "card.html", card)
+    write_card_data(HERE / "card-2-tasks.html", card)
 
     print(f"axes ({len(axes)}): " + ", ".join(f"{a} ({counts.get(a)})" for a in axes))
     print(f"excluded: {', '.join(sorted(EXCLUDE_AXES))}")
@@ -113,7 +113,7 @@ def main() -> None:
         print(f"  {s['role']:<10} {s['mean']:>6}  {s['active']/1e6:>7.1f}M active  {s['model']}")
     print(f"\n{sub['model']} vs {hi['model']}: "
           f"{card['score_gap']} apart, {card['shrink_factor']}x fewer active params")
-    print(json.dumps({"wrote": str(HERE / "card.html")}))
+    print(json.dumps({"wrote": str(HERE / "card-2-tasks.html")}))
 
 
 if __name__ == "__main__":

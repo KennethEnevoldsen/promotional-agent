@@ -1,86 +1,88 @@
 ---
 id: openness
 type: state_of_field
-trigger_date: 2026-08-01
 trigger: standing survey of the registry (no single event)
+trigger_date: 2026-08-01
 expires: 2026-11-01
-sources:
-  - https://leaderboard.mteb.org
-  - mteb ModelMeta.openness (weights / licence / training code / training data)
 verified: true
 evidence: data.json
 media: card.png
-alt: card.txt
+linkedin: linkedin.md
+sources:
+  - https://leaderboard.mteb.org
+  - mteb ModelMeta.openness (weights / licence / training code / training data)
 ---
 
 ```
-Most embedding models on MTEB publish their weights. Far fewer publish what it took to build them.
+Most embedding models publish their weights. Far fewer publish what it took to build them.
 
-Of 98 models with complete MTEB(eng, v2) results: 75 open-weight, 14 fully open (weights + training code + data), 9 proprietary.
-
-The top of each group is within ~1 point.
+Of 171 models with complete MTEB(Multilingual, v2) results: 153 open-weight, 10 fully open (weights + training code + data), 8 proprietary.
 ```
 
 ## The claim
 
 Three tiers, from `ModelMeta.openness`:
 
-| tier | rule | registered | any results | complete |
-|---|---|---:|---:|---:|
-| proprietary | no open weights | 57 | 41 | 9 |
-| open weights | weights, but not both code and data | 628 | 302 | 75 |
-| open source | weights + training code + training data | 149 | 49 | 14 |
+| tier | rule | any results | complete |
+|---|---|---:|---:|
+| proprietary | no open weights | 51 | 8 |
+| open weights | weights, but not both code and data | 361 | 153 |
+| open source | weights + training code + training data | 56 | 10 |
 
-The interesting number is the registry column against the last one, and the fact that
-"open source" — meaning someone else could rebuild the model — is **18% of the registry
-and 14 of the 98 models with complete results**. "Open" in common usage means the tier
-above; the gap between publishing weights and publishing the recipe is where most of the
-field sits.
+**Fully reproducible models are 10 of 171** — under 6%. "Open" in common usage means the
+middle tier; the gap between publishing weights and publishing the recipe is where almost
+the entire field sits.
 
-## What this post must not claim
+The best model in each tier:
 
-**Not a proprietary-vs-open frontier gap.** That was the first framing and the data does
-not support it. Only 9 proprietary models have complete results, and the set is missing
-OpenAI and Cohere entirely — both are registered, both have partial results in the repo,
-neither completes all 41 tasks. "Best proprietary model" therefore rests on a handful of
-submissions, and the current top of that lane is a single model from a lab nobody would
-name as a frontier player.
+| tier | best | score |
+|---|---|---:|
+| open weights | `microsoft/harrier-oss-v1-27b` | **74.27** |
+| proprietary | `Bytedance/Seed1.6-embedding-1215` | 70.26 |
+| open source | `nvidia/llama-embed-nemotron-8b` | 69.46 |
 
-So the post reports composition, which the data does support, and shows the counts on the
-card so the thin lane is visible rather than asserted around.
+## Why multilingual, and why that mattered
 
-**Not "open has caught up".** The top three scores are close (within about a point), but
-with n=9 on one side that is a fact about who submitted, not about who is better. The
-draft says the tops are close and stops there.
+An earlier version of this post used `MTEB(eng, v2)`, chosen for a purely mechanical
+reason — 41 tasks loaded faster than 131. That justification evaporated twice (load cost
+scales with model count, not task count; then the API made either about a second), but
+the choice stayed and quietly turned a claim about the field into a claim about English.
+
+Redoing it on the multilingual set **changed the answer**. On English the best proprietary
+and best open-weight models were separated by 0.01 points — effectively tied. On
+multilingual the best open-weight model leads by **4 points**. Same question, different
+benchmark, materially different picture. That is the argument for the default, made
+concrete.
+
+## What this post does not claim
+
+**Not that open models are better than proprietary ones.** Only 8 proprietary models have
+complete results out of 51 with any, and the well-known API models are largely absent —
+they have partial coverage rather than none. A four-point lead over a thin, self-selected
+sample is not evidence about capability. The composition claim is what the data supports.
+
+**Not that 6% is a scandal.** Publishing training data is genuinely hard: licensing,
+scale, and competitive cost are all real. The number is worth stating precisely because
+it is easy to assume "open model" means reproducible when it almost never does.
 
 ## Coverage, stated plainly
 
-Requiring all 41 tasks drops the field from **392 models with some results to 98**. The
-filter costs each tier a similar share — 22% of proprietary models with any results
-survive it, 25% of open-weight, 29% of open-source — so it is not biased against
-proprietary models specifically. But it is why the absolute numbers are small, and it is
-why partial results are excluded rather than averaged: a mean over a subset of tasks is
-not comparable to a mean over all of them.
-
-Getting that funnel right took two attempts. `load_results` drops partially-evaluated
-models from `model_results`, and `get_score` gives them a null `Mean(Task)` — so
-counting "any results" from either source reports it as *identical* to "complete
-results", which would have made the coverage caveat invisible in the very post that
-depends on it. The count has to come from the keys of the `get_score` result.
+Requiring all 131 tasks drops the field from 468 rows to 171. The filter costs each tier
+a similar share — proprietary 8 of 51, open-weight 153 of 361, open-source 10 of 56 — so
+it is not biased against any one tier, but it is why the absolute numbers are small.
+Partial results are excluded rather than averaged: a mean over a subset of tasks is not
+comparable to a mean over all of them.
 
 ## Notes
 
-Benchmark is MTEB(eng, v2) rather than the multilingual one for a practical reason: 41
-tasks instead of 131 is the difference between a whole-registry load that finishes and
-one that does not. It also has the broadest model coverage, which is what matters when
-the question is who is on the board at all.
+Uses the leaderboard API rather than the `mteb` package: ~2 seconds against ~15 minutes,
+scores validated against a local `Benchmark.get_score()` run, and better coverage —
+results that fail the package's revision validation still appear here.
 
 The three-tier split flattens a six-field record (weights, licence, training code,
-training data, paper, model card). The choice of *which* flattening is editorial:
-"reproducible end to end" is the line MTEB cares about, and it is the one that
-disappears when people say "open model".
+training data, paper, model card). Which flattening to use is editorial: "could someone
+else rebuild this" is the line MTEB cares about, and the one that disappears when people
+say "open model".
 
-**Open:** no contributor to credit here — this is the leaderboard in aggregate rather
-than anyone's submission. Worth deciding whether state-of-the-field posts carry a
-credit line at all, or whether the absence of one is itself the signal that no single
-person's work is being described.
+No contributor credit — this describes the leaderboard in aggregate rather than anyone's
+submission.

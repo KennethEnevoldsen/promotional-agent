@@ -1,617 +1,1231 @@
 {
-  "generated": "2026-08-01",
-  "benchmark": "MTEB(eng, v2)",
-  "n_benchmark_tasks": 41,
+  "generated": "2026-08-02",
+  "source": "https://mteb-leaderboard-backend.hf.space/v1/benchmarks/.../scores",
+  "benchmark": "MTEB(Multilingual, v2)",
+  "n_tasks": 131,
+  "rule": "complete coverage of all 131 tasks",
   "tier_rule": {
-    "proprietary": "open_weights is false",
+    "proprietary": "openWeights is false",
     "open weights": "weights published, but not both training code and data",
     "open source": "weights + training code + training data"
   },
   "coverage": {
     "proprietary": {
-      "registered": 57,
-      "any_results": 41,
-      "complete_results": 9
+      "any_results": 51,
+      "complete_results": 8
     },
     "open weights": {
-      "registered": 628,
-      "any_results": 302,
-      "complete_results": 75
+      "any_results": 361,
+      "complete_results": 153
     },
     "open source": {
-      "registered": 149,
-      "any_results": 49,
-      "complete_results": 14
+      "any_results": 56,
+      "complete_results": 10
     }
   },
-  "models": [
-    {
-      "model": "jcorners/ingot-8b-r3",
-      "tier": "proprietary",
-      "score": 75.98,
-      "release_date": "2026-05-23"
-    },
-    {
-      "model": "Kingsoft-LLM/QZhou-Embedding",
-      "tier": "open weights",
-      "score": 75.97,
-      "release_date": "2025-08-24"
-    },
-    {
-      "model": "Qwen/Qwen3-Embedding-8B",
-      "tier": "open weights",
-      "score": 75.23,
-      "release_date": "2025-06-05"
-    },
-    {
-      "model": "ByteDance-Seed/Seed1.5-Embedding",
-      "tier": "proprietary",
-      "score": 74.76,
-      "release_date": "2025-04-25"
-    },
-    {
-      "model": "infgrad/Jasper-Token-Compression-600M",
-      "tier": "open source",
-      "score": 74.75,
-      "release_date": "2025-11-14"
-    },
-    {
-      "model": "Qwen/Qwen3-Embedding-4B",
-      "tier": "open weights",
-      "score": 74.61,
-      "release_date": "2025-06-05"
-    },
-    {
-      "model": "annamodels/LGAI-Embedding-Preview",
-      "tier": "open weights",
-      "score": 74.12,
-      "release_date": "2025-06-11"
-    },
-    {
-      "model": "Bytedance/Seed1.6-embedding",
-      "tier": "proprietary",
-      "score": 74.07,
-      "release_date": "2025-06-18"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-4B",
-      "tier": "open source",
-      "score": 73.67,
-      "release_date": "2025-09-18"
-    },
-    {
-      "model": "google/gemini-embedding-001",
-      "tier": "proprietary",
-      "score": 73.3,
-      "release_date": "2025-03-07"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-v2-14B",
-      "tier": "open source",
-      "score": 73.08,
-      "release_date": "2026-03-09"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-v2-8B",
-      "tier": "open source",
-      "score": 72.86,
-      "release_date": "2026-03-09"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-v2-4B",
-      "tier": "open source",
-      "score": 72.41,
-      "release_date": "2026-03-09"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-1.7B",
-      "tier": "open source",
-      "score": 72.01,
-      "release_date": "2025-09-18"
-    },
-    {
-      "model": "jinaai/jina-embeddings-v5-omni-small",
-      "tier": "open weights",
-      "score": 71.78,
-      "release_date": "2026-04-01"
-    },
-    {
-      "model": "jinaai/jina-embeddings-v5-text-small",
-      "tier": "open weights",
-      "score": 71.78,
-      "release_date": "2026-02-17"
-    },
-    {
-      "model": "IEITYuan/Yuan-embedding-2.0-en",
-      "tier": "open weights",
-      "score": 71.74,
-      "release_date": "2025-11-27"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-v2-1.7B",
-      "tier": "open source",
-      "score": 71.63,
-      "release_date": "2026-03-09"
-    },
-    {
-      "model": "KaLM-Embedding/KaLM-embedding-multilingual-mini-instruct-v2.5",
-      "tier": "open weights",
-      "score": 71.29,
-      "release_date": "2025-09-30"
-    },
-    {
-      "model": "jinaai/jina-embeddings-v5-omni-nano",
-      "tier": "open weights",
-      "score": 71.11,
-      "release_date": "2026-04-01"
-    },
-    {
-      "model": "jinaai/jina-embeddings-v5-text-nano",
-      "tier": "open weights",
-      "score": 71.11,
-      "release_date": "2026-02-17"
-    },
-    {
-      "model": "ai-sage/Giga-Embeddings-instruct",
-      "tier": "open weights",
-      "score": 71.07,
-      "release_date": "2025-09-23"
-    },
-    {
-      "model": "Qwen/Qwen3-Embedding-0.6B",
-      "tier": "open weights",
-      "score": 70.47,
-      "release_date": "2025-06-05"
-    },
-    {
-      "model": "GeoGPT-Research-Project/GeoEmbedding",
-      "tier": "open weights",
-      "score": 70.21,
-      "release_date": "2025-04-22"
-    },
-    {
-      "model": "ICT-TIME-and-Querit/ICT-TIME-and-Querit-embedding-v1",
-      "tier": "open weights",
-      "score": 70.12,
-      "release_date": "2026-05-02"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-0.6B",
-      "tier": "open source",
-      "score": 70.03,
-      "release_date": "2025-09-18"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-v2-0.6B",
-      "tier": "open source",
-      "score": 69.97,
-      "release_date": "2026-03-09"
-    },
-    {
-      "model": "google/embeddinggemma-300m",
-      "tier": "open weights",
-      "score": 69.67,
-      "release_date": "2025-09-04"
-    },
-    {
-      "model": "google/text-embedding-005",
-      "tier": "proprietary",
-      "score": 69.6,
-      "release_date": "2024-11-18"
-    },
-    {
-      "model": "google/text-embedding-004",
-      "tier": "proprietary",
-      "score": 69.53,
-      "release_date": "2024-05-14"
-    },
-    {
-      "model": "Tarka-AIR/Tarka-Embedding-350M-V1",
-      "tier": "open weights",
-      "score": 69.29,
-      "release_date": "2025-11-11"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-v2-330M",
-      "tier": "open source",
-      "score": 68.86,
-      "release_date": "2026-03-09"
-    },
-    {
-      "model": "intfloat/e5-mistral-7b-instruct",
-      "tier": "open weights",
-      "score": 67.97,
-      "release_date": "2024-02-08"
-    },
-    {
-      "model": "google/text-multilingual-embedding-002",
-      "tier": "proprietary",
-      "score": 67.67,
-      "release_date": "2024-05-14"
-    },
-    {
-      "model": "BidirLM/BidirLM-Omni-2.5B-Embedding",
-      "tier": "open weights",
-      "score": 67.47,
-      "release_date": "2026-04-07"
-    },
-    {
-      "model": "GritLM/GritLM-7B",
-      "tier": "open weights",
-      "score": 67.07,
-      "release_date": "2024-02-15"
-    },
-    {
-      "model": "Tarka-AIR/Tarka-Embedding-150M-V1",
-      "tier": "open weights",
-      "score": 66.39,
-      "release_date": "2025-11-04"
-    },
-    {
-      "model": "mixedbread-ai/mxbai-embed-large-v1",
-      "tier": "open weights",
-      "score": 66.26,
-      "release_date": "2024-03-07"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-v2-160M",
-      "tier": "open source",
-      "score": 65.93,
-      "release_date": "2026-03-09"
-    },
-    {
-      "model": "intfloat/multilingual-e5-large-instruct",
-      "tier": "open weights",
-      "score": 65.53,
-      "release_date": "2024-02-08"
-    },
-    {
-      "model": "prdev/mini-gte",
-      "tier": "open weights",
-      "score": 65.06,
-      "release_date": "2025-01-28"
-    },
-    {
-      "model": "codefuse-ai/F2LLM-v2-80M",
-      "tier": "open source",
-      "score": 64.55,
-      "release_date": "2026-03-09"
-    },
-    {
-      "model": "VPLabs/SearchMap_Preview",
-      "tier": "open weights",
-      "score": 64.08,
-      "release_date": "2025-03-05"
-    },
-    {
-      "model": "MongoDB/mdbr-leaf-mt",
-      "tier": "open weights",
-      "score": 63.97,
-      "release_date": "2025-08-27"
-    },
-    {
-      "model": "Snowflake/snowflake-arctic-embed-l-v2.0",
-      "tier": "open weights",
-      "score": 63.6,
-      "release_date": "2024-12-04"
-    },
-    {
-      "model": "mixedbread-ai/deepset-mxbai-embed-de-large-v1",
-      "tier": "open weights",
-      "score": 63.43,
-      "release_date": "2024-07-12"
-    },
-    {
-      "model": "LCO-Embedding/LCO-Embedding-Omni-7B",
-      "tier": "open weights",
-      "score": 63.24,
-      "release_date": "2025-10-15"
-    },
-    {
-      "model": "ibm-granite/granite-embedding-english-r2",
-      "tier": "open weights",
-      "score": 62.84,
-      "release_date": "2025-08-15"
-    },
-    {
-      "model": "LCO-Embedding/LCO-Embedding-Omni-3B",
-      "tier": "open weights",
-      "score": 62.33,
-      "release_date": "2025-10-23"
-    },
-    {
-      "model": "sdadas/mmlw-e5-large",
-      "tier": "open weights",
-      "score": 62.32,
-      "release_date": "2023-11-17"
-    },
-    {
-      "model": "ManiacLabs/miniac-embed",
-      "tier": "open weights",
-      "score": 62.08,
-      "release_date": "2026-02-19"
-    },
-    {
-      "model": "ibm-granite/granite-embedding-125m-english",
-      "tier": "open weights",
-      "score": 62.08,
-      "release_date": "2024-12-18"
-    },
-    {
-      "model": "deepvk/USER-bge-m3",
-      "tier": "open weights",
-      "score": 62.06,
-      "release_date": "2024-07-05"
-    },
-    {
-      "model": "sdadas/mmlw-roberta-large",
-      "tier": "open weights",
-      "score": 61.8,
-      "release_date": "2023-11-17"
-    },
-    {
-      "model": "OrdalieTech/Solon-embeddings-large-0.1",
-      "tier": "open weights",
-      "score": 61.48,
-      "release_date": "2023-12-09"
-    },
-    {
-      "model": "sdadas/mmlw-e5-base",
-      "tier": "open weights",
-      "score": 61.43,
-      "release_date": "2023-11-17"
-    },
-    {
-      "model": "voyageai/voyage-3",
-      "tier": "proprietary",
-      "score": 61.38,
-      "release_date": "2024-09-18"
-    },
-    {
-      "model": "manu/bge-m3-custom-fr",
-      "tier": "open weights",
-      "score": 61.22,
-      "release_date": "2024-04-11"
-    },
-    {
-      "model": "sdadas/mmlw-roberta-base",
-      "tier": "open weights",
-      "score": 61.15,
-      "release_date": "2023-11-17"
-    },
-    {
-      "model": "ibm-granite/granite-embedding-small-english-r2",
-      "tier": "open weights",
-      "score": 61.07,
-      "release_date": "2025-08-15"
-    },
-    {
-      "model": "intfloat/multilingual-e5-base",
-      "tier": "open weights",
-      "score": 61.0,
-      "release_date": "2024-02-08"
-    },
-    {
-      "model": "voyageai/voyage-3-lite",
-      "tier": "proprietary",
-      "score": 60.44,
-      "release_date": "2024-09-18"
-    },
-    {
-      "model": "ibm-granite/granite-embedding-278m-multilingual",
-      "tier": "open weights",
-      "score": 60.36,
-      "release_date": "2024-12-18"
-    },
-    {
-      "model": "ibm-granite/granite-embedding-30m-english",
-      "tier": "open weights",
-      "score": 60.2,
-      "release_date": "2024-12-18"
-    },
-    {
-      "model": "Haon-Chen/e5-omni-3B",
-      "tier": "open weights",
-      "score": 59.7,
-      "release_date": "2026-01-06"
-    },
-    {
-      "model": "intfloat/multilingual-e5-small",
-      "tier": "open weights",
-      "score": 59.69,
-      "release_date": "2024-02-08"
-    },
-    {
-      "model": "sentence-transformers/all-MiniLM-L6-v2",
-      "tier": "open weights",
-      "score": 59.03,
-      "release_date": "2021-08-30"
-    },
-    {
-      "model": "sdadas/mmlw-e5-small",
-      "tier": "open weights",
-      "score": 58.86,
-      "release_date": "2023-11-17"
-    },
-    {
-      "model": "ibm-granite/granite-embedding-107m-multilingual",
-      "tier": "open weights",
-      "score": 58.76,
-      "release_date": "2024-12-18"
-    },
-    {
-      "model": "Haon-Chen/e5-omni-7B",
-      "tier": "open weights",
-      "score": 58.67,
-      "release_date": "2026-01-06"
-    },
-    {
-      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
-      "tier": "open weights",
-      "score": 58.27,
-      "release_date": "2019-11-01"
-    },
-    {
-      "model": "manu/sentence_croissant_alpha_v0.3",
-      "tier": "open weights",
-      "score": 57.8,
-      "release_date": "2024-04-26"
-    },
-    {
-      "model": "manu/sentence_croissant_alpha_v0.4",
-      "tier": "open weights",
-      "score": 57.71,
-      "release_date": "2024-04-27"
-    },
-    {
-      "model": "Tevatron/OmniEmbed-v0.1",
-      "tier": "open source",
-      "score": 57.7,
-      "release_date": "2025-04-12"
-    },
-    {
-      "model": "ai-forever/ru-en-RoSBERTa",
-      "tier": "open weights",
-      "score": 57.26,
-      "release_date": "2024-07-29"
-    },
-    {
-      "model": "manu/sentence_croissant_alpha_v0.2",
-      "tier": "open weights",
-      "score": 56.56,
-      "release_date": "2024-03-15"
-    },
-    {
-      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-      "tier": "open weights",
-      "score": 56.42,
-      "release_date": "2019-11-01"
-    },
-    {
-      "model": "sergeyzh/LaBSE-ru-turbo",
-      "tier": "open weights",
-      "score": 55.68,
-      "release_date": "2024-06-27"
-    },
-    {
-      "model": "minishlab/potion-base-32M",
-      "tier": "open weights",
-      "score": 54.63,
-      "release_date": "2025-01-22"
-    },
-    {
-      "model": "minishlab/potion-retrieval-32M",
-      "tier": "open weights",
-      "score": 53.92,
-      "release_date": "2025-01-23"
-    },
-    {
-      "model": "encord-team/ebind-full",
-      "tier": "open weights",
-      "score": 52.64,
-      "release_date": "2025-11-19"
-    },
-    {
-      "model": "sentence-transformers/static-retrieval-mrl-en-v1",
-      "tier": "open weights",
-      "score": 51.25,
-      "release_date": "2024-10-24"
-    },
-    {
-      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
-      "tier": "open source",
-      "score": 50.83,
-      "release_date": "2025-01-15"
-    },
-    {
-      "model": "aari1995/German_Semantic_STS_V2",
-      "tier": "open weights",
-      "score": 50.31,
-      "release_date": "2022-11-17"
-    },
-    {
-      "model": "deepvk/USER-base",
-      "tier": "open weights",
-      "score": 48.85,
-      "release_date": "2024-06-10"
-    },
-    {
-      "model": "sentence-transformers/LaBSE",
-      "tier": "open weights",
-      "score": 48.81,
-      "release_date": "2019-11-01"
-    },
-    {
-      "model": "cointegrated/LaBSE-en-ru",
-      "tier": "open weights",
-      "score": 48.22,
-      "release_date": "2021-06-10"
-    },
-    {
-      "model": "sergeyzh/rubert-tiny-turbo",
-      "tier": "open weights",
-      "score": 45.98,
-      "release_date": "2024-06-21"
-    },
-    {
-      "model": "cointegrated/rubert-tiny2",
-      "tier": "open weights",
-      "score": 41.56,
-      "release_date": "2021-10-28"
-    },
-    {
-      "model": "cointegrated/rubert-tiny",
-      "tier": "open weights",
-      "score": 40.1,
-      "release_date": "2021-05-24"
-    },
-    {
-      "model": "DeepPavlov/distilrubert-small-cased-conversational",
-      "tier": "open weights",
-      "score": 36.61,
-      "release_date": "2022-06-28"
-    },
-    {
-      "model": "ai-forever/sbert_large_mt_nlu_ru",
-      "tier": "open weights",
-      "score": 35.5,
-      "release_date": "2021-05-18"
-    },
-    {
-      "model": "DeepPavlov/rubert-base-cased-sentence",
-      "tier": "open weights",
-      "score": 35.33,
-      "release_date": "2020-03-04"
-    },
-    {
-      "model": "ai-forever/sbert_large_nlu_ru",
-      "tier": "open weights",
-      "score": 32.93,
-      "release_date": "2020-11-20"
-    },
-    {
-      "model": "deepvk/deberta-v1-base",
-      "tier": "open weights",
-      "score": 32.9,
-      "release_date": "2023-02-07"
-    },
-    {
-      "model": "malenia1/ternary-weight-embedding",
-      "tier": "open weights",
-      "score": 32.81,
-      "release_date": "2024-10-23"
-    },
-    {
-      "model": "DeepPavlov/rubert-base-cased",
-      "tier": "open weights",
-      "score": 30.79,
-      "release_date": "2020-03-04"
-    },
-    {
-      "model": "mteb/baseline-random-encoder",
-      "tier": "open weights",
-      "score": 13.26,
-      "release_date": null
-    }
-  ]
+  "models": {
+    "proprietary": [
+      {
+        "model": "Bytedance/Seed1.6-embedding-1215",
+        "score": 70.26,
+        "openness_score": 1,
+        "license": null,
+        "released": "2025-12-15"
+      },
+      {
+        "model": "google/gemini-embedding-001",
+        "score": 68.37,
+        "openness_score": 1,
+        "license": null,
+        "released": "2025-03-07"
+      },
+      {
+        "model": "google/text-multilingual-embedding-002",
+        "score": 62.16,
+        "openness_score": 1,
+        "license": null,
+        "released": "2024-05-14"
+      },
+      {
+        "model": "Cohere/Cohere-embed-multilingual-v3.0",
+        "score": 61.13,
+        "openness_score": 1,
+        "license": null,
+        "released": "2023-11-02"
+      },
+      {
+        "model": "voyageai/voyage-3.5",
+        "score": 58.46,
+        "openness_score": 1,
+        "license": null,
+        "released": "2025-01-21"
+      },
+      {
+        "model": "Cohere/Cohere-embed-multilingual-light-v3.0",
+        "score": 57.58,
+        "openness_score": 1,
+        "license": null,
+        "released": "2023-11-02"
+      },
+      {
+        "model": "Cohere/Cohere-embed-english-v3.0",
+        "score": 48.13,
+        "openness_score": 1,
+        "license": null,
+        "released": "2023-11-02"
+      },
+      {
+        "model": "Cohere/Cohere-embed-english-light-v3.0",
+        "score": 45.85,
+        "openness_score": 1,
+        "license": null,
+        "released": "2023-11-02"
+      }
+    ],
+    "open weights": [
+      {
+        "model": "microsoft/harrier-oss-v1-27b",
+        "score": 74.27,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2026-03-27"
+      },
+      {
+        "model": "tencent/KaLM-Embedding-Gemma3-12B-2511",
+        "score": 72.32,
+        "openness_score": 4,
+        "license": null,
+        "released": "2025-11-06"
+      },
+      {
+        "model": "Qwen/Qwen3-Embedding-8B",
+        "score": 70.58,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2025-06-05"
+      },
+      {
+        "model": "Qwen/Qwen3-Embedding-4B",
+        "score": 69.45,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2025-06-05"
+      },
+      {
+        "model": "microsoft/harrier-oss-v1-0.6b",
+        "score": 69.01,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2026-03-27"
+      },
+      {
+        "model": "Octen/Octen-Embedding-8B",
+        "score": 67.84,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2025-12-23"
+      },
+      {
+        "model": "jinaai/jina-embeddings-v5-omni-small",
+        "score": 67.0,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2026-04-01"
+      },
+      {
+        "model": "jinaai/jina-embeddings-v5-text-small",
+        "score": 67.0,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2026-02-17"
+      },
+      {
+        "model": "microsoft/harrier-oss-v1-270m",
+        "score": 66.55,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2026-03-27"
+      },
+      {
+        "model": "jinaai/jina-embeddings-v5-omni-nano",
+        "score": 65.52,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2026-04-01"
+      },
+      {
+        "model": "jinaai/jina-embeddings-v5-text-nano",
+        "score": 65.52,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2026-02-17"
+      },
+      {
+        "model": "Qwen/Qwen3-Embedding-0.6B",
+        "score": 64.34,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2025-06-05"
+      },
+      {
+        "model": "ICT-TIME-and-Querit/ICT-TIME-and-Querit-embedding-v1",
+        "score": 63.78,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2026-05-02"
+      },
+      {
+        "model": "BidirLM/BidirLM-1.7B-Embedding",
+        "score": 63.54,
+        "openness_score": 5,
+        "license": "apache-2.0",
+        "released": "2026-04-07"
+      },
+      {
+        "model": "ICT-TIME-and-Querit/BOOM_4B_v1",
+        "score": 63.52,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2026-01-31"
+      },
+      {
+        "model": "BidirLM/BidirLM-Omni-2.5B-Embedding",
+        "score": 63.5,
+        "openness_score": 5,
+        "license": "apache-2.0",
+        "released": "2026-04-07"
+      },
+      {
+        "model": "intfloat/multilingual-e5-large-instruct",
+        "score": 63.22,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-08"
+      },
+      {
+        "model": "BidirLM/BidirLM-1B-Embedding",
+        "score": 63.21,
+        "openness_score": 5,
+        "license": "apache-2.0",
+        "released": "2026-04-07"
+      },
+      {
+        "model": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+        "score": 62.51,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-06-15"
+      },
+      {
+        "model": "Linq-AI-Research/Linq-Embed-Mistral",
+        "score": 61.47,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2024-05-29"
+      },
+      {
+        "model": "google/embeddinggemma-300m",
+        "score": 61.15,
+        "openness_score": 3,
+        "license": "gemma",
+        "released": "2025-09-04"
+      },
+      {
+        "model": "Lajavaness/bilingual-embedding-large",
+        "score": 60.96,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-06-24"
+      },
+      {
+        "model": "GritLM/GritLM-7B",
+        "score": 60.92,
+        "openness_score": 5,
+        "license": "apache-2.0",
+        "released": "2024-02-15"
+      },
+      {
+        "model": "Salesforce/SFR-Embedding-Mistral",
+        "score": 60.9,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2024-01-24"
+      },
+      {
+        "model": "GritLM/GritLM-8x7B",
+        "score": 60.49,
+        "openness_score": 5,
+        "license": "apache-2.0",
+        "released": "2024-02-15"
+      },
+      {
+        "model": "BidirLM/BidirLM-0.6B-Embedding",
+        "score": 60.42,
+        "openness_score": 5,
+        "license": "apache-2.0",
+        "released": "2026-04-07"
+      },
+      {
+        "model": "intfloat/e5-mistral-7b-instruct",
+        "score": 60.03,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-08"
+      },
+      {
+        "model": "Salesforce/SFR-Embedding-2_R",
+        "score": 59.8,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2024-06-14"
+      },
+      {
+        "model": "OrdalieTech/Solon-embeddings-large-0.1",
+        "score": 59.63,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2023-12-09"
+      },
+      {
+        "model": "BAAI/bge-m3",
+        "score": 59.55,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2024-06-28"
+      },
+      {
+        "model": "Alibaba-NLP/gte-Qwen2-1.5B-instruct",
+        "score": 59.45,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-07-29"
+      },
+      {
+        "model": "intfloat/multilingual-e5-large",
+        "score": 58.57,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-08"
+      },
+      {
+        "model": "jinaai/jina-embeddings-v3",
+        "score": 58.37,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2024-09-18"
+      },
+      {
+        "model": "hotchpotch/bekko-embedding-v1-a25m",
+        "score": 58.36,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2026-07-28"
+      },
+      {
+        "model": "Alibaba-NLP/gte-multilingual-base",
+        "score": 58.35,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-07-20"
+      },
+      {
+        "model": "Lajavaness/bilingual-embedding-base",
+        "score": 58.23,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-06-26"
+      },
+      {
+        "model": "manu/bge-m3-custom-fr",
+        "score": 57.86,
+        "openness_score": 2,
+        "license": null,
+        "released": "2024-04-11"
+      },
+      {
+        "model": "HIT-TMG/KaLM-embedding-multilingual-mini-v1",
+        "score": 57.05,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-08-27"
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-l-v2.0",
+        "score": 57.03,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-12-04"
+      },
+      {
+        "model": "intfloat/multilingual-e5-base",
+        "score": 57.02,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-08"
+      },
+      {
+        "model": "Lajavaness/bilingual-embedding-small",
+        "score": 57.01,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-07-17"
+      },
+      {
+        "model": "BidirLM/BidirLM-270M-Embedding",
+        "score": 56.81,
+        "openness_score": 5,
+        "license": "apache-2.0",
+        "released": "2026-04-07"
+      },
+      {
+        "model": "hotchpotch/bekko-embedding-v1-a8m",
+        "score": 56.73,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2026-07-28"
+      },
+      {
+        "model": "zeroentropy/zembed-1",
+        "score": 56.58,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2026-03-02"
+      },
+      {
+        "model": "NovaSearch/stella_en_1.5B_v5",
+        "score": 56.53,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2024-07-12"
+      },
+      {
+        "model": "HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v1",
+        "score": 56.35,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-10-23"
+      },
+      {
+        "model": "intfloat/multilingual-e5-small",
+        "score": 56.32,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-08"
+      },
+      {
+        "model": "nvidia/NV-Embed-v2",
+        "score": 56.29,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2024-09-09"
+      },
+      {
+        "model": "ibm-granite/granite-embedding-311m-multilingual-r2",
+        "score": 55.96,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2026-04-29"
+      },
+      {
+        "model": "nvidia/NV-Embed-v1",
+        "score": 54.88,
+        "openness_score": 3,
+        "license": "cc-by-nc-4.0",
+        "released": "2024-09-13"
+      },
+      {
+        "model": "ibm-granite/granite-embedding-278m-multilingual",
+        "score": 53.74,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-12-18"
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-m-v2.0",
+        "score": 53.7,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-12-04"
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Arabic-labse-Matryoshka",
+        "score": 53.65,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-06-16"
+      },
+      {
+        "model": "omarelshehy/arabic-english-sts-matryoshka",
+        "score": 52.62,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-10-13"
+      },
+      {
+        "model": "sentence-transformers/LaBSE",
+        "score": 52.07,
+        "openness_score": 5,
+        "license": "apache-2.0",
+        "released": "2019-11-01"
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Arabic-all-nli-triplet-Matryoshka",
+        "score": 52.0,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-06-14"
+      },
+      {
+        "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+        "score": 51.93,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2019-11-01"
+      },
+      {
+        "model": "ibm-granite/granite-embedding-97m-multilingual-r2",
+        "score": 51.92,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2026-04-29"
+      },
+      {
+        "model": "ibm-granite/granite-embedding-107m-multilingual",
+        "score": 51.81,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-12-18"
+      },
+      {
+        "model": "deepvk/USER-bge-m3",
+        "score": 51.64,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-07-05"
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Arabic-MiniLM-L12-v2-all-nli-triplet",
+        "score": 49.69,
+        "openness_score": 3,
+        "license": "apache-2.0",
+        "released": "2024-06-25"
+      },
+      {
+        "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+        "score": 48.73,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2019-11-01"
+      },
+      {
+        "model": "Gameselo/STS-multilingual-mpnet-base-v2",
+        "score": 48.52,
+        "openness_score": 3,
+        "license": null,
+        "released": "2024-06-07"
+      },
+      {
+        "model": "NovaSearch/stella_en_400M_v5",
+        "score": 48.32,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2024-07-12"
+      },
+      {
+        "model": "minishlab/potion-multilingual-128M",
+        "score": 47.2,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2025-05-23"
+      },
+      {
+        "model": "intfloat/e5-large-v2",
+        "score": 46.64,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-08"
+      },
+      {
+        "model": "WhereIsAI/UAE-Large-V1",
+        "score": 46.09,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2023-12-04"
+      },
+      {
+        "model": "intfloat/e5-base-v2",
+        "score": 45.98,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-08"
+      },
+      {
+        "model": "nomic-ai/nomic-embed-text-v1-ablated",
+        "score": 45.92,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-01-15"
+      },
+      {
+        "model": "mixedbread-ai/mxbai-embed-large-v1",
+        "score": 45.91,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-03-07"
+      },
+      {
+        "model": "shibing624/text2vec-base-multilingual",
+        "score": 45.87,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2023-06-22"
+      },
+      {
+        "model": "avsolatorio/GIST-large-Embedding-v0",
+        "score": 45.75,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-14"
+      },
+      {
+        "model": "nomic-ai/nomic-embed-text-v1",
+        "score": 45.68,
+        "openness_score": 5,
+        "license": "apache-2.0",
+        "released": "2024-01-31"
+      },
+      {
+        "model": "manu/sentence_croissant_alpha_v0.3",
+        "score": 45.65,
+        "openness_score": 2,
+        "license": null,
+        "released": "2024-04-26"
+      },
+      {
+        "model": "nomic-ai/nomic-embed-text-v1-unsupervised",
+        "score": 45.6,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-01-15"
+      },
+      {
+        "model": "intfloat/e5-large",
+        "score": 45.59,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2022-12-26"
+      },
+      {
+        "model": "manu/sentence_croissant_alpha_v0.2",
+        "score": 45.44,
+        "openness_score": 2,
+        "license": null,
+        "released": "2024-03-15"
+      },
+      {
+        "model": "sdadas/mmlw-e5-large",
+        "score": 45.4,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2023-11-17"
+      },
+      {
+        "model": "manu/sentence_croissant_alpha_v0.4",
+        "score": 45.4,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-04-27"
+      },
+      {
+        "model": "thenlper/gte-large",
+        "score": 45.21,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2023-07-27"
+      },
+      {
+        "model": "BAAI/bge-large-en-v1.5",
+        "score": 45.08,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2023-09-12"
+      },
+      {
+        "model": "dwzhu/e5-base-4k",
+        "score": 45.04,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-03-28"
+      },
+      {
+        "model": "avsolatorio/GIST-Embedding-v0",
+        "score": 45.0,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-01-31"
+      },
+      {
+        "model": "avsolatorio/NoInstruct-small-Embedding-v0",
+        "score": 44.9,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-05-01"
+      },
+      {
+        "model": "deepfile/embedder-100p",
+        "score": 44.72,
+        "openness_score": 2,
+        "license": null,
+        "released": "2023-07-24"
+      },
+      {
+        "model": "infgrad/stella-base-en-v2",
+        "score": 44.67,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2023-10-19"
+      },
+      {
+        "model": "bigscience/sgpt-bloom-7b1-msmarco",
+        "score": 44.58,
+        "openness_score": 3,
+        "license": null,
+        "released": "2022-08-26"
+      },
+      {
+        "model": "intfloat/e5-base",
+        "score": 44.55,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2022-12-26"
+      },
+      {
+        "model": "BAAI/bge-base-en-v1.5",
+        "score": 44.52,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2023-09-11"
+      },
+      {
+        "model": "intfloat/e5-small-v2",
+        "score": 44.47,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-08"
+      },
+      {
+        "model": "thenlper/gte-base",
+        "score": 44.4,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2023-07-27"
+      },
+      {
+        "model": "avsolatorio/GIST-small-Embedding-v0",
+        "score": 44.21,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-03"
+      },
+      {
+        "model": "sergeyzh/LaBSE-ru-turbo",
+        "score": 44.19,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-06-27"
+      },
+      {
+        "model": "sdadas/mmlw-e5-base",
+        "score": 44.15,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2023-11-17"
+      },
+      {
+        "model": "nomic-ai/nomic-embed-text-v1.5",
+        "score": 44.1,
+        "openness_score": 5,
+        "license": "apache-2.0",
+        "released": "2024-02-10"
+      },
+      {
+        "model": "thenlper/gte-small",
+        "score": 44.1,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2023-07-27"
+      },
+      {
+        "model": "ibm-granite/granite-embedding-125m-english",
+        "score": 44.04,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-12-18"
+      },
+      {
+        "model": "BAAI/bge-small-en-v1.5",
+        "score": 43.76,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2023-09-12"
+      },
+      {
+        "model": "Mihaiii/Ivysaur",
+        "score": 43.54,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-04-27"
+      },
+      {
+        "model": "intfloat/e5-small",
+        "score": 43.46,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-08"
+      },
+      {
+        "model": "abhinand/MedEmbed-small-v0.1",
+        "score": 43.34,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-10-20"
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-l",
+        "score": 43.33,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-04-12"
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-m-long",
+        "score": 43.23,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-04-12"
+      },
+      {
+        "model": "sdadas/mmlw-e5-small",
+        "score": 43.11,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2023-11-17"
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-s",
+        "score": 42.85,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-04-12"
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-m",
+        "score": 42.84,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-04-12"
+      },
+      {
+        "model": "cointegrated/LaBSE-en-ru",
+        "score": 42.83,
+        "openness_score": 3,
+        "license": "not specified",
+        "released": "2021-06-10"
+      },
+      {
+        "model": "avsolatorio/GIST-all-MiniLM-L6-v2",
+        "score": 42.7,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-02-03"
+      },
+      {
+        "model": "sentence-transformers/all-mpnet-base-v2",
+        "score": 42.56,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2021-08-30"
+      },
+      {
+        "model": "sdadas/mmlw-roberta-large",
+        "score": 42.52,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2023-11-17"
+      },
+      {
+        "model": "ibm-granite/granite-embedding-30m-english",
+        "score": 42.48,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-12-18"
+      },
+      {
+        "model": "sentence-transformers/all-MiniLM-L12-v2",
+        "score": 42.28,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2021-08-30"
+      },
+      {
+        "model": "deepvk/USER-base",
+        "score": 42.18,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-06-10"
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-m-v1.5",
+        "score": 41.99,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-07-08"
+      },
+      {
+        "model": "Mihaiii/Bulbasaur",
+        "score": 41.71,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-04-27"
+      },
+      {
+        "model": "ai-forever/ru-en-RoSBERTa",
+        "score": 41.57,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2024-07-29"
+      },
+      {
+        "model": "Mihaiii/gte-micro-v4",
+        "score": 41.53,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-04-22"
+      },
+      {
+        "model": "sdadas/mmlw-roberta-base",
+        "score": 41.51,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2023-11-17"
+      },
+      {
+        "model": "brahmairesearch/slx-v0.1",
+        "score": 41.41,
+        "openness_score": 3,
+        "license": "apache-2.0",
+        "released": "2024-08-13"
+      },
+      {
+        "model": "sentence-transformers/all-MiniLM-L6-v2",
+        "score": 41.39,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2021-08-30"
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-xs",
+        "score": 41.13,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-07-08"
+      },
+      {
+        "model": "jinaai/jina-embedding-b-en-v1",
+        "score": 40.91,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2023-07-07"
+      },
+      {
+        "model": "Mihaiii/Wartortle",
+        "score": 40.82,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-04-30"
+      },
+      {
+        "model": "Mihaiii/Venusaur",
+        "score": 39.95,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-04-29"
+      },
+      {
+        "model": "Mihaiii/Squirtle",
+        "score": 39.69,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-04-30"
+      },
+      {
+        "model": "Mihaiii/gte-micro",
+        "score": 39.42,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-04-21"
+      },
+      {
+        "model": "jinaai/jina-embedding-s-en-v1",
+        "score": 38.84,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2023-07-07"
+      },
+      {
+        "model": "sergeyzh/rubert-tiny-turbo",
+        "score": 38.77,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2024-06-21"
+      },
+      {
+        "model": "minishlab/potion-base-8M",
+        "score": 38.58,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2024-10-29"
+      },
+      {
+        "model": "aari1995/German_Semantic_STS_V2",
+        "score": 38.33,
+        "openness_score": 2,
+        "license": null,
+        "released": "2022-11-17"
+      },
+      {
+        "model": "minishlab/potion-base-4M",
+        "score": 37.84,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2024-10-29"
+      },
+      {
+        "model": "minishlab/M2V_base_glove_subword",
+        "score": 37.71,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2024-09-21"
+      },
+      {
+        "model": "Jaume/gemma-2b-embeddings",
+        "score": 37.27,
+        "openness_score": 2,
+        "license": null,
+        "released": "2024-06-29"
+      },
+      {
+        "model": "minishlab/M2V_base_output",
+        "score": 37.25,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2024-09-21"
+      },
+      {
+        "model": "consciousAI/cai-lunaris-text-embeddings",
+        "score": 36.65,
+        "openness_score": 3,
+        "license": "apache-2.0",
+        "released": "2023-06-22"
+      },
+      {
+        "model": "minishlab/potion-base-2M",
+        "score": 36.29,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2024-10-29"
+      },
+      {
+        "model": "minishlab/M2V_base_glove",
+        "score": 35.23,
+        "openness_score": 5,
+        "license": "mit",
+        "released": "2024-09-21"
+      },
+      {
+        "model": "jinaai/jina-embeddings-v2-small-en",
+        "score": 35.22,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2023-09-27"
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Arabic-mpnet-base-all-nli-triplet",
+        "score": 35.2,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-06-15"
+      },
+      {
+        "model": "cointegrated/rubert-tiny2",
+        "score": 34.81,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2021-10-28"
+      },
+      {
+        "model": "DeepPavlov/rubert-base-cased-sentence",
+        "score": 34.37,
+        "openness_score": 2,
+        "license": "not specified",
+        "released": "2020-03-04"
+      },
+      {
+        "model": "silma-ai/silma-embeddding-matryoshka-v0.1",
+        "score": 34.15,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-10-12"
+      },
+      {
+        "model": "cointegrated/rubert-tiny",
+        "score": 33.85,
+        "openness_score": 4,
+        "license": "mit",
+        "released": "2021-05-24"
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Arabert-all-nli-triplet-Matryoshka",
+        "score": 33.11,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-06-16"
+      },
+      {
+        "model": "DeepPavlov/distilrubert-small-cased-conversational",
+        "score": 32.5,
+        "openness_score": 3,
+        "license": "not specified",
+        "released": "2022-06-28"
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Marbert-all-nli-triplet-Matryoshka",
+        "score": 32.14,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2024-06-17"
+      },
+      {
+        "model": "DeepPavlov/rubert-base-cased",
+        "score": 32.0,
+        "openness_score": 3,
+        "license": "not specified",
+        "released": "2020-03-04"
+      },
+      {
+        "model": "deepvk/deberta-v1-base",
+        "score": 31.83,
+        "openness_score": 3,
+        "license": "apache-2.0",
+        "released": "2023-02-07"
+      },
+      {
+        "model": "ai-forever/sbert_large_mt_nlu_ru",
+        "score": 31.21,
+        "openness_score": 2,
+        "license": "not specified",
+        "released": "2021-05-18"
+      },
+      {
+        "model": "malenia1/ternary-weight-embedding",
+        "score": 31.06,
+        "openness_score": 2,
+        "license": null,
+        "released": "2024-10-23"
+      },
+      {
+        "model": "ai-forever/sbert_large_nlu_ru",
+        "score": 30.05,
+        "openness_score": 3,
+        "license": "mit",
+        "released": "2020-11-20"
+      },
+      {
+        "model": "jinaai/jina-embeddings-v2-base-en",
+        "score": 28.04,
+        "openness_score": 4,
+        "license": "apache-2.0",
+        "released": "2023-09-27"
+      },
+      {
+        "model": "mteb/baseline-random-encoder",
+        "score": 18.79,
+        "openness_score": 3,
+        "license": "mit",
+        "released": null
+      }
+    ],
+    "open source": [
+      {
+        "model": "nvidia/llama-embed-nemotron-8b",
+        "score": 69.46,
+        "openness_score": 5,
+        "license": "https://huggingface.co/nvidia/llama-embed-nemotron-8b/blob/main/LICENSE",
+        "released": "2025-10-23"
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-14B",
+        "score": 68.74,
+        "openness_score": 6,
+        "license": "apache-2.0",
+        "released": "2026-03-09"
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-8B",
+        "score": 68.09,
+        "openness_score": 6,
+        "license": "apache-2.0",
+        "released": "2026-03-09"
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-4B",
+        "score": 67.06,
+        "openness_score": 6,
+        "license": "apache-2.0",
+        "released": "2026-03-09"
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-1.7B",
+        "score": 65.21,
+        "openness_score": 6,
+        "license": "apache-2.0",
+        "released": "2026-03-09"
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-0.6B",
+        "score": 62.74,
+        "openness_score": 6,
+        "license": "apache-2.0",
+        "released": "2026-03-09"
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-330M",
+        "score": 60.84,
+        "openness_score": 6,
+        "license": "apache-2.0",
+        "released": "2026-03-09"
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-160M",
+        "score": 57.98,
+        "openness_score": 6,
+        "license": "apache-2.0",
+        "released": "2026-03-09"
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-80M",
+        "score": 55.23,
+        "openness_score": 6,
+        "license": "apache-2.0",
+        "released": "2026-03-09"
+      },
+      {
+        "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+        "score": 47.21,
+        "openness_score": 6,
+        "license": "apache-2.0",
+        "released": "2025-01-15"
+      }
+    ]
+  }
 }

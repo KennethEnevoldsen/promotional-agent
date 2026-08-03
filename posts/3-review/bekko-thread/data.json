@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-01",
+  "generated": "2026-08-02",
   "benchmark": "MTEB(Multilingual, v2)",
   "cohort_rule": "multilingual text models (>= 2 languages) with <= 60M active parameters",
   "comparability_rule": "full task coverage on the benchmark and a known active-parameter count",
