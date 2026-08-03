@@ -11,21 +11,41 @@ MTEB spans three repositories — `mteb` (the evaluation package, plus dataset a
 implementations), `results` (evaluation results) and the leaderboard. Posts are triggered
 by what merges in the first two.
 
-## Automation tier: **Handheld**
+## Automation tier: **Supervised**
 
 | tier | what runs itself | what a human does |
 |---|---|---|
-| **Handheld** ← *we are here* | nothing | invokes every step, reviews every post, publishes by hand |
-| Supervised | scanning, drafting, verifying, scheduling | approves each post before it goes out |
-| Autonomous | the whole loop, including publishing | audits after the fact, inside guardrails |
+| Handheld | nothing | invokes every step, reviews every post, publishes by hand |
+| **Supervised** ← *we are here* | scanning, drafting, verifying, **publishing on a timer** | approves each post before it goes out |
+| Autonomous | the whole loop, including what to say | audits after the fact, inside guardrails |
 
-Handheld is deliberate, not unfinished. The open question this repo exists to answer is
-whether the numbers can be trusted without a person checking them, and every tier above
-this one assumes an answer we do not have yet.
+What is automated is the **trigger**, not the judgement. `.github/workflows/publish.yml`
+runs hourly and sends the one post whose `scheduled_for` has passed. Every post it sends
+was written, checked and approved by a named person first, and `mteb-publish` refuses to
+send one that was not.
 
-Leaving Handheld needs, roughly in order: a publishing client; an approval path that is
-harder to ignore than a folder; and enough posts through the pipeline to know the failure
-modes. The rejection record in `posts/rejected/` is the evidence for that last one.
+The account carries the **`bot` self-label** accordingly. Bluesky recommends it for
+accounts that publish automatically, and it went on in the same change that added the
+timer — the failure that matters is publishing on a schedule while presenting as a person
+typing. It is a field on our own profile record and can be removed if the tier changes
+back.
+
+Three guardrails make unattended publishing safe enough to leave alone:
+
+- **The rest of the scheduled day.** A run delayed by GitHub still publishes — cron is
+  best-effort and skips under load, and a 09:00 post going out at 11:00 is on time in
+  every sense a reader cares about. Once the local day is over it refuses, because a queue
+  that has been stuck for days would otherwise flush itself, and those posts are answers
+  to a question nobody is still asking.
+- **A duplicate check.** Publishing and recording the post are separate steps and CI is
+  not transactional, so the publisher asks the timeline what is already there before
+  sending rather than trusting the repo to be up to date.
+- **One at a time.** A backlog drains one post per run, never as a burst.
+
+Reaching Autonomous would mean the agent choosing what to say without a person in the
+loop. That needs an answer to the question this repo exists to ask — whether the numbers
+can be trusted without a person checking them — and the rejection record in
+`posts/rejected/` is where the evidence accumulates.
 
 ## How you are meant to use it
 

@@ -4,7 +4,7 @@ type: state_of_field
 trigger: standing survey of the registry (no single event)
 trigger_date: 2026-08-01
 approved_by: kennethenevoldsen (explicit instruction, 2026-08-03)
-scheduled_for: 2026-08-10
+scheduled_for: 2026-08-10T09:00:00+02:00
 expires: 2026-11-01
 verified: true
 evidence: data.json

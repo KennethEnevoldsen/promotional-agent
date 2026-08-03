@@ -19,6 +19,7 @@ leaderboard = ["mteb>=2.18.11"]
 mteb-scan = "mtebpost.scan:main"
 mteb-render = "mtebpost.render:main"
 mteb-validate = "mtebpost.validate:main"
+mteb-publish = "mtebpost.publish:main"
 
 [build-system]
 requires = ["hatchling"]

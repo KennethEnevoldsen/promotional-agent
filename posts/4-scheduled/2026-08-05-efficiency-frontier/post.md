@@ -4,7 +4,7 @@ type: state_of_field
 trigger_date: 2026-08-01
 trigger: standing survey of the registry (no single event)
 approved_by: kennethenevoldsen (explicit instruction, 2026-08-02)
-scheduled_for: 2026-08-05
+scheduled_for: 2026-08-05T09:00:00+02:00
 expires: 2026-11-01
 sources:
   - https://leaderboard.mteb.org

@@ -1,0 +1,799 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>MTEB — banner (wordmark)</title>
+<!--
+  Account banner, 1500x500.
+
+    uv run mteb-render --card brand/banner-wordmark.html --out brand/banner-wordmark.png --size banner
+
+  Variant of brand/banner.html carrying the wordmark. Bluesky already prints the
+  display name and handle under the avatar, so on the profile this repeats them; it
+  earns its place only where the banner appears with no profile chrome around it — a
+  slide, a README header, LinkedIn. Bottom right, because the frontier rises away
+  from that corner and leaves it empty, and because it is diagonally clear of where
+  the avatar overlaps.
+
+  Every model with a score on MTEB(Multilingual, v2), placed by size and score, with the
+  Pareto frontier drawn through it.
+
+  THE RULE THAT SHAPES THIS FILE: no numbers, no model names, no axes, no legend.
+
+  A banner is set once and then never looked at again, while every score on it keeps
+  ageing. A snapshot with values on it would be quietly wrong within weeks — wrong on the
+  one surface nobody thinks to re-check, which is the retraction AGENTS.md rule 1 exists
+  to prevent. The frontier line is shape, not a claim: it says "smaller models keep
+  catching up", which is the standing fact about this field rather than a result that
+  expires. Re-fetch the points whenever; nothing downstream depends on which are here.
+
+  THE DOTS CARRY THE MARK'S GRADIENT. The MTEB logo is blue dots shading from deep blue
+  at the lower left to lighter blue at the upper right. The plot uses that same ramp
+  across its width, so the banner reads as the logo's own visual language rather than as
+  a chart that happens to sit above it. That is the whole reason it looks like us.
+
+  Total parameters, not active: `totalParamsB` is a separate API field and so is untouched
+  by the activeParamsB bug in issue.md. Unlabelled texture is also the one place where the
+  choice carries no argument, since no comparison is being drawn.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "points": [
+    [
+      0.002,
+      36.29
+    ],
+    [
+      0.004,
+      37.84
+    ],
+    [
+      0.008,
+      37.25
+    ],
+    [
+      0.008,
+      38.58
+    ],
+    [
+      0.012,
+      33.85
+    ],
+    [
+      0.016,
+      39.69
+    ],
+    [
+      0.016,
+      39.95
+    ],
+    [
+      0.017,
+      39.42
+    ],
+    [
+      0.017,
+      40.82
+    ],
+    [
+      0.017,
+      41.71
+    ],
+    [
+      0.019,
+      41.53
+    ],
+    [
+      0.023,
+      41.13
+    ],
+    [
+      0.023,
+      41.39
+    ],
+    [
+      0.023,
+      41.41
+    ],
+    [
+      0.023,
+      42.7
+    ],
+    [
+      0.023,
+      43.54
+    ],
+    [
+      0.029,
+      34.81
+    ],
+    [
+      0.029,
+      38.77
+    ],
+    [
+      0.03,
+      42.48
+    ],
+    [
+      0.033,
+      35.22
+    ],
+    [
+      0.033,
+      42.28
+    ],
+    [
+      0.033,
+      42.85
+    ],
+    [
+      0.033,
+      43.34
+    ],
+    [
+      0.033,
+      43.46
+    ],
+    [
+      0.033,
+      43.76
+    ],
+    [
+      0.033,
+      44.1
+    ],
+    [
+      0.033,
+      44.21
+    ],
+    [
+      0.033,
+      44.47
+    ],
+    [
+      0.033,
+      44.9
+    ],
+    [
+      0.035,
+      38.84
+    ],
+    [
+      0.08,
+      55.23
+    ],
+    [
+      0.097,
+      51.92
+    ],
+    [
+      0.099,
+      31.06
+    ],
+    [
+      0.102,
+      35.23
+    ],
+    [
+      0.103,
+      37.71
+    ],
+    [
+      0.106,
+      56.73
+    ],
+    [
+      0.107,
+      32.5
+    ],
+    [
+      0.107,
+      34.37
+    ],
+    [
+      0.107,
+      51.81
+    ],
+    [
+      0.108,
+      47.21
+    ],
+    [
+      0.109,
+      35.2
+    ],
+    [
+      0.109,
+      41.99
+    ],
+    [
+      0.109,
+      42.56
+    ],
+    [
+      0.109,
+      42.84
+    ],
+    [
+      0.109,
+      44.4
+    ],
+    [
+      0.109,
+      44.52
+    ],
+    [
+      0.109,
+      44.55
+    ],
+    [
+      0.109,
+      44.67
+    ],
+    [
+      0.109,
+      45.0
+    ],
+    [
+      0.109,
+      45.98
+    ],
+    [
+      0.11,
+      40.91
+    ],
+    [
+      0.112,
+      45.04
+    ],
+    [
+      0.118,
+      43.11
+    ],
+    [
+      0.118,
+      45.87
+    ],
+    [
+      0.118,
+      48.73
+    ],
+    [
+      0.118,
+      49.69
+    ],
+    [
+      0.118,
+      56.3
+    ],
+    [
+      0.118,
+      57.01
+    ],
+    [
+      0.123,
+      58.36
+    ],
+    [
+      0.124,
+      31.83
+    ],
+    [
+      0.124,
+      41.51
+    ],
+    [
+      0.125,
+      44.04
+    ],
+    [
+      0.128,
+      47.2
+    ],
+    [
+      0.129,
+      42.83
+    ],
+    [
+      0.129,
+      44.19
+    ],
+    [
+      0.135,
+      33.11
+    ],
+    [
+      0.135,
+      34.15
+    ],
+    [
+      0.137,
+      28.04
+    ],
+    [
+      0.137,
+      43.23
+    ],
+    [
+      0.137,
+      44.1
+    ],
+    [
+      0.137,
+      45.6
+    ],
+    [
+      0.137,
+      45.68
+    ],
+    [
+      0.137,
+      45.92
+    ],
+    [
+      0.159,
+      57.98
+    ],
+    [
+      0.163,
+      32.14
+    ],
+    [
+      0.212,
+      65.52
+    ],
+    [
+      0.268,
+      56.81
+    ],
+    [
+      0.268,
+      66.55
+    ],
+    [
+      0.278,
+      44.15
+    ],
+    [
+      0.278,
+      44.72
+    ],
+    [
+      0.278,
+      48.52
+    ],
+    [
+      0.278,
+      51.93
+    ],
+    [
+      0.278,
+      52.0
+    ],
+    [
+      0.278,
+      53.74
+    ],
+    [
+      0.278,
+      57.02
+    ],
+    [
+      0.278,
+      58.23
+    ],
+    [
+      0.305,
+      53.7
+    ],
+    [
+      0.305,
+      58.35
+    ],
+    [
+      0.308,
+      61.15
+    ],
+    [
+      0.312,
+      55.96
+    ],
+    [
+      0.334,
+      60.84
+    ],
+    [
+      0.335,
+      36.65
+    ],
+    [
+      0.335,
+      43.33
+    ],
+    [
+      0.335,
+      45.08
+    ],
+    [
+      0.335,
+      45.21
+    ],
+    [
+      0.335,
+      45.59
+    ],
+    [
+      0.335,
+      45.75
+    ],
+    [
+      0.335,
+      45.91
+    ],
+    [
+      0.335,
+      46.09
+    ],
+    [
+      0.335,
+      46.64
+    ],
+    [
+      0.336,
+      38.33
+    ],
+    [
+      0.359,
+      51.64
+    ],
+    [
+      0.404,
+      41.57
+    ],
+    [
+      0.427,
+      30.05
+    ],
+    [
+      0.427,
+      31.21
+    ],
+    [
+      0.427,
+      42.18
+    ],
+    [
+      0.435,
+      42.52
+    ],
+    [
+      0.435,
+      48.32
+    ],
+    [
+      0.471,
+      52.07
+    ],
+    [
+      0.471,
+      53.65
+    ],
+    [
+      0.494,
+      56.35
+    ],
+    [
+      0.494,
+      57.05
+    ],
+    [
+      0.56,
+      45.4
+    ],
+    [
+      0.56,
+      52.62
+    ],
+    [
+      0.56,
+      58.57
+    ],
+    [
+      0.56,
+      59.63
+    ],
+    [
+      0.56,
+      60.96
+    ],
+    [
+      0.56,
+      63.22
+    ],
+    [
+      0.568,
+      57.03
+    ],
+    [
+      0.568,
+      57.86
+    ],
+    [
+      0.568,
+      59.55
+    ],
+    [
+      0.572,
+      58.37
+    ],
+    [
+      0.596,
+      60.42
+    ],
+    [
+      0.596,
+      62.74
+    ],
+    [
+      0.596,
+      64.34
+    ],
+    [
+      0.596,
+      67.0
+    ],
+    [
+      0.596,
+      69.01
+    ],
+    [
+      0.986,
+      65.52
+    ],
+    [
+      1.0,
+      63.21
+    ],
+    [
+      1.28,
+      32.0
+    ],
+    [
+      1.28,
+      45.4
+    ],
+    [
+      1.28,
+      45.44
+    ],
+    [
+      1.28,
+      45.65
+    ],
+    [
+      1.54,
+      56.53
+    ],
+    [
+      1.543,
+      59.45
+    ],
+    [
+      1.626,
+      67.0
+    ],
+    [
+      1.721,
+      63.54
+    ],
+    [
+      1.721,
+      65.21
+    ],
+    [
+      2.445,
+      63.5
+    ],
+    [
+      2.506,
+      37.27
+    ],
+    [
+      4.022,
+      56.58
+    ],
+    [
+      4.022,
+      63.52
+    ],
+    [
+      4.022,
+      63.78
+    ],
+    [
+      4.022,
+      67.06
+    ],
+    [
+      4.022,
+      69.45
+    ],
+    [
+      7.068,
+      44.58
+    ],
+    [
+      7.069,
+      62.51
+    ],
+    [
+      7.111,
+      59.8
+    ],
+    [
+      7.111,
+      60.03
+    ],
+    [
+      7.111,
+      60.9
+    ],
+    [
+      7.111,
+      61.47
+    ],
+    [
+      7.24,
+      60.92
+    ],
+    [
+      7.505,
+      69.46
+    ],
+    [
+      7.567,
+      67.84
+    ],
+    [
+      7.567,
+      70.58
+    ],
+    [
+      7.568,
+      68.09
+    ],
+    [
+      7.85,
+      54.88
+    ],
+    [
+      7.85,
+      56.29
+    ],
+    [
+      11.766,
+      72.32
+    ],
+    [
+      13.99,
+      68.74
+    ],
+    [
+      27.009,
+      74.27
+    ],
+    [
+      57.92,
+      60.49
+    ]
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+MTEB banner: the MTEB wordmark beside a wide, shallow scatter of 162 models evaluated on MTEB(Multilingual, v2), placed by parameter count and mean score, shading from deep blue at the left to lighter blue at the right, with a stepped line tracing the models nothing else beats on both size and score. Decorative — no axes or values.
+</script>
+
+<style>
+  :root {
+    --surface:      #fcfcfb;
+    --text-primary: #0b0b0b;
+    /* the two ends of the logo's own gradient, sampled off assets/avatar.png */
+    --mark-dark:    #208fe0;
+    --mark-light:   #3bb5ef;
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --logo-uri: url("data:image/png;base64,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");
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1500px; height: 500px; }
+  body { background: var(--surface); position: relative; overflow: hidden;
+         font-family: var(--font-sans); }
+  #plot { position: absolute; inset: 0; }
+
+  .mark {
+    position: absolute; right: 78px; bottom: 78px;
+    display: flex; align-items: center; gap: 15px;
+  }
+  .logo { width: 44px; height: 44px;
+          background: var(--logo-uri) left center / contain no-repeat; }
+  .name { font-size: 42px; font-weight: 640; letter-spacing: -0.022em;
+          color: var(--text-primary); }
+</style>
+
+<svg id="plot" viewBox="0 0 1500 500"></svg>
+<div class="mark">
+  <span class="logo" role="img" aria-label="MTEB"></span>
+  <span class="name">MTEB</span>
+</div>
+
+<script>
+const d = JSON.parse(document.getElementById("card-data").textContent);
+const NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("plot");
+
+// Log x: sizes span 2M to 58B parameters, four and a half orders of magnitude. On a
+// linear axis every model under a billion collapses onto the left edge.
+const xs = d.points.map(p => p[0]), ys = d.points.map(p => p[1]);
+const lo = Math.log10(Math.min(...xs)), hi = Math.log10(Math.max(...xs));
+const y0 = Math.min(...ys), y1 = Math.max(...ys);
+
+// BAND HEIGHT is deliberately shallow — 208px of the 500px frame. The plot is a stripe
+// across the banner, not a chart filling it: a full-height scatter reads as a figure
+// someone forgot to label, while a shallow band reads as texture with direction.
+const TOP = 148, BAND = 208;
+const X = v => 40 + (Math.log10(v) - lo) / (hi - lo) * 1420;
+const Y = v => TOP + BAND - (v - y0) / (y1 - y0) * BAND;
+
+const A = [0x20,0x8f,0xe0], B = [0x3b,0xb5,0xef];
+const ramp = t => `rgb(${A.map((c,i) => Math.round(c + (B[i]-c)*t)).join(",")})`;
+
+// Pareto frontier: the models nothing else beats on both size and score at once. Drawn
+// as a staircase because that is what the data does — a smoothed curve would invent
+// intermediate models, and the flat runs are the interesting part anyway.
+const sorted = [...d.points].sort((a,b) => a[0]-b[0]);
+const front = [];
+let best = -Infinity;
+for (const [x,y] of sorted) if (y > best) { best = y; front.push([x,y]); }
+
+let path = "";
+front.forEach(([x,y], i) => {
+  path += i === 0 ? `M ${X(x).toFixed(1)} ${Y(y).toFixed(1)}`
+                  : ` H ${X(x).toFixed(1)} V ${Y(y).toFixed(1)}`;
+});
+const line = document.createElementNS(NS, "path");
+line.setAttribute("d", path);
+line.setAttribute("fill", "none");
+line.setAttribute("stroke", "url(#ramp)");
+line.setAttribute("stroke-width", "2.5");
+line.setAttribute("stroke-linejoin", "round");
+line.setAttribute("opacity", "0.9");
+
+const defs = document.createElementNS(NS, "defs");
+defs.innerHTML =
+  `<linearGradient id="ramp" x1="0" y1="0" x2="1" y2="0">
+     <stop offset="0" stop-color="var(--mark-dark)"/>
+     <stop offset="1" stop-color="var(--mark-light)"/>
+   </linearGradient>`;
+svg.appendChild(defs);
+svg.appendChild(line);
+
+const onFront = new Set(front.map(p => p.join()));
+for (const [x, y] of d.points) {
+  const t = (Math.log10(x) - lo) / (hi - lo);
+  const hit = onFront.has([x,y].join());
+  const c = document.createElementNS(NS, "circle");
+  c.setAttribute("cx", X(x).toFixed(1));
+  c.setAttribute("cy", Y(y).toFixed(1));
+  // Frontier models sit slightly larger and fully opaque; everything else is the field
+  // they are measured against, so it recedes.
+  c.setAttribute("r", hit ? 4.5 : 2.5);
+  c.setAttribute("fill", ramp(t));
+  c.setAttribute("opacity", hit ? 1 : 0.42);
+  svg.appendChild(c);
+}
+
+window.__altText =
+  "MTEB banner: the MTEB wordmark beside a wide, shallow scatter of " + d.points.length + " models evaluated on "
+  + "MTEB(Multilingual, v2), placed by parameter count and mean score, shading from deep "
+  + "blue at the left to lighter blue at the right, with a stepped line tracing the "
+  + "models nothing else beats on both size and score. Decorative — no axes or values.";
+</script>

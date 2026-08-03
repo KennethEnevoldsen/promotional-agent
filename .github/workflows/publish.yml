@@ -1,0 +1,79 @@
+name: Publish scheduled posts
+
+# Hourly: publish the one post whose scheduled time has passed, if any.
+#
+# Hourly is deliberately coarser than the schedule it serves. GitHub's cron is
+# best-effort and is regularly delayed under load, so a post marked 09:00 goes out
+# somewhere in the 09:00 hour and sometimes later. That is fine here — nothing is
+# time-critical to the minute — and the publisher will still send a delayed post for the
+# rest of that local day. What it refuses is a post whose day has passed, so an outage
+# cannot end with a week of stale announcements arriving at once. That is also why
+# `scheduled_for` carries a real timezone offset: the day is judged in the post's own
+# timezone, not the runner's UTC.
+#
+# WHAT THIS DOES NOT DO: it does not decide anything. Every post it sends was written,
+# checked and approved by a person, and `mteb-publish` refuses to send one that was not
+# (AGENTS.md rule 10). What is automated here is the *trigger*, not the judgement.
+
+on:
+  schedule:
+    - cron: "7 * * * *"   # 7 past the hour: off the top-of-hour spike, so less drift
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Show what would go out without sending it"
+        type: boolean
+        default: true
+
+# Never two publishers at once. Overlapping runs could both pass the duplicate check
+# before either had posted, and the timeline is not something you can undo cleanly.
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # to commit the move into posts/5-posted/
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # --no-deps on purpose: publish and validate are stdlib-only. The base install
+      # pulls playwright, which is only needed to render cards, and cards are rendered
+      # and committed long before anything is scheduled.
+      - name: Install
+        run: pip install -e . --no-deps
+
+      # The same mechanical checks that run locally. If the queue is malformed, that
+      # should stop the publisher rather than be discovered by publishing.
+      - name: Validate
+        run: mteb-validate
+
+      - name: Show what is due
+        run: mteb-publish --due
+
+      - name: Publish
+        if: github.event_name == 'schedule' || inputs.dry_run == false
+        env:
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+        run: mteb-publish --due --send
+
+      - name: Record the post
+        if: github.event_name == 'schedule' || inputs.dry_run == false
+        run: |
+          if git diff --quiet && git diff --cached --quiet && \
+             [ -z "$(git status --porcelain)" ]; then
+            echo "nothing published this run"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posts/
+          git commit -m "Publish $(git status --porcelain posts/5-posted | head -1 | awk '{print $NF}' | cut -d/ -f3) [skip ci]"
+          git push

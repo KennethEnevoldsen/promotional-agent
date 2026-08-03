@@ -42,6 +42,12 @@ CARD_W, CARD_H = 1200, 1200  # square: social feeds crop wide images, and a
                              # square (or taller) card keeps its full height in-feed
 SCALE = 2  # retina; produces a 2400x2400 png
 
+# Account art is not a card and does not share its geometry: a Bluesky banner is 3:1
+# and is cropped and scaled by the client, so it gets its own size rather than a card
+# squeezed into a letterbox. Everything else — the palette, the logo, the alt-text
+# contract — is deliberately the same, because the brand should not fork by surface.
+PRESETS = {"card": (1200, 1200), "banner": (1500, 500), "avatar": (1000, 1000)}
+
 BLOCK = re.compile(
     r'(<script type="application/json" id="card-data">)(.*?)(</script>)', re.S
 )
@@ -83,7 +89,10 @@ def main() -> None:
     ap.add_argument("--card", required=True, help="path to the post's card.html")
     ap.add_argument("--out", required=True)
     ap.add_argument("--mode", choices=("light", "dark"), default="light")
+    ap.add_argument("--size", choices=tuple(PRESETS), default="card")
     args = ap.parse_args()
+
+    width, height = PRESETS[args.size]
 
     page_html = build_page(pathlib.Path(args.card), args.mode)
 
@@ -96,7 +105,7 @@ def main() -> None:
         with sync_playwright() as p:
             browser = p.chromium.launch(channel="chrome")
             page = browser.new_page(
-                viewport={"width": CARD_W, "height": CARD_H},
+                viewport={"width": width, "height": height},
                 device_scale_factor=SCALE,
             )
             page.goto(src.as_uri())

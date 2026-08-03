@@ -1,0 +1,780 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>MTEB — Bluesky banner</title>
+<!--
+  Account banner, 1500x500.
+
+    uv run mteb-render --card brand/banner.html --out brand/banner.png --size banner
+
+  Every model with a score on MTEB(Multilingual, v2), placed by size and score, with the
+  Pareto frontier drawn through it.
+
+  THE RULE THAT SHAPES THIS FILE: no numbers, no model names, no axes, no legend.
+
+  A banner is set once and then never looked at again, while every score on it keeps
+  ageing. A snapshot with values on it would be quietly wrong within weeks — wrong on the
+  one surface nobody thinks to re-check, which is the retraction AGENTS.md rule 1 exists
+  to prevent. The frontier line is shape, not a claim: it says "smaller models keep
+  catching up", which is the standing fact about this field rather than a result that
+  expires. Re-fetch the points whenever; nothing downstream depends on which are here.
+
+  THE DOTS CARRY THE MARK'S GRADIENT. The MTEB logo is blue dots shading from deep blue
+  at the lower left to lighter blue at the upper right. The plot uses that same ramp
+  across its width, so the banner reads as the logo's own visual language rather than as
+  a chart that happens to sit above it. That is the whole reason it looks like us.
+
+  Total parameters, not active: `totalParamsB` is a separate API field and so is untouched
+  by the activeParamsB bug in issue.md. Unlabelled texture is also the one place where the
+  choice carries no argument, since no comparison is being drawn.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "points": [
+    [
+      0.002,
+      36.29
+    ],
+    [
+      0.004,
+      37.84
+    ],
+    [
+      0.008,
+      37.25
+    ],
+    [
+      0.008,
+      38.58
+    ],
+    [
+      0.012,
+      33.85
+    ],
+    [
+      0.016,
+      39.69
+    ],
+    [
+      0.016,
+      39.95
+    ],
+    [
+      0.017,
+      39.42
+    ],
+    [
+      0.017,
+      40.82
+    ],
+    [
+      0.017,
+      41.71
+    ],
+    [
+      0.019,
+      41.53
+    ],
+    [
+      0.023,
+      41.13
+    ],
+    [
+      0.023,
+      41.39
+    ],
+    [
+      0.023,
+      41.41
+    ],
+    [
+      0.023,
+      42.7
+    ],
+    [
+      0.023,
+      43.54
+    ],
+    [
+      0.029,
+      34.81
+    ],
+    [
+      0.029,
+      38.77
+    ],
+    [
+      0.03,
+      42.48
+    ],
+    [
+      0.033,
+      35.22
+    ],
+    [
+      0.033,
+      42.28
+    ],
+    [
+      0.033,
+      42.85
+    ],
+    [
+      0.033,
+      43.34
+    ],
+    [
+      0.033,
+      43.46
+    ],
+    [
+      0.033,
+      43.76
+    ],
+    [
+      0.033,
+      44.1
+    ],
+    [
+      0.033,
+      44.21
+    ],
+    [
+      0.033,
+      44.47
+    ],
+    [
+      0.033,
+      44.9
+    ],
+    [
+      0.035,
+      38.84
+    ],
+    [
+      0.08,
+      55.23
+    ],
+    [
+      0.097,
+      51.92
+    ],
+    [
+      0.099,
+      31.06
+    ],
+    [
+      0.102,
+      35.23
+    ],
+    [
+      0.103,
+      37.71
+    ],
+    [
+      0.106,
+      56.73
+    ],
+    [
+      0.107,
+      32.5
+    ],
+    [
+      0.107,
+      34.37
+    ],
+    [
+      0.107,
+      51.81
+    ],
+    [
+      0.108,
+      47.21
+    ],
+    [
+      0.109,
+      35.2
+    ],
+    [
+      0.109,
+      41.99
+    ],
+    [
+      0.109,
+      42.56
+    ],
+    [
+      0.109,
+      42.84
+    ],
+    [
+      0.109,
+      44.4
+    ],
+    [
+      0.109,
+      44.52
+    ],
+    [
+      0.109,
+      44.55
+    ],
+    [
+      0.109,
+      44.67
+    ],
+    [
+      0.109,
+      45.0
+    ],
+    [
+      0.109,
+      45.98
+    ],
+    [
+      0.11,
+      40.91
+    ],
+    [
+      0.112,
+      45.04
+    ],
+    [
+      0.118,
+      43.11
+    ],
+    [
+      0.118,
+      45.87
+    ],
+    [
+      0.118,
+      48.73
+    ],
+    [
+      0.118,
+      49.69
+    ],
+    [
+      0.118,
+      56.3
+    ],
+    [
+      0.118,
+      57.01
+    ],
+    [
+      0.123,
+      58.36
+    ],
+    [
+      0.124,
+      31.83
+    ],
+    [
+      0.124,
+      41.51
+    ],
+    [
+      0.125,
+      44.04
+    ],
+    [
+      0.128,
+      47.2
+    ],
+    [
+      0.129,
+      42.83
+    ],
+    [
+      0.129,
+      44.19
+    ],
+    [
+      0.135,
+      33.11
+    ],
+    [
+      0.135,
+      34.15
+    ],
+    [
+      0.137,
+      28.04
+    ],
+    [
+      0.137,
+      43.23
+    ],
+    [
+      0.137,
+      44.1
+    ],
+    [
+      0.137,
+      45.6
+    ],
+    [
+      0.137,
+      45.68
+    ],
+    [
+      0.137,
+      45.92
+    ],
+    [
+      0.159,
+      57.98
+    ],
+    [
+      0.163,
+      32.14
+    ],
+    [
+      0.212,
+      65.52
+    ],
+    [
+      0.268,
+      56.81
+    ],
+    [
+      0.268,
+      66.55
+    ],
+    [
+      0.278,
+      44.15
+    ],
+    [
+      0.278,
+      44.72
+    ],
+    [
+      0.278,
+      48.52
+    ],
+    [
+      0.278,
+      51.93
+    ],
+    [
+      0.278,
+      52.0
+    ],
+    [
+      0.278,
+      53.74
+    ],
+    [
+      0.278,
+      57.02
+    ],
+    [
+      0.278,
+      58.23
+    ],
+    [
+      0.305,
+      53.7
+    ],
+    [
+      0.305,
+      58.35
+    ],
+    [
+      0.308,
+      61.15
+    ],
+    [
+      0.312,
+      55.96
+    ],
+    [
+      0.334,
+      60.84
+    ],
+    [
+      0.335,
+      36.65
+    ],
+    [
+      0.335,
+      43.33
+    ],
+    [
+      0.335,
+      45.08
+    ],
+    [
+      0.335,
+      45.21
+    ],
+    [
+      0.335,
+      45.59
+    ],
+    [
+      0.335,
+      45.75
+    ],
+    [
+      0.335,
+      45.91
+    ],
+    [
+      0.335,
+      46.09
+    ],
+    [
+      0.335,
+      46.64
+    ],
+    [
+      0.336,
+      38.33
+    ],
+    [
+      0.359,
+      51.64
+    ],
+    [
+      0.404,
+      41.57
+    ],
+    [
+      0.427,
+      30.05
+    ],
+    [
+      0.427,
+      31.21
+    ],
+    [
+      0.427,
+      42.18
+    ],
+    [
+      0.435,
+      42.52
+    ],
+    [
+      0.435,
+      48.32
+    ],
+    [
+      0.471,
+      52.07
+    ],
+    [
+      0.471,
+      53.65
+    ],
+    [
+      0.494,
+      56.35
+    ],
+    [
+      0.494,
+      57.05
+    ],
+    [
+      0.56,
+      45.4
+    ],
+    [
+      0.56,
+      52.62
+    ],
+    [
+      0.56,
+      58.57
+    ],
+    [
+      0.56,
+      59.63
+    ],
+    [
+      0.56,
+      60.96
+    ],
+    [
+      0.56,
+      63.22
+    ],
+    [
+      0.568,
+      57.03
+    ],
+    [
+      0.568,
+      57.86
+    ],
+    [
+      0.568,
+      59.55
+    ],
+    [
+      0.572,
+      58.37
+    ],
+    [
+      0.596,
+      60.42
+    ],
+    [
+      0.596,
+      62.74
+    ],
+    [
+      0.596,
+      64.34
+    ],
+    [
+      0.596,
+      67.0
+    ],
+    [
+      0.596,
+      69.01
+    ],
+    [
+      0.986,
+      65.52
+    ],
+    [
+      1.0,
+      63.21
+    ],
+    [
+      1.28,
+      32.0
+    ],
+    [
+      1.28,
+      45.4
+    ],
+    [
+      1.28,
+      45.44
+    ],
+    [
+      1.28,
+      45.65
+    ],
+    [
+      1.54,
+      56.53
+    ],
+    [
+      1.543,
+      59.45
+    ],
+    [
+      1.626,
+      67.0
+    ],
+    [
+      1.721,
+      63.54
+    ],
+    [
+      1.721,
+      65.21
+    ],
+    [
+      2.445,
+      63.5
+    ],
+    [
+      2.506,
+      37.27
+    ],
+    [
+      4.022,
+      56.58
+    ],
+    [
+      4.022,
+      63.52
+    ],
+    [
+      4.022,
+      63.78
+    ],
+    [
+      4.022,
+      67.06
+    ],
+    [
+      4.022,
+      69.45
+    ],
+    [
+      7.068,
+      44.58
+    ],
+    [
+      7.069,
+      62.51
+    ],
+    [
+      7.111,
+      59.8
+    ],
+    [
+      7.111,
+      60.03
+    ],
+    [
+      7.111,
+      60.9
+    ],
+    [
+      7.111,
+      61.47
+    ],
+    [
+      7.24,
+      60.92
+    ],
+    [
+      7.505,
+      69.46
+    ],
+    [
+      7.567,
+      67.84
+    ],
+    [
+      7.567,
+      70.58
+    ],
+    [
+      7.568,
+      68.09
+    ],
+    [
+      7.85,
+      54.88
+    ],
+    [
+      7.85,
+      56.29
+    ],
+    [
+      11.766,
+      72.32
+    ],
+    [
+      13.99,
+      68.74
+    ],
+    [
+      27.009,
+      74.27
+    ],
+    [
+      57.92,
+      60.49
+    ]
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+MTEB banner: a wide, shallow scatter of 162 models evaluated on MTEB(Multilingual, v2), placed by parameter count and mean score, shading from deep blue at the left to lighter blue at the right, with a stepped line tracing the models nothing else beats on both size and score. Decorative — no axes or values.
+</script>
+
+<style>
+  :root {
+    --surface:      #fcfcfb;
+    --text-primary: #0b0b0b;
+    /* the two ends of the logo's own gradient, sampled off assets/avatar.png */
+    --mark-dark:    #208fe0;
+    --mark-light:   #3bb5ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1500px; height: 500px; }
+  body { background: var(--surface); position: relative; overflow: hidden; }
+  #plot { position: absolute; inset: 0; }
+
+  /* Bluesky overlaps the avatar bottom-left and prints the display name and handle right
+     under it. A wordmark here would repeat both — see banner-wordmark.html for the
+     variant that carries one, for use where there is no profile chrome. */
+</style>
+
+<svg id="plot" viewBox="0 0 1500 500"></svg>
+
+<script>
+const d = JSON.parse(document.getElementById("card-data").textContent);
+const NS = "http://www.w3.org/2000/svg";
+const svg = document.getElementById("plot");
+
+// Log x: sizes span 2M to 58B parameters, four and a half orders of magnitude. On a
+// linear axis every model under a billion collapses onto the left edge.
+const xs = d.points.map(p => p[0]), ys = d.points.map(p => p[1]);
+const lo = Math.log10(Math.min(...xs)), hi = Math.log10(Math.max(...xs));
+const y0 = Math.min(...ys), y1 = Math.max(...ys);
+
+// BAND HEIGHT is deliberately shallow — 208px of the 500px frame. The plot is a stripe
+// across the banner, not a chart filling it: a full-height scatter reads as a figure
+// someone forgot to label, while a shallow band reads as texture with direction.
+const TOP = 148, BAND = 208;
+const X = v => 40 + (Math.log10(v) - lo) / (hi - lo) * 1420;
+const Y = v => TOP + BAND - (v - y0) / (y1 - y0) * BAND;
+
+const A = [0x20,0x8f,0xe0], B = [0x3b,0xb5,0xef];
+const ramp = t => `rgb(${A.map((c,i) => Math.round(c + (B[i]-c)*t)).join(",")})`;
+
+// Pareto frontier: the models nothing else beats on both size and score at once. Drawn
+// as a staircase because that is what the data does — a smoothed curve would invent
+// intermediate models, and the flat runs are the interesting part anyway.
+const sorted = [...d.points].sort((a,b) => a[0]-b[0]);
+const front = [];
+let best = -Infinity;
+for (const [x,y] of sorted) if (y > best) { best = y; front.push([x,y]); }
+
+let path = "";
+front.forEach(([x,y], i) => {
+  path += i === 0 ? `M ${X(x).toFixed(1)} ${Y(y).toFixed(1)}`
+                  : ` H ${X(x).toFixed(1)} V ${Y(y).toFixed(1)}`;
+});
+const line = document.createElementNS(NS, "path");
+line.setAttribute("d", path);
+line.setAttribute("fill", "none");
+line.setAttribute("stroke", "url(#ramp)");
+line.setAttribute("stroke-width", "2.5");
+line.setAttribute("stroke-linejoin", "round");
+line.setAttribute("opacity", "0.9");
+
+const defs = document.createElementNS(NS, "defs");
+defs.innerHTML =
+  `<linearGradient id="ramp" x1="0" y1="0" x2="1" y2="0">
+     <stop offset="0" stop-color="var(--mark-dark)"/>
+     <stop offset="1" stop-color="var(--mark-light)"/>
+   </linearGradient>`;
+svg.appendChild(defs);
+svg.appendChild(line);
+
+const onFront = new Set(front.map(p => p.join()));
+for (const [x, y] of d.points) {
+  const t = (Math.log10(x) - lo) / (hi - lo);
+  const hit = onFront.has([x,y].join());
+  const c = document.createElementNS(NS, "circle");
+  c.setAttribute("cx", X(x).toFixed(1));
+  c.setAttribute("cy", Y(y).toFixed(1));
+  // Frontier models sit slightly larger and fully opaque; everything else is the field
+  // they are measured against, so it recedes.
+  c.setAttribute("r", hit ? 4.5 : 2.5);
+  c.setAttribute("fill", ramp(t));
+  c.setAttribute("opacity", hit ? 1 : 0.42);
+  svg.appendChild(c);
+}
+
+window.__altText =
+  "MTEB banner: a wide, shallow scatter of " + d.points.length + " models evaluated on "
+  + "MTEB(Multilingual, v2), placed by parameter count and mean score, shading from deep "
+  + "blue at the left to lighter blue at the right, with a stepped line tracing the "
+  + "models nothing else beats on both size and score. Decorative — no axes or values.";
+</script>

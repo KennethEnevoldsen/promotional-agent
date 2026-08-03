@@ -89,7 +89,7 @@
 }
 </script>
 <script type="text/plain" id="alt-text">
-New model on MTEB: Bekko — A new Pareto frontier for parameter-efficient multilingual embeddings. Scatter plot of MTEB(Multilingual, v2) against Active parameters for 6 undefined. hotchpotch/bekko-embedding-v1-a25m scores 58.36 at 25M active parameters; hotchpotch/bekko-embedding-v1-a8m scores 56.73 at 8M active parameters. Compared against codefuse-ai/F2LLM-v2-80M at 32M, 55.23; ibm-granite/granite-embedding-97m-multilingual-r2 at 28M, 51.92; sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 at 22M, 48.73; sentence-transformers/static-similarity-mrl-multilingual-v1 at 0 (static), 47.21. On the Pareto frontier (nothing is both smaller and higher-scoring): sentence-transformers/static-similarity-mrl-multilingual-v1, hotchpotch/bekko-embedding-v1-a8m, hotchpotch/bekko-embedding-v1-a25m. multilingual models ≤ 60M active params. Contributed by hotchpotch. Source: MTEB, leaderboard.mteb.org.
+New model on MTEB: Bekko — A new Pareto frontier for parameter-efficient multilingual embeddings. Scatter plot of MTEB(Multilingual, v2) against Active parameters for 6 multilingual models ≤ 60M active params. hotchpotch/bekko-embedding-v1-a25m scores 58.36 at 25M active parameters; hotchpotch/bekko-embedding-v1-a8m scores 56.73 at 8M active parameters. Compared against codefuse-ai/F2LLM-v2-80M at 32M, 55.23; ibm-granite/granite-embedding-97m-multilingual-r2 at 28M, 51.92; sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 at 22M, 48.73; sentence-transformers/static-similarity-mrl-multilingual-v1 at 0 (static), 47.21. On the Pareto frontier (nothing is both smaller and higher-scoring): sentence-transformers/static-similarity-mrl-multilingual-v1, hotchpotch/bekko-embedding-v1-a8m, hotchpotch/bekko-embedding-v1-a25m. Contributed by hotchpotch. Source: MTEB, leaderboard.mteb.org.
 </script>
 
 <style>
@@ -444,7 +444,10 @@ for (const p of pts.filter(p => p.subject)) {
 
 window.__altText = [
   `${d.eyebrow}: ${d.title} — ${d.subtitle}.`,
-  `Scatter plot of ${d.y_label} against ${d.x_label} for ${pts.length} ${d.cohort_label}.`,
+  // `context` carries the cohort in words ("multilingual models ≤ 60M active params").
+  // It belongs in this sentence rather than stranded as a fragment later on: a screen
+  // reader should learn what is plotted and over what set in one breath.
+  `Scatter plot of ${d.y_label} against ${d.x_label} for ${pts.length} ${d.context}.`,
   pts.filter(p => p.subject)
      .map(p => `${p.model} scores ${p.y.toFixed(2)} at ${fmt(p.x)} active parameters`)
      .join("; ") + ".",
@@ -456,7 +459,7 @@ window.__altText = [
     ? "On the Pareto frontier (nothing is both smaller and higher-scoring): "
       + frontier.map(p => p.model).join(", ") + "."
     : "",
-  `${d.context}. ${d.footer}.`,
+  `${d.footer}.`,
   "Source: MTEB, leaderboard.mteb.org."
 ].filter(Boolean).join(" ");
 </script>

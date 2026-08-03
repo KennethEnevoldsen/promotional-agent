@@ -4,7 +4,7 @@ type: model_addition
 trigger: mteb#5043 + results#652 (model addition with results)
 trigger_date: 2026-07-30
 approved_by: kennethenevoldsen (explicit instruction, 2026-08-03)
-scheduled_for: 2026-08-03
+scheduled_for: 2026-08-03T17:16:46+02:00
 expires: 2026-08-30
 subject: hotchpotch/bekko-embedding-v1-a8m
 verified: true
@@ -16,6 +16,8 @@ sources:
   - https://github.com/embeddings-benchmark/results/pull/652
   - https://huggingface.co/hotchpotch/bekko-embedding-v1-a25m
   - https://arxiv.org/abs/2607.25180
+posted_on: 2026-08-03
+url: https://bsky.app/profile/mteb.org/post/3ms6s5i5iio2c
 ---
 
 Post 1 — card: `card-1-frontier.png`

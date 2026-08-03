@@ -100,8 +100,30 @@ def check_post(path: pathlib.Path, stage: str, rep: Report) -> None:
         rep.error(where, "scheduled/posted folders must be named <date>-<slug>")
     if stage not in DATED_STAGES and m:
         rep.error(where, "only scheduled/posted folders carry a date in the name")
-    if m and fm.get("scheduled_for") and m.group(1) != fm["scheduled_for"]:
-        rep.error(where, f"folder date {m.group(1)} != scheduled_for {fm['scheduled_for']}")
+
+    # `scheduled_for` is an instant, not a day: a workflow runs in UTC and a person
+    # thinks in local time, so a naive timestamp would publish at the wrong hour and the
+    # mistake would only be visible after the fact. The folder keeps the date alone —
+    # a time in a directory name is noise no one reads.
+    when = None
+    if fm.get("scheduled_for"):
+        try:
+            when = dt.datetime.fromisoformat(fm["scheduled_for"].strip())
+        except ValueError:
+            rep.error(where, f"unparseable scheduled_for: {fm['scheduled_for']!r} "
+                             "(expected e.g. 2026-08-05T09:00:00+02:00)")
+        else:
+            if when.tzinfo is None:
+                rep.error(where, f"scheduled_for {fm['scheduled_for']!r} has no timezone "
+                                 "offset — it would mean a different instant on a runner")
+            elif m and m.group(1) != when.date().isoformat():
+                rep.error(where, f"folder date {m.group(1)} != "
+                                 f"scheduled_for date {when.date().isoformat()}")
+            # Not an error — an intentional 03:00 post is possible — but almost always a
+            # timezone that was worked out wrongly rather than an audience that is awake.
+            if when.tzinfo is not None and not (6 <= when.hour < 22):
+                rep.warn(where, f"scheduled for {when.strftime('%H:%M')} local; check the "
+                                "offset is right before letting it fire unattended")
 
     blocks = post_blocks(text)
     if stage in NEEDS_CARD and not blocks:
@@ -157,8 +179,21 @@ def check_post(path: pathlib.Path, stage: str, rep: Report) -> None:
         try:
             if dt.date.fromisoformat(exp) < dt.date.today():
                 rep.warn(where, f"expired on {exp}; reject rather than post stale")
+            elif when and dt.date.fromisoformat(exp) < when.date():
+                rep.error(where, f"scheduled for {when.date()} but expires {exp} — "
+                                 "it would go out already stale")
         except ValueError:
             rep.error(where, f"unparseable expires: {exp!r}")
+
+    # Publishing is unattended now, so a post whose day has passed must be caught here
+    # rather than discovered when the workflow refuses it. The window is the rest of the
+    # scheduled local day: a run delayed by GitHub still publishes, a queue stuck for
+    # days does not.
+    if stage == "4-scheduled" and when and when.tzinfo:
+        now_local = dt.datetime.now(dt.timezone.utc).astimezone(when.tzinfo)
+        if now_local.date() > when.date():
+            rep.warn(where, f"was due {when.date()} and will no longer publish; "
+                            "re-date it or reject it")
 
     # The LinkedIn version lives in post.md under ```linkedin — one file per post, and
     # the bare-``` scan above deliberately does not pick it up, so the 300-character

@@ -4,7 +4,7 @@ type: model_addition
 trigger: mteb#5058 (8b registration) — postable content is results#631 + results#613
 trigger_date: 2026-07-31
 approved_by: kennethenevoldsen (explicit instruction, 2026-08-02)
-scheduled_for: 2026-08-07
+scheduled_for: 2026-08-07T09:00:00+02:00
 expires: 2026-08-31
 subject: Hanno-Labs/dinghy-law-4b-v1
 verified: true

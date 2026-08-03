@@ -3,3 +3,5 @@ __pycache__
 .DS_Store
 todo.md
 plan.md
+# Bluesky app password — never commit
+.bluesky-app-password

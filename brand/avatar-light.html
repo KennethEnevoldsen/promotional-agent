@@ -1,0 +1,99 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>MTEB — avatar (light)</title>
+<!--
+  Account avatar, light. 1000x1000.
+
+    uv run mteb-render --card brand/avatar-light.html --out brand/avatar-light.png --size avatar
+
+  Recreated from assets/avatar.png rather than redrawn: the dot centres, radii and
+  per-dot colours below were measured off that file, so this is the same mark, not an
+  imitation of it. The mark has a gradient running bottom-left (dark) to top-right
+  (light); each dot therefore carries its own sampled colour instead of a re-guessed
+  gradient, which is exact and cannot drift.
+
+  WHY IT IS NOT THE OLD CROP: assets/avatar-light.png was 777x811 — not square, and
+  cropped so tightly that dots touched the edges. Bluesky (and most clients) mask avatars
+  to a CIRCLE inscribed in the square, so anything near a corner is cut. Measured against
+  the original, the outermost dots reached 531px from centre against a 500px circle
+  radius — the corner dots were already being clipped.
+
+  So the mark is scaled by FIT about the centre, putting its furthest edge at 470px and
+  leaving a 30px margin inside the circle. Nothing is cropped, and the mark still fills
+  the frame. Check any change by eye against the guide circle: set `--guide` visible.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "fit": 0.885,
+  "dots": [
+    [506.8, 141.8, 45.8, "#3ab3ed"],
+    [809.9, 170.1, 67.7, "#3bb5ef"],
+    [196.1, 208.7, 62.2, "#2594e2"],
+    [394.8, 299.4, 40.0, "#30a4e6"],
+    [631.0, 349.3, 65.1, "#38b0ea"],
+    [842.8, 407.0, 41.7, "#3bb3ec"],
+    [182.0, 449.1, 67.9, "#2292e2"],
+    [450.7, 514.3, 59.3, "#2ba0e8"],
+    [781.6, 620.5, 62.8, "#3bb3ef"],
+    [270.1, 669.8, 46.4, "#2290e1"],
+    [580.4, 668.8, 37.5, "#36a9e6"],
+    [175.8, 839.4, 60.7, "#208fe0"],
+    [425.7, 825.7, 60.6, "#2697e6"],
+    [718.0, 841.9, 48.3, "#38b2ed"]
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+The MTEB mark: fourteen blue dots of varying size scattered on a near-white square, shading from deep blue at the lower left to lighter blue at the upper right.
+</script>
+
+<style>
+  :root {
+    --surface: #fcfcfb;   /* the card surface, so avatar and cards share a ground */
+    --guide:   none;      /* set to `block` to see the circular safe area */
+  }
+  * { margin: 0; padding: 0; }
+  html, body { width: 1000px; height: 1000px; }
+  body { background: var(--surface); }
+  svg { display: block; }
+  #safe { display: var(--guide); }
+</style>
+
+<svg id="mark" width="1000" height="1000" viewBox="0 0 1000 1000"></svg>
+
+<script>
+const d = JSON.parse(document.getElementById("card-data").textContent);
+const svg = document.getElementById("mark");
+const NS = "http://www.w3.org/2000/svg";
+const C = 500;
+
+// Scale about the centre: positions and radii alike, so the mark's internal spacing is
+// preserved. Scaling positions only would shrink the gaps and thicken the pattern.
+for (const [x, y, r, fill] of d.dots) {
+  const c = document.createElementNS(NS, "circle");
+  c.setAttribute("cx", (C + (x - C) * d.fit).toFixed(1));
+  c.setAttribute("cy", (C + (y - C) * d.fit).toFixed(1));
+  c.setAttribute("r", (r * d.fit).toFixed(1));
+  c.setAttribute("fill", fill);
+  svg.appendChild(c);
+}
+
+// The crop clients actually apply. Hidden by default; --guide: block to check framing.
+const g = document.createElementNS(NS, "circle");
+g.setAttribute("id", "safe");
+g.setAttribute("cx", C); g.setAttribute("cy", C); g.setAttribute("r", C);
+g.setAttribute("fill", "none");
+g.setAttribute("stroke", "#ff0055");
+g.setAttribute("stroke-width", "3");
+svg.appendChild(g);
+
+// Reported so a change to `fit` can be checked without measuring by hand.
+const reach = Math.max(...d.dots.map(([x, y, r]) =>
+  Math.hypot(x - C, y - C) * d.fit + r * d.fit));
+
+window.__altText =
+  "The MTEB mark: fourteen blue dots of varying size scattered on a near-white square, "
+  + "shading from deep blue at the lower left to lighter blue at the upper right.";
+console.log(`furthest edge ${reach.toFixed(0)}px of the 500px circle radius`);
+</script>
