@@ -212,29 +212,27 @@ argument. See `docs/card-design.md`.
 
 ### The LinkedIn version
 
-A post that runs on Bluesky may also carry a `linkedin.md` in its folder, referenced as
-`linkedin:` in the frontmatter. LinkedIn allows far more room, so the long form can
-explain rather than compress.
+**Default: the LinkedIn post is the Bluesky text.** Same words, no second version.
 
-**It is the same voice, not a second one.** The failure mode is obvious once stated: two
-formats drift into two personalities, one terse and factual, the other doing thought
-leadership. Everything true of the Bluesky text is true here — no hype adjectives, every
-number recomputed, the same scoping on every claim, the same credit rules.
+Write a separate one only when the 300-character limit forced out something a reader
+genuinely needs — usually a caveat that prevents a misreading. Then say, above the block,
+what that something is. If you cannot name it in a sentence, there was no reason.
 
-What the extra room is *for*:
+When it exists it goes in `post.md` under a `## LinkedIn` heading inside a
+```` ```linkedin ```` block — same file, and the fence keeps it out of the 300-character
+check, which only scans bare ``` blocks.
 
-- the caveat that would not fit — coverage limits, what the cohort excludes, why the
-  benchmark was chosen
-- one more level of "why this is interesting", where Bluesky can only state the finding
-- naming the people involved properly rather than compressing to a handle
+**Same voice, not a second one.** The failure mode is two formats drifting into two
+personalities — one terse and factual, the other doing thought leadership. More room is
+not a reason to become a different account.
 
-What it is **not** for: restating the same sentence at greater length, adding a
-call-to-action, or reaching for a broader claim than the evidence carries. If the long
-version needs a bigger claim to justify its length, it does not need the length.
+The extra length is for a caveat, a coverage limit, or the scope a card stopped
+printing. It is **not** for restating the same sentence at greater length, adding a
+call-to-action, or reaching for a broader claim to justify the word count. A LinkedIn
+version that needs a bigger claim to earn its length does not need the length.
 
-Write it from the same `data.json`. If the two versions ever disagree on a number, that
-is a bug, not a style difference — which is a reason to derive both from the evidence
-rather than writing the second from the first.
+Keep it close to the Bluesky text and derive both from the same `data.json`. If the two
+ever disagree on a number, that is a bug rather than a style difference.
 
 ### Credit
 
@@ -284,7 +282,7 @@ uv run mteb-validate --stage 3-review   # one stage
 ```
 
 It checks what a machine can: the 300-character limit, required frontmatter per stage,
-that `media:`/`linkedin:` point at files that exist, that a thread declares as many
+that `media:` points at a file that exists, that a thread declares as many
 posts as it contains, that every card carries alt text and has been rendered, that folder dates
 appear only once scheduled and match `scheduled_for:`, and that no two posts share a day.
 

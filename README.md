@@ -76,7 +76,7 @@ leaving the folder it was published from:
 
 ```
 posts/3-review/2026-07-30-bekko-frontier/
-  post.md      the text, frontmatter and editorial notes
+  post.md      the text (Bluesky and LinkedIn), frontmatter and editorial notes
   fetch.py     the exact query that produced the numbers
   data.json    its output — the full cohort, not just the flattering rows
   card.html    the card: its data, its copy, the markup that draws it, and its alt text

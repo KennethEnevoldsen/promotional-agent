@@ -1,15 +1,16 @@
 ---
-id: bekko-thread
+id: 2026-08-03-bekko-thread
 type: model_addition
 trigger: mteb#5043 + results#652 (model addition with results)
 trigger_date: 2026-07-30
+approved_by: kennethenevoldsen (explicit instruction, 2026-08-03)
+scheduled_for: 2026-08-03
 expires: 2026-08-30
 subject: hotchpotch/bekko-embedding-v1-a8m
 verified: true
 evidence: data.json
 media: card-1-frontier.png
 thread: 2
-linkedin: linkedin.md
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5043
   - https://github.com/embeddings-benchmark/results/pull/652
@@ -20,24 +21,35 @@ sources:
 Post 1 — card: `card-1-frontier.png`
 
 ```
-New on MTEB: hotchpotch/bekko-embedding-v1-a8m holds 106M parameters but computes just 7.7M per token — the rest is a shared embedding table.
+New on MTEB: hotchpotch/bekko-embedding-v1-a8m is mmBERT-small with its 22 layers pruned to 4 — active parameters cut from 42M to 7.7M, vocabulary left intact.
 
-It scores 56.73 on MTEB(Multilingual, v2); a static model of near-identical total size scores 47.21.
+It scores 56.73 on MTEB(Multilingual, v2), against 47.21 for a static model of the same total size.
 ```
 
 Post 2 — card: `card-2-tasks.png`
 
 ```
-Task by task, bekko-embedding-v1-a25m tracks jinaai/jina-embeddings-v3 almost exactly — 58.36 against 58.37 — while computing 12.7x fewer parameters per token.
+Task by task, bekko-embedding-v1-a25m tracks jinaai/jina-embeddings-v3 almost exactly — 58.36 against 58.37 — with 12.7x fewer active parameters.
+```
 
-It gives ground on clustering and wins on bitext mining.
+## LinkedIn
+
+The two thread posts, plus the one clause that would not fit: why the vocabulary matrix
+is left out of the count.
+
+```linkedin
+hotchpotch/bekko-embedding-v1-a8m is mmBERT-small with its 22 transformer layers pruned to 4. Active parameters fall from 42M to 7.7M, while the 98M vocabulary matrix is left intact — at inference that matrix is a lookup indexed by token id rather than arithmetic, so it costs almost nothing to run.
+
+The 13-layer sibling tracks jinaai/jina-embeddings-v3 almost exactly — 58.36 against 58.37 — with 12.7x fewer active parameters.
+
+Model and results contributed by hotchpotch. Numbers recomputed from the public results repository.
 ```
 
 ## Why a thread rather than two posts
 
 These were drafted as separate candidates and merged. They make one argument in two
 moves: the first says what active compute buys against a static baseline, the second
-shows that a model 12.7x cheaper per token matches a well-known one *shape for shape*,
+shows that a model with 12.7x fewer active parameters matches a well-known one *shape for shape*,
 not just on average.
 
 Neither is complete alone. The frontier card cannot show that the competence profile
@@ -65,6 +77,20 @@ PR table exactly.
 `fetch.py` produces the frontier cohort, `fetch_tasks.py` the per-task-type profile.
 
 ## Notes
+
+**What Bekko is: a layer-pruned mmBERT-small.** Not static, not a mixture of experts.
+The paper is explicit — "we prune the 22 layers of the multilingual encoder mmBERT-small
+to 4 / 13 layers and train the pruned models as base models".
+
+That took three rounds to get right, and metadata never settled it: `n_parameters`,
+`n_embedding_parameters`, `modelType` and `n_active_parameters_override` are all
+consistent with several architectures. The paper answered it in one sentence. Read the
+paper before describing how a model is built.
+
+The `a8m` naming borrows MoE convention (compare `Qwen3-30B-A3B`), and the paper's own
+"active parameters" means non-embedding parameters — which it notes "differs from the
+'active parameters' of the Mixture-of-Experts literature". Same term, two meanings. Both
+posts say what was done to the model rather than leaning on the term alone.
 
 "Active" versus "total" is load-bearing throughout. a8m is 7.67M active of 105.98M total,
 with 98M in a shared embedding table. "A 7.7M model" misleads about memory; "a 106M

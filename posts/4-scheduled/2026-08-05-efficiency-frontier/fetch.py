@@ -22,11 +22,11 @@ Pareto frontier of score against *active* parameters — the models nothing smal
 Three frontiers, three years apart, on one axis.
 
 Active parameters, not total: for models with a large shared embedding table the two
-differ by more than 10x, and active is what a GPU pays per token.
+differ by more than 10x, and active is what a GPU actually runs.
 
 Static embedding models are included, at exactly 0 active parameters. This is not an
-edge case to filter out — `minishlab/potion-base-32M` scores 54.63 while computing
-nothing per token, which puts it *on* the current frontier and above two models that
+edge case to filter out — `minishlab/potion-base-32M` scores 54.63 with no active
+parameters at all, which puts it *on* the current frontier and above two models that
 would otherwise appear on it. Dropping zero-active models (the easy mistake: `if
 active:` treats 0 as missing) would quietly redraw the frontier's whole left end.
 

@@ -66,5 +66,7 @@ Three things that line does, in order of importance to someone deciding:
 ## LinkedIn
 
 Same identity and voice. The bio can be longer, but it must say the same things — the
-failure mode is two formats drifting into two personalities. See the LinkedIn section of
-`CONTRIBUTING.md`.
+failure mode is two formats drifting into two personalities.
+
+Per-post LinkedIn text lives in that post's `post.md` under `## LinkedIn`, not in a
+separate file. See `CONTRIBUTING.md`.

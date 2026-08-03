@@ -160,8 +160,12 @@ def check_post(path: pathlib.Path, stage: str, rep: Report) -> None:
         except ValueError:
             rep.error(where, f"unparseable expires: {exp!r}")
 
-    if fm.get("linkedin") and not (path.parent / fm["linkedin"]).exists():
-        rep.error(where, f"linkedin: {fm['linkedin']} does not exist")
+    # The LinkedIn version lives in post.md under ```linkedin — one file per post, and
+    # the bare-``` scan above deliberately does not pick it up, so the 300-character
+    # limit is not applied to it.
+    for i, b in enumerate(re.findall(r"```linkedin\n(.*?)\n```", text, re.S), 1):
+        if not b.strip():
+            rep.error(where, f"empty linkedin block {i}")
 
     for field in ("todo", "blocked_on"):
         if stage in ("3-review", "4-scheduled") and field in fm and fm[field] not in ("", "null"):

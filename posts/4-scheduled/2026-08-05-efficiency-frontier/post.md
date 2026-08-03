@@ -16,7 +16,7 @@ media: card.png
 ```
 The best embedding score available at the end of 2023 needed a 304M-parameter model.
 
-Today the same score comes from an 11M one — 28× less compute per token, on MTEB(eng, v2).
+Today the same score comes from an 11M one — 28x fewer active parameters.
 ```
 
 ## Why this post
@@ -37,7 +37,7 @@ smaller beats.
 | by end-2023 | 62.32 | 303.9M active (`sdadas/mmlw-e5-large`) |
 | today, same score | 63.97 | 11.0M active (`MongoDB/mdbr-leaf-mt`) |
 
-**27.6× fewer active parameters** for a score that is slightly better, not merely equal.
+**27.6x fewer active parameters** for a score that is slightly better, not merely equal.
 The card rounds this to 28×; `data.json` carries the exact figure.
 
 Peak score also rose — 62.32 to 75.98 — but that is the less interesting half. Peak
@@ -46,7 +46,7 @@ of magnitude is the part that changes what people can deploy.
 
 ## Static models are on the frontier
 
-`minishlab/potion-base-32M` scores **54.63 while computing nothing per token** — a pure
+`minishlab/potion-base-32M` scores **54.63 with no active parameters at all** — a pure
 lookup table. It sits on the current frontier and above two models that would otherwise
 appear there.
 
@@ -70,6 +70,11 @@ results were released by end-2023, so that frontier is sparse and probably sits 
 where the true 2023 state of the art would have been. Both caveats are in `fetch.py` and
 `data.json`; the card carries the second in its footer.
 
-**Not a claim about total size.** The axis is active parameters. `mdbr-leaf-mt` has more
-weights than 11M — active is what a GPU pays per token, which is the quantity that makes
-"cheaper" mean anything.
+**Not a claim about total size.** The axis is active parameters — MTEB's
+`n_active_parameters`, meaning the encoder excluding the vocabulary table.
+`mdbr-leaf-mt` has more total weights than 11M.
+
+Worth knowing that this is not the mixture-of-experts sense of the term; Bekko's paper
+uses the same definition as MTEB and notes the difference explicitly. None of the models
+plotted here are MoE. It matters most at the left of the axis, where a static model sits
+at 0 — correct under this definition, nonsense under the other.

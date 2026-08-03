@@ -1,13 +1,14 @@
 ---
-id: openness
+id: 2026-08-10-openness
 type: state_of_field
 trigger: standing survey of the registry (no single event)
 trigger_date: 2026-08-01
+approved_by: kennethenevoldsen (explicit instruction, 2026-08-03)
+scheduled_for: 2026-08-10
 expires: 2026-11-01
 verified: true
 evidence: data.json
 media: card.png
-linkedin: linkedin.md
 sources:
   - https://leaderboard.mteb.org
   - mteb ModelMeta.openness (weights / licence / training code / training data)
@@ -17,6 +18,20 @@ sources:
 Most embedding models publish their weights. Far fewer publish what it took to build them.
 
 Of 171 models with complete MTEB(Multilingual, v2) results: 153 open-weight, 10 fully open (weights + training code + data), 8 proprietary.
+```
+
+## LinkedIn
+
+The Bluesky text plus one line — the share, stated outright rather than left for the
+reader to divide. Nothing else fits the rule for a separate version, which is why there
+is nothing else here.
+
+```linkedin
+Most embedding models on MTEB publish their weights. Far fewer publish what it took to build them.
+
+Of the 171 models with complete MTEB(Multilingual, v2) results: 153 are open-weight, 10 are fully open (weights, training code and training data), and 8 are proprietary.
+
+Fully reproducible models are under 6% of the board.
 ```
 
 ## The claim

@@ -31,8 +31,8 @@ because they were never built for this, so including them would both inflate Bek
 apparent margin and imply three well-regarded models are worse than they are.
 
 Static embedding models belong in this cohort. Their active count is 0 — a real value,
-not a missing one, since every parameter sits in the lookup table and nothing is
-computed per token. They are the limiting case of exactly the design Bekko is pitching,
+not a missing one, since every parameter sits in the lookup table and there are no
+layers to run. They are the limiting case of exactly the design Bekko is pitching,
 which makes them the most informative peers available: the gap between them and Bekko is
 what 7.7M active parameters actually buys.
 

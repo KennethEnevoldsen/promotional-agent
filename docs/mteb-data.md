@@ -27,6 +27,45 @@ Facts that cost time to discover and are not recoverable by reading the code.
 - **Aggregate with `Benchmark.get_score(results)`**, never by averaging task scores by
   hand. It is the same path the leaderboard uses and returns `{"Mean(Task)": …,
   "Mean(TaskType)": …}` per model.
+- **"Active parameters" has two meanings; know which one you are using.** MTEB's
+  `n_active_parameters` is `n_parameters - n_embedding_parameters` — the encoder,
+  excluding the vocabulary table. Bekko's paper uses the same definition and says so
+  explicitly, noting it "differs from the 'active parameters' of the Mixture-of-Experts
+  literature", where the term means the experts actually routed to.
+
+  Both are reaching for the same idea — count the parameters that cost compute — and
+  differ only in which non-computing parameters they drop: unrouted experts, or a table
+  lookup that is a memory access rather than a FLOP. The two agree for ordinary models
+  (`Qwen3-Embedding-8B`: 6.95B of 7.57B) and diverge sharply when the vocabulary
+  dominates (`bekko-a8m`: 7.7M of 106M; a static model: 0 of 108M).
+
+  The consequence for writing: a static model having **0** active parameters is correct
+  and meaningful under MTEB's definition — it runs no arithmetic at all. Under the MoE
+  reading it would be nonsense. Say which you mean when the distinction could bite.
+
+  Note also that `a8m` / `a25m` borrows MoE naming (compare `Qwen3-30B-A3B`), so these
+  models look like MoEs at a glance. They are not — check `modelType` and
+  `n_active_parameters_override` before describing any architecture.
+
+  Bekko is a **layer-pruned mmBERT-small**: the paper prunes 22 layers to 4 (`a8m`) or
+  13 (`a25m`), taking non-embedding parameters from 42M to 7.7M / 24.9M while the 98M
+  vocabulary matrix is untouched. Metadata alone cannot tell you that — `n_parameters`
+  and `n_embedding_parameters` are consistent with several architectures. **Read the
+  paper before describing how a model is built**; three rounds of checking parameter
+  counts here still produced the wrong description, because the numbers were never the
+  thing in question.
+
+- **Do not write "per token".** Active parameters are a fixed count for a dense model —
+  the same weights run for every token. "Computes 7.7M per token" implies a quantity that
+  varies, which is true only for mixture-of-experts routing. Say "7.7M active
+  parameters", or "of which 7.7M are active".
+
+  Two different things produce `active < total`, and they are opposites: a large
+  **embedding table** (Bekko — 98M of 106M is vocabulary lookup) or **expert routing**
+  (MoE, where `n_active_parameters_override` is set). Check `n_embedding_parameters` and
+  the override before describing the mechanism. Neither Bekko nor
+  `static-similarity-mrl` is MoE; both have `override = None`.
+
 - **`n_active_parameters` vs `n_parameters` matters enormously.** Bekko a8m is 7.7M
   active but 106M total — 98M sit in a shared multilingual embedding table. Active is
   what drives per-token inference cost and is the right axis for size comparisons.

@@ -20,7 +20,7 @@ The radar answers a different question from the other two cards, so it is built
 differently: **one subject against references**, not a ranking. The subject is
 `bekko-embedding-v1-a25m`; the comparison that carries the post is
 `jinaai/jina-embeddings-v3`, which scores 58.37 to Bekko's 58.36 — a gap of 0.01 — while
-computing 12.7x more per token. That pair is the story, so jina is highlighted and the
+carrying 12.7x more active parameters. That pair is the story, so jina is highlighted and the
 remaining references are drawn as grey context.
 
 Only the a25m variant appears. Two Bekko lines on the same radar sit almost on top of

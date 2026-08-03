@@ -32,7 +32,7 @@ second instead of about fourteen minutes. The reasons, and the one thing to watc
 currently returns total (see `issue.md` — it does not subtract the embedding table), so
 active is unusable from this source until that lands. Total is also the more natural
 axis for the claim being made here, which is "a small legal model beats a large general
-one", not a claim about per-token inference cost. If the fix ships, revisit — but do not
+one", not a claim about inference cost. If the fix ships, revisit — but do not
 switch to active without checking the field again.
 
 The cohort is every model with complete coverage of all 8 Law tasks. No size or language
