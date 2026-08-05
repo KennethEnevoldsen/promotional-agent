@@ -11,6 +11,8 @@ sources:
 verified: true
 evidence: data.json
 media: card.png
+posted_on: 2026-08-05
+url: https://bsky.app/profile/mteb.org/post/3msdaguqewd2d
 ---
 
 ```
