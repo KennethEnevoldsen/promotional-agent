@@ -14,6 +14,8 @@ sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5058
   - https://github.com/embeddings-benchmark/results/pull/631
   - https://github.com/embeddings-benchmark/results/pull/613
+posted_on: 2026-08-07
+url: https://bsky.app/profile/mteb.org/post/3msi2cslfaj2d
 ---
 
 ```
