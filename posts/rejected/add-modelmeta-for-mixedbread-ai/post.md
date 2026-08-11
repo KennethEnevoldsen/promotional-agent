@@ -7,6 +7,9 @@ expires: 2026-08-29
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5044
   - https://github.com/embeddings-benchmark/results/pull/655
+reason: evaluated but not a story: the merged results (results#655) are MTEB(eng, v2), where the model is rank 76 of 180. The MTEB(deu, v1) results the PR body points at (results#647) were closed, never merged.
+rejected_on: 2026-08-07
+rejected_by: triage run 2026-08-07 (deepseek-v4-flash), verified by hand
 ---
 
 ## Why this might be a post

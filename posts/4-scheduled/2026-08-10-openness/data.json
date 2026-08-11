@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-02",
+  "generated": "2026-08-07",
   "source": "https://mteb-leaderboard-backend.hf.space/v1/benchmarks/.../scores",
   "benchmark": "MTEB(Multilingual, v2)",
   "n_tasks": 131,
@@ -15,12 +15,12 @@
       "complete_results": 8
     },
     "open weights": {
-      "any_results": 361,
+      "any_results": 365,
       "complete_results": 153
     },
     "open source": {
       "any_results": 56,
-      "complete_results": 10
+      "complete_results": 11
     }
   },
   "models": {
@@ -407,7 +407,7 @@
       },
       {
         "model": "intfloat/multilingual-e5-small",
-        "score": 56.32,
+        "score": 56.3,
         "openness_score": 4,
         "license": "mit",
         "released": "2024-02-08"
@@ -1211,6 +1211,13 @@
         "openness_score": 6,
         "license": "apache-2.0",
         "released": "2026-03-09"
+      },
+      {
+        "model": "nomic-ai/nomic-embed-text-v2-moe",
+        "score": 57.64,
+        "openness_score": 6,
+        "license": "apache-2.0",
+        "released": "2025-02-07"
       },
       {
         "model": "codefuse-ai/F2LLM-v2-80M",

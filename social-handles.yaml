@@ -9,13 +9,26 @@
 # are the exact failure mode that makes an automated account feel spammy. Populate this
 # file only from handles people have volunteered.
 #
+# `via:` records what counts as volunteering, and is required wherever `bluesky:` is set.
+# Two things qualify:
+#
+#   * the person said so directly, to a maintainer or to the account;
+#   * the person quoted or replied to a post *about their own work* from that handle.
+#     Publicly attaching your name to coverage of your own model is a fair signal that a
+#     mention is wanted. Commenting on someone else's is not — that is a reader, and
+#     tagging readers is how an account starts feeling like spam.
+#
+# Being findable is not volunteering. If the only evidence is that a handle exists and
+# looks like the right person, the entry stays null and the post credits by GitHub handle.
+#
 # affiliation is optional and used only where the org is the more natural credit
 # (e.g. a lab releasing a model family).
 
 contributors:
   hotchpotch:
-    bluesky: null
+    bluesky: hotchpotch.dev
     affiliation: null
+    via: quoted our 2026-08-03 post about their own bekko-embedding-v1 from this handle
   NohTow:
     bluesky: null
     affiliation: LightOn
@@ -40,6 +53,11 @@ contributors:
   KennethEnevoldsen:
     bluesky: kennethenevoldsen.eurosky.social
     affiliation: Aarhus University
+    via: maintainer of this account
+  tomaarsen:
+    bluesky: tomaarsen.com
+    affiliation: Hugging Face
+    via: confirmed to KennethEnevoldsen, 2026-08-07
 
 organizations:
   lightonai:

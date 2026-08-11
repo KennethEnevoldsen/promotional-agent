@@ -6,6 +6,9 @@ trigger_date: 2026-07-26
 expires: 2026-08-26
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5028
+reason: maintenance, not news: bumps a registered model's revision pointer to a preview tag.
+rejected_on: 2026-08-07
+rejected_by: triage run 2026-08-07 (deepseek-v4-flash), verified by hand
 ---
 
 ## Why this might be a post

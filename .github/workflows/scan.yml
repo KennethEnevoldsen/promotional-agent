@@ -1,0 +1,93 @@
+name: Scan for candidates
+
+# Weekly: look at what merged in mteb and results, and open a candidate folder for
+# anything that might be worth a post.
+#
+# Weekly rather than daily because the input arrives at roughly that rate — the first
+# scan of August found five new candidates across seven days — and because a candidate
+# is a question for a person, not a task for a machine. A daily run would produce the
+# same folders in smaller batches and ask someone to look at the queue five times as
+# often for no extra information. Monday morning so the week starts with a queue.
+#
+# The overlap is deliberate: `--since` reaches back eight days for a seven-day cadence,
+# so a PR merged near the boundary cannot fall between two runs. Re-scanning is free —
+# anything whose trigger PR already appears anywhere in `posts/`, including in
+# `rejected/`, is skipped, so a rejection stays rejected.
+#
+# WHAT THIS DOES NOT DO: it does not decide, draft, or publish. It opens folders that say
+# "something happened here" and stops. Everything downstream still needs a person.
+
+on:
+  schedule:
+    - cron: "12 6 * * 1"   # Mondays, 06:12 UTC
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Scan PRs merged on or after this date (YYYY-MM-DD). Default: 8 days ago."
+        type: string
+      write:
+        description: "Create the candidate folders (off = just print what was found)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # to commit new folders into posts/1-candidates/
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # --no-deps: scan is stdlib plus the `gh` CLI, which the runner already has.
+      - name: Install
+        run: pip install -e . --no-deps
+
+      - name: Work out the window
+        id: window
+        run: |
+          since="${{ inputs.since }}"
+          if [ -z "$since" ]; then
+            since=$(date -u -d '8 days ago' +%Y-%m-%d)
+          fi
+          echo "since=$since" >> "$GITHUB_OUTPUT"
+          echo "scanning PRs merged since $since"
+
+      - name: Scan
+        env:
+          # Reads public PRs from embeddings-benchmark/{mteb,results}; the default
+          # token is enough, and deliberately has no write access to either.
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.write }}" = "true" ]; then
+            mteb-scan --since "${{ steps.window.outputs.since }}" --write
+          else
+            mteb-scan --since "${{ steps.window.outputs.since }}"
+          fi
+
+      # New candidates must not break the pipeline they are joining. This runs after
+      # writing rather than before, because a malformed stub is exactly what it is for.
+      - name: Validate
+        run: mteb-validate
+
+      - name: Record the candidates
+        if: github.event_name == 'schedule' || inputs.write == true
+        run: |
+          if [ -z "$(git status --porcelain posts/)" ]; then
+            echo "no new candidates this week"
+            exit 0
+          fi
+          n=$(git status --porcelain posts/1-candidates | wc -l | tr -d ' ')
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posts/
+          git commit -m "Scan: $n new candidate(s) since ${{ steps.window.outputs.since }} [skip ci]"
+          git push

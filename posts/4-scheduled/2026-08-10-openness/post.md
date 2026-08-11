@@ -4,7 +4,7 @@ type: state_of_field
 trigger: standing survey of the registry (no single event)
 trigger_date: 2026-08-01
 approved_by: kennethenevoldsen (explicit instruction, 2026-08-03)
-scheduled_for: 2026-08-10T09:00:00+02:00
+scheduled_for: 2026-08-10T14:30:00+02:00
 expires: 2026-11-01
 verified: true
 evidence: data.json
@@ -17,21 +17,20 @@ sources:
 ```
 Most embedding models publish their weights. Far fewer publish what it took to build them.
 
-Of 171 models with complete MTEB(Multilingual, v2) results: 153 open-weight, 10 fully open (weights + training code + data), 8 proprietary.
+Of 172 models with complete MTEB(Multilingual, v2) results, about 1 in 16 are fully open — weights, training code and training data. 153 publish weights alone; 8 publish none of it.
 ```
 
 ## LinkedIn
 
-The Bluesky text plus one line — the share, stated outright rather than left for the
-reader to divide. Nothing else fits the rule for a separate version, which is why there
-is nothing else here.
+The Bluesky text plus the exact counts, which fit here and do not fit in 300 characters.
+Nothing else meets the rule for a separate version, which is why there is nothing else.
 
 ```linkedin
 Most embedding models on MTEB publish their weights. Far fewer publish what it took to build them.
 
-Of the 171 models with complete MTEB(Multilingual, v2) results: 153 are open-weight, 10 are fully open (weights, training code and training data), and 8 are proprietary.
+Of the 172 models with complete MTEB(Multilingual, v2) results: 153 are open-weight, 11 are fully open (weights, training code and training data), and 8 are proprietary.
 
-Fully reproducible models are under 6% of the board.
+Fully reproducible models are about one in sixteen of the board.
 ```
 
 ## The claim
@@ -41,12 +40,21 @@ Three tiers, from `ModelMeta.openness`:
 | tier | rule | any results | complete |
 |---|---|---:|---:|
 | proprietary | no open weights | 51 | 8 |
-| open weights | weights, but not both code and data | 361 | 153 |
-| open source | weights + training code + training data | 56 | 10 |
+| open weights | weights, but not both code and data | 365 | 153 |
+| open source | weights + training code + training data | 56 | 11 |
 
-**Fully reproducible models are 10 of 171** — under 6%. "Open" in common usage means the
-middle tier; the gap between publishing weights and publishing the recipe is where almost
-the entire field sits.
+**Fully reproducible models are 11 of 172** — about one in sixteen. "Open" in common usage
+means the middle tier; the gap between publishing weights and publishing the recipe is
+where almost the entire field sits.
+
+**Why the post says "about one in sixteen" and not the percentage.** The first version said
+"under 6%", which was true when it was written and false four days later: one more fully
+open model merged and 10-of-171 (5.85%) became 11-of-172 (6.40%). A threshold claim is
+brittle by construction — a single submission flips it, and the leaderboard is other
+people's to change. A ratio says the same thing and survives the population moving, which
+is the only sensible way to phrase a claim about a board that will not hold still. The
+exact counts stay in the LinkedIn version and in this file, where they are dated evidence
+rather than a live assertion.
 
 The best model in each tier:
 
@@ -76,14 +84,14 @@ complete results out of 51 with any, and the well-known API models are largely a
 they have partial coverage rather than none. A four-point lead over a thin, self-selected
 sample is not evidence about capability. The composition claim is what the data supports.
 
-**Not that 6% is a scandal.** Publishing training data is genuinely hard: licensing,
+**Not that one in sixteen is a scandal.** Publishing training data is genuinely hard: licensing,
 scale, and competitive cost are all real. The number is worth stating precisely because
 it is easy to assume "open model" means reproducible when it almost never does.
 
 ## Coverage, stated plainly
 
-Requiring all 131 tasks drops the field from 468 rows to 171. The filter costs each tier
-a similar share — proprietary 8 of 51, open-weight 153 of 361, open-source 10 of 56 — so
+Requiring all 131 tasks drops the field from 472 rows to 172. The filter costs each tier
+a similar share — proprietary 8 of 51, open-weight 153 of 365, open-source 11 of 56 — so
 it is not biased against any one tier, but it is why the absolute numbers are small.
 Partial results are excluded rather than averaged: a mean over a subset of tasks is not
 comparable to a mean over all of them.

@@ -1,11 +1,14 @@
 ---
-id: add-lighton-rerank-models-3
+id: split-jinav4-models
 type: model_addition
-trigger: mteb#4961 (no results PR)
-trigger_date: 2026-07-26
-expires: 2026-08-26
+trigger: mteb#5082 (no results PR)
+trigger_date: 2026-08-04
+expires: 2026-09-04
 sources:
-  - https://github.com/embeddings-benchmark/mteb/pull/4961
+  - https://github.com/embeddings-benchmark/mteb/pull/5082
+reason: maintenance, not news: refactor splitting existing jinav4 model definitions across files.
+rejected_on: 2026-08-07
+rejected_by: triage run 2026-08-07 (deepseek-v4-flash), verified by hand
 ---
 
 ## Why this might be a post

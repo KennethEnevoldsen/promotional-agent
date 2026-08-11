@@ -44,6 +44,11 @@ class Candidate:
     results_pr: dict | None
     type: str
     hypothesis: str
+    # Which PR is the *event*. Usually the mteb one, but when results land for a model
+    # registered in an earlier window the results PR is the trigger and the mteb PR is
+    # not in this scan's range at all.
+    trigger: str = ""
+    sources: tuple[str, ...] = ()
 
 
 MTEB = "embeddings-benchmark/mteb"
@@ -188,21 +193,53 @@ def main() -> None:
     skipped = 0
 
     candidates: list[Candidate] = []
+    paired: set[int] = set()
+    plumbing = 0
     for pr in buckets.get("model", []):
         if f"mteb#{pr['number']}" in tracked:
             skipped += 1
             continue
         res = pair_results(pr, result_prs)
+        if res is None:
+            # A registration with no scores is plumbing, and a folder for it is a claim
+            # that something might be a story when nothing can be said yet. It still gets
+            # printed below, so the denominator stays visible — it just does not get a
+            # folder. When its results land, the branch further down picks it up.
+            plumbing += 1
+            continue
+        paired.add(res["number"])
         candidates.append(Candidate(
             pr=pr, results_pr=res, type="model_addition",
+            trigger=f"mteb#{pr['number']} + results#{res['number']}",
+            sources=(pr["url"], res["url"]),
             hypothesis=(
                 "Model addition with a matching results PR — the most reliable trigger "
                 "there is. Worth a post if the scores say something a reader could not "
                 "guess from the model card."
-                if res else
-                "Model addition with **no results PR found**. Not postable on its own: a "
-                "registration without scores is plumbing. Either the results are still "
-                "coming, or this is metadata-only."
+            ),
+        ))
+
+    # Results landing for a model registered in an earlier window. This is the moment a
+    # registration becomes postable, and without it that moment is invisible: candidates
+    # were only ever built from mteb PRs *in the window*, so a model registered in July
+    # whose scores merged in August never surfaced again. Nothing re-proposed it, because
+    # nothing was watching the side the event happened on.
+    for r in result_prs:
+        if r["number"] in paired or f"results#{r['number']}" in tracked:
+            continue
+        # The results repo carries its own CI and housekeeping. A submission names what it
+        # submitted — results, scores, or a benchmark; "Fix comment step" does not.
+        if classify(r["title"]) in ("skip", "fix") or not re.search(
+                r"result|score|[MRA]TEB|MIEB|MAEB|MVEB|ViDoRe|BEIR", r["title"], re.I):
+            continue
+        candidates.append(Candidate(
+            pr=r, results_pr=r, type="results_addition",
+            trigger=f"results#{r['number']}",
+            sources=(r["url"],),
+            hypothesis=(
+                "Results merged for a model registered earlier — the registration is not "
+                "in this window, so this is the first moment the model can be written "
+                "about. Check what the scores actually say before drafting."
             ),
         ))
     for pr in buckets.get("benchmark", []):
@@ -211,12 +248,14 @@ def main() -> None:
             continue
         candidates.append(Candidate(
             pr=pr, results_pr=None, type="benchmark_addition",
+            trigger=f"mteb#{pr['number']}", sources=(pr["url"],),
             hypothesis="New benchmark. Always worth announcing."))
 
     print(f"\n{len(candidates)} new candidates ({skipped} already in the pipeline)")
+    print(f"  ({plumbing} registration(s) with no merged results — listed above, "
+          f"no folder written; they return when their results merge)")
     for c in candidates:
-        r = f" + results#{c.results_pr['number']}" if c.results_pr else "  (no results PR)"
-        print(f"  {c.pr['mergedAt'][:10]}  mteb#{c.pr['number']}{r}  {c.pr['title'][:64]}")
+        print(f"  {c.pr['mergedAt'][:10]}  {c.trigger:<28}  {c.pr['title'][:60]}")
 
     if not args.write:
         print("\n(dry run — pass --write to create candidate folders)")
@@ -240,11 +279,11 @@ def main() -> None:
             name, n = f"{slug(pr['title'])}-{n}", n + 1
         d = out / name
         d.mkdir()
-        srcs = [f"  - {pr['url']}"] + ([f"  - {res['url']}"] if res else [])
+        srcs = [f"  - {u}" for u in c.sources]
         exp = date.fromisoformat(merged).replace(month=(date.fromisoformat(merged).month % 12) + 1)
         (d / "post.md").write_text(STUB.format(
             id=name, type=c.type, date=merged, expires=exp.isoformat(),
-            trigger=f"mteb#{pr['number']}" + (f" + results#{res['number']}" if res else " (no results PR)"),
+            trigger=c.trigger,
             sources="\n".join(srcs), hypothesis=c.hypothesis,
         ))
         print(f"  wrote {d}")

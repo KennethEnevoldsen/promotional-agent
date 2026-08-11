@@ -1,0 +1,420 @@
+{
+  "generated": "2026-08-10",
+  "source": "https://mteb-leaderboard-backend.hf.space/v1/benchmarks/.../scores",
+  "benchmark": "ViDoRe(v3)",
+  "n_tasks": 10,
+  "tasks": [
+    "Vidore3ComputerScienceRetrieval",
+    "Vidore3EnergyRetrieval",
+    "Vidore3FinanceEnRetrieval",
+    "Vidore3FinanceFrRetrieval",
+    "Vidore3HrRetrieval",
+    "Vidore3IndustrialRetrieval",
+    "Vidore3NuclearRetrieval",
+    "Vidore3PharmaceuticalsRetrieval",
+    "Vidore3PhysicsRetrieval",
+    "Vidore3TelecomRetrieval"
+  ],
+  "rule": "complete coverage of all 10 tasks",
+  "n_complete": 41,
+  "subjects": [
+    {
+      "rank": 1,
+      "model": "webAI-Official/webAI-ColVec1.1-8b",
+      "score": 64.95,
+      "params_b": 8.395,
+      "released": "2026-07-22"
+    },
+    {
+      "rank": 3,
+      "model": "webAI-Official/webAI-ColVec1.1-4b",
+      "score": 63.9,
+      "params_b": 4.541,
+      "released": "2026-07-22"
+    }
+  ],
+  "prior_generation": [
+    {
+      "rank": 6,
+      "model": "webAI-Official/webAI-ColVec1-9b",
+      "score": 63.0,
+      "params_b": 9.42,
+      "released": "2026-04-05"
+    },
+    {
+      "rank": 7,
+      "model": "webAI-Official/webAI-ColVec1-4b",
+      "score": 62.22,
+      "params_b": 4.541,
+      "released": "2026-04-05"
+    }
+  ],
+  "runner_up": {
+    "rank": 2,
+    "model": "vultr/VultronRetrieverPrime-Qwen3.5-8B",
+    "score": 64.26,
+    "params_b": 8.394,
+    "released": "2026-06-18"
+  },
+  "top10": [
+    {
+      "rank": 1,
+      "model": "webAI-Official/webAI-ColVec1.1-8b",
+      "score": 64.95,
+      "params_b": 8.395,
+      "released": "2026-07-22"
+    },
+    {
+      "rank": 2,
+      "model": "vultr/VultronRetrieverPrime-Qwen3.5-8B",
+      "score": 64.26,
+      "params_b": 8.394,
+      "released": "2026-06-18"
+    },
+    {
+      "rank": 3,
+      "model": "webAI-Official/webAI-ColVec1.1-4b",
+      "score": 63.9,
+      "params_b": 4.541,
+      "released": "2026-07-22"
+    },
+    {
+      "rank": 4,
+      "model": "vultr/VultronRetrieverCore-Qwen3.5-4.5B",
+      "score": 63.57,
+      "params_b": 4.54,
+      "released": "2026-06-22"
+    },
+    {
+      "rank": 5,
+      "model": "nvidia/nemotron-colembed-vl-8b-v2",
+      "score": 63.42,
+      "params_b": 8.7,
+      "released": "2026-01-07"
+    },
+    {
+      "rank": 6,
+      "model": "webAI-Official/webAI-ColVec1-9b",
+      "score": 63.0,
+      "params_b": 9.42,
+      "released": "2026-04-05"
+    },
+    {
+      "rank": 7,
+      "model": "webAI-Official/webAI-ColVec1-4b",
+      "score": 62.22,
+      "params_b": 4.541,
+      "released": "2026-04-05"
+    },
+    {
+      "rank": 8,
+      "model": "TomoroAI/tomoro-colqwen3-embed-8b",
+      "score": 61.59,
+      "params_b": 8.0,
+      "released": "2025-11-26"
+    },
+    {
+      "rank": 9,
+      "model": "nvidia/nemotron-colembed-vl-4b-v2",
+      "score": 61.54,
+      "params_b": 4.8,
+      "released": "2026-01-07"
+    },
+    {
+      "rank": 10,
+      "model": "athrael-soju/colqwen3.5-4.5B-v3",
+      "score": 61.46,
+      "params_b": 4.6,
+      "released": "2026-03-15"
+    }
+  ],
+  "ranking": [
+    {
+      "rank": 1,
+      "model": "webAI-Official/webAI-ColVec1.1-8b",
+      "score": 64.95,
+      "params_b": 8.395,
+      "released": "2026-07-22"
+    },
+    {
+      "rank": 2,
+      "model": "vultr/VultronRetrieverPrime-Qwen3.5-8B",
+      "score": 64.26,
+      "params_b": 8.394,
+      "released": "2026-06-18"
+    },
+    {
+      "rank": 3,
+      "model": "webAI-Official/webAI-ColVec1.1-4b",
+      "score": 63.9,
+      "params_b": 4.541,
+      "released": "2026-07-22"
+    },
+    {
+      "rank": 4,
+      "model": "vultr/VultronRetrieverCore-Qwen3.5-4.5B",
+      "score": 63.57,
+      "params_b": 4.54,
+      "released": "2026-06-22"
+    },
+    {
+      "rank": 5,
+      "model": "nvidia/nemotron-colembed-vl-8b-v2",
+      "score": 63.42,
+      "params_b": 8.7,
+      "released": "2026-01-07"
+    },
+    {
+      "rank": 6,
+      "model": "webAI-Official/webAI-ColVec1-9b",
+      "score": 63.0,
+      "params_b": 9.42,
+      "released": "2026-04-05"
+    },
+    {
+      "rank": 7,
+      "model": "webAI-Official/webAI-ColVec1-4b",
+      "score": 62.22,
+      "params_b": 4.541,
+      "released": "2026-04-05"
+    },
+    {
+      "rank": 8,
+      "model": "TomoroAI/tomoro-colqwen3-embed-8b",
+      "score": 61.59,
+      "params_b": 8.0,
+      "released": "2025-11-26"
+    },
+    {
+      "rank": 9,
+      "model": "nvidia/nemotron-colembed-vl-4b-v2",
+      "score": 61.54,
+      "params_b": 4.8,
+      "released": "2026-01-07"
+    },
+    {
+      "rank": 10,
+      "model": "athrael-soju/colqwen3.5-4.5B-v3",
+      "score": 61.46,
+      "params_b": 4.6,
+      "released": "2026-03-15"
+    },
+    {
+      "rank": 11,
+      "model": "OpenSearch-AI/Ops-Colqwen3-4B",
+      "score": 61.17,
+      "params_b": 4.8,
+      "released": "2026-01-24"
+    },
+    {
+      "rank": 12,
+      "model": "TomoroAI/tomoro-colqwen3-embed-4b",
+      "score": 60.2,
+      "params_b": 4.0,
+      "released": "2025-11-26"
+    },
+    {
+      "rank": 13,
+      "model": "nvidia/llama-nemotron-colembed-vl-3b-v2",
+      "score": 59.79,
+      "params_b": 4.407,
+      "released": "2026-01-21"
+    },
+    {
+      "rank": 14,
+      "model": "Qwen/Qwen3-VL-Embedding-8B",
+      "score": 57.78,
+      "params_b": 8.145,
+      "released": "2026-01-08"
+    },
+    {
+      "rank": 15,
+      "model": "jinaai/jina-embeddings-v4",
+      "score": 57.52,
+      "params_b": 3.935,
+      "released": "2025-06-24"
+    },
+    {
+      "rank": 16,
+      "model": "nomic-ai/colnomic-embed-multimodal-7b",
+      "score": 57.33,
+      "params_b": 7.0,
+      "released": "2025-03-31"
+    },
+    {
+      "rank": 17,
+      "model": "nvidia/llama-nemoretriever-colembed-3b-v1",
+      "score": 57.26,
+      "params_b": 4.407,
+      "released": "2025-06-27"
+    },
+    {
+      "rank": 18,
+      "model": "vultr/VultronRetrieverFlash-Qwen3.5-0.8B",
+      "score": 56.16,
+      "params_b": 0.853,
+      "released": "2026-06-21"
+    },
+    {
+      "rank": 19,
+      "model": "Verm1ion/ColTurk-VDR-Qwen3VL-4B-v1.0",
+      "score": 55.81,
+      "params_b": 4.506,
+      "released": "2026-06-11"
+    },
+    {
+      "rank": 20,
+      "model": "nomic-ai/colnomic-embed-multimodal-3b",
+      "score": 55.78,
+      "params_b": 3.0,
+      "released": "2025-03-31"
+    },
+    {
+      "rank": 21,
+      "model": "nvidia/llama-nemoretriever-colembed-1b-v1",
+      "score": 55.59,
+      "params_b": 2.418,
+      "released": "2025-06-27"
+    },
+    {
+      "rank": 22,
+      "model": "Qwen/Qwen3-VL-Embedding-2B",
+      "score": 52.64,
+      "params_b": 2.128,
+      "released": "2026-01-08"
+    },
+    {
+      "rank": 23,
+      "model": "vidore/colqwen2.5-v0.2",
+      "score": 51.9,
+      "params_b": 3.0,
+      "released": "2025-01-31"
+    },
+    {
+      "rank": 24,
+      "model": "jinaai/jina-embeddings-v5-omni-small",
+      "score": 45.61,
+      "params_b": 1.626,
+      "released": "2026-04-01"
+    },
+    {
+      "rank": 25,
+      "model": "jinaai/jina-embeddings-v5-omni-nano",
+      "score": 45.56,
+      "params_b": 0.986,
+      "released": "2026-04-01"
+    },
+    {
+      "rank": 26,
+      "model": "vidore/colqwen2-v1.0",
+      "score": 44.65,
+      "params_b": 2.21,
+      "released": "2025-11-03"
+    },
+    {
+      "rank": 27,
+      "model": "vidore/colpali-v1.3",
+      "score": 43.05,
+      "params_b": 2.92,
+      "released": "2024-11-01"
+    },
+    {
+      "rank": 28,
+      "model": "ModernVBERT/colmodernvbert",
+      "score": 26.07,
+      "params_b": 0.252,
+      "released": "2025-10-01"
+    },
+    {
+      "rank": 29,
+      "model": "vidore/colSmol-256M",
+      "score": 21.4,
+      "params_b": 0.256,
+      "released": "2025-01-22"
+    },
+    {
+      "rank": 30,
+      "model": "google/siglip-large-patch16-384",
+      "score": 16.44,
+      "params_b": 0.652,
+      "released": "2024-01-08"
+    },
+    {
+      "rank": 31,
+      "model": "google/siglip-so400m-patch14-384",
+      "score": 15.75,
+      "params_b": 0.878,
+      "released": "2024-01-08"
+    },
+    {
+      "rank": 32,
+      "model": "ModernVBERT/bimodernvbert",
+      "score": 15.1,
+      "params_b": 0.252,
+      "released": "2025-10-01"
+    },
+    {
+      "rank": 33,
+      "model": "ModernVBERT/modernvbert-embed",
+      "score": 14.75,
+      "params_b": 0.252,
+      "released": "2025-10-01"
+    },
+    {
+      "rank": 34,
+      "model": "google/siglip-base-patch16-512",
+      "score": 14.69,
+      "params_b": 0.204,
+      "released": "2024-01-08"
+    },
+    {
+      "rank": 35,
+      "model": "google/siglip-base-patch16-384",
+      "score": 11.63,
+      "params_b": 0.203,
+      "released": "2024-01-08"
+    },
+    {
+      "rank": 36,
+      "model": "openai/clip-vit-large-patch14",
+      "score": 8.02,
+      "params_b": 0.428,
+      "released": "2021-02-26"
+    },
+    {
+      "rank": 37,
+      "model": "google/siglip-base-patch16-256",
+      "score": 6.71,
+      "params_b": 0.203,
+      "released": "2024-01-08"
+    },
+    {
+      "rank": 38,
+      "model": "google/siglip-base-patch16-256-multilingual",
+      "score": 6.17,
+      "params_b": 0.371,
+      "released": "2024-01-08"
+    },
+    {
+      "rank": 39,
+      "model": "google/siglip-base-patch16-224",
+      "score": 5.42,
+      "params_b": 0.203,
+      "released": "2024-01-08"
+    },
+    {
+      "rank": 40,
+      "model": "openai/clip-vit-base-patch16",
+      "score": 4.43,
+      "params_b": 0.15,
+      "released": "2021-02-26"
+    },
+    {
+      "rank": 41,
+      "model": "openai/clip-vit-base-patch32",
+      "score": 2.23,
+      "params_b": 0.151,
+      "released": "2021-02-26"
+    }
+  ]
+}

@@ -272,6 +272,14 @@ post without a named approver.
 point in the pipeline where a folder gets a date, which is what keeps the date
 meaningful.
 
+**Default to `14:30:00+02:00`** unless a post has a reason to go out elsewhere. The
+account's own followers were sampled on 2026-08-07 — 978 posts from 28 of 30 — and their
+activity peaks at 16:00 CEST (10:00 ET) with a second peak at 13:00 CEST. The earlier
+09:00 default was worse on both counts: it is 03:00 US Eastern, and it is not the European
+peak either. 14:30 sits inside the plateau between the two peaks rather than over-fitting
+to thirty people. Re-measure when the follower count is large enough for the sample to
+mean something; the method is in the git history of this line.
+
 ---
 
 ## Validate before moving a post forward

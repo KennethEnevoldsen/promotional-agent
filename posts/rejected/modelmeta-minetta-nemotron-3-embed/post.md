@@ -1,12 +1,15 @@
 ---
-id: add-webai-colvec1-1-4b
+id: modelmeta-minetta-nemotron-3-embed
 type: model_addition
-trigger: mteb#5010 + results#643
+trigger: mteb#5027 + results#640
 trigger_date: 2026-07-26
 expires: 2026-08-26
 sources:
-  - https://github.com/embeddings-benchmark/mteb/pull/5010
-  - https://github.com/embeddings-benchmark/results/pull/643
+  - https://github.com/embeddings-benchmark/mteb/pull/5027
+  - https://github.com/embeddings-benchmark/results/pull/640
+reason: evaluated but not a story: rank 4 of 160 on MTEB(Law, v1) at 69.33, and the account published a MTEB(Law, v1) post on 2026-08-07. A second legal post for a non-headline rank would tell the same story twice.
+rejected_on: 2026-08-07
+rejected_by: triage run 2026-08-07 (deepseek-v4-flash), verified by hand
 ---
 
 ## Why this might be a post
