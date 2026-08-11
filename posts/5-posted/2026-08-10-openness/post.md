@@ -12,6 +12,8 @@ media: card.png
 sources:
   - https://leaderboard.mteb.org
   - mteb ModelMeta.openness (weights / licence / training code / training data)
+posted_on: 2026-08-10
+url: https://bsky.app/profile/mteb.org/post/3msppmbmfac2m
 ---
 
 ```
