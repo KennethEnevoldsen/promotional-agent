@@ -13,6 +13,8 @@ media: card.png
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5010
   - https://github.com/embeddings-benchmark/results/pull/643
+posted_on: 2026-08-12
+url: https://bsky.app/profile/mteb.org/post/3msvapni2h62x
 ---
 
 ```
