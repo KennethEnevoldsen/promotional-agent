@@ -1,16 +1,18 @@
 ---
-id: colvec11-vidore
+id: 2026-08-12-colvec11-vidore
 type: model_addition
 trigger: mteb#5010 (models) + results#643 (results, merged 2026-07-27)
 trigger_date: 2026-07-26
+approved_by: kennethenevoldsen (explicit instruction, 2026-08-12)
+scheduled_for: 2026-08-12T14:30:00+02:00
 expires: 2026-09-15
 subject: webAI-Official/webAI-ColVec1.1-8b
-sources:
-  - https://github.com/embeddings-benchmark/mteb/pull/5010
-  - https://github.com/embeddings-benchmark/results/pull/643
 verified: true
 evidence: data.json
 media: card.png
+sources:
+  - https://github.com/embeddings-benchmark/mteb/pull/5010
+  - https://github.com/embeddings-benchmark/results/pull/643
 ---
 
 ```

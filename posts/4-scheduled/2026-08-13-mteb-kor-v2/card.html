@@ -1,0 +1,356 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>MTEB(kor, v2)</title>
+<!--
+  Card for the MTEB(kor, v2) post. Not a ranking — a benchmark-replacement post needs a
+  different shape from the ranked-bar cards, so this is a paired column chart: task count
+  per type, v1 (grey) beside v2 (blue), six categories. Two categories have a literal zero
+  v1 bar (Clustering, PairClassification) — that already reads as "did not exist", but a
+  NEW tag above the v2 bar makes it unmissable rather than relying on the reader to notice
+  an absence.
+
+  Second zone: the size-bucket Pareto — same >5B / 1-5B / 500M-1B / <500M buckets
+  leaderboard.mteb.org itself uses — asking whether the broader benchmark changes who
+  leads each size class. Score is de-emphasised (small, muted, in parentheses) because the
+  claim is about identity, not magnitude.
+
+  Restricted to models with complete coverage on BOTH v1 and v2 (n per bucket shown under
+  the label) — an earlier version compared each board's own independent leader and got a
+  false-looking "change" in one bucket that was really a model that never ran the new task
+  types at all, not a capability difference. Since v2's tasks are a superset of v1's,
+  complete v2 coverage implies complete v1 coverage, so this intersection is exactly the
+  v2-complete set — verified in fetch.py, not assumed.
+
+    uv run posts/3-review/mteb-kor-v2/fetch.py
+    uv run mteb-render --card posts/3-review/mteb-kor-v2/card.html \
+      --out posts/3-review/mteb-kor-v2/card.png
+
+  PALETTE IS A PLACEHOLDER — swap the :root block only.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "n_complete_v1": 116,
+  "n_complete_v2": 23,
+  "intersection_size": 23,
+  "by_type": [
+    {
+      "type": "Classification",
+      "v1": 1,
+      "v2": 1
+    },
+    {
+      "type": "Clustering",
+      "v1": 0,
+      "v2": 3
+    },
+    {
+      "type": "PairClassification",
+      "v1": 0,
+      "v2": 3
+    },
+    {
+      "type": "Reranking",
+      "v1": 1,
+      "v2": 1
+    },
+    {
+      "type": "Retrieval",
+      "v1": 2,
+      "v2": 9
+    },
+    {
+      "type": "STS",
+      "v1": 2,
+      "v2": 3
+    }
+  ],
+  "buckets": [
+    {
+      "bucket": ">5B",
+      "v1": {
+        "model": "Qwen/Qwen3-Embedding-8B",
+        "score": 77.86
+      },
+      "v2": {
+        "model": "Qwen/Qwen3-Embedding-8B",
+        "score": 77.73
+      },
+      "changed": false,
+      "n": 4
+    },
+    {
+      "bucket": "1-5B",
+      "v1": {
+        "model": "Qwen/Qwen3-Embedding-4B",
+        "score": 77.44
+      },
+      "v2": {
+        "model": "Qwen/Qwen3-Embedding-4B",
+        "score": 76.94
+      },
+      "changed": false,
+      "n": 3
+    },
+    {
+      "bucket": "500M-1B",
+      "v1": {
+        "model": "nlpai-lab/KURE-v1",
+        "score": 74.27
+      },
+      "v2": {
+        "model": "codefuse-ai/F2LLM-v2-0.6B",
+        "score": 72.16
+      },
+      "changed": true,
+      "n": 7
+    },
+    {
+      "bucket": "<500M",
+      "v1": {
+        "model": "hotchpotch/bekko-embedding-v1-a25m",
+        "score": 69.8
+      },
+      "v2": {
+        "model": "hotchpotch/bekko-embedding-v1-a25m",
+        "score": 67.86
+      },
+      "changed": false,
+      "n": 9
+    }
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+New benchmark: New Korean Benchmark — 20 tasks across 6 task types, adding clustering and NLI and with an increased focus on retrieval. Grouped column chart, task count by type, v1 versus v2: Classification 1 to 1, Clustering 0 to 3 (new), PairClassification 0 to 3 (new), Reranking 1 to 1, Retrieval 2 to 9, STS 2 to 3. v1 has 116 models with complete coverage; v2 has 23. Best model per size class, restricted to the 23 models with complete coverage on both boards, v1 scoring versus v2 scoring: >5B, 4 models: Qwen/Qwen3-Embedding-8B (77.86) to Qwen/Qwen3-Embedding-8B (77.73), unchanged; 1-5B, 3 models: Qwen/Qwen3-Embedding-4B (77.44) to Qwen/Qwen3-Embedding-4B (76.94), unchanged; 500M-1B, 7 models: nlpai-lab/KURE-v1 (74.27) to codefuse-ai/F2LLM-v2-0.6B (72.16), changed; <500M, 9 models: hotchpotch/bekko-embedding-v1-a25m (69.80) to hotchpotch/bekko-embedding-v1-a25m (67.86), unchanged. Added by daegonYu. Source: MTEB, leaderboard.mteb.org.
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABICAYAAACgEzj3AAAXrUlEQVR42s18e5RcVZnv79t7n1NVXf1Od4dO2qTz6sSESB5kRhDtDuMLcUbxWj2giOsykgygV+/gA+OsW1VKQGdAAYURZN2AiGIVOMhV14wMdvdiRodAgDxJms6j924/H1VdVefO3t/71a6qYqI7CS9v+dyMKX3vFT5X9ZeDLNu/GLZ/BXqEbz1zx4Nv1O0oCbYm1QMg8Y9Z6JV8ph/N7oM3Rv7d8QT6H8UEDwOROD+H23JXf6P7t2S/S7bE1BADgFn8LJVL/tI13sZbF1zx4v2LOn9YBpDdU9uc/ZfXP+3/w4mYubqfANn/PhZjMcVvvNn2u4l7l1UN7dq8f8lVXwx0/Ba1DZeqm7X0EfyN0NNplWjkyFmnDsFI4jkxT2vmqW1n7Bzz03U6WQ5tHZ/AhnFB63kL3iJgVGx6MZOnT+9/rHXNodv2/eXJfe/f8Jn5v5nfHutQzq+d/rlDG1oGYzbdU28Ddj8w0xJ1cwGtnl9etefaVe95/wLc3nffnO/9dsGeT9fFbb+7f8mp1+cO7Xhwzq7d5+z4KFCTOnPP0d+cvXfNU7/tXt/72cnr/mfXi5f+cM1z3z3nY1PPO+O9J/e5eeCyO0/dv+7RGX9c9pIf7/nsjB0P3jl/zbaLXvzKXf8DwFqvZOMY0i0AAAAASUVORK5CYII=");
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --peer:           #b9b7b0;
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --new-bg:         #eaf0ff;
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --peer:           #55534e;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+    --new-bg:         #1f2a44;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow {
+    font-size: 18px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 { font-size: 46px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; }
+  .specs { font-size: 15px; color: var(--text-muted); margin-top: 8px; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 5px; }
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name { font-size: 30px; font-weight: 700; letter-spacing: 0.01em; }
+  .logo { width: 39px; height: 41px; flex: none; background: var(--logo-uri) left center / contain no-repeat; }
+
+  /* ---- chart zone: paired columns, one pair per task type ---- */
+  .chart { flex: 1; display: flex; flex-direction: column; margin-top: 22px; min-height: 0; }
+  .legend { display: flex; gap: 28px; font-size: 16px; color: var(--text-secondary); margin-bottom: 14px; }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .swatch { width: 16px; height: 16px; border-radius: 3px; display: inline-block; }
+  .swatch.v1 { background: var(--peer); }
+  .swatch.v2 { background: var(--accent); }
+
+  /* .chart is flex:1 so the chart block sits centered in the leftover space above
+     .registered, but .col-group must NOT inherit that stretch — with height:100% a
+     column's intrinsic content (tag, then bars) spreads across the whole flex:1 area
+     instead of staying together, which is what produced the gap between the NEW tags
+     and the bars. Columns stay their natural (small) height; .cols' align-items centers
+     that compact cluster within the flex:1 space instead. */
+  .cols { flex: 1; display: flex; align-items: center; gap: 30px; padding: 0 8px; }
+  .col-group { flex: 1; display: flex; flex-direction: column; align-items: center; }
+  .new-tag {
+    font-size: 13px; font-weight: 700; color: var(--accent); background: var(--new-bg);
+    border-radius: 5px; padding: 3px 9px; margin-bottom: 10px; letter-spacing: 0.03em;
+  }
+  .new-tag.hidden { visibility: hidden; }   /* reserves the row so bar baselines still align */
+  /* Fixed height (set inline from JS, driven by the same CHART_PX used for bar heights)
+     rather than flex:1 — bars need a bounded box to bottom-align *within*, not an
+     unbounded one that grows to fill whatever space is available. */
+  .bars-row { display: flex; align-items: flex-end; gap: 10px; width: 100%; justify-content: center; }
+  .bar-wrap { display: flex; flex-direction: column; align-items: center; width: 46px; }
+  .bar-val { font-size: 17px; color: var(--text-secondary); margin-bottom: 6px; font-weight: 600; }
+  .bar-wrap.v2 .bar-val { color: var(--text-primary); }
+  .bar { width: 100%; border-radius: 5px 5px 0 0; }
+  .bar.v1 { background: var(--peer); }
+  .bar.v2 { background: var(--accent); }
+  .col-label { margin-top: 12px; font-size: 16px; color: var(--text-secondary); text-align: center; font-weight: 550; }
+  .baseline { height: 1px; background: var(--axis); width: 100%; margin-top: 0; }
+
+  /* ---- secondary zone: size-bucket Pareto, v1 leader vs v2 leader ---- */
+  .buckets {
+    margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--hairline);
+  }
+  .buckets-title { font-size: 16px; font-weight: 640; color: var(--text-secondary); margin-bottom: 12px; }
+  .bk-row {
+    display: grid; grid-template-columns: 78px 1fr 24px 1fr 84px;
+    gap: 10px; align-items: center; padding: 7px 0; font-size: 16px;
+  }
+  .bk-label { color: var(--text-secondary); font-weight: 600; }
+  .bk-n { display: block; color: var(--text-muted); font-size: 12px; font-weight: 400; margin-top: 2px; }
+  .bk-model { color: var(--text-primary); }
+  .bk-model .org { color: var(--text-muted); }
+  .bk-model .score { color: var(--text-muted); font-size: 13px; font-weight: 400; }
+  .bk-row.changed .bk-model { color: var(--text-primary); font-weight: 640; }
+  .bk-arrow { color: var(--text-muted); text-align: center; }
+  .bk-status {
+    font-size: 12px; font-weight: 700; text-align: center; border-radius: 5px;
+    padding: 3px 0; letter-spacing: 0.02em;
+  }
+  .bk-status.same { color: var(--text-muted); background: transparent; }
+  .bk-status.changed { color: var(--accent); background: var(--new-bg); }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--hairline);
+    font-size: 17px; color: var(--text-muted);
+  }
+  .source { font-size: 14px; color: var(--text-muted); }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="specs" id="specs"></div>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="chart">
+  <div class="legend">
+    <span><span class="swatch v1"></span><span id="leg-v1"></span></span>
+    <span><span class="swatch v2"></span><span id="leg-v2"></span></span>
+  </div>
+  <div class="cols" id="cols"></div>
+</div>
+
+<div class="buckets">
+  <div class="buckets-title" id="bk-title"></div>
+  <div id="bk-rows"></div>
+</div>
+
+<footer>
+  <span class="source">Source · MTEB (leaderboard.mteb.org)</span>
+  <span id="footer"></span>
+</footer>
+
+<script>
+const COPY = {
+  eyebrow: "New benchmark",
+  title: "New Korean Benchmark",
+  specs: "Korean text embedding · replaces the 6-task v1 as the default board",
+  subtitle: "20 tasks across 6 task types, adding clustering and NLI and with an increased focus on retrieval",
+  footer: "Added by daegonYu",
+  leg_v1: "MTEB(kor, v1)",
+  leg_v2: "MTEB(kor, v2)",
+  bk_title: "Best model by size class, among models scored on both boards — same leader?",
+};
+
+const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
+const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+set("eyebrow", d.eyebrow); set("title", d.title); set("specs", d.specs);
+set("subtitle", d.subtitle); set("footer", d.footer);
+set("leg-v1", d.leg_v1); set("leg-v2", d.leg_v2); set("bk-title", d.bk_title);
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+const byType = d.by_type;
+const MAX = Math.max(...byType.map(t => Math.max(t.v1, t.v2)));
+// Bars are pixel heights, not percentages, because the column area's own height varies
+// slightly with content above it — computing from a fixed pixel max keeps every card's
+// bars comparable rather than each one autoscaling to its own local axis.
+const CHART_PX = 440;
+
+document.getElementById("cols").innerHTML = byType.map(t => {
+  const isNew = t.v1 === 0 && t.v2 > 0;
+  const h1 = Math.round((t.v1 / MAX) * CHART_PX);
+  const h2 = Math.round((t.v2 / MAX) * CHART_PX);
+  return `
+    <div class="col-group">
+      <span class="new-tag${isNew ? "" : " hidden"}">NEW</span>
+      <div class="bars-row" style="height:${CHART_PX}px">
+        <div class="bar-wrap v1">
+          <span class="bar-val">${t.v1 || ""}</span>
+          <div class="bar v1" style="height:${h1}px"></div>
+        </div>
+        <div class="bar-wrap v2">
+          <span class="bar-val">${t.v2}</span>
+          <div class="bar v2" style="height:${h2}px"></div>
+        </div>
+      </div>
+      <div class="baseline"></div>
+      <div class="col-label">${t.type}</div>
+    </div>`;
+}).join("");
+
+const splitName = m => {
+  const i = m.indexOf("/");
+  return i === -1 ? ["", m] : [m.slice(0, i + 1), m.slice(i + 1)];
+};
+const cell = e => {
+  if (!e) return `<span class="bk-model" style="color:var(--text-muted)">no entrant</span>`;
+  const [org, name] = splitName(e.model);
+  return `<span class="bk-model"><span class="org">${org}</span>${name} `
+    + `<span class="score">${e.score.toFixed(2)}</span></span>`;
+};
+
+document.getElementById("bk-rows").innerHTML = d.buckets.map(row => `
+    <div class="bk-row${row.changed ? " changed" : ""}">
+      <span class="bk-label">${row.bucket}<span class="bk-n">n=${row.n}</span></span>
+      ${cell(row.v1)}
+      <span class="bk-arrow">&rarr;</span>
+      ${cell(row.v2)}
+      <span class="bk-status ${row.changed ? "changed" : "same"}">${row.changed ? "CHANGED" : "same"}</span>
+    </div>`
+).join("");
+
+window.__altText = [
+  `${d.eyebrow}: ${d.title} — ${d.subtitle}.`,
+  `Grouped column chart, task count by type, v1 versus v2: ` +
+    byType.map(t => `${t.type} ${t.v1} to ${t.v2}${t.v1 === 0 && t.v2 > 0 ? " (new)" : ""}`).join(", ") + ".",
+  `v1 has ${d.n_complete_v1} models with complete coverage; v2 has ${d.n_complete_v2}.`,
+  `Best model per size class, restricted to the ${d.intersection_size} models with complete `
+    + `coverage on both boards, v1 scoring versus v2 scoring: ` +
+    d.buckets.map(row => {
+      const a = row.v1 ? `${row.v1.model} (${row.v1.score.toFixed(2)})` : "no entrant";
+      const b = row.v2 ? `${row.v2.model} (${row.v2.score.toFixed(2)})` : "no entrant";
+      return `${row.bucket}, ${row.n} models: ${a} to ${b}${row.changed ? ", changed" : ", unchanged"}`;
+    }).join("; ") + ".",
+  `${d.footer}. Source: MTEB, leaderboard.mteb.org.`,
+].join(" ");
+</script>

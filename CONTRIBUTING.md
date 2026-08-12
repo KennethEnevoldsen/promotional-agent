@@ -191,6 +191,16 @@ warmth. `profile.md` has the account-level identity.
 **Anything true of every post belongs in the bio, not the feed.** If a draft is mostly
 explaining what the account is, it is competing with `profile.md` and will lose.
 
+**Internal reasoning never reaches the reader.** `## Notes`, `todo:`, and code comments
+exist to tell the human reviewer why a post was built the way it was — not to tell the
+audience. A line like "no single one of these is an announcement, but together they are a
+real story" is honest and useful in `## Notes`; in a headline it describes this pipeline's
+own editorial process to a reader who never asked and doesn't care, and it reads as an
+apology for the post instead of a claim about MTEB. It has leaked before: a Notes sentence
+copied wholesale into a card's `COPY.subtitle`. Before finalizing a post, read every
+string a reader will actually see — the fenced text blocks, and every value in the card's
+`COPY` object — and check none of it is really addressed to a reviewer.
+
 **Name models by their full Hugging Face id** — `hotchpotch/bekko-embedding-v1-a8m`, not
 `bekko`. It costs characters, but an abbreviation is harder to check against the
 leaderboard and two models can abbreviate to the same string.

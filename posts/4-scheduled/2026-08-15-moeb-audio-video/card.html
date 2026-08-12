@@ -1,0 +1,249 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>MOEB audio & video expansion</title>
+<!--
+  Card for the MOEB audio/video roundup. Not a plot — the first version was a sorted bar
+  list of task-count-per-PR, and that axis turned out to be measuring an implementation
+  detail (how many bidirectional-pair task classes one PR happened to register), not
+  anything a reader would care about. Replaced with six featured tasks, one per subdomain
+  (music, speech, environmental, cross-modal audio-scene, video retrieval, video QA),
+  each carrying its own real description and an APA citation for its source paper. This
+  answers "what did MTEB actually gain" instead of "how many classes did PR #X add".
+
+  The fourth stat tile — N of 16 pull requests cite a published paper — exists because
+  "these are real, documented datasets" is a checkable claim, not a vibe, and this account
+  states checkable things rather than asserting quality. Both the modality split and the
+  paper count come from each task's own `modalities`/`reference` fields, not a hand typed
+  label — an earlier version of this card had MIAO mistagged "video" (it's audio+image)
+  purely because of a manual label nobody re-checked against the code.
+
+    uv run posts/3-review/moeb-audio-video/fetch.py
+    uv run mteb-render --card posts/3-review/moeb-audio-video/card.html \
+      --out posts/3-review/moeb-audio-video/card.png
+
+  PALETTE IS A PLACEHOLDER — swap the :root block only.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "n_prs": 16,
+  "n_tasks_total": 25,
+  "by_modality": {
+    "audio": 18,
+    "video": 7
+  },
+  "n_papers": 10,
+  "featured": [
+    {
+      "subdomain": "music",
+      "name": "SongDescriberT2ARetrieval",
+      "dataset": "Song Describer",
+      "description": "Text-to-music retrieval: the query is a caption and the goal is to retrieve the music track it describes from the corpus of 706 recordings.",
+      "citation": "Manco et al. (2023)",
+      "license": "cc-by-sa-4.0",
+      "modality": "audio"
+    },
+    {
+      "subdomain": "speech",
+      "name": "SpeechCocoA2IRetrieval",
+      "dataset": "SPEECH-COCO",
+      "description": "Queries are spoken captions and the corpus contains the images; the goal is to retrieve the image described by the spoken caption.",
+      "citation": "Havard et al. (2017)",
+      "license": "cc-by-4.0",
+      "modality": "audio"
+    },
+    {
+      "subdomain": "environmental",
+      "name": "SoundingEarthA2IRetrieval",
+      "dataset": "SoundingEarth",
+      "description": "Queries are field recordings and the corpus contains the aerial images; the goal is to retrieve the image of the location where the recording was made.",
+      "citation": "Heidler et al. (2023)",
+      "license": "cc-by-4.0",
+      "modality": "audio"
+    },
+    {
+      "subdomain": "audio-scene",
+      "name": "CASTELLAAMRRetrieval",
+      "dataset": "CASTELLA",
+      "description": "Retrieval on CASTELLA, the human-annotated long-audio benchmark used as the DCASE 2026 Task 6 evaluation set: given a caption describing a moment, retrieve the full recording (1 to 5 minutes) that contains it. The corpus is the 566 complete recordings and there are 1,347 caption queries, each with its source recording as the single relevant document. Adapted from CASTELLA's audio moment localization task, which regresses a continuous time interval, to whole-recording retrieval for the mteb ranking format.",
+      "citation": "Munakata et al. (2025)",
+      "license": "not specified",
+      "modality": "audio"
+    },
+    {
+      "subdomain": "video-retrieval",
+      "name": "MomentSeekerTI2VRetrieval",
+      "dataset": "MomentSeeker",
+      "description": "Queries combine a text question with a reference image, e.g. asking what happened around the pictured moment.",
+      "citation": "Yuan et al. (2025)",
+      "license": "cc-by-nc-sa-4.0",
+      "modality": "video"
+    },
+    {
+      "subdomain": "video-qa",
+      "name": "MMVUVideoCentricQA",
+      "dataset": "MMVU",
+      "description": "MMVU is an expert-level, multi-discipline video understanding benchmark with questions spanning 27 subjects across Science, Healthcare, Humanities & Social Sciences, and Engineering. Each multiple-choice example pairs a specialized-domain video with a question and 5 candidate answers. The task is formulated as multiple-choice retrieval: given the (video, question) pair, retrieve the correct candidate. Used the public validation multiple-choice subset (~625 examples).",
+      "citation": "Zhao et al. (2025)",
+      "license": "cc-by-4.0",
+      "modality": "video"
+    }
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+MTEB expands: 25 new audio & video tasks. 16 pull requests, 20–30 Jul 2026. 18 audio tasks, 7 video tasks, across 16 pull requests. 10 of 16 cite a published paper. Featured: Music — Song Describer: Text-to-music retrieval: the query is a caption and the goal is to retrieve the music track it describes from the corpus of 706 recordings. (Manco et al. (2023)) Speech — SPEECH-COCO: Queries are spoken captions and the corpus contains the images; the goal is to retrieve the image described by the spoken caption. (Havard et al. (2017)) Environmental sound — SoundingEarth: Queries are field recordings and the corpus contains the aerial images; the goal is to retrieve the image of the location where the recording was made. (Heidler et al. (2023)) Audio scene — CASTELLA: Retrieval on CASTELLA, the human-annotated long-audio benchmark used as the DCASE 2026 Task 6 evaluation set: given a caption describing a moment, retrieve the full recording (1 to 5 minutes) that contains it. The corpus is the 566 complete recordings and there are 1,347 caption queries, each with its source recording as the single relevant document. Adapted from CASTELLA's audio moment localization task, which regresses a continuous time interval, to whole-recording retrieval for the mteb ranking format. (Munakata et al. (2025)) Video retrieval — MomentSeeker: Queries combine a text question with a reference image, e.g. asking what happened around the pictured moment. (Yuan et al. (2025)) Video QA — MMVU: MMVU is an expert-level, multi-discipline video understanding benchmark with questions spanning 27 subjects across Science, Healthcare, Humanities & Social Sciences, and Engineering. Each multiple-choice example pairs a specialized-domain video with a question and 5 candidate answers. The task is formulated as multiple-choice retrieval: given the (video, question) pair, retrieve the correct candidate. Used the public validation multiple-choice subset (~625 examples). (Zhao et al. (2025)) Credit by task count: dukesun99 (14 tasks) · wissam-sib (9) · Rakshitha-Ireddi (2). Source: MTEB, leaderboard.mteb.org.
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABICAYAAACgEzj3AAAXrUlEQVR42s18e5RcVZnv79t7n1NVXf1Od4dO2qTz6sSESB5kRhDtDuMLcUbxWj2giOsykgygV+/gA+OsW1VKQGdAAYURZN2AiGIVOMhV14wMdvdiRodAgDxJms6j924/H1VdVefO3t/71a6qYqI7CS9v+dyMKX3vFT5X9ZeDLNu/GLZ/BXqEbz1zx4Nv1O0oCbYm1QMg8Y9Z6JV8ph/N7oM3Rv7d8QT6H8UEDwOROD+H23JXf6P7t2S/S7bE1BADgFn8LJVL/tI13sZbF1zx4v2LOn9YBpDdU9uc/ZfXP+3/w4mYubqfANn/PhZjMcVvvNn2u4l7l1UN7dq8f8lVXwx0/Ba1DZeqm7X0EfyN0NNplWjkyFmnDsFI4jkxT2vmqW1n7Bzz03U6WQ5tHZ/AhnFB63kL3iJgVGx6MZOnT+9/rHXNodv2/eXJfe/f8Jn5v5nfHutQzq+d/rlDG1oGYzbdU28Ddj8w0xJ1cwGtnl9etefaVe95/wLc3nffnO/9dsGeT9fFbb+7f8mp1+cO7Xhwzq7d5+z4KFCTOnPP0d+cvXfNU7/tXt/72cnr/mfXi5f+cM1z3z3nY1PPO+O9J/e5eeCyO0/dv+7RGX9c9pIf7/nsjB0P3jl/zbaLXvzKXf8DwFqvZOMY0i0AAAAASUVORK5CYII=");
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --audio:          #3d7bff;
+    --video:          #9b6bf2;
+    --gridline:       #e1e0d9;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --tile-bg:        #f2f1ec;
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --audio:          #5b8fff;
+    --video:          #b28cf5;
+    --gridline:       #2c2c2a;
+    --hairline:       rgba(255, 255, 255, 0.10);
+    --tile-bg:        #232320;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow { font-size: 18px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--audio); }
+  h1 { font-size: 42px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; }
+  .subtitle { font-size: 18px; color: var(--text-secondary); margin-top: 8px; }
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name { font-size: 30px; font-weight: 700; letter-spacing: 0.01em; }
+  .logo { width: 39px; height: 41px; flex: none; background: var(--logo-uri) left center / contain no-repeat; }
+
+  /* ---- stat tiles ---- */
+  .tiles { display: flex; gap: 14px; margin-top: 22px; }
+  .tile { flex: 1; background: var(--tile-bg); border-radius: 10px; padding: 14px 16px; }
+  .tile-n { font-size: 34px; font-weight: 700; }
+  .tile.audio .tile-n { color: var(--audio); }
+  .tile.video .tile-n { color: var(--video); }
+  .tile-label { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+
+  /* ---- featured task list: one per subdomain ---- */
+  .list { flex: 1; margin-top: 22px; display: flex; flex-direction: column; justify-content: center; gap: 34px; min-height: 0; }
+  .item { display: grid; grid-template-columns: 15px 1fr; gap: 14px; align-items: start; }
+  .item-bar { align-self: stretch; width: 4px; border-radius: 2px; }
+  .item-bar.audio { background: var(--audio); }
+  .item-bar.video { background: var(--video); }
+  .item-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .item-subdomain {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .item-subdomain.audio { color: var(--audio); }
+  .item-subdomain.video { color: var(--video); }
+  .item-dataset { font-size: 21px; font-weight: 640; color: var(--text-primary); }
+  .item-desc { font-size: 17px; color: var(--text-secondary); margin-top: 5px; line-height: 1.42; }
+  .item-cite { font-size: 14px; color: var(--text-muted); margin-top: 7px; }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--hairline);
+    font-size: 16px; color: var(--text-muted);
+  }
+  .source { font-size: 14px; color: var(--text-muted); }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="tiles" id="tiles"></div>
+<div class="list" id="list"></div>
+
+<footer>
+  <span class="source">Source · MTEB (leaderboard.mteb.org)</span>
+  <span id="footer"></span>
+</footer>
+
+<script>
+const COPY = {
+  eyebrow: "MTEB expands",
+  title: "25 new audio & video tasks",
+  subtitle: "16 pull requests, 20–30 Jul 2026",
+  footer: "dukesun99 (14 tasks) · wissam-sib (9) · Rakshitha-Ireddi (2)",
+};
+
+const SUBDOMAIN_LABEL = {
+  "music": "Music", "speech": "Speech", "environmental": "Environmental sound",
+  "audio-scene": "Audio scene", "video-retrieval": "Video retrieval", "video-qa": "Video QA",
+};
+
+const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
+const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+set("eyebrow", d.eyebrow); set("title", d.title); set("subtitle", d.subtitle); set("footer", d.footer);
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+document.getElementById("tiles").innerHTML = `
+  <div class="tile audio"><div class="tile-n">${d.by_modality.audio}</div><div class="tile-label">audio tasks</div></div>
+  <div class="tile video"><div class="tile-n">${d.by_modality.video}</div><div class="tile-label">video tasks</div></div>
+  <div class="tile"><div class="tile-n">${d.n_prs}</div><div class="tile-label">pull requests</div></div>
+  <div class="tile"><div class="tile-n">${d.n_papers}/${d.n_prs}</div><div class="tile-label">cite a published paper</div></div>
+`;
+
+// Word-boundary truncation: descriptions come straight from each task's own metadata and
+// vary a lot in length (CASTELLA's runs ~500 characters); clipped here for layout, not in
+// the evidence file, so data.json keeps the full text.
+const clip = (s, max) => {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  return cut.slice(0, cut.lastIndexOf(" ")) + "…";
+};
+
+document.getElementById("list").innerHTML = d.featured.map(f => `
+    <div class="item">
+      <div class="item-bar ${f.modality}"></div>
+      <div>
+        <div class="item-head">
+          <span class="item-subdomain ${f.modality}">${SUBDOMAIN_LABEL[f.subdomain]}</span>
+          <span class="item-dataset">${f.dataset}</span>
+        </div>
+        <div class="item-desc">${clip(f.description, 175)}</div>
+        <div class="item-cite">${f.citation}${f.license ? " · " + f.license : ""}</div>
+      </div>
+    </div>`
+).join("");
+
+window.__altText = [
+  `${d.eyebrow}: ${d.title}. ${d.subtitle}.`,
+  `${d.by_modality.audio} audio tasks, ${d.by_modality.video} video tasks, across ${d.n_prs} pull requests. ${d.n_papers} of ${d.n_prs} cite a published paper.`,
+  `Featured: ` +
+    d.featured.map(f => `${SUBDOMAIN_LABEL[f.subdomain]} — ${f.dataset}: ${f.description} (${f.citation})`).join(" "),
+  `Credit by task count: ${d.footer}.`,
+  `Source: MTEB, leaderboard.mteb.org.`,
+].join(" ");
+</script>

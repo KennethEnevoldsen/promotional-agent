@@ -1,0 +1,577 @@
+{
+  "generated": "2026-08-12",
+  "source": "gh pr diff, embeddings-benchmark/mteb",
+  "excluded": {
+    "pr": 5040,
+    "label": "SEA-VL",
+    "reason": "modalities are [text, image] on both tasks \u2014 no audio, no video; does not support this post's claim"
+  },
+  "n_prs": 16,
+  "n_tasks_total": 25,
+  "by_modality": {
+    "audio": 18,
+    "video": 7
+  },
+  "n_papers": 10,
+  "featured": [
+    {
+      "subdomain": "music",
+      "name": "SongDescriberT2ARetrieval",
+      "dataset": "Song Describer",
+      "description": "Text-to-music retrieval: the query is a caption and the goal is to retrieve the music track it describes from the corpus of 706 recordings.",
+      "citation": "Manco et al. (2023)",
+      "license": "cc-by-sa-4.0",
+      "modality": "audio"
+    },
+    {
+      "subdomain": "speech",
+      "name": "SpeechCocoA2IRetrieval",
+      "dataset": "SPEECH-COCO",
+      "description": "Queries are spoken captions and the corpus contains the images; the goal is to retrieve the image described by the spoken caption.",
+      "citation": "Havard et al. (2017)",
+      "license": "cc-by-4.0",
+      "modality": "audio"
+    },
+    {
+      "subdomain": "environmental",
+      "name": "SoundingEarthA2IRetrieval",
+      "dataset": "SoundingEarth",
+      "description": "Queries are field recordings and the corpus contains the aerial images; the goal is to retrieve the image of the location where the recording was made.",
+      "citation": "Heidler et al. (2023)",
+      "license": "cc-by-4.0",
+      "modality": "audio"
+    },
+    {
+      "subdomain": "audio-scene",
+      "name": "CASTELLAAMRRetrieval",
+      "dataset": "CASTELLA",
+      "description": "Retrieval on CASTELLA, the human-annotated long-audio benchmark used as the DCASE 2026 Task 6 evaluation set: given a caption describing a moment, retrieve the full recording (1 to 5 minutes) that contains it. The corpus is the 566 complete recordings and there are 1,347 caption queries, each with its source recording as the single relevant document. Adapted from CASTELLA's audio moment localization task, which regresses a continuous time interval, to whole-recording retrieval for the mteb ranking format.",
+      "citation": "Munakata et al. (2025)",
+      "license": "not specified",
+      "modality": "audio"
+    },
+    {
+      "subdomain": "video-retrieval",
+      "name": "MomentSeekerTI2VRetrieval",
+      "dataset": "MomentSeeker",
+      "description": "Queries combine a text question with a reference image, e.g. asking what happened around the pictured moment.",
+      "citation": "Yuan et al. (2025)",
+      "license": "cc-by-nc-sa-4.0",
+      "modality": "video"
+    },
+    {
+      "subdomain": "video-qa",
+      "name": "MMVUVideoCentricQA",
+      "dataset": "MMVU",
+      "description": "MMVU is an expert-level, multi-discipline video understanding benchmark with questions spanning 27 subjects across Science, Healthcare, Humanities & Social Sciences, and Engineering. Each multiple-choice example pairs a specialized-domain video with a question and 5 candidate answers. The task is formulated as multiple-choice retrieval: given the (video, question) pair, retrieve the correct candidate. Used the public validation multiple-choice subset (~625 examples).",
+      "citation": "Zhao et al. (2025)",
+      "license": "cc-by-4.0",
+      "modality": "video"
+    }
+  ],
+  "prs": [
+    {
+      "pr": 5045,
+      "title": "[MOEB] Add dataset SHS100K",
+      "author": "wissam-sib",
+      "merged": "2026-07-30",
+      "label": "SHS100K",
+      "subdomain": "music",
+      "modality": "audio",
+      "citation": "Xu et al. (2018)",
+      "tasks": [
+        {
+          "name": "SHS100KA2ARetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "audio"
+          ],
+          "description": "Audio-to-audio cover-song retrieval on the classic SHS100K-TEST split (SecondHandSongs 100K): 116 musical works with multiple YouTube performances each. A query recording should retrieve other recordings of the same work (cover / alternate performance). Packaged from NovaFrost/SHS100K metadata with audio downloaded from the listed YouTube URLs.",
+          "reference": "https://github.com/NovaFrost/SHS100K",
+          "license": "not specified",
+          "is_paper": false
+        }
+      ],
+      "n_tasks": 1
+    },
+    {
+      "pr": 5038,
+      "title": "[MOEB] Add MMVU dataset",
+      "author": "wissam-sib",
+      "merged": "2026-07-29",
+      "label": "MMVU",
+      "subdomain": "video-qa",
+      "modality": "video",
+      "citation": "Zhao et al. (2025)",
+      "tasks": [
+        {
+          "name": "MMVUVideoCentricQA",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "video",
+            "text"
+          ],
+          "description": "MMVU is an expert-level, multi-discipline video understanding benchmark with questions spanning 27 subjects across Science, Healthcare, Humanities & Social Sciences, and Engineering. Each multiple-choice example pairs a specialized-domain video with a question and 5 candidate answers. The task is formulated as multiple-choice retrieval: given the (video, question) pair, retrieve the correct candidate. Used the public validation multiple-choice subset (~625 examples).",
+          "reference": "https://arxiv.org/abs/2501.12380",
+          "license": "cc-by-4.0",
+          "is_paper": true
+        }
+      ],
+      "n_tasks": 1
+    },
+    {
+      "pr": 5001,
+      "title": "[MOEB] Add MIAO-based datasets",
+      "author": "wissam-sib",
+      "merged": "2026-07-30",
+      "label": "MIAO",
+      "subdomain": "audio-scene",
+      "modality": "audio",
+      "citation": "Imoto et al. (2026)",
+      "tasks": [
+        {
+          "name": "MIAOA2IRetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "audio",
+            "image"
+          ],
+          "description": "Queries are sound-event clips and the corpus contains onomatopoeic images; the goal is to retrieve images depicting the same sound event.",
+          "reference": "https://arxiv.org/abs/2605.17509",
+          "license": "mit",
+          "is_paper": true
+        },
+        {
+          "name": "MIAOI2ARetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "image",
+            "audio"
+          ],
+          "description": "Queries are onomatopoeic images and the corpus contains sound-event clips; the goal is to retrieve audio of the depicted sound event.",
+          "reference": "https://arxiv.org/abs/2605.17509",
+          "license": "mit",
+          "is_paper": true
+        }
+      ],
+      "n_tasks": 2
+    },
+    {
+      "pr": 4991,
+      "title": "[MOEB] Add several FLARE-based tasks",
+      "author": "wissam-sib",
+      "merged": "2026-07-30",
+      "label": "FLARE",
+      "subdomain": "video-retrieval",
+      "modality": "video",
+      "citation": "You et al. (2026)",
+      "tasks": [
+        {
+          "name": "FLAREUnifiedT2VARetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "text",
+            "video",
+            "audio"
+          ],
+          "description": "This task uses unified user-simulated text queries to retrieve the matching audiovisual clip (text \u2192 video+audio). It is based on a 1k subset of the original FLARE dataset.",
+          "reference": "https://arxiv.org/abs/2605.10228",
+          "license": "cc-by-4.0",
+          "is_paper": true
+        },
+        {
+          "name": "FLAREVisionT2VRetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "text",
+            "video"
+          ],
+          "description": "This task uses vision-only user-simulated text queries to retrieve the matching video clip (text \u2192 video). It is based on a 1k subset of the original FLARE dataset.",
+          "reference": "https://arxiv.org/abs/2605.10228",
+          "license": "cc-by-4.0",
+          "is_paper": true
+        },
+        {
+          "name": "FLAREAudioT2VARetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "text",
+            "video",
+            "audio"
+          ],
+          "description": "This task uses audio-only user-simulated text queries to retrieve the matching audiovisual clip (text \u2192 video+audio). It is based on a 1k subset of the original FLARE dataset.",
+          "reference": "https://arxiv.org/abs/2605.10228",
+          "license": "cc-by-4.0",
+          "is_paper": true
+        }
+      ],
+      "n_tasks": 3
+    },
+    {
+      "pr": 4984,
+      "title": "task: add CASTELLA audio moment retrieval (t2a)",
+      "author": "dukesun99",
+      "merged": "2026-07-23",
+      "label": "CASTELLA",
+      "subdomain": "audio-scene",
+      "modality": "audio",
+      "citation": "Munakata et al. (2025)",
+      "tasks": [
+        {
+          "name": "CASTELLAAMRRetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "text",
+            "audio"
+          ],
+          "description": "Retrieval on CASTELLA, the human-annotated long-audio benchmark used as the DCASE 2026 Task 6 evaluation set: given a caption describing a moment, retrieve the full recording (1 to 5 minutes) that contains it. The corpus is the 566 complete recordings and there are 1,347 caption queries, each with its source recording as the single relevant document. Adapted from CASTELLA's audio moment localization task, which regresses a continuous time interval, to whole-recording retrieval for the mteb ranking format.",
+          "reference": "https://arxiv.org/abs/2511.15131",
+          "license": "not specified",
+          "is_paper": true
+        }
+      ],
+      "n_tasks": 1
+    },
+    {
+      "pr": 4988,
+      "title": "task: add Song Describer text-music retrieval (t2a, a2t)",
+      "author": "dukesun99",
+      "merged": "2026-07-23",
+      "label": "Song Describer",
+      "subdomain": "music",
+      "modality": "audio",
+      "citation": "Manco et al. (2023)",
+      "tasks": [
+        {
+          "name": "SongDescriberT2ARetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "audio",
+            "text"
+          ],
+          "description": "Text-to-music retrieval: the query is a caption and the goal is to retrieve the music track it describes from the corpus of 706 recordings.",
+          "reference": "https://arxiv.org/abs/2311.10057",
+          "license": "cc-by-sa-4.0",
+          "is_paper": true
+        },
+        {
+          "name": "SongDescriberA2TRetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "audio",
+            "text"
+          ],
+          "description": "Music-to-text retrieval: the query is a music recording and the goal is to retrieve its caption(s) from the corpus of 1,106 captions.",
+          "reference": "https://arxiv.org/abs/2311.10057",
+          "license": "cc-by-sa-4.0",
+          "is_paper": true
+        }
+      ],
+      "n_tasks": 2
+    },
+    {
+      "pr": 4978,
+      "title": "[MOEB] Add AESDD dataset",
+      "author": "wissam-sib",
+      "merged": "2026-07-23",
+      "label": "AESDD",
+      "subdomain": "speech",
+      "modality": "audio",
+      "citation": "Vryzas et al. (2018)",
+      "tasks": [
+        {
+          "name": "AESDD",
+          "type": "TaskClassification",
+          "modalities": [
+            "audio"
+          ],
+          "description": "Acted Emotional Speech Dynamic Database (AESDD): emotion classification of acted Greek speech into one of 5 classes: anger, disgust, fear, happiness, and sadness.",
+          "reference": "https://m3c.web.auth.gr/research/aesdd-speech-emotion-recognition/",
+          "license": "not specified",
+          "is_paper": false
+        }
+      ],
+      "n_tasks": 1
+    },
+    {
+      "pr": 4985,
+      "title": "task: add VSC2022 video-to-video copy-detection retrieval (v2v)",
+      "author": "dukesun99",
+      "merged": "2026-07-21",
+      "label": "VSC2022",
+      "subdomain": "video-retrieval",
+      "modality": "video",
+      "citation": "Pizzi et al. (2023)",
+      "tasks": [
+        {
+          "name": "VSC2022Retrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "video"
+          ],
+          "description": "Video-to-video copy-detection retrieval from the Meta Video Similarity Challenge (VSC2022). The query is a video that may contain an edited copy of a segment from a corpus video, and the goal is to retrieve the source video the query copies from. Matching must be robust to the transformations used in copy generation rather than semantic similarity. This is a seeded eval-scale subset of the validation split: 1,926 queries that have a ground-truth copy source and a corpus of 3,000 reference videos (gold sources plus seeded distractors), re-encoded to 360p. Videos are Creative-Commons clips from YFCC100M.",
+          "reference": "https://arxiv.org/abs/2306.09489",
+          "license": "cc-by-4.0",
+          "is_paper": true
+        }
+      ],
+      "n_tasks": 1
+    },
+    {
+      "pr": 4967,
+      "title": "task: add MomentSeeker composed video retrieval (it2v, vt2v)",
+      "author": "dukesun99",
+      "merged": "2026-07-21",
+      "label": "MomentSeeker",
+      "subdomain": "video-retrieval",
+      "modality": "video",
+      "citation": "Yuan et al. (2025)",
+      "tasks": [
+        {
+          "name": "MomentSeekerTI2VRetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "image",
+            "text",
+            "video"
+          ],
+          "description": "Queries combine a text question with a reference image, e.g. asking what happened around the pictured moment.",
+          "reference": "https://arxiv.org/abs/2502.12558",
+          "license": "cc-by-nc-sa-4.0",
+          "is_paper": true
+        },
+        {
+          "name": "MomentSeekerTV2VRetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "video",
+            "text"
+          ],
+          "description": "Queries combine a text question with a reference video clip, e.g. asking what happened after the shown event.",
+          "reference": "https://arxiv.org/abs/2502.12558",
+          "license": "cc-by-nc-sa-4.0",
+          "is_paper": true
+        }
+      ],
+      "n_tasks": 2
+    },
+    {
+      "pr": 4963,
+      "title": "task: add VimSketch query-by-vocal-imitation retrieval (a2a)",
+      "author": "dukesun99",
+      "merged": "2026-07-20",
+      "label": "VimSketch",
+      "subdomain": "speech",
+      "modality": "audio",
+      "citation": "Cartwright & Pardo (2015)",
+      "tasks": [
+        {
+          "name": "VimSketchImitationClustering",
+          "type": "TaskClustering",
+          "modalities": [
+            "audio"
+          ],
+          "description": "Clustering of vocal imitations from the VimSketch dataset by the sound they imitate: 1,230 human vocal imitations covering 50 reference-sound classes sampled with a fixed seed (at most 40 imitations per class). Labels are the imitated reference classes.",
+          "reference": "https://zenodo.org/record/2596911",
+          "license": "cc-by-4.0",
+          "is_paper": false
+        },
+        {
+          "name": "VimSketchA2ARetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "audio"
+          ],
+          "description": "Query-by-vocal-imitation retrieval on the VimSketch dataset. Queries are human vocal imitations of a sound and the corpus contains the 542 reference sounds (environmental sounds, instruments and sound effects) they imitate; the goal is to retrieve the imitated reference sound. VimSketch merges the Vocal Imitation Set and VocalSketch and provides one reference recording per sound class. Queries are downsampled to at most 4 imitations per reference (2,168 queries).",
+          "reference": "https://zenodo.org/record/2596911",
+          "license": "cc-by-4.0",
+          "is_paper": false
+        }
+      ],
+      "n_tasks": 2
+    },
+    {
+      "pr": 4964,
+      "title": "task: add SPEECH-COCO spoken-caption image retrieval (a2i, i2a)",
+      "author": "dukesun99",
+      "merged": "2026-07-20",
+      "label": "SPEECH-COCO",
+      "subdomain": "speech",
+      "modality": "audio",
+      "citation": "Havard et al. (2017)",
+      "tasks": [
+        {
+          "name": "SpeechCocoA2IRetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "audio",
+            "image"
+          ],
+          "description": "Queries are spoken captions and the corpus contains the images; the goal is to retrieve the image described by the spoken caption.",
+          "reference": "https://arxiv.org/abs/1707.08435",
+          "license": "cc-by-4.0",
+          "is_paper": true
+        },
+        {
+          "name": "SpeechCocoI2ARetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "image",
+            "audio"
+          ],
+          "description": "Queries are images and the corpus contains spoken captions; the goal is to retrieve the spoken caption describing the image.",
+          "reference": "https://arxiv.org/abs/1707.08435",
+          "license": "cc-by-4.0",
+          "is_paper": true
+        }
+      ],
+      "n_tasks": 2
+    },
+    {
+      "pr": 4965,
+      "title": "task: add CLD composed audio retrieval (at2a)",
+      "author": "dukesun99",
+      "merged": "2026-07-20",
+      "label": "CLD",
+      "subdomain": "audio-scene",
+      "modality": "audio",
+      "citation": "Deshmukh et al. (2025)",
+      "tasks": [
+        {
+          "name": "CLDAT2ARetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "audio",
+            "text"
+          ],
+          "description": "Composed audio retrieval built from the CLD (Clotho-Difference) subset of ADIFF. Each query combines a source audio clip with a natural-language description of how the target differs from it, and the goal is to retrieve the target clip from the corpus of 1,045 Clotho v2.1 evaluation recordings. Difference descriptions were generated with a language-model pipeline by the ADIFF authors. 2,000 queries sampled from the 5,225 evaluation pairs with a fixed seed.",
+          "reference": "https://arxiv.org/abs/2502.04476",
+          "license": "mit",
+          "is_paper": true
+        },
+        {
+          "name": "CLDA2TRetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "audio",
+            "text"
+          ],
+          "description": "Audio-to-text difference retrieval built from the CLD (Clotho-Difference) subset of ADIFF. Each query is a Clotho v2.1 audio clip, and the goal is to retrieve, from a corpus of 2,000 natural-language difference descriptions, the description(s) that characterise this clip against a paired clip. It is the audio-to-text inversion of CLDAT2ARetrieval over the same 2,000 language-model-generated difference captions from the ADIFF authors.",
+          "reference": "https://arxiv.org/abs/2502.04476",
+          "license": "mit",
+          "is_paper": true
+        }
+      ],
+      "n_tasks": 2
+    },
+    {
+      "pr": 4966,
+      "title": "task: add SoundingEarth audio-image retrieval (a2i, i2a)",
+      "author": "dukesun99",
+      "merged": "2026-07-20",
+      "label": "SoundingEarth",
+      "subdomain": "environmental",
+      "modality": "audio",
+      "citation": "Heidler et al. (2023)",
+      "tasks": [
+        {
+          "name": "SoundingEarthA2IRetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "audio",
+            "image"
+          ],
+          "description": "Queries are field recordings and the corpus contains the aerial images; the goal is to retrieve the image of the location where the recording was made.",
+          "reference": "https://arxiv.org/abs/2108.00688",
+          "license": "cc-by-4.0",
+          "is_paper": true
+        },
+        {
+          "name": "SoundingEarthI2ARetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "image",
+            "audio"
+          ],
+          "description": "Queries are aerial images and the corpus contains the field recordings; the goal is to retrieve the recording made at the depicted location.",
+          "reference": "https://arxiv.org/abs/2108.00688",
+          "license": "cc-by-4.0",
+          "is_paper": true
+        }
+      ],
+      "n_tasks": 2
+    },
+    {
+      "pr": 5023,
+      "title": "Add BirdCLEF Species Audio Clustering task (closes #5017)",
+      "author": "Rakshitha-Ireddi",
+      "merged": "2026-07-29",
+      "label": "BirdCLEF",
+      "subdomain": "environmental",
+      "modality": "audio",
+      "citation": "Ca\u00f1as et al. (2025)",
+      "tasks": [
+        {
+          "name": "BirdCLEFSpeciesClustering",
+          "type": "TaskClustering",
+          "modalities": [
+            "audio"
+          ],
+          "description": "Audio clustering of wildlife recordings from the BirdCLEF+ 2025 dataset by species label. 1,000 recordings covering 50 sound-producing species (birds, amphibians, mammals and insects) from the Middle Magdalena Valley of Colombia, with exactly 20 samples per species.",
+          "reference": "https://huggingface.co/datasets/mteb/birdclef25-mini",
+          "license": "cc-by-nc-4.0",
+          "is_paper": false
+        }
+      ],
+      "n_tasks": 1
+    },
+    {
+      "pr": 5025,
+      "title": "Add UrbanSound8K Audio Clustering task (closes #5018)",
+      "author": "Rakshitha-Ireddi",
+      "merged": "2026-07-25",
+      "label": "UrbanSound8K",
+      "subdomain": "environmental",
+      "modality": "audio",
+      "citation": "Salamon et al. (2014)",
+      "tasks": [
+        {
+          "name": "UrbanSound8kClustering",
+          "type": "TaskClustering",
+          "modalities": [
+            "audio"
+          ],
+          "description": "Audio clustering of UrbanSound8K: 8,732 urban sound recordings across 10 environmental categories (air conditioner, car horn, children playing, dog bark, drilling, engine idling, gun shot, jackhammer, siren, street music). Evaluates unsupervised grouping of real-world urban soundscapes.",
+          "reference": "https://huggingface.co/datasets/danavery/urbansound8K",
+          "license": "cc-by-nc-sa-3.0",
+          "is_paper": false
+        }
+      ],
+      "n_tasks": 1
+    },
+    {
+      "pr": 4986,
+      "title": "[MOEB]: Add Covers80 dataset",
+      "author": "wissam-sib",
+      "merged": "2026-07-22",
+      "label": "Covers80",
+      "subdomain": "music",
+      "modality": "audio",
+      "citation": "Ellis & Whitman (2007)",
+      "tasks": [
+        {
+          "name": "Covers80A2ARetrieval",
+          "type": "TaskRetrieval",
+          "modalities": [
+            "audio"
+          ],
+          "description": "Audio-to-audio cover-song retrieval on the classic Covers80 dataset: 80 songs with 2 recordings each (160 tracks). A query recording should retrieve the other recording of the same work (cover / alternate performance). Packaged from the LabROSA covers dataset.",
+          "reference": "https://labrosa.ee.columbia.edu/projects/coversongs/covers80/",
+          "license": "not specified",
+          "is_paper": false
+        }
+      ],
+      "n_tasks": 1
+    }
+  ]
+}

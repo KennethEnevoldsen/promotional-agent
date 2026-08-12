@@ -1,0 +1,227 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>mDenseOn / mLateOn — BEIR</title>
+<!--
+  Card for the mDenseOn/mLateOn post. The claim is narrow on purpose: does going
+  multilingual cost anything in English? BEIR is the only board where both the
+  multilingual model and the English-only model it extends have complete coverage, so it
+  is the only place a before/after comparison is honest. Two paired rows, each showing the
+  English-only model's rank/score directly above the multilingual model that replaces it —
+  same visual language as the ColVec1.1 "prior generation" treatment, but the comparison
+  runs the other direction: here the accent-coloured bar (multilingual) is expected to be
+  worse and isn't, so the finding is the *absence* of a gap rather than a lead.
+
+  An earlier version of this card also showed CoIR and MTEB(Code, v1), where the
+  English-only models have no complete-coverage row at all — context, not comparison.
+  Dropped: with no baseline to show, that zone was answering a question nobody asked and
+  competing with the one real finding for the reader's attention.
+
+    uv run posts/3-review/mdenseon-mlateon/fetch.py
+    uv run mteb-render --card posts/3-review/mdenseon-mlateon/card.html \
+      --out posts/3-review/mdenseon-mlateon/card.png
+
+  PALETTE IS A PLACEHOLDER — swap the :root block only.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "n_comparison_tasks": 15,
+  "n_comparison_complete": 197,
+  "comparisons": [
+    {
+      "multilingual": "lightonai/mLateOn",
+      "multilingual_place": {
+        "rank": 23,
+        "of": 197,
+        "score": 57.56
+      },
+      "base": "lightonai/LateOn",
+      "base_place": {
+        "rank": 25,
+        "of": 197,
+        "score": 57.22
+      },
+      "delta": 0.34
+    },
+    {
+      "multilingual": "lightonai/mDenseOn",
+      "multilingual_place": {
+        "rank": 28,
+        "of": 197,
+        "score": 56.7
+      },
+      "base": "lightonai/DenseOn",
+      "base_place": {
+        "rank": 31,
+        "of": 197,
+        "score": 56.2
+      },
+      "delta": 0.5
+    }
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+New models on MTEB: mDenseOn & mLateOn — Going multilingual did not come at the cost of English retrieval quality (BEIR). On BEIR, English retrieval (15 tasks, 197 models with complete coverage): lightonai/mLateOn ranks 23 of 197 at 57.56, ahead of lightonai/LateOn, which ranks 25 of 197 at 57.22 (+0.34 for the multilingual model); lightonai/mDenseOn ranks 28 of 197 at 56.70, ahead of lightonai/DenseOn, which ranks 31 of 197 at 56.20 (+0.50 for the multilingual model). Added by NohTow, results by paulomouraj. Source: MTEB, leaderboard.mteb.org.
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABICAYAAACgEzj3AAAXrUlEQVR42s18e5RcVZnv79t7n1NVXf1Od4dO2qTz6sSESB5kRhDtDuMLcUbxWj2giOsykgygV+/gA+OsW1VKQGdAAYURZN2AiGIVOMhV14wMdvdiRodAgDxJms6j924/H1VdVefO3t/71a6qYqI7CS9v+dyMKX3vFT5X9ZeDLNu/GLZ/BXqEbz1zx4Nv1O0oCbYm1QMg8Y9Z6JV8ph/N7oM3Rv7d8QT6H8UEDwOROD+H23JXf6P7t2S/S7bE1BADgFn8LJVL/tI13sZbF1zx4v2LOn9YBpDdU9uc/ZfXP+3/w4mYubqfANn/PhZjMcVvvNn2u4l7l1UN7dq8f8lVXwx0/Ba1DZeqm7X0EfyN0NNplWjkyFmnDsFI4jkxT2vmqW1n7Bzz03U6WQ5tHZ/AhnFB63kL3iJgVGx6MZOnT+9/rHXNodv2/eXJfe/f8Jn5v5nfHutQzq+d/rlDG1oGYzbdU28Ddj8w0xJ1cwGtnl9etefaVe95/wLc3nffnO/9dsGeT9fFbb+7f8mp1+cO7Xhwzq7d5+z4KFCTOnPP0d+cvXfNU7/tXt/72cnr/mfXi5f+cM1z3z3nY1PPO+O9J/e5eeCyO0/dv+7RGX9c9pIf7/nsjB0P3jl/zbaLXvzKXf8DwFqvZOMY0i0AAAAASUVORK5CYII=");
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --peer:           #b9b7b0;
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --peer:           #55534e;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow { font-size: 18px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+  h1 { font-size: 46px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; }
+  .specs { font-size: 15px; color: var(--text-muted); margin-top: 8px; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 5px; }
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name { font-size: 30px; font-weight: 700; letter-spacing: 0.01em; }
+  .logo { width: 39px; height: 41px; flex: none; background: var(--logo-uri) left center / contain no-repeat; }
+
+  /* ---- primary zone: paired before/after rows on BEIR ---- */
+  .primary { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-top: 30px; }
+
+  .pair { margin-bottom: 88px; }
+  .pair-row {
+    display: grid; grid-template-columns: 170px 1fr 150px;
+    align-items: center; gap: 18px; padding: 14px 0;
+  }
+  .pair-role { font-size: 14px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+  .pair-row.multi .pair-role { color: var(--accent); }
+  .pair-row.base .pair-role { color: var(--text-muted); }
+  .pair-name { font-size: 25px; }
+  .pair-row.multi .pair-name { color: var(--text-primary); font-weight: 640; }
+  .pair-row.base .pair-name { color: var(--text-secondary); }
+  .pair-name .org { color: var(--text-muted); font-weight: 400; }
+  .pair-track { grid-column: 1 / -1; height: 48px; position: relative; margin-top: -4px; }
+  .pair-fill {
+    position: absolute; left: 0; top: 0; bottom: 0; border-radius: 0 5px 5px 0;
+  }
+  .pair-row.multi .pair-fill { background: var(--accent); }
+  .pair-row.base .pair-fill { background: var(--peer); }
+  .pair-val { font-size: 24px; text-align: right; }
+  .pair-row.multi .pair-val { color: var(--text-primary); font-weight: 640; }
+  .pair-row.base .pair-val { color: var(--text-secondary); }
+  .pair-rank { font-size: 15px; color: var(--text-muted); text-align: right; display: block; margin-top: 2px; }
+  .pair-delta {
+    margin-top: 14px; font-size: 17px; color: var(--accent); font-weight: 600;
+  }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--hairline);
+    font-size: 17px; color: var(--text-muted);
+  }
+  .source { font-size: 14px; color: var(--text-muted); }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="specs" id="specs"></div>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="primary">
+  <div id="pairs"></div>
+</div>
+
+<footer>
+  <span class="source">Source · MTEB (leaderboard.mteb.org)</span>
+  <span id="footer"></span>
+</footer>
+
+<script>
+const COPY = {
+  eyebrow: "New models on MTEB",
+  title: "mDenseOn & mLateOn",
+  specs: "LightOn · multilingual extensions of DenseOn and LateOn, 8 languages plus English",
+  subtitle: "Going multilingual did not come at the cost of English retrieval quality (BEIR)",
+  footer: "Added by NohTow, results by paulomouraj",
+};
+
+const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
+const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+set("eyebrow", d.eyebrow); set("title", d.title); set("specs", d.specs);
+set("subtitle", d.subtitle); set("footer", d.footer);
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+const splitName = m => {
+  const i = m.indexOf("/");
+  return i === -1 ? ["", m] : [m.slice(0, i + 1), m.slice(i + 1)];
+};
+const AXIS_MAX = Math.ceil(Math.max(
+  ...d.comparisons.flatMap(c => [c.multilingual_place.score, c.base_place.score])
+) / 10) * 10;
+
+document.getElementById("pairs").innerHTML = d.comparisons.map(c => {
+  const [mOrg, mName] = splitName(c.multilingual);
+  const [bOrg, bName] = splitName(c.base);
+  const mPct = (c.multilingual_place.score / AXIS_MAX * 100).toFixed(2);
+  const bPct = (c.base_place.score / AXIS_MAX * 100).toFixed(2);
+  return `
+    <div class="pair">
+      <div class="pair-row multi">
+        <span class="pair-role">Multilingual</span>
+        <span class="pair-name"><span class="org">${mOrg}</span>${mName}</span>
+        <span class="pair-val">${c.multilingual_place.score.toFixed(2)}<span class="pair-rank">rank ${c.multilingual_place.rank} of ${c.multilingual_place.of}</span></span>
+        <div class="pair-track"><div class="pair-fill" style="width:${mPct}%"></div></div>
+      </div>
+      <div class="pair-row base">
+        <span class="pair-role">English-only</span>
+        <span class="pair-name"><span class="org">${bOrg}</span>${bName}</span>
+        <span class="pair-val">${c.base_place.score.toFixed(2)}<span class="pair-rank">rank ${c.base_place.rank} of ${c.base_place.of}</span></span>
+        <div class="pair-track"><div class="pair-fill" style="width:${bPct}%"></div></div>
+      </div>
+      <div class="pair-delta">+${c.delta.toFixed(2)} for going multilingual, not a cost</div>
+    </div>`;
+}).join("");
+
+window.__altText = [
+  `${d.eyebrow}: ${d.title} — ${d.subtitle}.`,
+  `On BEIR, English retrieval (${d.n_comparison_tasks} tasks, ${d.n_comparison_complete} models with complete coverage): ` +
+    d.comparisons.map(c =>
+      `${c.multilingual} ranks ${c.multilingual_place.rank} of ${c.multilingual_place.of} at ${c.multilingual_place.score.toFixed(2)}, `
+      + `ahead of ${c.base}, which ranks ${c.base_place.rank} of ${c.base_place.of} at ${c.base_place.score.toFixed(2)} `
+      + `(+${c.delta.toFixed(2)} for the multilingual model)`
+    ).join("; ") + ".",
+  `${d.footer}. Source: MTEB, leaderboard.mteb.org.`,
+].join(" ");
+</script>

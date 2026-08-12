@@ -1,24 +1,23 @@
 ---
-id: mteb-kor-v2
+id: 2026-08-13-mteb-kor-v2
 type: benchmark_addition
 trigger: mteb#4870 (merged 2026-07-31)
 trigger_date: 2026-07-31
+approved_by: kennethenevoldsen (explicit instruction, 2026-08-12)
+scheduled_for: 2026-08-13T14:30:00+02:00
 expires: 2026-09-30
 subject: MTEB(kor, v2)
-todo:
-  - write fetch.py; numbers below came from a cross-board lookup during triage and must be
-    reproduced through the post's own script before review
-  - build the card; the shape is v1 vs v2 by task type, not a model ranking
+verified: true
+evidence: data.json
+media: card.png
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/4870
-verified: true
-media: none
 ---
 
 ```
 New benchmark: MTEB(kor, v2) is now the default Korean board, superseding the 6-task v1.
 
-20 tasks across 6 task types. Clustering and NLI are both new — Korean models were never scored on either here before.
+20 tasks across 6 task types, adding clustering and NLI and with an increased focus on retrieval.
 
 Added by daegonYu.
 ```
@@ -56,26 +55,34 @@ Only 23 models have complete v2 coverage against 116 on v1. That is not a regres
 much. Worth stating plainly rather than hiding, since anyone comparing the two boards will
 notice the model count dropped.
 
-## Registered alongside it
+## Does the broader benchmark change who's best?
 
-The same PR adds `ModelMeta` for nine Korean community models that already had results but
-no registry entry, so their scores existed and did not render. Six now have complete v2
-coverage:
+The same size-bucket Pareto the leaderboard page itself shows — best model in `>5B`,
+`1-5B`, `500M-1B`, `<500M` — under v1's scoring and under v2's. Score is not the point
+here; identity is.
 
-| rank | score | model |
-|---:|---:|---|
-| 8 | 71.95 | `nlpai-lab/KURE-v1` |
-| 9 | 71.63 | `dragonkue/snowflake-arctic-embed-l-v2.0-ko` |
-| 10 | 71.29 | `telepix/PIXIE-Rune-v1.5` |
-| 11 | 70.87 | `dragonkue/BGE-m3-ko` |
-| 12 | 70.38 | `nlpai-lab/KoE5` |
-| 18 | 67.13 | `dragonkue/multilingual-e5-small-ko` |
+**Restricted to the 23 models with complete coverage on both boards.** An earlier version
+of this compared each board's own independent leader and got a false-looking "change" in
+one bucket: the v1 leader there had scores for only 8 of v2's 20 tasks — it never ran
+clustering or NLI at all — so it dropped out of the v2 ranking for lack of coverage, not
+for losing. Since v2's task set is a superset of v1's, complete v2 coverage already implies
+complete v1 coverage, so restricting to models scored on both isn't a smaller, different
+sample — it's exactly the 23 models with complete v2 coverage, compared fairly on both
+scales.
 
-The other three — `exp-models/dragonkue-KoEn-E5-Tiny`, `jhgan/ko-sroberta-multitask`,
-`upskyy/bge-m3-korean` — have no complete v2 coverage and are not claimed here.
+| bucket | n | v1 leader | v2 leader | changed? |
+|---|---:|---|---|:---:|
+| >5B | 4 | `Qwen/Qwen3-Embedding-8B` (77.86) | `Qwen/Qwen3-Embedding-8B` (77.73) | no |
+| 1-5B | 3 | `Qwen/Qwen3-Embedding-4B` (77.44) | `Qwen/Qwen3-Embedding-4B` (76.94) | no |
+| 500M-1B | 7 | `nlpai-lab/KURE-v1` (74.27) | `codefuse-ai/F2LLM-v2-0.6B` (72.16) | **yes** |
+| <500M | 9 | `hotchpotch/bekko-embedding-v1-a25m` (69.80) | `hotchpotch/bekko-embedding-v1-a25m` (67.86) | no |
 
-This is good material but it is the second story, not the first. A new default benchmark
-for a language is the announcement; who appears on it is what the next post is about.
+Three of four keep the same leader under a benchmark with more than three times the tasks
+and two new task types — the old, narrower board was not misleading about those three
+classes. The 500M-1B class genuinely reorders: `KURE-v1` led under v1's six tasks,
+`F2LLM-v2-0.6B` leads once clustering, NLI and the wider retrieval set are added — and
+because both ran the full task list on both boards, this is a real capability difference,
+not a coverage artifact.
 
 ## What must not be claimed
 

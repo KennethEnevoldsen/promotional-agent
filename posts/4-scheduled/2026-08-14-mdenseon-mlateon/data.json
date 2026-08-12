@@ -1,0 +1,39 @@
+{
+  "generated": "2026-08-11",
+  "source": "https://mteb-leaderboard-backend.hf.space/v1/benchmarks/.../scores",
+  "comparison_board": "BEIR",
+  "n_comparison_tasks": 15,
+  "n_comparison_complete": 197,
+  "comparisons": [
+    {
+      "multilingual": "lightonai/mLateOn",
+      "multilingual_place": {
+        "rank": 23,
+        "of": 197,
+        "score": 57.56
+      },
+      "base": "lightonai/LateOn",
+      "base_place": {
+        "rank": 25,
+        "of": 197,
+        "score": 57.22
+      },
+      "delta": 0.34
+    },
+    {
+      "multilingual": "lightonai/mDenseOn",
+      "multilingual_place": {
+        "rank": 28,
+        "of": 197,
+        "score": 56.7
+      },
+      "base": "lightonai/DenseOn",
+      "base_place": {
+        "rank": 31,
+        "of": 197,
+        "score": 56.2
+      },
+      "delta": 0.5
+    }
+  ]
+}
