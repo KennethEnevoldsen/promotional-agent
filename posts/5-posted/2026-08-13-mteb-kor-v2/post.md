@@ -12,6 +12,8 @@ evidence: data.json
 media: card.png
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/4870
+posted_on: 2026-08-13
+url: https://bsky.app/profile/mteb.org/post/3msxrah6mia2y
 ---
 
 ```
