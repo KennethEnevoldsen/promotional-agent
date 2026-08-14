@@ -16,6 +16,8 @@ sources:
   - https://arxiv.org/abs/2607.27178
 todo:
   - decide whether it stands alone or folds into a LightOn/multilingual roundup
+posted_on: 2026-08-14
+url: https://bsky.app/profile/mteb.org/post/3mt2azki2tx2v
 ---
 
 ```
