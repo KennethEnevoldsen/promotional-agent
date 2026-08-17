@@ -1,10 +1,10 @@
 ---
-id: 2026-08-15-moeb-audio-video
+id: 2026-08-18-moeb-audio-video
 type: dataset_roundup
 trigger: 16 MOEB/task PRs merged 2026-07-20..30 (cluster, no single event)
 trigger_date: 2026-07-30
 approved_by: kennethenevoldsen (explicit instruction, 2026-08-12)
-scheduled_for: 2026-08-15T14:30:00+02:00
+scheduled_for: 2026-08-18T14:30:00+02:00
 expires: 2026-09-15
 verified: true
 evidence: data.json
