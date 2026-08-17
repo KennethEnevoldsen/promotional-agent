@@ -24,8 +24,8 @@
   exactly what renders — there is no separate data file to fall out of sync with.
 
     .venv/bin/python posts/2026-08-17-efficiency-frontier/fetch.py        # refresh the numbers
-    uv run visuals/render.py --card posts/2026-08-17-efficiency-frontier/card.html \
-      --out posts/2026-08-17-efficiency-frontier/card.png                 # ~3s
+    uv run visuals/render.py --card posts/2026-08-17-efficiency-frontier/card-1-efficiency-frontier.html \
+      --out posts/2026-08-17-efficiency-frontier/card-1-efficiency-frontier.png                 # ~3s
 
   Edit copy freely — it costs a re-render, not a re-fetch. Only re-run fetch.py when
   the cohort query itself changes, or before posting to confirm the numbers still hold.

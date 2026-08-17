@@ -9,7 +9,7 @@ expires: 2026-09-30
 subject: MTEB(kor, v2)
 verified: true
 evidence: data.json
-media: card.png
+media: card-1-mteb-kor-v2.png
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/4870
 posted_on: 2026-08-13

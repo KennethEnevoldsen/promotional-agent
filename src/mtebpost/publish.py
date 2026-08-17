@@ -59,16 +59,16 @@ def frontmatter(text: str) -> dict[str, str]:
     return out
 
 
-def card_for(post_dir: pathlib.Path, index: int, total: int) -> pathlib.Path | None:
-    """Match the Nth thread part to its card.
+def card_for(post_dir: pathlib.Path, index: int) -> pathlib.Path | None:
+    """Match the Nth post part to its card, if it has one.
 
-    A single post uses card.png; a thread uses card-1-*.png, card-2-*.png in order. The
-    numbering is the contract — a mismatch here attaches the wrong picture to the right
-    words, which is worse than attaching none.
+    Cards are always numbered — card-1-*.png, card-2-*.png, etc. — even for a single-part
+    post, so a post's own card and a stray leftover from an edit can never collide under
+    the same bare name. The numbering is the contract for whichever parts do carry an
+    image — a mismatch there attaches the wrong picture to the right words, which is
+    worse than attaching none. Not every part needs a card, though: returning None here
+    for index i just means part i is text-only, same as `media: none` for a whole post.
     """
-    if total == 1:
-        c = post_dir / "card.png"
-        return c if c.exists() else None
     matches = sorted(post_dir.glob(f"card-{index}-*.png"))
     return matches[0] if matches else None
 
@@ -94,7 +94,7 @@ def show(post: pathlib.Path) -> int:
         print(f"\n--- {label}   [{n}/{BLUESKY_LIMIT} chars]{flag} ---\n")
         print(body)
 
-        card = card_for(d, i, len(parts))
+        card = card_for(d, i)
         if card:
             print(f"\n  attach: {card}")
             alt = ALT_IN_CARD.search(card.with_suffix(".html").read_text()) \
@@ -106,7 +106,7 @@ def show(post: pathlib.Path) -> int:
             else:
                 print("  !! no alt text found in the card — run mteb-render")
                 problems += 1
-        elif fm.get("media", "none") != "none":
+        elif len(parts) == 1 and fm.get("media", "none") != "none":
             print("\n  !! expected a card for this part and found none")
             problems += 1
         else:
@@ -282,7 +282,7 @@ def send(post: pathlib.Path, handle: str) -> None:
             "langs": ["en"],
         }
 
-        card = card_for(d, i, len(parts))
+        card = card_for(d, i)
         if card:
             alt_m = ALT_IN_CARD.search(card.with_suffix(".html").read_text())
             if not alt_m:

@@ -116,7 +116,7 @@ def main() -> None:
     (HERE / "data.json").write_text(json.dumps(evidence, indent=2) + "\n")
 
     top = rows[:TOP_N]
-    write_card_data(HERE / "card.html", {
+    write_card_data(HERE / "card-1-dinghy-law-family.html", {
         "benchmark": BENCHMARK,
         "n_tasks": len(tasks),
         "n_models": len(rows),

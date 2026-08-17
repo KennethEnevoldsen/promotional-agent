@@ -9,7 +9,7 @@ expires: 2026-09-15
 subject: webAI-Official/webAI-ColVec1.1-8b
 verified: true
 evidence: data.json
-media: card.png
+media: card-1-colvec11-vidore.png
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5010
   - https://github.com/embeddings-benchmark/results/pull/643

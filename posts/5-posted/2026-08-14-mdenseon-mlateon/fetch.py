@@ -102,7 +102,7 @@ def main() -> None:
     }
     (HERE / "data.json").write_text(json.dumps(evidence, indent=2) + "\n")
 
-    write_card_data(HERE / "card.html", {
+    write_card_data(HERE / "card-1-mdenseon-mlateon.html", {
         "n_comparison_tasks": n_cmp_tasks,
         "n_comparison_complete": n_cmp_complete,
         "comparisons": comparisons,

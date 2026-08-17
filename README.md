@@ -96,12 +96,17 @@ leaving the folder it was published from:
 
 ```
 posts/3-review/2026-07-30-bekko-frontier/
-  post.md      the text (Bluesky and LinkedIn), frontmatter and editorial notes
-  fetch.py     the exact query that produced the numbers
-  data.json    its output — the full cohort, not just the flattering rows
-  card.html    the card: its data, its copy, the markup that draws it, and its alt text
-  card.png     the rendered image
+  post.md              the text (Bluesky and LinkedIn), frontmatter and editorial notes
+  fetch.py             the exact query that produced the numbers
+  data.json            its output — the full cohort, not just the flattering rows
+  card-1-frontier.html the card: its data, its copy, the markup that draws it, its alt text
+  card-1-frontier.png  the rendered image
 ```
+
+Cards are always numbered — `card-1-<slug>.html`/`.png`, even for a single-part post —
+so `mteb-publish` can match each post part to its own card by filename alone. A thread
+adds `card-2-<slug>.*`, `card-3-<slug>.*` and so on; a part with no numbered card of its
+own is just text-only. `mteb-validate` rejects a bare `card.html`/`card.png`.
 
 A candidate has only `post.md`. The rest appear as it earns them, so the stage is
 visible from the file list alone.
@@ -122,8 +127,8 @@ uv run posts/3-review/2026-07-30-bekko-frontier/fetch.py
 uv run mteb-validate
 
 # render its card (~3 s)
-uv run mteb-render --card posts/3-review/2026-07-30-bekko-frontier/card.html \
-                   --out posts/3-review/2026-07-30-bekko-frontier/card.png
+uv run mteb-render --card posts/3-review/2026-07-30-bekko-frontier/card-1-frontier.html \
+                   --out posts/3-review/2026-07-30-bekko-frontier/card-1-frontier.png
 ```
 
 `mteb-scan` is safe to re-run: any PR already referenced anywhere in the pipeline —

@@ -10,7 +10,7 @@ sources:
   - https://leaderboard.mteb.org
 verified: true
 evidence: data.json
-media: card.png
+media: card-1-efficiency-frontier.png
 posted_on: 2026-08-05
 url: https://bsky.app/profile/mteb.org/post/3msdaguqewd2d
 ---

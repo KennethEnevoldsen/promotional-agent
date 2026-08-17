@@ -41,13 +41,20 @@ REQUIRED = {
 }
 
 # Stages that must have a rendered card. Which *files* those are comes from the
-# frontmatter rather than a fixed list: a threaded post has card-1-*.png, card-2-*.png
-# and no card.png at all, and hardcoding names would fail every thread.
+# frontmatter rather than a fixed list: a post has card-1-*.png, card-2-*.png, and so on
+# — always numbered, even when it is not a thread — and hardcoding names would fail
+# every post.
 NEEDS_CARD = ("3-review", "4-scheduled", "5-posted")
 
 DATED_STAGES = ("4-scheduled", "5-posted")
 DATE_PREFIX = re.compile(r"^(\d{4}-\d{2}-\d{2})-")
 ALT_IN_CARD = re.compile(r'id="alt-text"')
+
+# card-1-<slug>.html / card-1-<slug>.png — never bare card.html / card.png. publish.py's
+# card_for() only ever looks for the numbered form, so a bare name is invisible to it:
+# `mteb-publish --due` would report "expected a card for this part and found none" even
+# though the file is sitting right there.
+CARD_NAME = re.compile(r"^card-(\d+)-[\w-]+\.(html|png)$")
 
 
 class Report:
@@ -140,16 +147,33 @@ def check_post(path: pathlib.Path, stage: str, rep: Report) -> None:
         if named and not (path.parent / named).exists():
             rep.error(where, f"media: {named} does not exist")
         if not list(path.parent.glob("card*.html")):
-            rep.error(where, "no card markup (expected card*.html)")
+            rep.error(where, "no card markup (expected card-1-<slug>.html)")
 
     # A thread declares how many posts it is; check that many fenced blocks exist.
+    n_parts = len(blocks) or 1
     if fm.get("thread") and fm["thread"] != "none":
         try:
             want = int(fm["thread"])
             if len(blocks) != want:
                 rep.error(where, f"thread: {want} but {len(blocks)} post blocks found")
+            n_parts = want
         except ValueError:
             rep.error(where, f"unparseable thread: {fm['thread']!r}")
+
+    # Every card is numbered — card-1-<slug>.{html,png}, even for a single-part post —
+    # so publish.py's card_for() can match it to its post by filename alone. A bare
+    # card.html/card.png is the pre-thread convention and is no longer accepted: it is
+    # invisible to card_for(), which silently treats the part as text-only instead of
+    # erroring, so this is the only place the mistake gets caught.
+    for card in sorted(path.parent.glob("card*.html")) + sorted(path.parent.glob("card*.png")):
+        m = CARD_NAME.match(card.name)
+        if not m:
+            rep.error(where, f"{card.name} is not numbered — rename to "
+                              f"card-1-<slug>{card.suffix} (or card-N-<slug>{card.suffix} "
+                              "for post part N)")
+        elif not (1 <= int(m.group(1)) <= n_parts):
+            rep.error(where, f"{card.name} is numbered {m.group(1)} but this post has "
+                              f"{n_parts} part(s)")
 
     # Alt text lives inside the card, written there by render.py from the same data that
     # drew the image. A card without it ships an image-only payload, which is unreadable

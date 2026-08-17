@@ -8,7 +8,7 @@ scheduled_for: 2026-08-14T14:30:00+02:00
 expires: 2026-08-30
 verified: true
 evidence: data.json
-media: card.png
+media: card-1-mdenseon-mlateon.png
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5048
   - https://github.com/embeddings-benchmark/results/pull/653

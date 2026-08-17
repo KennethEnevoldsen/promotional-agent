@@ -129,7 +129,7 @@ def main() -> None:
         "models": sorted(rows, key=lambda r: -r["y"]),
     }, indent=2) + "\n")
 
-    write_card_data(HERE / "card.html", {
+    write_card_data(HERE / "card-1-efficiency-frontier.html", {
         "benchmark": BENCHMARK,
         "n_tasks": n_bench,
         "n_models": len(rows),

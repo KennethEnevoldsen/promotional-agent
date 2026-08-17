@@ -8,7 +8,7 @@ scheduled_for: 2026-08-10T14:30:00+02:00
 expires: 2026-11-01
 verified: true
 evidence: data.json
-media: card.png
+media: card-1-openness.png
 sources:
   - https://leaderboard.mteb.org
   - mteb ModelMeta.openness (weights / licence / training code / training data)

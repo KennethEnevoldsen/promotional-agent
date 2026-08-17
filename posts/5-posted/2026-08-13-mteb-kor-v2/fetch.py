@@ -191,7 +191,7 @@ def main() -> None:
     }
     (HERE / "data.json").write_text(json.dumps(evidence, indent=2) + "\n")
 
-    write_card_data(HERE / "card.html", {
+    write_card_data(HERE / "card-1-mteb-kor-v2.html", {
         "n_complete_v1": len(complete_rows(v1)),
         "n_complete_v2": len(complete_rows(v2)),
         "intersection_size": len(intersection),

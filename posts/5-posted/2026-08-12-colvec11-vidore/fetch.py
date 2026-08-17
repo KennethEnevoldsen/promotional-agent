@@ -87,7 +87,7 @@ def main() -> None:
     # subjects to the prior generation — rank 2, 4 and 5 are the real competition, and
     # cutting them would make the generational jump look like the only story on the board.
     top10 = ranking[:10]
-    write_card_data(HERE / "card.html", {
+    write_card_data(HERE / "card-1-colvec11-vidore.html", {
         "benchmark": BENCHMARK,
         "n_tasks": len(tasks),
         "n_models": len(ranking),

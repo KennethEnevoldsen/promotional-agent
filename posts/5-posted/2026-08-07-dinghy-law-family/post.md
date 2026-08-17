@@ -9,7 +9,7 @@ expires: 2026-08-31
 subject: Hanno-Labs/dinghy-law-4b-v1
 verified: true
 evidence: data.json
-media: card.png
+media: card-1-dinghy-law-family.png
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5058
   - https://github.com/embeddings-benchmark/results/pull/631

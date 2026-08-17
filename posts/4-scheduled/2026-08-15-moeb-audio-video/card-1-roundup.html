@@ -17,9 +17,15 @@
   label — an earlier version of this card had MIAO mistagged "video" (it's audio+image)
   purely because of a manual label nobody re-checked against the code.
 
+  Renamed card.html -> card-1-roundup.html: this is post 1/3 of a thread, and
+  publish.py's card_for() matches card-N-*.png to post N by filename, so a thread's
+  cards need the number even when — as here — only one part of the thread carries an
+  image at all (posts 2/3 and 3/3 are text-only; card_for() treats a thread part with
+  no matching numbered card as deliberately image-less, same as media: none).
+
     uv run posts/3-review/moeb-audio-video/fetch.py
-    uv run mteb-render --card posts/3-review/moeb-audio-video/card.html \
-      --out posts/3-review/moeb-audio-video/card.png
+    uv run mteb-render --card posts/3-review/moeb-audio-video/card-1-roundup.html \
+      --out posts/3-review/moeb-audio-video/card-1-roundup.png
 
   PALETTE IS A PLACEHOLDER — swap the :root block only.
 -->

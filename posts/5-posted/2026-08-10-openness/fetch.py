@@ -101,7 +101,7 @@ def main() -> None:
     (HERE / "data.json").write_text(json.dumps(evidence, indent=2) + "\n")
 
     total = sum(len(complete[t]) for t in TIERS)
-    write_card_data(HERE / "card.html", {
+    write_card_data(HERE / "card-1-openness.html", {
         "benchmark": BENCHMARK,
         "n_tasks": len(tasks),
         "n_models": total,

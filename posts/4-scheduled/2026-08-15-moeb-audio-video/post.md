@@ -8,7 +8,7 @@ scheduled_for: 2026-08-15T14:30:00+02:00
 expires: 2026-09-15
 verified: true
 evidence: data.json
-media: card.png
+media: card-1-roundup.png
 thread: 3
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5045
@@ -102,6 +102,16 @@ video QA), each with its own real description and an APA citation for its source
 plus a header stat for how many of the 16 PRs cite a published paper. Subdomain grouping
 is an editorial judgment, not a field pulled from the API — recorded as such in
 `fetch.py` — but the modality split, task count, and paper count are all computed.
+
+**One card, numbered for the thread.** This is a 3-part thread; posts 2/3 and 3/3 are
+text-only, and only post 1/3 carries this card. `mteb-publish` still needs the card
+named `card-1-roundup.png` rather than plain `card.png` — `publish.py`'s `card_for()`
+matches `card-N-*.png` to post N by filename, so the number identifies *which* part of
+the thread the image belongs to even when the other parts have none. The original
+`card.png`/`card.html` (no number) silently blocked every scheduled publish run from
+2026-08-16 21:28 onward, because `card_for()` had nothing to match to post 1 by that
+name; `card_for()` was then relaxed so a thread part with no numbered card of its own
+is treated as deliberately image-less, the same as `media: none`, instead of an error.
 
 At the one-a-day ceiling this cluster could also run as several posts instead of one
 roundup — the music-retrieval tasks in particular (Song Describer, Covers80, SHS100K)

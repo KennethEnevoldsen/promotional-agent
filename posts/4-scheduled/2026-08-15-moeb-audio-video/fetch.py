@@ -225,7 +225,10 @@ def main() -> None:
     }
     (HERE / "data.json").write_text(json.dumps(evidence, indent=2) + "\n")
 
-    write_card_data(HERE / "card.html", {
+    # thread: 3 (post.md), but only post 1/3 carries an image — card_for() in publish.py
+    # still needs the number (card-1-*.png) to match it to post 1 specifically, even
+    # though posts 2/3 and 3/3 have no card of their own.
+    write_card_data(HERE / "card-1-roundup.html", {
         "n_prs": len(rows), "n_tasks_total": total_tasks,
         "by_modality": by_modality, "n_papers": n_papers,
         "featured": featured,
