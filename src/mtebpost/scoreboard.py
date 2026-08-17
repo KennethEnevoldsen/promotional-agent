@@ -102,14 +102,19 @@ def size_peers(
     return out
 
 
-def scores(benchmark: str, models: list[str]) -> list[Entry]:
+def scores(benchmark: str | mteb.Benchmark, models: list[str]) -> list[Entry]:
     """Aggregated benchmark score per model, joined with size metadata.
+
+    `benchmark` takes a registered name ("MTEB(Multilingual, v2)") or an already-built
+    `Benchmark` object — the latter is how a model-release post scores an ad-hoc task
+    subset (see `model_release.custom_benchmark`) through the same `get_score()` path
+    as everything else, rather than averaging a hand-picked list of scores by hand.
 
     Models with no results on this benchmark are dropped rather than reported as
     zero — a missing evaluation is not a bad score, and conflating the two is how
     a chart ends up defaming a model that was simply never run.
     """
-    bench = mteb.get_benchmark(benchmark)
+    bench = benchmark if isinstance(benchmark, mteb.Benchmark) else mteb.get_benchmark(benchmark)
     n_bench_tasks = len(bench.tasks)
     results = mteb.load_results(tasks=bench.tasks, models=models, only_main_score=True)
     agg = bench.get_score(results)
@@ -149,6 +154,43 @@ def scores(benchmark: str, models: list[str]) -> list[Entry]:
             )
         )
     return sorted(out, key=lambda e: e.score, reverse=True)
+
+
+def task_type_scores(
+    benchmark: str | mteb.Benchmark, models: list[str]
+) -> dict[str, dict[str, float]]:
+    """Per-task-type mean score per model — the radar chart's axes.
+
+    `Benchmark.get_score()` already computes this (its default `aggregations` include
+    `TASK_TYPES`); this just pulls those columns out instead of only `Mean(Task)`, so a
+    radar's per-axis numbers go through the identical aggregation as everything else
+    rather than a hand-rolled group-by.
+
+    A model missing from the result, or a task type missing from a model's dict, means
+    no complete score for that type (partial coverage) — the caller decides whether
+    that model can go on the radar at all, same as `Entry.complete` elsewhere.
+    """
+    bench = benchmark if isinstance(benchmark, mteb.Benchmark) else mteb.get_benchmark(benchmark)
+    results = mteb.load_results(tasks=bench.tasks, models=models, only_main_score=True)
+    agg = bench.get_score(results)
+    skip = {"Mean(Task)", "Mean(TaskType)", "Mean(Public)", "Mean(Private)",
+            "Mean(Subset)", "Rank"}
+    out: dict[str, dict[str, float]] = {}
+    for name, row in agg.items():
+        types = {k: round(v * 100, 2) if v <= 1 else round(v, 2)
+                  for k, v in row.items() if k not in skip and v is not None}
+        if types:
+            out[name] = types
+    return out
+
+
+def task_type_counts(benchmark: str | mteb.Benchmark) -> dict[str, int]:
+    """Number of tasks per task type in a benchmark — the radar's per-axis task count."""
+    bench = benchmark if isinstance(benchmark, mteb.Benchmark) else mteb.get_benchmark(benchmark)
+    counts: dict[str, int] = {}
+    for t in bench.tasks:
+        counts[t.metadata.type] = counts.get(t.metadata.type, 0) + 1
+    return counts
 
 
 def rank_of(entries: list[Entry], model: str) -> tuple[int, int]:

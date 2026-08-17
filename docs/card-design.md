@@ -1,11 +1,21 @@
 # Card design
 
 Cards are HTML rendered to PNG. Each post owns its own `card.html` — there is no shared
-template, deliberately: cards diverge before they converge, and extracting one from a
-single example means bending later posts to fit a guess.
+*runtime* template, deliberately: cards diverge before they converge, and extracting one
+from a single example means bending later posts to fit a guess.
 
 That makes this file the thing that carries forward. **The next card should inherit the
 reasoning even when it does not inherit the code.**
+
+**One exception, made on purpose once the repetition was real rather than anticipated:**
+`model_addition` posts. By the fourth one (bekko, dinghy-law-family, colvec11-vidore,
+mdenseon-mlateon) the same three shapes had reappeared with the same cohort-fairness
+logic hand-rewritten each time — see `templates/model-release/` and
+`mtebpost/model_release.py` below. This still copies a starting file into the post's own
+folder rather than referencing anything at render time, so the "diverges before it
+converges" property holds: editing a copied template can't affect another post's card.
+Other post types (`dataset_roundup`, `state_of_field`, `benchmark_addition`) have not
+converged on a shape yet and should stay bespoke until they do.
 
 ## Why a card at all
 
@@ -50,6 +60,65 @@ reads properly in a dark browser.
 They answer different questions, so the choice is editorial rather than cosmetic. A
 ranking is the most legible and the least informative; a radar is the most interesting
 and the least suited to carrying a headline.
+
+## The model-release template
+
+For a `model_addition` post, `mtebpost/model_release.py` answers the three questions a
+card needs before it can be built at all — who the fair peers are (full task coverage,
+same benchmark), whether the subject sits on a size/score Pareto frontier, and whether
+one peer is close enough to be a named rival — and `recommend_chart()` maps the answer
+onto one of `templates/model-release/card-{pareto,radar,bars}.html`:
+
+1. **pareto** if the subject is non-dominated among size-banded peers (nothing both
+   smaller and higher-scoring exists) — the efficiency claim, when it's real, is
+   usually the strongest available.
+2. **radar**, else, if a same-or-larger peer scores within ~2 points — close enough
+   that *where* the two differ is more informative than the gap in the mean.
+3. **bars**, otherwise — always defensible, no story required. This is the fallback
+   and, so far, the common case.
+
+`recommend_chart()` is advice, not a decision: it can tell you a rival is close in
+score, not that it's the rival worth naming (a same-lab prior generation may matter
+more than the closest score — see colvec11-vidore). Print the reasoning, look at it,
+then pick.
+
+**Runs on the live leaderboard-backend API (`mtebpost/leaderboard_api.py`), not the
+local `mteb` library.** The local package is version-pinned for reproducibility
+(`pyproject.toml`'s `exclude-newer`), so it has no `ModelMeta` for anything registered
+after that pin date — in practice most freshly-registered models, since mteb ships
+fast. `malteos/most-embed-de`, the template's first real draft, is a concrete case:
+registered 11 days after the pin, invisible to `mteb.get_model_meta()`, resolved fine
+through the API. It is also just faster (no ~190s import, no per-model local result
+load) — the reason colvec11-vidore/dinghy-law-family/mdenseon-mlateon already used this
+API by hand before the template existed.
+
+To draft with it: `cohort(subjects, benchmark)` pulls scores + size metadata for the
+subject(s) and every full-coverage peer; pass `max_active=` to band by size instead of
+ranking the whole registry (a Pareto claim needs the band, usually — though
+`most-embed-de` turned out non-dominated across the *whole* field, band or not). If the
+subject's own results don't cover a full registered benchmark — a fine-tune evaluated
+on a hand-picked domain slice, the common case for a smaller lab's release — pass an
+explicit task list instead of a benchmark name, scoped to what was actually run rather
+than stretched to a benchmark nobody submitted to:
+
+```python
+from mtebpost.model_release import cohort, recommend_chart
+
+coh = cohort(
+    ["org/model-name"], ["Task1", "Task2", "Task3"],
+    name="<post-specific name>",       # shows on the axis; omit only for <=3 tasks
+    subsets={"Task2": "de"},           # pin any multi-language task to one subset —
+)                                       # the API reports no score for partial coverage
+rec = recommend_chart(coh)
+print(rec.chart, rec.reason)  # decide, then call the matching *_card_data() builder
+```
+
+Then `pareto_card_data(coh)`, `radar_card_data(coh, roles)`, or `bars_card_data(coh,
+prior=[...])` produces exactly the `#card-data` schema the matching template expects —
+write it with `mtebpost.cards.write_card_data()`, same as any other card.
+`pareto_card_data()` drops any peer with unknown active parameters itself (no honest
+position on that axis); the other builders keep them, since a bars card can still size
+rows by total parameters instead.
 
 ## Rules that keep a chart honest
 

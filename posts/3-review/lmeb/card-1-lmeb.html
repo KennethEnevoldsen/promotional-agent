@@ -1,0 +1,763 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>OpenSearch neural-sparse — LMEB score in context</title>
+<!--
+  model_addition template: size-vs-score scatter with a shaded Pareto frontier.
+
+  Extracted from posts/5-posted/2026-08-03-bekko-thread/card-1-frontier.html once the
+  shape had proven itself once — see docs/card-design.md and mtebpost/model_release.py
+  for when this shape is the right pick (recommend_chart() returns "pareto" when the
+  subject is non-dominated: nothing both smaller and higher-scoring exists among peers).
+
+  Copy this file into the new post's folder as card-1-<slug>.html (or card-N-<slug>.html
+  for thread part N), fill in COPY below, and write #card-data with
+  mtebpost.model_release.pareto_card_data(cohort). Everything else — axis scaling, the
+  static/zero break, label collision avoidance, frontier shading, alt text — is generic
+  and does not need editing.
+
+  Form is emphasis (one hue + gray), not categorical: peers are context, not series
+  competing for identity, so they are deliberately not color-coded. Models carry their
+  full Hugging Face name, split across two lines at the "/" — an abbreviation saves room
+  but makes a claim harder to check against the leaderboard, and two models can
+  abbreviate to the same string.
+
+    uv run posts/<stage>/<id>/fetch.py
+    uv run mteb-render --card posts/<stage>/<id>/card-1-<slug>.html \
+      --out posts/<stage>/<id>/card-1-<slug>.png
+
+  PALETTE IS A PLACEHOLDER — swap the :root block only.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "benchmark": "LMEB",
+  "n_tasks": 22,
+  "max_active_params": 10759000000,
+  "n_models": 70,
+  "points": [
+    {
+      "model": "nvidia/Nemotron-3-Embed-8B-BF16",
+      "x": 7416000000,
+      "total": 7953000000,
+      "y": 64.36
+    },
+    {
+      "model": "nvidia/Nemotron-3-Embed-1B-BF16",
+      "x": 872000000,
+      "total": 1141000000,
+      "y": 61.5
+    },
+    {
+      "model": "BAAI/bge-multilingual-gemma2",
+      "x": 8322000000,
+      "total": 9240000000,
+      "y": 61.32
+    },
+    {
+      "model": "nvidia/NV-Embed-v2",
+      "x": 7719000000,
+      "total": 7850000000,
+      "y": 60.0
+    },
+    {
+      "model": "tencent/KaLM-Embedding-Gemma3-12B-2511",
+      "x": 10759000000,
+      "total": 11766000000,
+      "y": 59.83
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-4B",
+      "x": 3634000000,
+      "total": 4022000000,
+      "y": 58.68
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-8B",
+      "x": 6947000000,
+      "total": 7568000000,
+      "y": 58.64
+    },
+    {
+      "model": "microsoft/harrier-oss-v1-0.6b",
+      "x": 440000000,
+      "total": 596000000,
+      "y": 58.43
+    },
+    {
+      "model": "Salesforce/SFR-Embedding-Mistral",
+      "x": 6980000000,
+      "total": 7111000000,
+      "y": 58.13
+    },
+    {
+      "model": "perplexity-ai/pplx-embed-v1-0.6b",
+      "x": 440000000,
+      "total": 596000000,
+      "y": 57.92
+    },
+    {
+      "model": "lightonai/DenseOn",
+      "x": 110000000,
+      "total": 149000000,
+      "y": 57.61
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-1.7B",
+      "x": 1410000000,
+      "total": 1721000000,
+      "y": 57.6
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+      "x": 6526000000,
+      "total": 7069000000,
+      "y": 57.07
+    },
+    {
+      "model": "Salesforce/SFR-Embedding-2_R",
+      "x": 6980000000,
+      "total": 7111000000,
+      "y": 57.06
+    },
+    {
+      "model": "opensearch-project/opensearch-neural-sparse-encoding-doc-v3-gte",
+      "x": 113000000,
+      "total": 137000000,
+      "y": 56.99
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-v2.0",
+      "x": 113000000,
+      "total": 305000000,
+      "y": 56.95
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-l-v2.0",
+      "x": 312000000,
+      "total": 568000000,
+      "y": 56.89
+    },
+    {
+      "model": "opensearch-project/opensearch-neural-sparse-encoding-doc-v2-distill",
+      "x": 43000000,
+      "total": 66000000,
+      "y": 56.53
+    },
+    {
+      "model": "opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill",
+      "x": 43000000,
+      "total": 66000000,
+      "y": 56.34
+    },
+    {
+      "model": "HIT-TMG/KaLM-embedding-multilingual-mini-v1",
+      "x": 358000000,
+      "total": 494000000,
+      "y": 56.1
+    },
+    {
+      "model": "intfloat/e5-large-v2",
+      "x": 304000000,
+      "total": 335000000,
+      "y": 55.95
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-8B",
+      "x": 6946000000,
+      "total": 7567000000,
+      "y": 55.94
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-0.6B",
+      "x": 441000000,
+      "total": 596000000,
+      "y": 55.78
+    },
+    {
+      "model": "intfloat/multilingual-e5-large",
+      "x": 304000000,
+      "total": 560000000,
+      "y": 55.49
+    },
+    {
+      "model": "intfloat/e5-mistral-7b-instruct",
+      "x": 6980000000,
+      "total": 7111000000,
+      "y": 55.22
+    },
+    {
+      "model": "HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v1.5",
+      "x": 358000000,
+      "total": 494000000,
+      "y": 55.19
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen2-1.5B-instruct",
+      "x": 1310000000,
+      "total": 1543000000,
+      "y": 55.18
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-330M",
+      "x": 198000000,
+      "total": 334000000,
+      "y": 55.15
+    },
+    {
+      "model": "intfloat/multilingual-e5-large-instruct",
+      "x": 304000000,
+      "total": 560000000,
+      "y": 54.95
+    },
+    {
+      "model": "KaLM-Embedding/KaLM-embedding-multilingual-mini-instruct-v2.5",
+      "x": 358000000,
+      "total": 494000000,
+      "y": 54.93
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "x": 440000000,
+      "total": 596000000,
+      "y": 54.56
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-v1.5",
+      "x": 86000000,
+      "total": 109000000,
+      "y": 54.53
+    },
+    {
+      "model": "intfloat/e5-base-v2",
+      "x": 86000000,
+      "total": 109000000,
+      "y": 54.42
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-text-small",
+      "x": 440000000,
+      "total": 596000000,
+      "y": 54.22
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a25m",
+      "x": 25000000,
+      "total": 123000000,
+      "y": 53.74
+    },
+    {
+      "model": "microsoft/harrier-oss-v1-270m",
+      "x": 100000000,
+      "total": 268000000,
+      "y": 53.36
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-4B",
+      "x": 3634000000,
+      "total": 4022000000,
+      "y": 53.3
+    },
+    {
+      "model": "intfloat/e5-small-v2",
+      "x": 21000000,
+      "total": 33000000,
+      "y": 53.23
+    },
+    {
+      "model": "intfloat/multilingual-e5-base",
+      "x": 86000000,
+      "total": 278000000,
+      "y": 53.18
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "x": 86000000,
+      "total": 109000000,
+      "y": 52.57
+    },
+    {
+      "model": "ibm-granite/granite-embedding-278m-multilingual",
+      "x": 86000000,
+      "total": 278000000,
+      "y": 52.28
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a8m",
+      "x": 8000000,
+      "total": 106000000,
+      "y": 52.28
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-160M",
+      "x": 62000000,
+      "total": 159000000,
+      "y": 52.24
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-s",
+      "x": 22000000,
+      "total": 33000000,
+      "y": 52.22
+    },
+    {
+      "model": "ibm-granite/granite-embedding-english-r2",
+      "x": 110000000,
+      "total": 149000000,
+      "y": 52.03
+    },
+    {
+      "model": "ibm-granite/granite-embedding-311m-multilingual-r2",
+      "x": 110000000,
+      "total": 312000000,
+      "y": 51.32
+    },
+    {
+      "model": "LiquidAI/LFM2.5-Embedding-350M",
+      "x": 287000000,
+      "total": 354000000,
+      "y": 51.05
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "x": 22000000,
+      "total": 33000000,
+      "y": 51.01
+    },
+    {
+      "model": "BAAI/bge-m3",
+      "x": 312000000,
+      "total": 568000000,
+      "y": 50.93
+    },
+    {
+      "model": "ibm-granite/granite-embedding-107m-multilingual",
+      "x": 11000000,
+      "total": 107000000,
+      "y": 50.76
+    },
+    {
+      "model": "Alibaba-NLP/gte-base-en-v1.5",
+      "x": 113000000,
+      "total": 137000000,
+      "y": 50.47
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-xs",
+      "x": 11000000,
+      "total": 23000000,
+      "y": 50.38
+    },
+    {
+      "model": "mteb/baseline-bm25s",
+      "x": 0,
+      "total": 0,
+      "y": 50.37
+    },
+    {
+      "model": "intfloat/multilingual-e5-small",
+      "x": 22000000,
+      "total": 118000000,
+      "y": 50.33
+    },
+    {
+      "model": "ibm-granite/granite-embedding-small-english-r2",
+      "x": 28000000,
+      "total": 48000000,
+      "y": 49.79
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "x": 32000000,
+      "total": 80000000,
+      "y": 49.24
+    },
+    {
+      "model": "ibm-granite/granite-embedding-30m-english",
+      "x": 11000000,
+      "total": 30000000,
+      "y": 48.85
+    },
+    {
+      "model": "ibm-granite/granite-embedding-97m-multilingual-r2",
+      "x": 28000000,
+      "total": 97000000,
+      "y": 48.81
+    },
+    {
+      "model": "BAAI/bge-en-icl",
+      "x": 6979000000,
+      "total": 7110000000,
+      "y": 47.68
+    },
+    {
+      "model": "ibm-granite/granite-embedding-125m-english",
+      "x": 86000000,
+      "total": 125000000,
+      "y": 46.24
+    },
+    {
+      "model": "sentence-transformers/all-MiniLM-L12-v2",
+      "x": 22000000,
+      "total": 33000000,
+      "y": 45.79
+    },
+    {
+      "model": "sentence-transformers/all-mpnet-base-v2",
+      "x": 86000000,
+      "total": 109000000,
+      "y": 45.08
+    },
+    {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "x": 11000000,
+      "total": 23000000,
+      "y": 43.77
+    },
+    {
+      "model": "BAAI/bge-large-en-v1.5",
+      "x": 304000000,
+      "total": 335000000,
+      "y": 42.14
+    },
+    {
+      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+      "x": 0,
+      "total": 108000000,
+      "y": 41.49
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "x": 86000000,
+      "total": 278000000,
+      "y": 41.23
+    },
+    {
+      "model": "minishlab/potion-multilingual-128M",
+      "x": 0,
+      "total": 128000000,
+      "y": 39.92
+    },
+    {
+      "model": "TencentBAC/Conan-embedding-v1",
+      "x": 304000000,
+      "total": 326000000,
+      "y": 38.83
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "x": 22000000,
+      "total": 118000000,
+      "y": 36.2
+    },
+    {
+      "model": "opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini",
+      "x": 11000000,
+      "total": 23000000,
+      "y": 56.03,
+      "subject": true
+    }
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+New on MTEB: OpenSearch neural-sparse-encoding-doc-v2-mini — On LMEB's Pareto frontier — nothing smaller scores higher, at any size up to 7.4B active params. Scatter plot of LMEB against Active parameters for 70 models with complete 22-task LMEB coverage. opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini scores 56.03 at 11M active parameters. Compared against nvidia/Nemotron-3-Embed-8B-BF16 at 7.416B, 64.36; nvidia/Nemotron-3-Embed-1B-BF16 at 872M, 61.50; BAAI/bge-multilingual-gemma2 at 8.322B, 61.32; nvidia/NV-Embed-v2 at 7.719B, 60.00; tencent/KaLM-Embedding-Gemma3-12B-2511 at 10.759B, 59.83; codefuse-ai/F2LLM-v2-4B at 3.634B, 58.68; codefuse-ai/F2LLM-v2-8B at 6.947B, 58.64; microsoft/harrier-oss-v1-0.6b at 440M, 58.43; Salesforce/SFR-Embedding-Mistral at 6.98B, 58.13; perplexity-ai/pplx-embed-v1-0.6b at 440M, 57.92; lightonai/DenseOn at 110M, 57.61; codefuse-ai/F2LLM-v2-1.7B at 1.41B, 57.60; Alibaba-NLP/gte-Qwen2-7B-instruct at 6.526B, 57.07; Salesforce/SFR-Embedding-2_R at 6.98B, 57.06; opensearch-project/opensearch-neural-sparse-encoding-doc-v3-gte at 113M, 56.99; Snowflake/snowflake-arctic-embed-m-v2.0 at 113M, 56.95; Snowflake/snowflake-arctic-embed-l-v2.0 at 312M, 56.89; opensearch-project/opensearch-neural-sparse-encoding-doc-v2-distill at 43M, 56.53; opensearch-project/opensearch-neural-sparse-encoding-doc-v3-distill at 43M, 56.34; HIT-TMG/KaLM-embedding-multilingual-mini-v1 at 358M, 56.10; intfloat/e5-large-v2 at 304M, 55.95; Qwen/Qwen3-Embedding-8B at 6.946B, 55.94; codefuse-ai/F2LLM-v2-0.6B at 441M, 55.78; intfloat/multilingual-e5-large at 304M, 55.49; intfloat/e5-mistral-7b-instruct at 6.98B, 55.22; HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v1.5 at 358M, 55.19; Alibaba-NLP/gte-Qwen2-1.5B-instruct at 1.31B, 55.18; codefuse-ai/F2LLM-v2-330M at 198M, 55.15; intfloat/multilingual-e5-large-instruct at 304M, 54.95; KaLM-Embedding/KaLM-embedding-multilingual-mini-instruct-v2.5 at 358M, 54.93; Qwen/Qwen3-Embedding-0.6B at 440M, 54.56; Snowflake/snowflake-arctic-embed-m-v1.5 at 86M, 54.53; intfloat/e5-base-v2 at 86M, 54.42; jinaai/jina-embeddings-v5-text-small at 440M, 54.22; hotchpotch/bekko-embedding-v1-a25m at 25M, 53.74; microsoft/harrier-oss-v1-270m at 100M, 53.36; Qwen/Qwen3-Embedding-4B at 3.634B, 53.30; intfloat/e5-small-v2 at 21M, 53.23; intfloat/multilingual-e5-base at 86M, 53.18; BAAI/bge-base-en-v1.5 at 86M, 52.57; ibm-granite/granite-embedding-278m-multilingual at 86M, 52.28; hotchpotch/bekko-embedding-v1-a8m at 8M, 52.28; codefuse-ai/F2LLM-v2-160M at 62M, 52.24; Snowflake/snowflake-arctic-embed-s at 22M, 52.22; ibm-granite/granite-embedding-english-r2 at 110M, 52.03; ibm-granite/granite-embedding-311m-multilingual-r2 at 110M, 51.32; LiquidAI/LFM2.5-Embedding-350M at 287M, 51.05; BAAI/bge-small-en-v1.5 at 22M, 51.01; BAAI/bge-m3 at 312M, 50.93; ibm-granite/granite-embedding-107m-multilingual at 11M, 50.76; Alibaba-NLP/gte-base-en-v1.5 at 113M, 50.47; Snowflake/snowflake-arctic-embed-xs at 11M, 50.38; mteb/baseline-bm25s at 0 (static), 50.37; intfloat/multilingual-e5-small at 22M, 50.33; ibm-granite/granite-embedding-small-english-r2 at 28M, 49.79; codefuse-ai/F2LLM-v2-80M at 32M, 49.24; ibm-granite/granite-embedding-30m-english at 11M, 48.85; ibm-granite/granite-embedding-97m-multilingual-r2 at 28M, 48.81; BAAI/bge-en-icl at 6.979B, 47.68; ibm-granite/granite-embedding-125m-english at 86M, 46.24; sentence-transformers/all-MiniLM-L12-v2 at 22M, 45.79; sentence-transformers/all-mpnet-base-v2 at 86M, 45.08; sentence-transformers/all-MiniLM-L6-v2 at 11M, 43.77; BAAI/bge-large-en-v1.5 at 304M, 42.14; sentence-transformers/static-similarity-mrl-multilingual-v1 at 0 (static), 41.49; sentence-transformers/paraphrase-multilingual-mpnet-base-v2 at 86M, 41.23; minishlab/potion-multilingual-128M at 0 (static), 39.92; TencentBAC/Conan-embedding-v1 at 304M, 38.83; sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 at 22M, 36.20. On the Pareto frontier (nothing is both smaller and higher-scoring): mteb/baseline-bm25s, hotchpotch/bekko-embedding-v1-a8m, opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini, opensearch-project/opensearch-neural-sparse-encoding-doc-v2-distill, lightonai/DenseOn, microsoft/harrier-oss-v1-0.6b, nvidia/Nemotron-3-Embed-1B-BF16, nvidia/Nemotron-3-Embed-8B-BF16. Contributed by the OpenSearch project. Source: MTEB, leaderboard.mteb.org.
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABICAYAAACgEzj3AAAXrUlEQVR42s18e5RcVZnv79t7n1NVXf1Od4dO2qTz6sSESB5kRhDtDuMLcUbxWj2giOsykgygV+/gA+OsW1VKQGdAAYURZN2AiGIVOMhV14wMdvdiRodAgDxJms6j924/H1VdVefO3t/71a6qYqI7CS9v+dyMKX3vFT5X9ZeDLNu/GLZ/BXqEbz1zx4Nv1O0oCbYm1QMg8Y9Z6JV8ph/N7oM3Rv7d8QT6H8UEDwOROD+H23JXf6P7t2S/S7bE1BADgFn8LJVL/tI13sZbF1zx4v2LOn9YBpDdU9uc/ZfXP+3/w4mYubqfANn/PhZjMcVvvNn2u4l7l1UN7dq8f8lVXwx0/Ba1DZeqm7X0EfyN0NNplWjkyFmnDsFI4jkxT2vmqW1n7Bzz03U6WQ5tHZ/AhnFB63kL3iJgVGx6MZOnT+9/rHXNodv2/eXJfe/f8Jn5v5nfHutQzq+d/rlDG1oGYzbdU28Ddj8w0xJ1cwGtnl9etefaVe95/wLc3nffnO/9dsGeT9fFbb+7f8mp1+cO7Xhwzq7d5+z4KFCTOnPP0d+cvXfNU7/tXt/72cnr/mfXi5f+cM1z3z3nY1PPO+O9J/e5eeCyO0/dv+7RGX9c9pIf7/nsjB0P3jl/zbaLXvzKXf8DwFqvZOMY0i0AAAAASUVORK5CYII=");
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --peer:           #b9b7b0;
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --peer:           #55534e;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow {
+    font-size: 18px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 { font-size: 46px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; }
+  .specs { font-size: 15px; color: var(--text-muted); margin-top: 8px; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 5px; }
+
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name {
+    font-size: 30px; font-weight: 700; letter-spacing: 0.01em;
+    color: var(--text-primary);
+  }
+
+  .plot { flex: 1; margin-top: 34px; }
+  svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .grid { stroke: var(--gridline); stroke-width: 1; }
+  .axis-line { stroke: var(--axis); stroke-width: 1; }
+  .tick { fill: var(--text-muted); font-size: 18px; }
+  .axis-title { fill: var(--text-secondary); font-size: 19px; font-weight: 550; }
+  .peer-dot { fill: var(--peer); }
+  .subject-dot { fill: var(--accent); }
+  .subject-label { fill: var(--text-primary); font-size: 22px; font-weight: 640; }
+  .subject-org { fill: var(--text-secondary); font-size: 15px; }
+  .subject-score { fill: var(--text-secondary); font-size: 20px; }
+  .peer-label { fill: var(--text-muted); font-size: 17px; }
+  .peer-org { fill: var(--text-muted); font-size: 13px; opacity: 0.8; }
+  /* The frontier is drawn as a region, not a line: its top edge IS the boundary, so a
+     separate stroke along it only restates what the shading already says. */
+  .frontier-fill { fill: var(--accent); opacity: 0.09; stroke: none; }
+  .zero-note { fill: var(--text-muted); font-size: 15px; font-style: italic; }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 12px; padding-top: 14px; border-top: 1px solid var(--hairline);
+    font-size: 17px; color: var(--text-muted);
+  }
+  .foot-left { display: flex; flex-direction: column; gap: 5px; }
+  .source { font-size: 14px; color: var(--text-muted); }
+
+  .logo {
+    width: 39px; height: 41px; flex: none;
+    background: var(--logo-uri) left center / contain no-repeat;
+  }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="specs" id="specs"></div>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="plot"><svg id="plot"></svg></div>
+
+<footer>
+  <div class="foot-left">
+    <span class="source">Source · MTEB (leaderboard.mteb.org)</span>
+  </div>
+  <span id="footer"></span>
+</footer>
+
+<script>
+// ---------------------------------------------------------------------------
+// COPY. Every sentence a human chose lives here, not in fetch.py, so editing a
+// word costs a re-render (seconds) rather than a re-fetch (minutes).
+// #card-data above supplies only query-derived values, written there by fetch.py.
+// ---------------------------------------------------------------------------
+const COPY = {
+  eyebrow: "New on MTEB",
+  title: "OpenSearch neural-sparse-encoding-doc-v2-mini",
+  subtitle: "On LMEB's Pareto frontier — nothing smaller scores higher, at any size up to 7.4B active params",
+  specs: "22 tasks · long-horizon memory retrieval · English",
+  x_label: "Active parameters",
+  footer: "Contributed by the OpenSearch project",
+};
+
+// Per-model label placement overrides, keyed by full model name — presentation, same
+// rule as the copy above. Use when the automatic left/right split collides two labels.
+const LABEL_SIDE = {
+  // "org/model-name": "left",
+};
+
+const data = JSON.parse(document.getElementById("card-data").textContent);
+const d = {
+  ...COPY,
+  ...data,
+  y_label: data.benchmark,
+  // No size band here (recommend_chart found both subjects non-dominated across the
+  // *whole* 70-model field) — the generic "models ≤ Nm active params" phrasing would
+  // misstate that as a search limit rather than the observed max.
+  context: "models with complete 22-task LMEB coverage",
+};
+const set = (id, v) => {
+  const n = document.getElementById(id);
+  if (n) n.textContent = v ?? "";
+};
+set("eyebrow", d.eyebrow); set("title", d.title); set("subtitle", d.subtitle);
+set("specs", d.specs);
+set("footer", d.footer);
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+const svgEl = document.getElementById("plot");
+const box = svgEl.getBoundingClientRect();
+const W = Math.round(box.width), H = Math.round(box.height);
+svgEl.setAttribute("viewBox", `0 0 ${W} ${H}`);
+
+const M = { t: 30, r: 24, b: 58, l: 58 };
+const pts = d.points.filter(p => !p.reference);
+
+const hasZero = pts.some(p => p.x === 0);
+const ZERO_W = hasZero ? 74 : 0;
+const BREAK_W = hasZero ? 26 : 0;
+
+const nz = pts.filter(p => p.x > 0);
+const xs = nz.map(p => Math.log10(p.x)), ys = pts.map(p => p.y);
+const xmin = Math.floor(Math.min(...xs) * 2) / 2 - 0.15;
+const xmax = Math.ceil(Math.max(...xs) * 2) / 2 + 0.15;
+const pad = Math.max(2, (Math.max(...ys) - Math.min(...ys)) * 0.18);
+const ymin = Math.min(...ys) - pad, ymax = Math.max(...ys) + pad;
+
+const LOG_L = M.l + ZERO_W + BREAK_W;
+const X = v => v === 0
+  ? M.l + ZERO_W / 2
+  : LOG_L + (Math.log10(v) - xmin) / (xmax - xmin) * (W - LOG_L - M.r);
+const Y = v => H - M.b - (v - ymin) / (ymax - ymin) * (H - M.t - M.b);
+
+const fmt = n => n === 0 ? "0 (static)"
+  : n >= 1e9 ? (n/1e9) + "B" : n >= 1e6 ? Math.round(n/1e6) + "M" : Math.round(n/1e3) + "K";
+const svg = svgEl;
+const el = (t, a, txt) => {
+  const n = document.createElementNS("http://www.w3.org/2000/svg", t);
+  for (const k in a) n.setAttribute(k, a[k]);
+  if (txt != null) n.textContent = txt;
+  svg.appendChild(n); return n;
+};
+
+const yStep = (ymax - ymin) > 30 ? 10 : (ymax - ymin) > 12 ? 5 : 2;
+for (let v = Math.ceil(ymin / yStep) * yStep; v <= ymax; v += yStep) {
+  el("line", { x1: M.l, x2: W - M.r, y1: Y(v), y2: Y(v), class: "grid" });
+  el("text", { x: M.l - 12, y: Y(v) + 5, class: "tick", "text-anchor": "end" }, v);
+}
+const decades = [];
+for (let e = Math.ceil(xmin); e <= Math.floor(xmax); e++) decades.push(Math.pow(10, e));
+let xticks = decades;
+if (decades.length < 3) {
+  xticks = [];
+  for (let e = Math.floor(xmin); e <= Math.ceil(xmax); e++) {
+    for (const m of [1, 2, 5]) {
+      const v = m * Math.pow(10, e);
+      const lv = Math.log10(v);
+      if (lv >= xmin && lv <= xmax) xticks.push(v);
+    }
+  }
+}
+for (const v of xticks) {
+  el("text", { x: X(v), y: H - M.b + 26, class: "tick", "text-anchor": "middle" }, fmt(v));
+}
+if (hasZero) {
+  el("text", { x: X(0), y: H - M.b + 26, class: "tick", "text-anchor": "middle" }, "0");
+  el("text", { x: X(0), y: H - M.b + 44, class: "zero-note", "text-anchor": "middle" }, "static");
+}
+el("line", { x1: M.l, x2: W - M.r, y1: H - M.b, y2: H - M.b, class: "axis-line" });
+if (hasZero) {
+  const bx = M.l + ZERO_W + BREAK_W / 2, by = H - M.b;
+  el("rect", { x: bx - 9, y: by - 6, width: 18, height: 12, fill: "var(--surface)" });
+  for (const dx of [-4, 3]) {
+    el("line", { x1: bx + dx, y1: by + 7, x2: bx + dx + 6, y2: by - 7, class: "axis-line" });
+  }
+}
+el("text", { x: (M.l + W - M.r) / 2, y: H - 8, class: "axis-title", "text-anchor": "middle" }, d.x_label);
+el("text", { x: 0, y: 12, class: "axis-title", "text-anchor": "start" }, d.y_label);
+
+// Pareto frontier: the models no other model beats on both axes at once. Drawn as a
+// staircase, not a straight line between points, because that is the actual boundary
+// of what has been achieved: at a given size you can have the best score at or below
+// that size, not an interpolation between two models nobody has trained.
+const frontier = [...pts]
+  .sort((a, b) => a.x - b.x || b.y - a.y)
+  .reduce((acc, p) => {
+    if (!acc.length || p.y > acc[acc.length - 1].y) acc.push(p);
+    return acc;
+  }, []);
+
+if (frontier.length > 1) {
+  const X0 = M.l, X1 = W - M.r;
+  const last = frontier[frontier.length - 1];
+  let path = `M ${X0} ${Y(frontier[0].y)} L ${X(frontier[0].x)} ${Y(frontier[0].y)}`;
+  for (let i = 1; i < frontier.length; i++) {
+    path += ` L ${X(frontier[i].x)} ${Y(frontier[i - 1].y)}`;
+    path += ` L ${X(frontier[i].x)} ${Y(frontier[i].y)}`;
+  }
+  path += ` L ${X1} ${Y(last.y)}`;
+  const floor = H - M.b;
+  el("path", { d: `${path} L ${X1} ${floor} L ${X0} ${floor} Z`, class: "frontier-fill" });
+}
+
+const splitName = n => {
+  const i = n.indexOf("/");
+  return i === -1 ? [null, n] : [n.slice(0, i + 1), n.slice(i + 1)];
+};
+
+// Place a multi-line label above a point, always anchored *to the point* and running
+// inward. Widths are measured after insertion rather than estimated from character
+// count, because a guess is wrong exactly for the long HF names this card is full of.
+const labelBlock = (x, lines, side) => {
+  const anchor = (side ?? (x > W / 2 ? "right" : "left")) === "right" ? "end" : "start";
+  const els = lines.map(l =>
+    el("text", { x, y: l.y, class: l.cls, "text-anchor": anchor }, l.txt)
+  );
+  const w = Math.max(...els.map(t => t.getComputedTextLength()));
+  let lx = x;
+  if (anchor === "start" && x + w > W - 2) lx = Math.max(2, W - 2 - w);
+  if (anchor === "end" && x - w < 2) lx = Math.min(W - 2, 2 + w);
+  if (lx !== x) for (const t of els) t.setAttribute("x", lx);
+};
+
+const peers = pts.filter(p => !p.subject);
+const namePeers = peers.length <= 6;
+for (const p of peers) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 5, class: "peer-dot" });
+  if (!namePeers) continue;
+  const [org, name] = splitName(p.model);
+  labelBlock(X(p.x), [
+    ...(org ? [{ txt: org, cls: "peer-org", y: Y(p.y) - 26 }] : []),
+    { txt: name, cls: "peer-label", y: Y(p.y) - 12 },
+  ]);
+}
+for (const p of pts.filter(p => p.subject)) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 7.5, class: "subject-dot" });
+  const [org, name] = splitName(p.model);
+  const right = LABEL_SIDE[p.model] ? LABEL_SIDE[p.model] === "left" : X(p.x) > W / 2;
+  const lx = X(p.x) + (right ? -14 : 14);
+  const a = { x: lx, "text-anchor": right ? "end" : "start" };
+  if (org) el("text", { ...a, y: Y(p.y) - 26, class: "subject-org" }, org);
+  el("text", { ...a, y: Y(p.y) - 8, class: "subject-label" }, name);
+  el("text", { ...a, y: Y(p.y) + 13, class: "subject-score" }, p.y.toFixed(2));
+}
+
+window.__altText = [
+  `${d.eyebrow}: ${d.title} — ${d.subtitle}.`,
+  `Scatter plot of ${d.y_label} against ${d.x_label} for ${pts.length} ${d.context}.`,
+  pts.filter(p => p.subject)
+     .map(p => `${p.model} scores ${p.y.toFixed(2)} at ${fmt(p.x)} active parameters`)
+     .join("; ") + ".",
+  peers.length
+    ? "Compared against " + peers.map(p => `${p.model} at ${fmt(p.x)}, ${p.y.toFixed(2)}`).join("; ") + "."
+    : "",
+  frontier.length > 1
+    ? "On the Pareto frontier (nothing is both smaller and higher-scoring): "
+      + frontier.map(p => p.model).join(", ") + "."
+    : "",
+  `${d.footer}.`,
+  "Source: MTEB, leaderboard.mteb.org."
+].filter(Boolean).join(" ");
+</script>

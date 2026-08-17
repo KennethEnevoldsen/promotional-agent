@@ -1,0 +1,335 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>TODO — MTEB score in context</title>
+<!--
+  model_addition template: size-vs-score scatter with a shaded Pareto frontier.
+
+  Extracted from posts/5-posted/2026-08-03-bekko-thread/card-1-frontier.html once the
+  shape had proven itself once — see docs/card-design.md and mtebpost/model_release.py
+  for when this shape is the right pick (recommend_chart() returns "pareto" when the
+  subject is non-dominated: nothing both smaller and higher-scoring exists among peers).
+
+  Copy this file into the new post's folder as card-1-<slug>.html (or card-N-<slug>.html
+  for thread part N), fill in COPY below, and write #card-data with
+  mtebpost.model_release.pareto_card_data(cohort). Everything else — axis scaling, the
+  static/zero break, label collision avoidance, frontier shading, alt text — is generic
+  and does not need editing.
+
+  Form is emphasis (one hue + gray), not categorical: peers are context, not series
+  competing for identity, so they are deliberately not color-coded. Models carry their
+  full Hugging Face name, split across two lines at the "/" — an abbreviation saves room
+  but makes a claim harder to check against the leaderboard, and two models can
+  abbreviate to the same string.
+
+    uv run posts/<stage>/<id>/fetch.py
+    uv run mteb-render --card posts/<stage>/<id>/card-1-<slug>.html \
+      --out posts/<stage>/<id>/card-1-<slug>.png
+
+  PALETTE IS A PLACEHOLDER — swap the :root block only.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "benchmark": "TODO — e.g. MTEB(Multilingual, v2)",
+  "n_tasks": 0,
+  "max_active_params": 0,
+  "n_models": 0,
+  "points": []
+}
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABICAYAAACgEzj3AAAXrUlEQVR42s18e5RcVZnv79t7n1NVXf1Od4dO2qTz6sSESB5kRhDtDuMLcUbxWj2giOsykgygV+/gA+OsW1VKQGdAAYURZN2AiGIVOMhV14wMdvdiRodAgDxJms6j924/H1VdVefO3t/71a6qYqI7CS9v+dyMKX3vFT5X9ZeDLNu/GLZ/BXqEbz1zx4Nv1O0oCbYm1QMg8Y9Z6JV8ph/N7oM3Rv7d8QT6H8UEDwOROD+H23JXf6P7t2S/S7bE1BADgFn8LJVL/tI13sZbF1zx4v2LOn9YBpDdU9uc/ZfXP+3/w4mYubqfANn/PhZjMcVvvNn2u4l7l1UN7dq8f8lVXwx0/Ba1DZeqm7X0EfyN0NNplWjkyFmnDsFI4jkxT2vmqW1n7Bzz03U6WQ5tHZ/AhnFB63kL3iJgVGx6MZOnT+9/rHXNodv2/eXJfe/f8Jn5v5nfHutQzq+d/rlDG1oGYzbdU28Ddj8w0xJ1cwGtnl9etefaVe95/wLc3nffnO/9dsGeT9fFbb+7f8mp1+cO7Xhwzq7d5+z4KFCTOnPP0d+cvXfNU7/tXt/72cnr/mfXi5f+cM1z3z3nY1PPO+O9J/e5eeCyO0/dv+7RGX9c9pIf7/nsjB0P3jl/zbaLXvzKXf8DwFqvZOMY0i0AAAAASUVORK5CYII=");
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --peer:           #b9b7b0;
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --peer:           #55534e;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow {
+    font-size: 18px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 { font-size: 46px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; }
+  .specs { font-size: 15px; color: var(--text-muted); margin-top: 8px; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 5px; }
+
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name {
+    font-size: 30px; font-weight: 700; letter-spacing: 0.01em;
+    color: var(--text-primary);
+  }
+
+  .plot { flex: 1; margin-top: 34px; }
+  svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .grid { stroke: var(--gridline); stroke-width: 1; }
+  .axis-line { stroke: var(--axis); stroke-width: 1; }
+  .tick { fill: var(--text-muted); font-size: 18px; }
+  .axis-title { fill: var(--text-secondary); font-size: 19px; font-weight: 550; }
+  .peer-dot { fill: var(--peer); }
+  .subject-dot { fill: var(--accent); }
+  .subject-label { fill: var(--text-primary); font-size: 22px; font-weight: 640; }
+  .subject-org { fill: var(--text-secondary); font-size: 15px; }
+  .subject-score { fill: var(--text-secondary); font-size: 20px; }
+  .peer-label { fill: var(--text-muted); font-size: 17px; }
+  .peer-org { fill: var(--text-muted); font-size: 13px; opacity: 0.8; }
+  /* The frontier is drawn as a region, not a line: its top edge IS the boundary, so a
+     separate stroke along it only restates what the shading already says. */
+  .frontier-fill { fill: var(--accent); opacity: 0.09; stroke: none; }
+  .zero-note { fill: var(--text-muted); font-size: 15px; font-style: italic; }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 12px; padding-top: 14px; border-top: 1px solid var(--hairline);
+    font-size: 17px; color: var(--text-muted);
+  }
+  .foot-left { display: flex; flex-direction: column; gap: 5px; }
+  .source { font-size: 14px; color: var(--text-muted); }
+
+  .logo {
+    width: 39px; height: 41px; flex: none;
+    background: var(--logo-uri) left center / contain no-repeat;
+  }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="specs" id="specs"></div>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="plot"><svg id="plot"></svg></div>
+
+<footer>
+  <div class="foot-left">
+    <span class="source">Source · MTEB (leaderboard.mteb.org)</span>
+  </div>
+  <span id="footer"></span>
+</footer>
+
+<script>
+// ---------------------------------------------------------------------------
+// COPY. Every sentence a human chose lives here, not in fetch.py, so editing a
+// word costs a re-render (seconds) rather than a re-fetch (minutes).
+// #card-data above supplies only query-derived values, written there by fetch.py.
+// ---------------------------------------------------------------------------
+const COPY = {
+  eyebrow: "New model on MTEB",     // TODO
+  title: "TODO — model family name",
+  subtitle: "TODO — the claim this scatter makes (e.g. 'A new Pareto frontier for ...')",
+  specs: "TODO — languages · context · dims, or delete the element if not applicable",
+  x_label: "Active parameters",
+  footer: "TODO — Contributed by <github-handle>",
+};
+
+// Per-model label placement overrides, keyed by full model name — presentation, same
+// rule as the copy above. Use when the automatic left/right split collides two labels.
+const LABEL_SIDE = {
+  // "org/model-name": "left",
+};
+
+const data = JSON.parse(document.getElementById("card-data").textContent);
+const d = {
+  ...COPY,
+  ...data,
+  y_label: data.benchmark,
+  context: `models ≤ ${Math.round(data.max_active_params / 1e6)}M active params`,
+};
+const set = (id, v) => {
+  const n = document.getElementById(id);
+  if (n) n.textContent = v ?? "";
+};
+set("eyebrow", d.eyebrow); set("title", d.title); set("subtitle", d.subtitle);
+set("specs", d.specs);
+set("footer", d.footer);
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+const svgEl = document.getElementById("plot");
+const box = svgEl.getBoundingClientRect();
+const W = Math.round(box.width), H = Math.round(box.height);
+svgEl.setAttribute("viewBox", `0 0 ${W} ${H}`);
+
+const M = { t: 30, r: 24, b: 58, l: 58 };
+const pts = d.points.filter(p => !p.reference);
+
+const hasZero = pts.some(p => p.x === 0);
+const ZERO_W = hasZero ? 74 : 0;
+const BREAK_W = hasZero ? 26 : 0;
+
+const nz = pts.filter(p => p.x > 0);
+const xs = nz.map(p => Math.log10(p.x)), ys = pts.map(p => p.y);
+const xmin = Math.floor(Math.min(...xs) * 2) / 2 - 0.15;
+const xmax = Math.ceil(Math.max(...xs) * 2) / 2 + 0.15;
+const pad = Math.max(2, (Math.max(...ys) - Math.min(...ys)) * 0.18);
+const ymin = Math.min(...ys) - pad, ymax = Math.max(...ys) + pad;
+
+const LOG_L = M.l + ZERO_W + BREAK_W;
+const X = v => v === 0
+  ? M.l + ZERO_W / 2
+  : LOG_L + (Math.log10(v) - xmin) / (xmax - xmin) * (W - LOG_L - M.r);
+const Y = v => H - M.b - (v - ymin) / (ymax - ymin) * (H - M.t - M.b);
+
+const fmt = n => n === 0 ? "0 (static)"
+  : n >= 1e9 ? (n/1e9) + "B" : n >= 1e6 ? Math.round(n/1e6) + "M" : Math.round(n/1e3) + "K";
+const svg = svgEl;
+const el = (t, a, txt) => {
+  const n = document.createElementNS("http://www.w3.org/2000/svg", t);
+  for (const k in a) n.setAttribute(k, a[k]);
+  if (txt != null) n.textContent = txt;
+  svg.appendChild(n); return n;
+};
+
+const yStep = (ymax - ymin) > 30 ? 10 : (ymax - ymin) > 12 ? 5 : 2;
+for (let v = Math.ceil(ymin / yStep) * yStep; v <= ymax; v += yStep) {
+  el("line", { x1: M.l, x2: W - M.r, y1: Y(v), y2: Y(v), class: "grid" });
+  el("text", { x: M.l - 12, y: Y(v) + 5, class: "tick", "text-anchor": "end" }, v);
+}
+const decades = [];
+for (let e = Math.ceil(xmin); e <= Math.floor(xmax); e++) decades.push(Math.pow(10, e));
+let xticks = decades;
+if (decades.length < 3) {
+  xticks = [];
+  for (let e = Math.floor(xmin); e <= Math.ceil(xmax); e++) {
+    for (const m of [1, 2, 5]) {
+      const v = m * Math.pow(10, e);
+      const lv = Math.log10(v);
+      if (lv >= xmin && lv <= xmax) xticks.push(v);
+    }
+  }
+}
+for (const v of xticks) {
+  el("text", { x: X(v), y: H - M.b + 26, class: "tick", "text-anchor": "middle" }, fmt(v));
+}
+if (hasZero) {
+  el("text", { x: X(0), y: H - M.b + 26, class: "tick", "text-anchor": "middle" }, "0");
+  el("text", { x: X(0), y: H - M.b + 44, class: "zero-note", "text-anchor": "middle" }, "static");
+}
+el("line", { x1: M.l, x2: W - M.r, y1: H - M.b, y2: H - M.b, class: "axis-line" });
+if (hasZero) {
+  const bx = M.l + ZERO_W + BREAK_W / 2, by = H - M.b;
+  el("rect", { x: bx - 9, y: by - 6, width: 18, height: 12, fill: "var(--surface)" });
+  for (const dx of [-4, 3]) {
+    el("line", { x1: bx + dx, y1: by + 7, x2: bx + dx + 6, y2: by - 7, class: "axis-line" });
+  }
+}
+el("text", { x: (M.l + W - M.r) / 2, y: H - 8, class: "axis-title", "text-anchor": "middle" }, d.x_label);
+el("text", { x: 0, y: 12, class: "axis-title", "text-anchor": "start" }, d.y_label);
+
+// Pareto frontier: the models no other model beats on both axes at once. Drawn as a
+// staircase, not a straight line between points, because that is the actual boundary
+// of what has been achieved: at a given size you can have the best score at or below
+// that size, not an interpolation between two models nobody has trained.
+const frontier = [...pts]
+  .sort((a, b) => a.x - b.x || b.y - a.y)
+  .reduce((acc, p) => {
+    if (!acc.length || p.y > acc[acc.length - 1].y) acc.push(p);
+    return acc;
+  }, []);
+
+if (frontier.length > 1) {
+  const X0 = M.l, X1 = W - M.r;
+  const last = frontier[frontier.length - 1];
+  let path = `M ${X0} ${Y(frontier[0].y)} L ${X(frontier[0].x)} ${Y(frontier[0].y)}`;
+  for (let i = 1; i < frontier.length; i++) {
+    path += ` L ${X(frontier[i].x)} ${Y(frontier[i - 1].y)}`;
+    path += ` L ${X(frontier[i].x)} ${Y(frontier[i].y)}`;
+  }
+  path += ` L ${X1} ${Y(last.y)}`;
+  const floor = H - M.b;
+  el("path", { d: `${path} L ${X1} ${floor} L ${X0} ${floor} Z`, class: "frontier-fill" });
+}
+
+const splitName = n => {
+  const i = n.indexOf("/");
+  return i === -1 ? [null, n] : [n.slice(0, i + 1), n.slice(i + 1)];
+};
+
+// Place a multi-line label above a point, always anchored *to the point* and running
+// inward. Widths are measured after insertion rather than estimated from character
+// count, because a guess is wrong exactly for the long HF names this card is full of.
+const labelBlock = (x, lines, side) => {
+  const anchor = (side ?? (x > W / 2 ? "right" : "left")) === "right" ? "end" : "start";
+  const els = lines.map(l =>
+    el("text", { x, y: l.y, class: l.cls, "text-anchor": anchor }, l.txt)
+  );
+  const w = Math.max(...els.map(t => t.getComputedTextLength()));
+  let lx = x;
+  if (anchor === "start" && x + w > W - 2) lx = Math.max(2, W - 2 - w);
+  if (anchor === "end" && x - w < 2) lx = Math.min(W - 2, 2 + w);
+  if (lx !== x) for (const t of els) t.setAttribute("x", lx);
+};
+
+const peers = pts.filter(p => !p.subject);
+const namePeers = peers.length <= 6;
+for (const p of peers) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 5, class: "peer-dot" });
+  if (!namePeers) continue;
+  const [org, name] = splitName(p.model);
+  labelBlock(X(p.x), [
+    ...(org ? [{ txt: org, cls: "peer-org", y: Y(p.y) - 26 }] : []),
+    { txt: name, cls: "peer-label", y: Y(p.y) - 12 },
+  ]);
+}
+for (const p of pts.filter(p => p.subject)) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 7.5, class: "subject-dot" });
+  const [org, name] = splitName(p.model);
+  const right = LABEL_SIDE[p.model] ? LABEL_SIDE[p.model] === "left" : X(p.x) > W / 2;
+  const lx = X(p.x) + (right ? -14 : 14);
+  const a = { x: lx, "text-anchor": right ? "end" : "start" };
+  if (org) el("text", { ...a, y: Y(p.y) - 26, class: "subject-org" }, org);
+  el("text", { ...a, y: Y(p.y) - 8, class: "subject-label" }, name);
+  el("text", { ...a, y: Y(p.y) + 13, class: "subject-score" }, p.y.toFixed(2));
+}
+
+window.__altText = [
+  `${d.eyebrow}: ${d.title} — ${d.subtitle}.`,
+  `Scatter plot of ${d.y_label} against ${d.x_label} for ${pts.length} ${d.context}.`,
+  pts.filter(p => p.subject)
+     .map(p => `${p.model} scores ${p.y.toFixed(2)} at ${fmt(p.x)} active parameters`)
+     .join("; ") + ".",
+  peers.length
+    ? "Compared against " + peers.map(p => `${p.model} at ${fmt(p.x)}, ${p.y.toFixed(2)}`).join("; ") + "."
+    : "",
+  frontier.length > 1
+    ? "On the Pareto frontier (nothing is both smaller and higher-scoring): "
+      + frontier.map(p => p.model).join(", ") + "."
+    : "",
+  `${d.footer}.`,
+  "Source: MTEB, leaderboard.mteb.org."
+].filter(Boolean).join(" ");
+</script>
