@@ -11,6 +11,8 @@ media: card-1-most-embed-de.png
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5149
   - https://github.com/embeddings-benchmark/results/pull/675
+posted_on: 2026-08-20
+url: https://bsky.app/profile/mteb.org/post/3mtjcowmjhn24
 ---
 
 ```
