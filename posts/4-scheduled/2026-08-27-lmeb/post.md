@@ -1,8 +1,10 @@
 ---
-id: lmeb
+id: 2026-08-27-lmeb
 type: results_addition
 trigger: results#670
 trigger_date: 2026-08-10
+scheduled_for: 2026-08-27T14:30:00+02:00
+approved_by: kennethenevoldsen (explicit instruction, 2026-08-23)
 expires: 2026-09-10
 verified: true
 subject: opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini
@@ -13,9 +15,7 @@ sources:
 ---
 
 ```
-New on MTEB: opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini (11M active) sits on LMEB's Pareto frontier — nothing smaller scores higher, at any size up to 7.4B active. Sibling v2-distill (43M) is close behind at 56.53.
-
-Part of a 12-model wave added to LMEB this week.
+On LMEB (long-horizon memory retrieval), opensearch-project/opensearch-neural-sparse-encoding-doc-v2-mini (11M active) sits on the Pareto frontier — nothing smaller scores higher, at any size up to 7.4B active. Newly scored, not newly released: one of 12 models that got LMEB results this week.
 ```
 
 ## The claim
@@ -71,6 +71,15 @@ since the pareto claim is stronger and a post gets one claim — but worth remem
 a future post needs an angle and this field has moved on.
 
 ## Notes
+
+**Earlier draft opened "New on MTEB: `<model>`..."** — the exact phrasing this account
+uses for a genuine model registration (bekko, most-embed-de). Wrong here: the model was
+already registered before this scan window, and LMEB has existed since May. The only
+actually-new thing is that this model now *has* LMEB results at all, and they happen to
+land on the frontier. Rewritten to lead with the benchmark and say "newly scored, not
+newly released" plainly, rather than borrow model_addition's announcement voice for a
+results_addition post. The card's eyebrow was "New on MTEB" for the same reason —
+changed to "On the leaderboard."
 
 Credit: "Contributed by the OpenSearch project" rather than a personal GitHub handle —
 `results#670`'s PR body has no named individual, and the four models are an

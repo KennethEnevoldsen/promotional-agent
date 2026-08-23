@@ -1,8 +1,10 @@
 ---
-id: bright-pro
+id: 2026-08-25-bright-pro
 type: benchmark_addition
-trigger: mteb#4929 + results#644
+trigger: mteb#4929 (benchmark registration); results#644 (day-one 19-model results)
 trigger_date: 2026-08-10
+scheduled_for: 2026-08-25T14:30:00+02:00
+approved_by: kennethenevoldsen (explicit instruction, 2026-08-23)
 expires: 2026-09-10
 verified: true
 subject: BRIGHT-Pro
@@ -14,11 +16,11 @@ sources:
 ---
 
 ```
-New benchmark: BRIGHT-Pro adds reasoning-aspect annotations to BRIGHT for agentic search — scored on surfacing several reasoning aspects, not one passage, across 7 StackExchange domains.
+New benchmark: BRIGHT-Pro, a new multi-aspect retrieval benchmark on real StackExchange questions across 7 domains, built for agentic search — scored on surfacing several reasoning aspects, not one passage.
 
-19 models score complete already; AQ-MedAI/Diver-Retriever-4B-1020 leads at 55.88.
+AQ-MedAI/Diver-Retriever-4B-1020 leads at 55.88.
 
-Added by yilunzhao.
+Contributed by yilunzhao.
 ```
 
 ## The claim
@@ -51,6 +53,20 @@ worth a claim: 19 models on day one is too thin a field to say anything about wh
 of training this benchmark rewards.
 
 ## Notes
+
+**Post text and card subtitle reworked** to lead with what the benchmark measures
+("a new multi-aspect retrieval benchmark on real StackExchange questions") rather than
+the day-one model count — the "19 models" line was dropped from both. The axis label
+("top 10 of 19 models with complete coverage") stays: that describes the scope of what
+the chart plots, not an editorial claim about the benchmark.
+
+**`trigger:` was `mteb#4929 + results#644`** — the exact "mteb#X + results#Y" notation
+this account uses for a model registration paired with its results (bekko,
+most-embed-de). Wrong pairing semantics here: mteb#4929 registers the *benchmark*,
+results#644 is its first *community* results batch, not a model's own submission.
+Reworded to name what each PR actually is. Also moved "Added by yilunzhao" (ambiguous
+right after a sentence naming a different model, `AQ-MedAI/Diver-Retriever-4B-1020` —
+could read as crediting *that* model) to "Benchmark by yilunzhao."
 
 Credit: yilunzhao (mteb#4929 and results#644, same author). No Bluesky handle in
 `social-handles.yaml`, so plain text, no @-mention.
