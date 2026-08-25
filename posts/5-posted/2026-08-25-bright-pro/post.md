@@ -13,6 +13,8 @@ media: card-1-bright-pro.png
 sources:
   - https://github.com/embeddings-benchmark/mteb/pull/4929
   - https://github.com/embeddings-benchmark/results/pull/644
+posted_on: 2026-08-25
+url: https://bsky.app/profile/mteb.org/post/3mtvuyiffet2x
 ---
 
 ```
