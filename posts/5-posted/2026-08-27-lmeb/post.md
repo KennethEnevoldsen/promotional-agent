@@ -12,6 +12,8 @@ evidence: data.json
 media: card-1-lmeb.png
 sources:
   - https://github.com/embeddings-benchmark/results/pull/670
+posted_on: 2026-08-27
+url: https://bsky.app/profile/mteb.org/post/3mu3o6s2p3f2g
 ---
 
 ```
