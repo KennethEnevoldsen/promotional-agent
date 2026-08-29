@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>TODO — ranked bars</title>
+<title>ViDoRe(v2) board, with gemini-embedding-2</title>
 <!--
   model_addition template: ranked bar list, subject(s) highlighted.
 
@@ -22,16 +22,122 @@
     uv run mteb-render --card posts/<stage>/<id>/card-N-<slug>.html \
       --out posts/<stage>/<id>/card-N-<slug>.png
 
-  PALETTE IS A PLACEHOLDER — swap the :root block only.
+  Post 2 of 2 — the whole board, where card 1 was one architecture.
+
+  Two divergences from the template:
+
+  1. Every row carries its architecture, from the registry's own ModelMeta.model_type
+     (fetch.py writes it as `arch`), because that is the claim. Colour still marks only
+     the subject, per docs/card-design.md: architecture is argued in words on every row
+     rather than by a second colour a reader would have to decode from a legend that
+     isn't there.
+
+  2. **The skipped ranks are drawn.** Rows 11-20 do not fit and are not individually
+     interesting — but jumping from a row marked 10 to a row marked 21 with nothing in
+     between invites the reader to supply their own explanation for the gap. So the gap
+     is a row of its own, stating how many models it stands for, what they are, and the
+     score range they cover. fetch.py computes those numbers; nothing about the gap is
+     typed by hand.
 -->
 
 <script type="application/json" id="card-data">
 {
-  "benchmark": "TODO — e.g. MTEB(Multilingual, v2)",
-  "n_tasks": 0,
-  "n_models": 0,
-  "rows": []
+  "benchmark": "ViDoRe(v2)",
+  "n_tasks": 4,
+  "n_models": 50,
+  "rows": [
+    {
+      "model": "DataScience-UIBK/Argus-Colqwen3.5-9b-v0",
+      "score": 69.27,
+      "params": 8821000000,
+      "rank": 1,
+      "arch": "late-interaction"
+    },
+    {
+      "model": "DataScience-UIBK/Argus-Colqwen3.5-9b-v0-bf16",
+      "score": 69.12,
+      "params": 8821000000,
+      "rank": 2,
+      "arch": "late-interaction"
+    },
+    {
+      "model": "OpenSearch-AI/Ops-Colqwen3-4B",
+      "score": 68.66,
+      "params": 4800000000,
+      "rank": 3,
+      "arch": "late-interaction"
+    },
+    {
+      "model": "vultr/VultronRetrieverPrime-Qwen3.5-8B",
+      "score": 68.18,
+      "params": 8394000000,
+      "rank": 4,
+      "arch": "late-interaction"
+    },
+    {
+      "model": "vultr/VultronRetrieverCore-Qwen3.5-4.5B",
+      "score": 66.12,
+      "params": 4540000000,
+      "rank": 5,
+      "arch": "late-interaction"
+    },
+    {
+      "model": "webAI-Official/webAI-ColVec1-9b",
+      "score": 65.82,
+      "params": 9420000000,
+      "rank": 6,
+      "arch": "late-interaction"
+    },
+    {
+      "model": "TomoroAI/tomoro-colqwen3-embed-8b",
+      "score": 65.4,
+      "params": 8000000000,
+      "rank": 7,
+      "arch": "late-interaction"
+    },
+    {
+      "model": "ApsaraStackMaaS/EvoQwen2.5-VL-Retriever-7B-v1",
+      "score": 65.24,
+      "params": 7000000000,
+      "rank": 8,
+      "arch": "late-interaction"
+    },
+    {
+      "model": "nvidia/nemotron-colembed-vl-8b-v2",
+      "score": 65.16,
+      "params": 8700000000,
+      "rank": 9,
+      "arch": "late-interaction"
+    },
+    {
+      "model": "TomoroAI/tomoro-colqwen3-embed-4b",
+      "score": 64.69,
+      "params": 4000000000,
+      "rank": 10,
+      "arch": "late-interaction"
+    },
+    {
+      "gap": true,
+      "from": 11,
+      "to": 20,
+      "n": 10,
+      "note": "all late-interaction",
+      "high": 64.49,
+      "low": 62.47
+    },
+    {
+      "model": "google/gemini-embedding-2",
+      "score": 62.37,
+      "params": null,
+      "rank": 21,
+      "subject": true,
+      "arch": "single-vector"
+    }
+  ]
 }
+</script>
+<script type="text/plain" id="alt-text">
+New model on MTEB: google/gemini-embedding-2 — 21st of 50 — and every model above it is a late-interaction retriever. Bar chart of 11 of the 50 models with complete results on ViDoRe(v2) (4 tasks), each row given with its rank on that board. 1. DataScience-UIBK/Argus-Colqwen3.5-9b-v0, 69.27, 8.8B parameters, late-interaction; 2. DataScience-UIBK/Argus-Colqwen3.5-9b-v0-bf16, 69.12, 8.8B parameters, late-interaction; 3. OpenSearch-AI/Ops-Colqwen3-4B, 68.66, 4.8B parameters, late-interaction; 4. vultr/VultronRetrieverPrime-Qwen3.5-8B, 68.18, 8.4B parameters, late-interaction; 5. vultr/VultronRetrieverCore-Qwen3.5-4.5B, 66.12, 4.5B parameters, late-interaction; 6. webAI-Official/webAI-ColVec1-9b, 65.82, 9.4B parameters, late-interaction; 7. TomoroAI/tomoro-colqwen3-embed-8b, 65.40, 8.0B parameters, late-interaction; 8. ApsaraStackMaaS/EvoQwen2.5-VL-Retriever-7B-v1, 65.24, 7.0B parameters, late-interaction; 9. nvidia/nemotron-colembed-vl-8b-v2, 65.16, 8.7B parameters, late-interaction; 10. TomoroAI/tomoro-colqwen3-embed-4b, 64.69, 4.0B parameters, late-interaction; ranks 11 to 20, not shown individually: all late-interaction, 64.49 down to 62.47; 21. google/gemini-embedding-2, 62.37, size not published, single-vector (this release). Model and results by whybe-choi. Source: MTEB, leaderboard.mteb.org.
 </script>
 
 <style>
@@ -87,8 +193,10 @@
   .plot { flex: 1; margin-top: 10px; display: flex; flex-direction: column; min-height: 0; }
   svg { width: 100%; height: 100%; display: block; overflow: visible; }
 
-  /* Row height/gap assume ~10 rows on a 1200px canvas; trim both if top_n grows. */
-  .bars { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+  /* 11 rows rather than the template's ~10 (top 10 plus the subject at 21), and every
+     row carries an architecture, so the gap comes down and the architecture shares the
+     size line instead of taking one of its own. */
+  .bars { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 15px; }
   .row, .axis {
     display: grid;
     grid-template-columns: 38px 420px 1fr 84px;
@@ -110,6 +218,14 @@
   .mname .size { display: block; color: var(--text-muted); font-size: 14px; }
   .mname .tag { display: block; color: var(--accent); font-size: 13px; font-weight: 600; opacity: 0.75; }
 
+  /* The stand-in row for ranks the card does not draw. Deliberately not a bar: it is a
+     statement about rows that are absent, and drawing a bar for it would put a number on
+     the axis that belongs to no model. */
+  .row.gap { color: var(--text-muted); align-items: center; }
+  .row.gap .rank { border-style: dashed; color: var(--text-muted); font-size: 13px; }
+  .row.gap .gap-text { grid-column: 2 / 5; font-size: 16px; color: var(--text-muted); }
+  .row.gap .gap-text b { font-weight: 600; color: var(--text-secondary); }
+
   .track { height: 34px; position: relative; }
   .fill {
     position: absolute; left: 0; top: 0; bottom: 0;
@@ -128,10 +244,10 @@
     font-size: 16px; color: var(--text-muted);
   }
   .axis .rule { grid-column: 3 / 4; height: 1px; background: var(--axis); }
-  /* Two tiers. The axis says what is being measured — a benchmark name, nothing else —
-     and the scope that bounds the claim sits under it in the muted role. Both belong on
-     the image, because a screenshot travels without the post (docs/card-design.md), but
-     stacking them into one sentence turned the axis into a paragraph nobody reads. */
+  /* Two tiers: the axis says what is being measured, and the scope that bounds the claim
+     sits under it in the muted role. Both have to be on the image — a screenshot travels
+     without the post (docs/card-design.md) — but a benchmark name and a cohort statement
+     are different kinds of thing and reading as one sentence made the axis a paragraph. */
   .axis-name { display: block; font-size: 19px; color: var(--text-secondary); font-weight: 600; text-align: center; }
   .axis-note { display: block; font-size: 15px; color: var(--text-muted); text-align: center; margin-top: 5px; }
 
@@ -176,13 +292,13 @@
 
 <script>
 const COPY = {
-  eyebrow: "New model on MTEB",     // TODO
-  title: "TODO — model family name",
-  specs: "TODO — one line on what the model is, or delete the element",
-  subtitle: "TODO — the claim this ranking makes (e.g. '1st of N on ...')",
-  footer: "TODO — Contributed by <github-handle>",
-  axis_label: "TODO — the benchmark name alone, e.g. 'MTEB(Multilingual, v2)'",
-  axis_note: "TODO — the scope under it, e.g. 'N tasks · top 10 of M models with complete results'",
+  eyebrow: "New model on MTEB",
+  title: "google/gemini-embedding-2",
+  specs: "Proprietary \u00b7 interleaved text, image, audio and video input \u00b7 first MTEB results",
+  subtitle: "21st of 50 \u2014 and every model above it is a late-interaction retriever",
+  footer: "Model and results by whybe-choi",
+  axis_label: "ViDoRe(v2)",
+  axis_note: "4 tasks \u00b7 50 models with complete results \u00b7 ranks 11\u201320 summarised in one row",
 };
 
 const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
@@ -192,7 +308,7 @@ set("specs", d.specs); set("footer", d.footer);
 if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
 
 const rows = d.rows;
-const AXIS_MAX = Math.ceil(Math.max(...rows.map(r => r.score)) / 20) * 20;
+const AXIS_MAX = Math.ceil(Math.max(...rows.filter(r => !r.gap).map(r => r.score)) / 20) * 20;
 
 const splitName = n => {
   const i = n.indexOf("/");
@@ -205,9 +321,19 @@ const fmtSize = n => n == null ? "size not published"
   : n >= 1e9 ? `${(n/1e9).toFixed(n >= 1e10 ? 0 : 1)}B parameters`
   : n >= 1e6 ? `${(n/1e6).toFixed(0)}M parameters`
   : `${(n/1e3).toFixed(0)}K parameters`;
-const tagLine = r => r.subject ? "this release" : r.prior ? "same lab, previous generation" : "";
+// Architecture rides the size line (see the note at the top); the tag slot is left for
+// the one thing that is about this post rather than about the board.
+const archOf = r => r.arch ? ` \u00b7 ${r.arch}` : "";
+const tagLine = r => (r.subject ? "this release" : "");
 
 document.getElementById("bars").innerHTML = rows.map((r, i) => {
+  if (r.gap) {
+    return `
+    <div class="row gap">
+      <span class="rank">\u22ef</span>
+      <span class="gap-text">ranks <b>${r.from}\u2013${r.to}</b> \u00b7 ${r.note} \u00b7 ${r.high.toFixed(2)} down to ${r.low.toFixed(2)}</span>
+    </div>`;
+  }
   const [org, name] = splitName(r.model);
   const cls = r.subject ? " subject" : r.prior ? " prior" : "";
   const tag = tagLine(r);
@@ -217,7 +343,7 @@ document.getElementById("bars").innerHTML = rows.map((r, i) => {
       <span class="mname">
         <span class="org">${org}</span>
         <span class="name">${name}</span>
-        <span class="size">${fmtSize(r.params)}</span>
+        <span class="size">${fmtSize(r.params)}${archOf(r)}</span>
         ${tag ? `<span class="tag">${tag}</span>` : ""}
       </span>
       <span class="track"><span class="fill" style="width:${(r.score / AXIS_MAX * 100).toFixed(2)}%"></span></span>
@@ -242,10 +368,11 @@ window.__altText = [
   // "top N" only reads correctly when the rows are the top N. A subject appended from
   // outside top_n makes that false, so the count describes the rows and the per-row
   // ranks carry the positions.
-  `Bar chart of ${rows.length} of the ${d.n_models} models with complete results on ${d.benchmark} (${d.n_tasks} tasks), each row given with its rank on that board.`,
+  `Bar chart of ${rows.filter(r => !r.gap).length} of the ${d.n_models} models with complete results on ${d.benchmark} (${d.n_tasks} tasks), each row given with its rank on that board.`,
   rows.map((r, i) => {
+    if (r.gap) return `ranks ${r.from} to ${r.to}, not shown individually: ${r.note}, ${r.high.toFixed(2)} down to ${r.low.toFixed(2)}`;
     const tag = tagLine(r);
-    return `${r.rank ?? i + 1}. ${r.model}, ${r.score.toFixed(2)}, ${fmtSize(r.params)}${tag ? ` (${tag})` : ""}`;
+    return `${r.rank}. ${r.model}, ${r.score.toFixed(2)}, ${fmtSize(r.params)}, ${r.arch}${tag ? ` (${tag})` : ""}`;
   }).join("; ") + ".",
   `${d.footer}. Source: MTEB, leaderboard.mteb.org.`,
 ].join(" ");

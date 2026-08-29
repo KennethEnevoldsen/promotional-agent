@@ -124,10 +124,21 @@ def cohort(
         all_entries, per_task_all = benchmark_scores(benchmark)
         bench_name = benchmark
         task_list: tuple[str, ...] = ()
-        # benchmark_scores() only returns rows with a non-null Mean(Task) at all —
-        # "not plottable" here (n_tasks < n_benchmark_tasks) still means *some* results.
-        complete_pool = [e for e in all_entries if e.plottable]
-        excluded_pool = [e for e in all_entries if not e.plottable]
+        # benchmark_scores() only returns rows with a non-null Mean(Task) at all, so
+        # "excluded" here means partial coverage — not comparable, per CONTRIBUTING's
+        # complete-coverage rule.
+        #
+        # Completeness only, deliberately *not* `Entry.plottable`: a model whose
+        # parameter count is unpublished is perfectly comparable by score, and dropping
+        # it silently shortens the board a rank claim is counted against (a proprietary
+        # API model has no size to publish and is exactly the kind of entrant a rank
+        # should be measured against). A size axis needs a size, and the two builders
+        # that draw one enforce it themselves: pareto_card_data() drops sizeless points,
+        # and `max_active` below bands peers by a size they must therefore have. This
+        # also matches the custom-task-list branch, which has always split on coverage
+        # alone.
+        complete_pool = [e for e in all_entries if e.complete]
+        excluded_pool = [e for e in all_entries if not e.complete]
     else:
         complete_pool, excluded_pool, per_task_all = custom_scores(benchmark, subsets=subsets)
         bench_name = name or (
@@ -421,11 +432,16 @@ def bars_card_data(
             top.append(e)
     top.sort(key=lambda e: e.score, reverse=True)
 
+    # The row's rank on the whole board, not its position in the card's row list. A
+    # subject outside top_n is appended above, so counting rows would print rank 11 for
+    # a model lying 21st — a wrong number on the image, stated with the same confidence
+    # as a right one.
+    rank_of = {e.model: i for i, e in enumerate(ranking, 1)}
     rows = []
     for e in top:
         size = e.active_params if size_field == "active" else e.total_params
         rows.append({
-            "model": e.model, "score": e.score, "params": size,
+            "model": e.model, "score": e.score, "params": size, "rank": rank_of[e.model],
             **({"subject": True} if e.model in subj_names else {}),
             **({"prior": True} if e.model in prior else {}),
         })

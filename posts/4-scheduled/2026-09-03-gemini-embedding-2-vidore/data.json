@@ -1,0 +1,1230 @@
+{
+  "generated": "2026-08-28",
+  "benchmark": "ViDoRe(v2)",
+  "n_tasks": 4,
+  "n_models": 50,
+  "subject": "google/gemini-embedding-2",
+  "subject_rank": 21,
+  "subject_score": 62.37,
+  "architectures_above_subject": [
+    "late-interaction"
+  ],
+  "best_of_subject_architecture": "google/gemini-embedding-2",
+  "runner_up_same_architecture": {
+    "model": "nanovdr/NanoVDR-S-Multi",
+    "score": 61.93
+  },
+  "cohort_by_architecture": {
+    "late-interaction": 37,
+    "dense": 13
+  },
+  "per_task": {
+    "Vidore2BioMedicalLecturesRetrieval": 59.84,
+    "Vidore2ESGReportsHLRetrieval": 69.58,
+    "Vidore2ESGReportsRetrieval": 61.86,
+    "Vidore2EconomicsReportsRetrieval": 58.18
+  },
+  "ranking": [
+    {
+      "model": "DataScience-UIBK/Argus-Colqwen3.5-9b-v0",
+      "score": 69.27,
+      "active_params": 7804000000,
+      "total_params": 8821000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-05-05",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "DataScience-UIBK/Argus-Colqwen3.5-9b-v0-bf16",
+      "score": 69.12,
+      "active_params": 7804000000,
+      "total_params": 8821000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-05-05",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "OpenSearch-AI/Ops-Colqwen3-4B",
+      "score": 68.66,
+      "active_params": 4411000000,
+      "total_params": 4800000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-01-24",
+      "languages": [
+        "Afrikaans",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Haitian",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Kirghiz",
+        "Korean",
+        "Lao",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Panjabi",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Quechua (Latin)",
+        "Romanian",
+        "Russian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Tagalog",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese",
+        "Welsh",
+        "Yoruba"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "vultr/VultronRetrieverPrime-Qwen3.5-8B",
+      "score": 68.18,
+      "active_params": 7377000000,
+      "total_params": 8394000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-06-18",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "vultr/VultronRetrieverCore-Qwen3.5-4.5B",
+      "score": 66.12,
+      "active_params": 3904000000,
+      "total_params": 4540000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-06-22",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "webAI-Official/webAI-ColVec1-9b",
+      "score": 65.82,
+      "active_params": 9410000000,
+      "total_params": 9420000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-04-05",
+      "languages": [
+        "English",
+        "French"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "TomoroAI/tomoro-colqwen3-embed-8b",
+      "score": 65.4,
+      "active_params": null,
+      "total_params": 8000000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-11-26",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "ApsaraStackMaaS/EvoQwen2.5-VL-Retriever-7B-v1",
+      "score": 65.24,
+      "active_params": null,
+      "total_params": 7000000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-11-04",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "nvidia/nemotron-colembed-vl-8b-v2",
+      "score": 65.16,
+      "active_params": 8078000000,
+      "total_params": 8700000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-01-07",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "TomoroAI/tomoro-colqwen3-embed-4b",
+      "score": 64.69,
+      "active_params": null,
+      "total_params": 4000000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-11-26",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "nvidia/nemotron-colembed-vl-4b-v2",
+      "score": 64.49,
+      "active_params": 4411000000,
+      "total_params": 4800000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-01-07",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "athrael-soju/colqwen3.5-4.5B-v3",
+      "score": 64.25,
+      "active_params": 3964000000,
+      "total_params": 4600000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-03-15",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "DataScience-UIBK/Argus-Colqwen3.5-4b-v0-bf16",
+      "score": 64.22,
+      "active_params": 4073000000,
+      "total_params": 4708000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-05-03",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "DataScience-UIBK/Argus-Colqwen3.5-4b-v0",
+      "score": 64.18,
+      "active_params": 4073000000,
+      "total_params": 4708000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-04-29",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "webAI-Official/webAI-ColVec1-4b",
+      "score": 63.6,
+      "active_params": 4539000000,
+      "total_params": 4541000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-04-05",
+      "languages": [
+        "English",
+        "French"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "nvidia/llama-nemotron-colembed-vl-3b-v2",
+      "score": 63.38,
+      "active_params": 4013000000,
+      "total_params": 4407000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-01-21",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "nvidia/llama-nemoretriever-colembed-3b-v1",
+      "score": 63.32,
+      "active_params": 4013000000,
+      "total_params": 4407000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-06-27",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "ApsaraStackMaaS/EvoQwen2.5-VL-Retriever-3B-v1",
+      "score": 63.0,
+      "active_params": null,
+      "total_params": 3000000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-11-04",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "nvidia/llama-nemoretriever-colembed-1b-v1",
+      "score": 62.96,
+      "active_params": 2155000000,
+      "total_params": 2418000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-06-27",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "VAGOsolutions/SauerkrautLM-ColQwen3-8b-v0.1",
+      "score": 62.47,
+      "active_params": 7523000000,
+      "total_params": 8145000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-12-20",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "google/gemini-embedding-2",
+      "score": 62.37,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-04-22",
+      "languages": [
+        "Bengali",
+        "Chinese",
+        "Chinese (Traditional)",
+        "English",
+        "Finnish",
+        "French",
+        "German",
+        "Hindi",
+        "Indonesian",
+        "Iranian Persian",
+        "Japanese",
+        "Korean",
+        "Russian",
+        "Spanish",
+        "Standard Arabic",
+        "Swahili (individual language)",
+        "Telugu",
+        "Thai",
+        "Yoruba"
+      ],
+      "modalities": [
+        "audio",
+        "image",
+        "text",
+        "video"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "dense"
+    },
+    {
+      "model": "nanovdr/NanoVDR-S-Multi",
+      "score": 61.93,
+      "active_params": 67000000,
+      "total_params": 69000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-02-26",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "dense"
+    },
+    {
+      "model": "DataScience-UIBK/Argus-Colqwen3.5-2b-v0",
+      "score": 61.84,
+      "active_params": 1814000000,
+      "total_params": 2322000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-05-03",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "DataScience-UIBK/Argus-Colqwen3.5-2b-v0-bf16",
+      "score": 61.84,
+      "active_params": 1814000000,
+      "total_params": 2322000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-05-03",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "vultr/VultronRetrieverFlash-Qwen3.5-0.8B",
+      "score": 60.36,
+      "active_params": 599000000,
+      "total_params": 853000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2026-06-21",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "nomic-ai/colnomic-embed-multimodal-7b",
+      "score": 60.25,
+      "active_params": null,
+      "total_params": 7000000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-03-31",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "vidore/colqwen2.5-v0.2",
+      "score": 60.06,
+      "active_params": null,
+      "total_params": 3000000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-01-31",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "VAGOsolutions/SauerkrautLM-ColQwen3-4b-v0.1",
+      "score": 59.89,
+      "active_params": 4049000000,
+      "total_params": 4438000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-12-20",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "jinaai/jina-embeddings-v4",
+      "score": 58.23,
+      "active_params": 3624000000,
+      "total_params": 3935000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-06-24",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic (Latin)",
+        "Arabic (Latin)",
+        "Armenian (Latin)",
+        "Assamese (Latin)",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian (Latin)",
+        "Bengali",
+        "Bengali (Latin)",
+        "Bosnian",
+        "Breton",
+        "Bulgarian (Latin)",
+        "Burmese (Latin)",
+        "Catalan",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian (Latin)",
+        "German",
+        "Gujarati (Latin)",
+        "Hausa",
+        "Hebrew (Latin)",
+        "Hindi",
+        "Hindi (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese (Latin)",
+        "Javanese",
+        "Kannada (Latin)",
+        "Kazakh (Latin)",
+        "Khmer (Latin)",
+        "Kirghiz (Latin)",
+        "Korean (Latin)",
+        "Kurdish (Latin)",
+        "Lao (Latin)",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian (Latin)",
+        "Malagasy (Latin)",
+        "Malay (macrolanguage)",
+        "Malayalam (Latin)",
+        "Marathi (Latin)",
+        "Modern Greek (1453-) (Latin)",
+        "Mongolian (Latin)",
+        "Nepali (macrolanguage) (Latin)",
+        "Norwegian Bokm\u00e5l",
+        "Oriya (macrolanguage) (Latin)",
+        "Oromo (Latin)",
+        "Panjabi (Latin)",
+        "Persian (Latin)",
+        "Polish",
+        "Portuguese",
+        "Pushto (Latin)",
+        "Romanian",
+        "Russian (Latin)",
+        "Sanskrit (Latin)",
+        "Scottish Gaelic",
+        "Serbian (Latin)",
+        "Sindhi (Latin)",
+        "Sinhala (Latin)",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Spanish",
+        "Sundanese",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tamil",
+        "Tamil (Latin)",
+        "Telugu",
+        "Telugu (Latin)",
+        "Thai (Latin)",
+        "Turkish",
+        "Uighur (Latin)",
+        "Ukrainian (Latin)",
+        "Urdu",
+        "Urdu (Latin)",
+        "Uzbek",
+        "Vietnamese",
+        "Welsh",
+        "Western Frisian",
+        "Xhosa",
+        "Yiddish (Latin)"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "dense"
+    },
+    {
+      "model": "VAGOsolutions/SauerkrautLM-ColQwen3-2b-v0.1",
+      "score": 57.95,
+      "active_params": 1817000000,
+      "total_params": 2128000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-12-20",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "eagerworks/eager-embed-v1",
+      "score": 57.2,
+      "active_params": 4049000000,
+      "total_params": 4438000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-11-20",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "dense"
+    },
+    {
+      "model": "ibm-granite/granite-vision-3.3-2b-embedding",
+      "score": 56.92,
+      "active_params": 2879000000,
+      "total_params": 2980000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-06-11",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "dense"
+    },
+    {
+      "model": "vidore/colqwen2-v1.0",
+      "score": 56.04,
+      "active_params": null,
+      "total_params": 2210000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-11-03",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "nomic-ai/colnomic-embed-multimodal-3b",
+      "score": 55.68,
+      "active_params": null,
+      "total_params": 3000000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-03-31",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "voyageai/voyage-multimodal-3",
+      "score": 54.94,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2024-11-10",
+      "languages": [],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "dense"
+    },
+    {
+      "model": "vidore/colpali-v1.3",
+      "score": 54.72,
+      "active_params": null,
+      "total_params": 2920000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2024-11-01",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "vidore/colpali-v1.2",
+      "score": 52.34,
+      "active_params": null,
+      "total_params": 2920000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2024-08-26",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "VAGOsolutions/SauerkrautLM-ColLFM2-450M-v0.1",
+      "score": 51.26,
+      "active_params": null,
+      "total_params": 451000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-12-20",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "VAGOsolutions/SauerkrautLM-ColQwen3-1.7b-Turbo-v0.1",
+      "score": 50.57,
+      "active_params": 1445000000,
+      "total_params": 1757000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-12-20",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "vidore/colpali-v1.1",
+      "score": 50.05,
+      "active_params": null,
+      "total_params": 2920000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2024-08-21",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "VAGOsolutions/SauerkrautLM-ColMinistral3-3b-v0.1",
+      "score": 46.82,
+      "active_params": 3849000000,
+      "total_params": 4252000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-12-20",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "royokong/e5-v",
+      "score": 46.55,
+      "active_params": 7830000000,
+      "total_params": 8355000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2024-07-17",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "dense"
+    },
+    {
+      "model": "vidore/colSmol-500M",
+      "score": 42.89,
+      "active_params": null,
+      "total_params": 500000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-01-22",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "vidore/colSmol-256M",
+      "score": 34.82,
+      "active_params": null,
+      "total_params": 256000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2025-01-22",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "late-interaction"
+    },
+    {
+      "model": "google/siglip-so400m-patch14-384",
+      "score": 33.0,
+      "active_params": 841000000,
+      "total_params": 878000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2024-01-08",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "dense"
+    },
+    {
+      "model": "TIGER-Lab/VLM2Vec-Full",
+      "score": 31.82,
+      "active_params": 4048000000,
+      "total_params": 4147000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2024-10-08",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "dense"
+    },
+    {
+      "model": "jinaai/jina-clip-v2",
+      "score": 26.94,
+      "active_params": null,
+      "total_params": 865000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2024-10-09",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "dense"
+    },
+    {
+      "model": "laion/CLIP-ViT-bigG-14-laion2B-39B-b160k",
+      "score": 19.35,
+      "active_params": 2476000000,
+      "total_params": 2540000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2023-01-23",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "dense"
+    },
+    {
+      "model": "openai/clip-vit-base-patch16",
+      "score": 11.26,
+      "active_params": 124000000,
+      "total_params": 150000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2021-02-26",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": true,
+      "model_type": "dense"
+    },
+    {
+      "model": "jinaai/jina-clip-v1",
+      "score": 9.74,
+      "active_params": null,
+      "total_params": 223000000,
+      "n_tasks": 4,
+      "n_benchmark_tasks": 4,
+      "release_date": "2024-05-30",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "image",
+        "text"
+      ],
+      "complete": true,
+      "plottable": false,
+      "model_type": "dense"
+    }
+  ]
+}

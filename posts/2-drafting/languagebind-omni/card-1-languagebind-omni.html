@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>TODO — ranked bars</title>
+<title>LanguageBind on MVEB</title>
 <!--
   model_addition template: ranked bar list, subject(s) highlighted.
 
@@ -22,16 +22,105 @@
     uv run mteb-render --card posts/<stage>/<id>/card-N-<slug>.html \
       --out posts/<stage>/<id>/card-N-<slug>.png
 
-  PALETTE IS A PLACEHOLDER — swap the :root block only.
+  Divergence from the template: every row carries its release year, written by fetch.py
+  from the registry's `releaseDate`, because the claim is about when these models are
+  from — a board whose entire field is 2025 onward, and one 2023 entry. A claim made in
+  the subtitle has to be checkable on the image that carries it.
+
+  Rows are tighter than the template's default: 11 (top 10 plus the subject at 13) do not
+  fit at the stock 26px gap, and the year shares the size line rather than taking one of
+  its own.
 -->
 
 <script type="application/json" id="card-data">
 {
-  "benchmark": "TODO — e.g. MTEB(Multilingual, v2)",
-  "n_tasks": 0,
-  "n_models": 0,
-  "rows": []
+  "benchmark": "MVEB(beta), audio-video",
+  "n_tasks": 18,
+  "n_models": 17,
+  "rows": [
+    {
+      "model": "LCO-Embedding/LCO-Embedding-Omni-7B",
+      "score": 61.3,
+      "params": 8932000000,
+      "rank": 1,
+      "released": "2025"
+    },
+    {
+      "model": "encord-team/ebind-audio-vision",
+      "score": 60.89,
+      "params": 764000000,
+      "rank": 2,
+      "released": "2025"
+    },
+    {
+      "model": "encord-team/ebind-full",
+      "score": 60.89,
+      "params": 1790000000,
+      "rank": 3,
+      "released": "2025"
+    },
+    {
+      "model": "Haon-Chen/e5-omni-7B",
+      "score": 59.03,
+      "params": 8932000000,
+      "rank": 4,
+      "released": "2026"
+    },
+    {
+      "model": "facebook/pe-av-large",
+      "score": 58.38,
+      "params": 2235000000,
+      "rank": 5,
+      "released": "2025"
+    },
+    {
+      "model": "LCO-Embedding/LCO-Embedding-Omni-3B",
+      "score": 58.1,
+      "params": 4703000000,
+      "rank": 6,
+      "released": "2025"
+    },
+    {
+      "model": "facebook/pe-av-base",
+      "score": 56.58,
+      "params": 1034000000,
+      "rank": 7,
+      "released": "2025"
+    },
+    {
+      "model": "Tevatron/OmniEmbed-v0.1",
+      "score": 56.03,
+      "params": 8932000000,
+      "rank": 8,
+      "released": "2025"
+    },
+    {
+      "model": "facebook/pe-av-small",
+      "score": 55.3,
+      "params": 847000000,
+      "rank": 9,
+      "released": "2025"
+    },
+    {
+      "model": "Haon-Chen/e5-omni-3B",
+      "score": 52.82,
+      "params": 4703000000,
+      "rank": 10,
+      "released": "2026"
+    },
+    {
+      "model": "LanguageBind/LanguageBind_Omni",
+      "score": 47.14,
+      "params": 1200000000,
+      "rank": 13,
+      "subject": true,
+      "released": "2023"
+    }
+  ]
 }
+</script>
+<script type="text/plain" id="alt-text">
+New model on MTEB: LanguageBind/LanguageBind_Omni — A 2023 model on a board where every other entrant was released in 2025 or later. Bar chart of 11 of the 17 models with complete results on MVEB(beta), audio-video (18 tasks), each row given with its rank on that board. 1. LCO-Embedding/LCO-Embedding-Omni-7B, 61.30, 8.9B parameters, released 2025; 2. encord-team/ebind-audio-vision, 60.89, 764M parameters, released 2025; 3. encord-team/ebind-full, 60.89, 1.8B parameters, released 2025; 4. Haon-Chen/e5-omni-7B, 59.03, 8.9B parameters, released 2026; 5. facebook/pe-av-large, 58.38, 2.2B parameters, released 2025; 6. LCO-Embedding/LCO-Embedding-Omni-3B, 58.10, 4.7B parameters, released 2025; 7. facebook/pe-av-base, 56.58, 1.0B parameters, released 2025; 8. Tevatron/OmniEmbed-v0.1, 56.03, 8.9B parameters, released 2025; 9. facebook/pe-av-small, 55.30, 847M parameters, released 2025; 10. Haon-Chen/e5-omni-3B, 52.82, 4.7B parameters, released 2026; 13. LanguageBind/LanguageBind_Omni, 47.14, 1.2B parameters, released 2023 (new to MTEB). MTEB integration by myang333 · results by isaac-chung. Source: MTEB, leaderboard.mteb.org.
 </script>
 
 <style>
@@ -87,8 +176,8 @@
   .plot { flex: 1; margin-top: 10px; display: flex; flex-direction: column; min-height: 0; }
   svg { width: 100%; height: 100%; display: block; overflow: visible; }
 
-  /* Row height/gap assume ~10 rows on a 1200px canvas; trim both if top_n grows. */
-  .bars { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+  /* 11 rows rather than the template's ~10 — see the note at the top. */
+  .bars { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 15px; }
   .row, .axis {
     display: grid;
     grid-template-columns: 38px 420px 1fr 84px;
@@ -128,12 +217,7 @@
     font-size: 16px; color: var(--text-muted);
   }
   .axis .rule { grid-column: 3 / 4; height: 1px; background: var(--axis); }
-  /* Two tiers. The axis says what is being measured — a benchmark name, nothing else —
-     and the scope that bounds the claim sits under it in the muted role. Both belong on
-     the image, because a screenshot travels without the post (docs/card-design.md), but
-     stacking them into one sentence turned the axis into a paragraph nobody reads. */
-  .axis-name { display: block; font-size: 19px; color: var(--text-secondary); font-weight: 600; text-align: center; }
-  .axis-note { display: block; font-size: 15px; color: var(--text-muted); text-align: center; margin-top: 5px; }
+  .axis-name { font-size: 17px; color: var(--text-secondary); font-weight: 550; text-align: center; }
 
   footer {
     display: flex; justify-content: space-between; align-items: flex-end;
@@ -176,13 +260,12 @@
 
 <script>
 const COPY = {
-  eyebrow: "New model on MTEB",     // TODO
-  title: "TODO — model family name",
-  specs: "TODO — one line on what the model is, or delete the element",
-  subtitle: "TODO — the claim this ranking makes (e.g. '1st of N on ...')",
-  footer: "TODO — Contributed by <github-handle>",
-  axis_label: "TODO — the benchmark name alone, e.g. 'MTEB(Multilingual, v2)'",
-  axis_note: "TODO — the scope under it, e.g. 'N tasks · top 10 of M models with complete results'",
+  eyebrow: "New model on MTEB",
+  title: "LanguageBind/LanguageBind_Omni",
+  specs: "Video, audio, image and text in one space \u00b7 arXiv:2310.01852 \u00b7 October 2023",
+  subtitle: "A 2023 model on a board where every other entrant was released in 2025 or later",
+  footer: "MTEB integration by myang333 \u00b7 results by isaac-chung",
+  axis_label: "18 of MVEB(beta)'s 23 tasks \u00b7 top 10, plus the subject, of 17 models with complete coverage",
 };
 
 const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
@@ -205,7 +288,10 @@ const fmtSize = n => n == null ? "size not published"
   : n >= 1e9 ? `${(n/1e9).toFixed(n >= 1e10 ? 0 : 1)}B parameters`
   : n >= 1e6 ? `${(n/1e6).toFixed(0)}M parameters`
   : `${(n/1e3).toFixed(0)}K parameters`;
-const tagLine = r => r.subject ? "this release" : r.prior ? "same lab, previous generation" : "";
+// The release year rides the size line; the tag says what is actually new here, which is
+// the MTEB entry and not the model.
+const yearOf = r => r.released ? ` \u00b7 released ${r.released}` : "";
+const tagLine = r => (r.subject ? "new to MTEB" : "");
 
 document.getElementById("bars").innerHTML = rows.map((r, i) => {
   const [org, name] = splitName(r.model);
@@ -217,7 +303,7 @@ document.getElementById("bars").innerHTML = rows.map((r, i) => {
       <span class="mname">
         <span class="org">${org}</span>
         <span class="name">${name}</span>
-        <span class="size">${fmtSize(r.params)}</span>
+        <span class="size">${fmtSize(r.params)}${yearOf(r)}</span>
         ${tag ? `<span class="tag">${tag}</span>` : ""}
       </span>
       <span class="track"><span class="fill" style="width:${(r.score / AXIS_MAX * 100).toFixed(2)}%"></span></span>
@@ -233,8 +319,7 @@ document.getElementById("axis").innerHTML = `
     `<span style="left:${(v / AXIS_MAX * 100).toFixed(2)}%">${v}</span>`).join("")}</span>
   <span></span>
   <span></span><span></span>
-  <span><span class="axis-name">${d.axis_label}</span>
-        <span class="axis-note">${d.axis_note}</span></span>
+  <span class="axis-name">${d.axis_label}</span>
   <span></span>`;
 
 window.__altText = [
@@ -245,7 +330,7 @@ window.__altText = [
   `Bar chart of ${rows.length} of the ${d.n_models} models with complete results on ${d.benchmark} (${d.n_tasks} tasks), each row given with its rank on that board.`,
   rows.map((r, i) => {
     const tag = tagLine(r);
-    return `${r.rank ?? i + 1}. ${r.model}, ${r.score.toFixed(2)}, ${fmtSize(r.params)}${tag ? ` (${tag})` : ""}`;
+    return `${r.rank ?? i + 1}. ${r.model}, ${r.score.toFixed(2)}, ${fmtSize(r.params)}, released ${r.released}${tag ? ` (${tag})` : ""}`;
   }).join("; ") + ".",
   `${d.footer}. Source: MTEB, leaderboard.mteb.org.`,
 ].join(" ");

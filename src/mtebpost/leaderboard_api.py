@@ -171,6 +171,45 @@ def custom_scores(
     return complete, partial, per_task
 
 
+def model_types() -> dict[str, str]:
+    """model name -> `ModelMeta.model_type` ("dense", "late-interaction", ...).
+
+    Architecture is not part of an `Entry`, which is about scores and size — but on a
+    board where one architecture family holds every top place it is the difference
+    between a rank and an explanation of the rank (see the ViDoRe(v2) post). Read from
+    the registry rather than inferred from a model's name.
+    """
+    out: dict[str, str] = {}
+    for m in _get("/v1/models"):
+        t = m.get("modelType")
+        if isinstance(t, list):
+            t = t[0] if t else None
+        if t:
+            out[m["name"]] = t
+    return out
+
+
+def benchmark_task_scores(benchmark: str) -> tuple[list[str], dict[str, dict[str, float]]]:
+    """A benchmark's task list, plus every model's per-task scores *including* the models
+    with partial coverage.
+
+    `benchmark_scores()` drops any row the API gives no aggregate `meanTask` for, which
+    is every model short of full coverage — exactly the rows needed to ask CONTRIBUTING's
+    "who is missing" question about a young board, where one unrun task can be the only
+    thing keeping a dozen models off it. Returns (tasks, per_model), `per_model[model]`
+    being `{task: score}` (0-100) for the tasks that model actually ran.
+    """
+    data = _get(f"/v1/benchmarks/{urllib.parse.quote(benchmark)}/scores")
+    per_model = {
+        row["model"]["name"]: {
+            t: _score100(v) for t, v in (row.get("scoresByTask") or {}).items()
+            if v is not None
+        }
+        for row in data["rows"]
+    }
+    return list(data["tasks"]), {m: s for m, s in per_model.items() if s}
+
+
 def benchmark_scores(benchmark: str) -> tuple[list[Entry], dict[str, dict[str, float]]]:
     """Every model's aggregate score on a *registered* benchmark, via
     `/v1/benchmarks/{name}/scores` — the same endpoint colvec11-vidore/

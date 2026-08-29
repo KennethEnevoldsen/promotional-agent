@@ -1,0 +1,294 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>MTEB(slk, v1)</title>
+<!--
+  Card for the MTEB(slk, v1) post. A benchmark_addition where the news is what the
+  board contains, not who leads it — so this is a composition card, not a ranking:
+  one stacked column per task type, split into tasks that already existed (grey) and
+  tasks mteb#4788 defines itself (blue). Same shape as the MTEB(kor, v2) card, which is
+  where the column zone and palette come from; the second zone differs because the
+  question differs (kor-v2 asked "does the wider board change who leads", which needs
+  two boards to compare — this board has no predecessor).
+
+  Second zone: six of the seventeen new tasks, one per task type, with what each one
+  actually is. That is the part a reader cannot get from "31 tasks across 7 task types"
+  — Slovak parliamentary sentiment and pharmacist answers to medication questions are
+  the reason this board is not a translation of an English one.
+
+  The day-one ranking is deliberately NOT on this card. Only 8 models have all 31 tasks
+  while 11 more are one task short (WebFAQRetrieval, see fetch.py), so a leaderboard
+  drawn today is a picture of who finished submitting first. The post text states the
+  leader with that scope attached, where a sentence can carry it; a card travels as a
+  screenshot and cannot.
+
+    uv run posts/3-review/mteb-slk-v1/fetch.py
+    uv run mteb-render --card posts/3-review/mteb-slk-v1/card-1-mteb-slk-v1.html \
+      --out posts/3-review/mteb-slk-v1/card-1-mteb-slk-v1.png
+-->
+
+<script type="application/json" id="card-data">
+{
+  "n_tasks": 31,
+  "n_new": 17,
+  "n_types": 7,
+  "n_models_complete": 8,
+  "by_type": [
+    {
+      "type": "Classification",
+      "new": 3,
+      "existing": 4
+    },
+    {
+      "type": "BitextMining",
+      "new": 1,
+      "existing": 5
+    },
+    {
+      "type": "Clustering",
+      "new": 4,
+      "existing": 1
+    },
+    {
+      "type": "Retrieval",
+      "new": 1,
+      "existing": 4
+    },
+    {
+      "type": "Reranking",
+      "new": 3,
+      "existing": 0
+    },
+    {
+      "type": "PairClassification",
+      "new": 3,
+      "existing": 0
+    },
+    {
+      "type": "STS",
+      "new": 2,
+      "existing": 0
+    }
+  ],
+  "highlights": [
+    {
+      "task": "SlovakPharmacyDrMaxReranking",
+      "type": "Reranking"
+    },
+    {
+      "task": "DemagogSKNLI",
+      "type": "PairClassification"
+    },
+    {
+      "task": "SlovakParlaSentClassification",
+      "type": "Classification"
+    },
+    {
+      "task": "PravdaSKTagClustering",
+      "type": "Clustering"
+    },
+    {
+      "task": "SMESumRetrieval",
+      "type": "Retrieval"
+    },
+    {
+      "task": "SlovakSTS",
+      "type": "STS"
+    }
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+New benchmark on MTEB: MTEB(slk, v1) — 31 tasks across 7 task types — 17 of them built for this board. Stacked column chart, tasks per type, new tasks above existing ones: Classification 7 (3 new), BitextMining 6 (1 new), Clustering 5 (4 new), Retrieval 5 (1 new), Reranking 3 (3 new), PairClassification 3 (3 new), STS 2 (2 new). 8 models have complete 31-task coverage so far. Six of the 17 new tasks: SlovakPharmacyDrMaxReranking (Reranking) — Pharmacists’ answers to medication and health questions, from a Slovak pharmacy site; DemagogSKNLI (PairClassification) — Fact-checkers’ evidence paired with the political claims it supports or refutes; SlovakParlaSentClassification (Classification) — Sentiment in Slovak parliamentary debate, three levels; PravdaSKTagClustering (Clustering) — News articles from Pravda.sk, grouped by their editorial tags; SMESumRetrieval (Retrieval) — Article introductions as queries over 80,000 SME news documents; SlovakSTS (STS) — A professional Slovak translation of the STS Benchmark. Benchmark by andrejridzik. Source: MTEB, leaderboard.mteb.org.
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABICAYAAACgEzj3AAAXrUlEQVR42s18e5RcVZnv79t7n1NVXf1Od4dO2qTz6sSESB5kRhDtDuMLcUbxWj2giOsykgygV+/gA+OsW1VKQGdAAYURZN2AiGIVOMhV14wMdvdiRodAgDxJms6j924/H1VdVefO3t/71a6qYqI7CS9v+dyMKX3vFT5X9ZeDLNu/GLZ/BXqEbz1zx4Nv1O0oCbYm1QMg8Y9Z6JV8ph/N7oM3Rv7d8QT6H8UEDwOROD+H23JXf6P7t2S/S7bE1BADgFn8LJVL/tI13sZbF1zx4v2LOn9YBpDdU9uc/ZfXP+3/w4mYubqfANn/PhZjMcVvvNn2u4l7l1UN7dq8f8lVXwx0/Ba1DZeqm7X0EfyN0NNplWjkyFmnDsFI4jkxT2vmqW1n7Bzz03U6WQ5tHZ/AhnFB63kL3iJgVGx6MZOnT+9/rHXNodv2/eXJfe/f8Jn5v5nfHutQzq+d/rlDG1oGYzbdU28Ddj8w0xJ1cwGtnl9etefaVe95/wLc3nffnO/9dsGeT9fFbb+7f8mp1+cO7Xhwzq7d5+z4KFCTOnPP0d+cvXfNU7/tXt/72cnr/mfXi5f+cM1z3z3nY1PPO+O9J/e5eeCyO0/dv+7RGX9c9pIf7/nsjB0P3jl/zbaLXvzKXf8DwFqvZOMY0i0AAAAASUVORK5CYII=");
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --peer:           #b9b7b0;
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --new-bg:         #eaf0ff;
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --peer:           #55534e;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+    --new-bg:         #1f2a44;
+  }
+
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow {
+    font-size: 18px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 { font-size: 46px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; }
+  .specs { font-size: 15px; color: var(--text-muted); margin-top: 8px; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 5px; }
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name { font-size: 30px; font-weight: 700; letter-spacing: 0.01em; }
+  .logo { width: 39px; height: 41px; flex: none; background: var(--logo-uri) left center / contain no-repeat; }
+
+  /* ---- chart zone: one stacked column per task type ---- */
+  .chart { flex: 1; display: flex; flex-direction: column; margin-top: 20px; min-height: 0; }
+  .legend { display: flex; gap: 28px; font-size: 16px; color: var(--text-secondary); margin-bottom: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .swatch { width: 16px; height: 16px; border-radius: 3px; display: inline-block; }
+  .swatch.old { background: var(--peer); }
+  .swatch.new { background: var(--accent); }
+
+  /* Columns keep their natural height and are centred in the leftover space, rather
+     than stretching with .chart's flex:1 — see the kor-v2 card, where inheriting the
+     stretch pulled the tags away from the bars. */
+  .cols { flex: 1; display: flex; align-items: center; gap: 18px; padding: 0 4px; }
+  .col-group { flex: 1; display: flex; flex-direction: column; align-items: center; }
+  .col-total { font-size: 19px; font-weight: 640; margin-bottom: 6px; }
+  .stack { display: flex; flex-direction: column; justify-content: flex-end; width: 74px; }
+  .seg { width: 100%; display: flex; align-items: center; justify-content: center;
+         font-size: 15px; font-weight: 600; }
+  .seg.new { background: var(--accent); color: #fff; border-radius: 5px 5px 0 0; }
+  .seg.old { background: var(--peer); color: var(--text-primary); }
+  .seg.old.alone { border-radius: 5px 5px 0 0; }
+  .baseline { height: 1px; background: var(--axis); width: 100%; }
+  .col-label { margin-top: 10px; font-size: 15px; color: var(--text-secondary); text-align: center; font-weight: 550; }
+
+  /* ---- second zone: what the new tasks actually are ---- */
+  .tasks { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--hairline); }
+  .tasks-title { font-size: 16px; font-weight: 640; color: var(--text-secondary); margin-bottom: 10px; }
+  .task-row {
+    display: grid; grid-template-columns: 330px 1fr; gap: 16px;
+    align-items: baseline; padding: 6px 0; font-size: 16px;
+  }
+  .task-name { font-weight: 620; }
+  .task-type { display: block; font-size: 12px; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+  .task-gloss { color: var(--text-secondary); }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--hairline);
+    font-size: 17px; color: var(--text-muted);
+  }
+  .source { font-size: 14px; color: var(--text-muted); }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="specs" id="specs"></div>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="chart">
+  <div class="legend">
+    <span><span class="swatch new"></span><span id="leg-new"></span></span>
+    <span><span class="swatch old"></span><span id="leg-old"></span></span>
+  </div>
+  <div class="cols" id="cols"></div>
+</div>
+
+<div class="tasks">
+  <div class="tasks-title" id="tasks-title"></div>
+  <div id="task-rows"></div>
+</div>
+
+<footer>
+  <span class="source">Source · MTEB (leaderboard.mteb.org)</span>
+  <span id="footer"></span>
+</footer>
+
+<script>
+// Glosses are editorial: one sentence each, condensed from the task's own
+// `TaskMetadata.description` in mteb#4788. The task names and their types are data —
+// fetch.py writes them from the live benchmark and fails if one does not exist.
+const COPY = {
+  eyebrow: "New benchmark on MTEB",
+  title: "MTEB(slk, v1)",
+  specs: "SkMTEB \u00b7 arXiv:2606.13647 \u00b7 Slovak, a low-resource West Slavic language",
+  subtitle: "31 tasks across 7 task types \u2014 17 of them built for this board",
+  footer: "Benchmark by andrejridzik",
+  leg_new: "new in mteb#4788",
+  leg_old: "existing tasks, scoped to Slovak",
+  tasks_title: "Six of the seventeen new tasks \u2014 one per task type",
+  glosses: {
+    "SlovakPharmacyDrMaxReranking": "Pharmacists\u2019 answers to medication and health questions, from a Slovak pharmacy site",
+    "DemagogSKNLI": "Fact-checkers\u2019 evidence paired with the political claims it supports or refutes",
+    "SlovakParlaSentClassification": "Sentiment in Slovak parliamentary debate, three levels",
+    "PravdaSKTagClustering": "News articles from Pravda.sk, grouped by their editorial tags",
+    "SMESumRetrieval": "Article introductions as queries over 80,000 SME news documents",
+    "SlovakSTS": "A professional Slovak translation of the STS Benchmark",
+  },
+};
+
+const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
+const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+set("eyebrow", d.eyebrow); set("title", d.title); set("specs", d.specs);
+set("subtitle", d.subtitle); set("footer", d.footer);
+set("leg-new", d.leg_new); set("leg-old", d.leg_old); set("tasks-title", d.tasks_title);
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+const byType = d.by_type;
+const MAX = Math.max(...byType.map(t => t.new + t.existing));
+// Pixel heights from a fixed maximum, not percentages of a box whose height moves with
+// the content above it — bars stay comparable between renders.
+const CHART_PX = 300;
+const px = n => Math.round((n / MAX) * CHART_PX);
+
+document.getElementById("cols").innerHTML = byType.map(t => {
+  const total = t.new + t.existing;
+  return `
+    <div class="col-group">
+      <span class="col-total">${total}</span>
+      <div class="stack" style="height:${CHART_PX}px">
+        ${t.new ? `<div class="seg new" style="height:${px(t.new)}px">${t.new}</div>` : ""}
+        ${t.existing ? `<div class="seg old${t.new ? "" : " alone"}" style="height:${px(t.existing)}px">${t.existing}</div>` : ""}
+      </div>
+      <div class="baseline"></div>
+      <div class="col-label">${t.type}</div>
+    </div>`;
+}).join("");
+
+document.getElementById("task-rows").innerHTML = d.highlights.map(h => `
+    <div class="task-row">
+      <span class="task-name">${h.task}<span class="task-type">${h.type}</span></span>
+      <span class="task-gloss">${d.glosses[h.task] ?? ""}</span>
+    </div>`
+).join("");
+
+window.__altText = [
+  `${d.eyebrow}: ${d.title} \u2014 ${d.subtitle}.`,
+  `Stacked column chart, tasks per type, new tasks above existing ones: ` +
+    byType.map(t => `${t.type} ${t.new + t.existing} (${t.new} new)`).join(", ") + ".",
+  `${d.n_models_complete} models have complete ${d.n_tasks}-task coverage so far.`,
+  `Six of the ${d.n_new} new tasks: ` +
+    d.highlights.map(h => `${h.task} (${h.type}) \u2014 ${d.glosses[h.task] ?? ""}`).join("; ") + ".",
+  `${d.footer}. Source: MTEB, leaderboard.mteb.org.`,
+].join(" ");
+</script>

@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>TODO — ranked bars</title>
+<title>Single-vector models on ViDoRe(v2)</title>
 <!--
   model_addition template: ranked bar list, subject(s) highlighted.
 
@@ -22,16 +22,108 @@
     uv run mteb-render --card posts/<stage>/<id>/card-N-<slug>.html \
       --out posts/<stage>/<id>/card-N-<slug>.png
 
-  PALETTE IS A PLACEHOLDER — swap the :root block only.
+  Post 1 of 2. This card is one architecture only: the 13 models on ViDoRe(v2) that
+  produce a single vector per document. That is the cohort the post's first claim is
+  about, and a reader can check the claim by counting rows. The other 37 models on the
+  board use late interaction and are the subject of card 2 — the axis line says so, so
+  this card cannot be read as the whole board even travelling on its own.
+
+  All 13 rows, not a top N: the low end is CLIP-family general-purpose models rather than
+  document retrievers, and cutting them would hide how much of this cohort's range comes
+  from models that were never built for the task.
 -->
 
 <script type="application/json" id="card-data">
 {
-  "benchmark": "TODO — e.g. MTEB(Multilingual, v2)",
-  "n_tasks": 0,
-  "n_models": 0,
-  "rows": []
+  "benchmark": "ViDoRe(v2)",
+  "n_tasks": 4,
+  "n_models": 13,
+  "n_late_interaction": 37,
+  "rows": [
+    {
+      "model": "google/gemini-embedding-2",
+      "score": 62.37,
+      "params": null,
+      "rank": 1,
+      "subject": true
+    },
+    {
+      "model": "nanovdr/NanoVDR-S-Multi",
+      "score": 61.93,
+      "params": 69000000,
+      "rank": 2
+    },
+    {
+      "model": "jinaai/jina-embeddings-v4",
+      "score": 58.23,
+      "params": 3935000000,
+      "rank": 3
+    },
+    {
+      "model": "eagerworks/eager-embed-v1",
+      "score": 57.2,
+      "params": 4438000000,
+      "rank": 4
+    },
+    {
+      "model": "ibm-granite/granite-vision-3.3-2b-embedding",
+      "score": 56.92,
+      "params": 2980000000,
+      "rank": 5
+    },
+    {
+      "model": "voyageai/voyage-multimodal-3",
+      "score": 54.94,
+      "params": null,
+      "rank": 6
+    },
+    {
+      "model": "royokong/e5-v",
+      "score": 46.55,
+      "params": 8355000000,
+      "rank": 7
+    },
+    {
+      "model": "google/siglip-so400m-patch14-384",
+      "score": 33.0,
+      "params": 878000000,
+      "rank": 8
+    },
+    {
+      "model": "TIGER-Lab/VLM2Vec-Full",
+      "score": 31.82,
+      "params": 4147000000,
+      "rank": 9
+    },
+    {
+      "model": "jinaai/jina-clip-v2",
+      "score": 26.94,
+      "params": 865000000,
+      "rank": 10
+    },
+    {
+      "model": "laion/CLIP-ViT-bigG-14-laion2B-39B-b160k",
+      "score": 19.35,
+      "params": 2540000000,
+      "rank": 11
+    },
+    {
+      "model": "openai/clip-vit-base-patch16",
+      "score": 11.26,
+      "params": 150000000,
+      "rank": 12
+    },
+    {
+      "model": "jinaai/jina-clip-v1",
+      "score": 9.74,
+      "params": 223000000,
+      "rank": 13
+    }
+  ]
 }
+</script>
+<script type="text/plain" id="alt-text">
+New model on MTEB: google/gemini-embedding-2 — First of the 13 single-vector models on ViDoRe(v2). Bar chart of 13 of the 13 models with complete results on ViDoRe(v2) (4 tasks), each row given with its rank on that board. 1. google/gemini-embedding-2, 62.37, size not published (this release); 2. nanovdr/NanoVDR-S-Multi, 61.93, 69M parameters; 3. jinaai/jina-embeddings-v4, 58.23, 3.9B parameters; 4. eagerworks/eager-embed-v1, 57.20, 4.4B parameters; 5. ibm-granite/granite-vision-3.3-2b-embedding, 56.92, 3.0B parameters; 6. voyageai/voyage-multimodal-3, 54.94, size not published; 7. royokong/e5-v, 46.55, 8.4B parameters; 8. google/siglip-so400m-patch14-384, 33.00, 878M parameters; 9. TIGER-Lab/VLM2Vec-Full, 31.82, 4.1B parameters; 10. jinaai/jina-clip-v2, 26.94, 865M parameters; 11. laion/CLIP-ViT-bigG-14-laion2B-39B-b160k, 19.35, 2.5B parameters; 12. openai/clip-vit-base-patch16, 11.26, 150M parameters; 13. jinaai/jina-clip-v1, 9.74, 223M parameters. Model and results by whybe-choi. Source: MTEB, leaderboard.mteb.org.
 </script>
 
 <style>
@@ -87,8 +179,9 @@
   .plot { flex: 1; margin-top: 10px; display: flex; flex-direction: column; min-height: 0; }
   svg { width: 100%; height: 100%; display: block; overflow: visible; }
 
-  /* Row height/gap assume ~10 rows on a 1200px canvas; trim both if top_n grows. */
-  .bars { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+  /* 13 rows rather than the template's ~10, so the gap and the row type scale come
+     down; the size line absorbs what the template gives a tag line to. */
+  .bars { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
   .row, .axis {
     display: grid;
     grid-template-columns: 38px 420px 1fr 84px;
@@ -104,13 +197,13 @@
 
   .mname { line-height: 1.18; }
   .mname .org { display: block; color: var(--text-muted); font-size: 14px; }
-  .mname .name { display: block; font-size: 19px; color: var(--text-secondary); }
+  .mname .name { display: block; font-size: 18px; color: var(--text-secondary); }
   .row.subject .mname .name { color: var(--text-primary); font-weight: 640; }
   .row.prior .mname .name { color: var(--text-secondary); }
   .mname .size { display: block; color: var(--text-muted); font-size: 14px; }
   .mname .tag { display: block; color: var(--accent); font-size: 13px; font-weight: 600; opacity: 0.75; }
 
-  .track { height: 34px; position: relative; }
+  .track { height: 30px; position: relative; }
   .fill {
     position: absolute; left: 0; top: 0; bottom: 0;
     background: var(--peer); border-radius: 0 5px 5px 0;
@@ -128,10 +221,10 @@
     font-size: 16px; color: var(--text-muted);
   }
   .axis .rule { grid-column: 3 / 4; height: 1px; background: var(--axis); }
-  /* Two tiers. The axis says what is being measured — a benchmark name, nothing else —
-     and the scope that bounds the claim sits under it in the muted role. Both belong on
-     the image, because a screenshot travels without the post (docs/card-design.md), but
-     stacking them into one sentence turned the axis into a paragraph nobody reads. */
+  /* Two tiers: the axis says what is being measured, and the scope that bounds the claim
+     sits under it in the muted role. Both have to be on the image — a screenshot travels
+     without the post (docs/card-design.md) — but a benchmark name and a cohort statement
+     are different kinds of thing and reading as one sentence made the axis a paragraph. */
   .axis-name { display: block; font-size: 19px; color: var(--text-secondary); font-weight: 600; text-align: center; }
   .axis-note { display: block; font-size: 15px; color: var(--text-muted); text-align: center; margin-top: 5px; }
 
@@ -176,13 +269,13 @@
 
 <script>
 const COPY = {
-  eyebrow: "New model on MTEB",     // TODO
-  title: "TODO — model family name",
-  specs: "TODO — one line on what the model is, or delete the element",
-  subtitle: "TODO — the claim this ranking makes (e.g. '1st of N on ...')",
-  footer: "TODO — Contributed by <github-handle>",
-  axis_label: "TODO — the benchmark name alone, e.g. 'MTEB(Multilingual, v2)'",
-  axis_note: "TODO — the scope under it, e.g. 'N tasks · top 10 of M models with complete results'",
+  eyebrow: "New model on MTEB",
+  title: "google/gemini-embedding-2",
+  specs: "Proprietary \u00b7 interleaved text, image, audio and video input \u00b7 first MTEB results",
+  subtitle: "First of the 13 single-vector models on ViDoRe(v2)",
+  footer: "Model and results by whybe-choi",
+  axis_label: "ViDoRe(v2)",
+  axis_note: "4 tasks \u00b7 all 13 single-vector models with complete results",
 };
 
 const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
@@ -205,7 +298,10 @@ const fmtSize = n => n == null ? "size not published"
   : n >= 1e9 ? `${(n/1e9).toFixed(n >= 1e10 ? 0 : 1)}B parameters`
   : n >= 1e6 ? `${(n/1e6).toFixed(0)}M parameters`
   : `${(n/1e3).toFixed(0)}K parameters`;
-const tagLine = r => r.subject ? "this release" : r.prior ? "same lab, previous generation" : "";
+// Rank is the position among single-vector models, which is what this card ranks; the
+// board rank is card 2's subject. Everything here is one architecture, so no row needs
+// to say which — the axis line says it once.
+const tagLine = r => (r.subject ? "this release" : "");
 
 document.getElementById("bars").innerHTML = rows.map((r, i) => {
   const [org, name] = splitName(r.model);
