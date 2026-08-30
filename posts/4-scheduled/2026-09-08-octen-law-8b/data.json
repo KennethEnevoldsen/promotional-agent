@@ -1,0 +1,5863 @@
+{
+  "generated": "2026-08-29",
+  "benchmark": "MTEB(Law, v1)",
+  "n_tasks": 8,
+  "n_models": 164,
+  "subject": "litillabs/octen-law-8b-v1",
+  "subject_rank": 1,
+  "subject_score": 76.77,
+  "runner_up": {
+    "model": "Hanno-Labs/dinghy-law-8b-v1",
+    "score": 72.58
+  },
+  "margin": 4.19,
+  "declared_training_data": {
+    "litillabs/octen-law-8b-v1": {
+      "source": "litillabs_models.py",
+      "declared": [
+        "GerDaLIRSmall",
+        "LeCaRDv2",
+        "WikiQA"
+      ],
+      "on_this_board": [
+        "GerDaLIRSmall",
+        "LeCaRDv2"
+      ]
+    },
+    "Hanno-Labs/dinghy-law-8b-v1": {
+      "source": "hanno_labs_models.py",
+      "declared": [
+        "BillSumUS",
+        "GerDaLIR",
+        "GerDaLIRSmall"
+      ],
+      "on_this_board": [
+        "GerDaLIRSmall"
+      ]
+    },
+    "Hanno-Labs/dinghy-law-4b-v1": {
+      "source": "hanno_labs_models.py",
+      "declared": [
+        "BillSumUS",
+        "GerDaLIR",
+        "GerDaLIRSmall"
+      ],
+      "on_this_board": [
+        "GerDaLIRSmall"
+      ]
+    },
+    "Hanno-Labs/dinghy-law-0.6b-v1": {
+      "source": "hanno_labs_models.py",
+      "declared": [
+        "BillSumUS",
+        "GerDaLIR",
+        "GerDaLIRSmall"
+      ],
+      "on_this_board": [
+        "GerDaLIRSmall"
+      ]
+    },
+    "Mira190/Euler-Legal-Embedding-V1": {
+      "source": "euler_models.py",
+      "declared": [],
+      "on_this_board": []
+    },
+    "minetta/nemotron-3-embed-8b-legal": {
+      "source": "minetta_models.py",
+      "declared": [],
+      "on_this_board": []
+    },
+    "judicialmind/greenleaf-law-embed-tiny": {
+      "source": "greenleaf_models.py",
+      "declared": [],
+      "on_this_board": []
+    },
+    "voyageai/voyage-law-2": {
+      "source": "voyage_models.py",
+      "declared": [],
+      "on_this_board": []
+    },
+    "voyageai/voyage-3": {
+      "source": "voyage_models.py",
+      "declared": [],
+      "on_this_board": []
+    },
+    "codefuse-ai/F2LLM-v2-14B": {
+      "source": "codefuse_models.py",
+      "declared": [],
+      "on_this_board": []
+    }
+  },
+  "undeclared_task_view": {
+    "dropped": [
+      "GerDaLIRSmall",
+      "LeCaRDv2"
+    ],
+    "kept": [
+      "AILACasedocs",
+      "AILAStatutes",
+      "LegalBenchCorporateLobbying",
+      "LegalBenchConsumerContractsQA",
+      "LegalSummarization",
+      "LegalQuAD"
+    ],
+    "subject_score": 81.77,
+    "runner_up": {
+      "model": "Hanno-Labs/dinghy-law-8b-v1",
+      "score": 75.0
+    },
+    "margin": 6.77,
+    "subject_still_first": true,
+    "ranking": [
+      {
+        "model": "litillabs/octen-law-8b-v1",
+        "score": 81.77
+      },
+      {
+        "model": "Hanno-Labs/dinghy-law-8b-v1",
+        "score": 75.0
+      },
+      {
+        "model": "Hanno-Labs/dinghy-law-4b-v1",
+        "score": 74.45
+      },
+      {
+        "model": "Mira190/Euler-Legal-Embedding-V1",
+        "score": 74.16
+      },
+      {
+        "model": "minetta/nemotron-3-embed-8b-legal",
+        "score": 73.7
+      },
+      {
+        "model": "Hanno-Labs/dinghy-law-0.6b-v1",
+        "score": 68.95
+      },
+      {
+        "model": "judicialmind/greenleaf-law-embed-tiny",
+        "score": 67.95
+      },
+      {
+        "model": "voyageai/voyage-law-2",
+        "score": 67.57
+      },
+      {
+        "model": "voyageai/voyage-3",
+        "score": 66.44
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-14B",
+        "score": 66.35
+      },
+      {
+        "model": "infly/inf-retriever-v1",
+        "score": 65.58
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-8B",
+        "score": 65.4
+      },
+      {
+        "model": "ICT-TIME-and-Querit/ICT-TIME-and-Querit-embedding-v1",
+        "score": 65.27
+      },
+      {
+        "model": "openai/text-embedding-3-large",
+        "score": 64.15
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-4B",
+        "score": 63.63
+      },
+      {
+        "model": "infly/inf-retriever-v1-1.5b",
+        "score": 63.56
+      },
+      {
+        "model": "ICT-TIME-and-Querit/BOOM_4B_v1",
+        "score": 63.38
+      },
+      {
+        "model": "voyageai/voyage-3-lite",
+        "score": 62.38
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-1.7B",
+        "score": 61.96
+      },
+      {
+        "model": "GritLM/GritLM-7B",
+        "score": 61.49
+      },
+      {
+        "model": "NovaSearch/jasper_en_vision_language_v1",
+        "score": 61.38
+      },
+      {
+        "model": "Linq-AI-Research/Linq-Embed-Mistral",
+        "score": 60.82
+      },
+      {
+        "model": "Salesforce/SFR-Embedding-2_R",
+        "score": 60.78
+      },
+      {
+        "model": "Salesforce/SFR-Embedding-Mistral",
+        "score": 60.71
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-l-v2.0",
+        "score": 60.51
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-m-v2.0",
+        "score": 60.47
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-0.6B",
+        "score": 60.21
+      },
+      {
+        "model": "openai/text-embedding-3-small",
+        "score": 60.07
+      },
+      {
+        "model": "intfloat/e5-mistral-7b-instruct",
+        "score": 59.84
+      },
+      {
+        "model": "jinaai/jina-embeddings-v3",
+        "score": 59.59
+      },
+      {
+        "model": "GritLM/GritLM-8x7B",
+        "score": 59.56
+      },
+      {
+        "model": "hotchpotch/bekko-embedding-v1-a25m",
+        "score": 59.49
+      },
+      {
+        "model": "Alibaba-NLP/gte-Qwen2-1.5B-instruct",
+        "score": 59.18
+      },
+      {
+        "model": "intfloat/multilingual-e5-large-instruct",
+        "score": 58.89
+      },
+      {
+        "model": "infgrad/Jasper-Token-Compression-600M",
+        "score": 58.59
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-330M",
+        "score": 58.46
+      },
+      {
+        "model": "mteb/baseline-bm25s",
+        "score": 58.2
+      },
+      {
+        "model": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+        "score": 57.87
+      },
+      {
+        "model": "hotchpotch/bekko-embedding-v1-a8m",
+        "score": 57.71
+      },
+      {
+        "model": "Alibaba-NLP/gte-multilingual-base",
+        "score": 57.52
+      },
+      {
+        "model": "HIT-TMG/KaLM-embedding-multilingual-mini-v1",
+        "score": 57.5
+      },
+      {
+        "model": "manu/bge-m3-custom-fr",
+        "score": 56.66
+      },
+      {
+        "model": "OrdalieTech/Solon-embeddings-large-0.1",
+        "score": 56.63
+      },
+      {
+        "model": "HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v1",
+        "score": 56.6
+      },
+      {
+        "model": "deepvk/USER-bge-m3",
+        "score": 56.52
+      },
+      {
+        "model": "Cohere/Cohere-embed-multilingual-v3.0",
+        "score": 56.46
+      },
+      {
+        "model": "nvidia/NV-Embed-v1",
+        "score": 56.03
+      },
+      {
+        "model": "Alibaba-NLP/gte-Qwen1.5-7B-instruct",
+        "score": 56.0
+      },
+      {
+        "model": "Lajavaness/bilingual-embedding-large",
+        "score": 55.66
+      },
+      {
+        "model": "NovaSearch/stella_en_1.5B_v5",
+        "score": 54.7
+      },
+      {
+        "model": "Cohere/Cohere-embed-multilingual-light-v3.0",
+        "score": 54.28
+      },
+      {
+        "model": "NovaSearch/stella_en_400M_v5",
+        "score": 53.96
+      },
+      {
+        "model": "nomic-ai/nomic-embed-text-v1-unsupervised",
+        "score": 53.64
+      },
+      {
+        "model": "nvidia/NV-Embed-v2",
+        "score": 53.54
+      },
+      {
+        "model": "Lajavaness/bilingual-embedding-small",
+        "score": 53.39
+      },
+      {
+        "model": "Cohere/Cohere-embed-english-v3.0",
+        "score": 52.91
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-160M",
+        "score": 52.79
+      },
+      {
+        "model": "Lajavaness/bilingual-embedding-base",
+        "score": 52.66
+      },
+      {
+        "model": "intfloat/multilingual-e5-large",
+        "score": 52.59
+      },
+      {
+        "model": "intfloat/multilingual-e5-base",
+        "score": 52.33
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-l",
+        "score": 52.16
+      },
+      {
+        "model": "w601sxs/b1ade-embed",
+        "score": 50.95
+      },
+      {
+        "model": "avsolatorio/GIST-large-Embedding-v0",
+        "score": 50.75
+      },
+      {
+        "model": "intfloat/e5-large-v2",
+        "score": 50.73
+      },
+      {
+        "model": "jinaai/jina-embedding-b-en-v1",
+        "score": 50.66
+      },
+      {
+        "model": "ibm-granite/granite-embedding-278m-multilingual",
+        "score": 50.54
+      },
+      {
+        "model": "thenlper/gte-large",
+        "score": 50.47
+      },
+      {
+        "model": "intfloat/multilingual-e5-small",
+        "score": 50.41
+      },
+      {
+        "model": "intfloat/e5-large",
+        "score": 50.35
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-m",
+        "score": 50.26
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-m-v1.5",
+        "score": 50.15
+      },
+      {
+        "model": "ibm-granite/granite-embedding-125m-english",
+        "score": 49.93
+      },
+      {
+        "model": "dwzhu/e5-base-4k",
+        "score": 49.93
+      },
+      {
+        "model": "manu/sentence_croissant_alpha_v0.4",
+        "score": 49.9
+      },
+      {
+        "model": "manu/sentence_croissant_alpha_v0.3",
+        "score": 49.68
+      },
+      {
+        "model": "nomic-ai/nomic-embed-text-v1",
+        "score": 49.65
+      },
+      {
+        "model": "avsolatorio/GIST-Embedding-v0",
+        "score": 49.59
+      },
+      {
+        "model": "Cohere/Cohere-embed-english-light-v3.0",
+        "score": 49.34
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-s",
+        "score": 49.28
+      },
+      {
+        "model": "BAAI/bge-base-en-v1.5",
+        "score": 49.21
+      },
+      {
+        "model": "deepfile/embedder-100p",
+        "score": 49.13
+      },
+      {
+        "model": "thenlper/gte-base",
+        "score": 49.07
+      },
+      {
+        "model": "Mihaiii/Ivysaur",
+        "score": 48.95
+      },
+      {
+        "model": "mixedbread-ai/mxbai-embed-large-v1",
+        "score": 48.89
+      },
+      {
+        "model": "intfloat/e5-base-v2",
+        "score": 48.61
+      },
+      {
+        "model": "avsolatorio/GIST-small-Embedding-v0",
+        "score": 48.48
+      },
+      {
+        "model": "BAAI/bge-large-en-v1.5",
+        "score": 48.47
+      },
+      {
+        "model": "thenlper/gte-small",
+        "score": 48.42
+      },
+      {
+        "model": "avsolatorio/GIST-all-MiniLM-L6-v2",
+        "score": 48.42
+      },
+      {
+        "model": "WhereIsAI/UAE-Large-V1",
+        "score": 48.26
+      },
+      {
+        "model": "sdadas/mmlw-e5-large",
+        "score": 48.23
+      },
+      {
+        "model": "manu/sentence_croissant_alpha_v0.2",
+        "score": 48.09
+      },
+      {
+        "model": "intfloat/e5-small-v2",
+        "score": 48.04
+      },
+      {
+        "model": "avsolatorio/NoInstruct-small-Embedding-v0",
+        "score": 47.88
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-m-long",
+        "score": 47.77
+      },
+      {
+        "model": "McGill-NLP/LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised",
+        "score": 47.74
+      },
+      {
+        "model": "infgrad/stella-base-en-v2",
+        "score": 47.43
+      },
+      {
+        "model": "BAAI/bge-small-en-v1.5",
+        "score": 47.24
+      },
+      {
+        "model": "ibm-granite/granite-embedding-107m-multilingual",
+        "score": 47.12
+      },
+      {
+        "model": "jinaai/jina-embedding-s-en-v1",
+        "score": 47.01
+      },
+      {
+        "model": "intfloat/e5-small",
+        "score": 47.0
+      },
+      {
+        "model": "sdadas/mmlw-e5-base",
+        "score": 46.83
+      },
+      {
+        "model": "intfloat/e5-base",
+        "score": 46.76
+      },
+      {
+        "model": "sdadas/mmlw-roberta-large",
+        "score": 46.71
+      },
+      {
+        "model": "codefuse-ai/F2LLM-v2-80M",
+        "score": 46.67
+      },
+      {
+        "model": "Snowflake/snowflake-arctic-embed-xs",
+        "score": 46.41
+      },
+      {
+        "model": "sentence-transformers/all-mpnet-base-v2",
+        "score": 46.22
+      },
+      {
+        "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+        "score": 46.17
+      },
+      {
+        "model": "abhinand/MedEmbed-small-v0.1",
+        "score": 45.97
+      },
+      {
+        "model": "Mihaiii/gte-micro-v4",
+        "score": 45.05
+      },
+      {
+        "model": "sdadas/mmlw-e5-small",
+        "score": 44.96
+      },
+      {
+        "model": "nomic-ai/nomic-embed-text-v1.5",
+        "score": 44.87
+      },
+      {
+        "model": "ibm-granite/granite-embedding-30m-english",
+        "score": 44.83
+      },
+      {
+        "model": "sdadas/mmlw-roberta-base",
+        "score": 44.42
+      },
+      {
+        "model": "Mihaiii/Bulbasaur",
+        "score": 44.26
+      },
+      {
+        "model": "sentence-transformers/all-MiniLM-L6-v2",
+        "score": 43.84
+      },
+      {
+        "model": "brahmairesearch/slx-v0.1",
+        "score": 43.84
+      },
+      {
+        "model": "omarelshehy/arabic-english-sts-matryoshka",
+        "score": 43.49
+      },
+      {
+        "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+        "score": 42.38
+      },
+      {
+        "model": "sergeyzh/LaBSE-ru-turbo",
+        "score": 42.34
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Arabic-labse-Matryoshka",
+        "score": 42.18
+      },
+      {
+        "model": "aari1995/German_Semantic_STS_V2",
+        "score": 42.11
+      },
+      {
+        "model": "ai-forever/ru-en-RoSBERTa",
+        "score": 42.09
+      },
+      {
+        "model": "minishlab/potion-multilingual-128M",
+        "score": 41.98
+      },
+      {
+        "model": "sentence-transformers/all-MiniLM-L12-v2",
+        "score": 41.88
+      },
+      {
+        "model": "minishlab/potion-base-8M",
+        "score": 41.76
+      },
+      {
+        "model": "Haon-Chen/speed-embedding-7b-instruct",
+        "score": 41.76
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Arabic-all-nli-triplet-Matryoshka",
+        "score": 40.45
+      },
+      {
+        "model": "Mihaiii/Wartortle",
+        "score": 40.34
+      },
+      {
+        "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+        "score": 40.13
+      },
+      {
+        "model": "minishlab/potion-base-4M",
+        "score": 39.66
+      },
+      {
+        "model": "bigscience/sgpt-bloom-7b1-msmarco",
+        "score": 39.07
+      },
+      {
+        "model": "Mihaiii/Venusaur",
+        "score": 38.52
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Arabic-MiniLM-L12-v2-all-nli-triplet",
+        "score": 38.31
+      },
+      {
+        "model": "sentence-transformers/LaBSE",
+        "score": 38.16
+      },
+      {
+        "model": "cointegrated/LaBSE-en-ru",
+        "score": 37.76
+      },
+      {
+        "model": "minishlab/M2V_base_output",
+        "score": 37.27
+      },
+      {
+        "model": "minishlab/M2V_base_glove_subword",
+        "score": 36.75
+      },
+      {
+        "model": "Mihaiii/Squirtle",
+        "score": 36.54
+      },
+      {
+        "model": "minishlab/M2V_base_glove",
+        "score": 36.51
+      },
+      {
+        "model": "Gameselo/STS-multilingual-mpnet-base-v2",
+        "score": 36.28
+      },
+      {
+        "model": "consciousAI/cai-lunaris-text-embeddings",
+        "score": 36.12
+      },
+      {
+        "model": "shibing624/text2vec-base-multilingual",
+        "score": 36.02
+      },
+      {
+        "model": "minishlab/potion-base-2M",
+        "score": 35.27
+      },
+      {
+        "model": "McGill-NLP/LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse",
+        "score": 35.02
+      },
+      {
+        "model": "deepvk/USER-base",
+        "score": 33.59
+      },
+      {
+        "model": "Mihaiii/gte-micro",
+        "score": 31.91
+      },
+      {
+        "model": "sergeyzh/rubert-tiny-turbo",
+        "score": 29.22
+      },
+      {
+        "model": "cointegrated/rubert-tiny2",
+        "score": 27.98
+      },
+      {
+        "model": "silma-ai/silma-embeddding-matryoshka-v0.1",
+        "score": 25.21
+      },
+      {
+        "model": "cointegrated/rubert-tiny",
+        "score": 24.61
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Arabic-mpnet-base-all-nli-triplet",
+        "score": 24.56
+      },
+      {
+        "model": "Jaume/gemma-2b-embeddings",
+        "score": 22.71
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Arabert-all-nli-triplet-Matryoshka",
+        "score": 20.33
+      },
+      {
+        "model": "jinaai/jina-embeddings-v2-small-en",
+        "score": 19.45
+      },
+      {
+        "model": "DeepPavlov/distilrubert-small-cased-conversational",
+        "score": 18.47
+      },
+      {
+        "model": "DeepPavlov/rubert-base-cased-sentence",
+        "score": 16.28
+      },
+      {
+        "model": "Omartificial-Intelligence-Space/Marbert-all-nli-triplet-Matryoshka",
+        "score": 14.63
+      },
+      {
+        "model": "ai-forever/sbert_large_nlu_ru",
+        "score": 14.21
+      },
+      {
+        "model": "ai-forever/sbert_large_mt_nlu_ru",
+        "score": 13.06
+      },
+      {
+        "model": "malenia1/ternary-weight-embedding",
+        "score": 11.2
+      },
+      {
+        "model": "DeepPavlov/rubert-base-cased",
+        "score": 11.13
+      },
+      {
+        "model": "deepvk/deberta-v1-base",
+        "score": 8.51
+      },
+      {
+        "model": "jinaai/jina-embeddings-v2-base-en",
+        "score": 3.9
+      }
+    ]
+  },
+  "who_is_missing": {
+    "question": "how many of the top 20 on MTEB(eng, v2) have complete Law results",
+    "absent": [
+      "jcorners/ingot-8b-r3",
+      "Kingsoft-LLM/QZhou-Embedding",
+      "Qwen/Qwen3-Embedding-8B",
+      "ByteDance-Seed/Seed1.5-Embedding",
+      "Qwen/Qwen3-Embedding-4B",
+      "annamodels/LGAI-Embedding-Preview",
+      "Bytedance/Seed1.6-embedding",
+      "codefuse-ai/F2LLM-4B",
+      "google/gemini-embedding-001",
+      "ai-sage/Giga-Embeddings-instruct-10B-A1.8B-0826",
+      "codefuse-ai/F2LLM-1.7B",
+      "ai-sage/Giga-Embeddings-instruct-3B-0826",
+      "jinaai/jina-embeddings-v5-omni-small",
+      "jinaai/jina-embeddings-v5-text-small",
+      "IEITYuan/Yuan-embedding-2.0-en"
+    ],
+    "n_absent": 15
+  },
+  "per_task": {
+    "AILACasedocs": 63.98,
+    "AILAStatutes": 95.5,
+    "LegalBenchCorporateLobbying": 95.85,
+    "LegalBenchConsumerContractsQA": 84.99,
+    "GerDaLIRSmall": 47.85,
+    "LegalSummarization": 76.27,
+    "LeCaRDv2": 75.71,
+    "LegalQuAD": 74.05
+  },
+  "ranking": [
+    {
+      "model": "litillabs/octen-law-8b-v1",
+      "score": 76.77,
+      "active_params": 6946000000,
+      "total_params": 7567000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-08-25",
+      "languages": [
+        "Chinese",
+        "English",
+        "German"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Hanno-Labs/dinghy-law-8b-v1",
+      "score": 72.58,
+      "active_params": 7433000000,
+      "total_params": 7969000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-07-31",
+      "languages": [
+        "Chinese",
+        "English",
+        "German"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Hanno-Labs/dinghy-law-4b-v1",
+      "score": 71.22,
+      "active_params": 3640000000,
+      "total_params": 4028000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-07-22",
+      "languages": [
+        "Chinese",
+        "English",
+        "German"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Mira190/Euler-Legal-Embedding-V1",
+      "score": 70.37,
+      "active_params": 6946000000,
+      "total_params": 7567000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2025-11-06",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "minetta/nemotron-3-embed-8b-legal",
+      "score": 69.33,
+      "active_params": 7416000000,
+      "total_params": 7953000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-07-25",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Hanno-Labs/dinghy-law-0.6b-v1",
+      "score": 65.83,
+      "active_params": 442000000,
+      "total_params": 597000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-07-13",
+      "languages": [
+        "Chinese",
+        "English",
+        "German"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "voyageai/voyage-law-2",
+      "score": 65.39,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-15",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-14B",
+      "score": 64.66,
+      "active_params": 13214000000,
+      "total_params": 13990000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-03-09",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Korean",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "North Azerbaijani",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Occitan (post 1500)",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Pushto",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "South Azerbaijani",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tajik",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Waray (Philippines)",
+        "Welsh",
+        "c#-Code (Code)",
+        "c++-Code (Code)",
+        "c-Code (Code)",
+        "go-Code (Code)",
+        "java-Code (Code)",
+        "javascript-Code (Code)",
+        "php-Code (Code)",
+        "python-Code (Code)",
+        "ruby-Code (Code)",
+        "rust-Code (Code)",
+        "sql-Code (Code)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "judicialmind/greenleaf-law-embed-tiny",
+      "score": 64.49,
+      "active_params": 441000000,
+      "total_params": 596000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-08-22",
+      "languages": [
+        "Arabic",
+        "Bulgarian",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Finnish",
+        "French",
+        "German",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Korean (Korean)",
+        "Latvian",
+        "Lithuanian",
+        "Malay (macrolanguage)",
+        "Modern Greek (1453-)",
+        "Norwegian",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Slovak",
+        "Slovenian",
+        "Spanish",
+        "Swedish",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Vietnamese"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "voyageai/voyage-3",
+      "score": 64.13,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-09-18",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "infly/inf-retriever-v1",
+      "score": 63.68,
+      "active_params": 6526000000,
+      "total_params": 7069000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-12-24",
+      "languages": [
+        "Chinese",
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-8B",
+      "score": 63.54,
+      "active_params": 6947000000,
+      "total_params": 7568000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-03-09",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Korean",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "North Azerbaijani",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Occitan (post 1500)",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Pushto",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "South Azerbaijani",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tajik",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Waray (Philippines)",
+        "Welsh",
+        "c#-Code (Code)",
+        "c++-Code (Code)",
+        "c-Code (Code)",
+        "go-Code (Code)",
+        "java-Code (Code)",
+        "javascript-Code (Code)",
+        "php-Code (Code)",
+        "python-Code (Code)",
+        "ruby-Code (Code)",
+        "rust-Code (Code)",
+        "sql-Code (Code)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "ICT-TIME-and-Querit/ICT-TIME-and-Querit-embedding-v1",
+      "score": 62.23,
+      "active_params": 3633000000,
+      "total_params": 4022000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-05-02",
+      "languages": [
+        "Arabic",
+        "Bengali",
+        "Chinese",
+        "English",
+        "Finnish",
+        "French",
+        "German",
+        "Hindi",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Korean",
+        "Persian",
+        "Russian",
+        "Spanish",
+        "Swahili (individual language)",
+        "Telugu",
+        "Thai"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "infly/inf-retriever-v1-1.5b",
+      "score": 62.03,
+      "active_params": 1310000000,
+      "total_params": 1543000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2025-02-08",
+      "languages": [
+        "Chinese",
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-4B",
+      "score": 61.53,
+      "active_params": 3634000000,
+      "total_params": 4022000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-03-09",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Korean",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "North Azerbaijani",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Occitan (post 1500)",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Pushto",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "South Azerbaijani",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tajik",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Waray (Philippines)",
+        "Welsh",
+        "c#-Code (Code)",
+        "c++-Code (Code)",
+        "c-Code (Code)",
+        "go-Code (Code)",
+        "java-Code (Code)",
+        "javascript-Code (Code)",
+        "php-Code (Code)",
+        "python-Code (Code)",
+        "ruby-Code (Code)",
+        "rust-Code (Code)",
+        "sql-Code (Code)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "voyageai/voyage-3-lite",
+      "score": 60.75,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-09-18",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "ICT-TIME-and-Querit/BOOM_4B_v1",
+      "score": 60.41,
+      "active_params": 3633000000,
+      "total_params": 4022000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-01-31",
+      "languages": [
+        "Arabic",
+        "Bengali",
+        "Chinese",
+        "English",
+        "Finnish",
+        "French",
+        "German",
+        "Hindi",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Korean",
+        "Persian",
+        "Russian",
+        "Spanish",
+        "Swahili (individual language)",
+        "Telugu",
+        "Thai"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-1.7B",
+      "score": 60.32,
+      "active_params": 1410000000,
+      "total_params": 1721000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-03-09",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Korean",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "North Azerbaijani",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Occitan (post 1500)",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Pushto",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "South Azerbaijani",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tajik",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Waray (Philippines)",
+        "Welsh",
+        "c#-Code (Code)",
+        "c++-Code (Code)",
+        "c-Code (Code)",
+        "go-Code (Code)",
+        "java-Code (Code)",
+        "javascript-Code (Code)",
+        "php-Code (Code)",
+        "python-Code (Code)",
+        "ruby-Code (Code)",
+        "rust-Code (Code)",
+        "sql-Code (Code)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "openai/text-embedding-3-large",
+      "score": 59.36,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-01-25",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-l-v2.0",
+      "score": 58.96,
+      "active_params": 312000000,
+      "total_params": 568000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-12-04",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Haitian",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Kirghiz",
+        "Korean",
+        "Lao",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "Panjabi",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Quechua (Latin)",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese",
+        "Welsh",
+        "Yoruba"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "NovaSearch/jasper_en_vision_language_v1",
+      "score": 58.78,
+      "active_params": 1332000000,
+      "total_params": 1565000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-12-11",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-0.6B",
+      "score": 57.86,
+      "active_params": 441000000,
+      "total_params": 596000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-03-09",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Korean",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "North Azerbaijani",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Occitan (post 1500)",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Pushto",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "South Azerbaijani",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tajik",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Waray (Philippines)",
+        "Welsh",
+        "c#-Code (Code)",
+        "c++-Code (Code)",
+        "c-Code (Code)",
+        "go-Code (Code)",
+        "java-Code (Code)",
+        "javascript-Code (Code)",
+        "php-Code (Code)",
+        "python-Code (Code)",
+        "ruby-Code (Code)",
+        "rust-Code (Code)",
+        "sql-Code (Code)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a25m",
+      "score": 57.62,
+      "active_params": 25000000,
+      "total_params": 123000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-07-28",
+      "languages": [
+        "Afrikaans",
+        "Amharic",
+        "Angika",
+        "Armenian",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Betawi",
+        "Bosnian",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Central Kurdish",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "Egyptian Arabic",
+        "Esperanto",
+        "Fiji Hindi (Latin)",
+        "Filipino",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Haitian",
+        "Halh Mongolian",
+        "Hebrew",
+        "Hindi",
+        "Hmong Daw (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Kirghiz",
+        "Korean",
+        "Lao",
+        "Latin",
+        "Lithuanian",
+        "Luxembourgish",
+        "Macedonian",
+        "Malayalam",
+        "Maltese",
+        "Mandarin Chinese (Han)",
+        "Maori",
+        "Marathi",
+        "Middle High German (ca. 1050-1500) (Latin)",
+        "Modern Greek (1453-)",
+        "Moroccan Arabic",
+        "Najdi Arabic",
+        "Narom (Latin)",
+        "Neapolitan (Latin)",
+        "Nepali (individual language)",
+        "Nigerian Pidgin",
+        "North Azerbaijani",
+        "Northern Kurdish",
+        "Northern Uzbek",
+        "Northern Uzbek (Cyrillic)",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Odia",
+        "Panjabi",
+        "Persian",
+        "Plateau Malagasy",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Scottish Gaelic",
+        "Serbian",
+        "Serbian (Latin)",
+        "Sindhi",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Southern Pashto",
+        "Spanish",
+        "Standard Arabic",
+        "Standard Estonian (Latin)",
+        "Standard Latvian",
+        "Standard Malay",
+        "Swahili (individual language)",
+        "Swedish",
+        "Swiss German",
+        "Tajik",
+        "Tamil",
+        "Tatar",
+        "Telugu",
+        "Thai",
+        "Tibetan",
+        "Tosk Albanian",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese",
+        "Vlax Romani (Latin)",
+        "Welsh",
+        "Western Frisian",
+        "Xhosa",
+        "Yue Chinese (Han)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "jinaai/jina-embeddings-v3",
+      "score": 56.88,
+      "active_params": 316000000,
+      "total_params": 572000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-09-18",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic (Latin)",
+        "Arabic (Latin)",
+        "Armenian (Latin)",
+        "Assamese (Latin)",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian (Latin)",
+        "Bengali",
+        "Bengali (Latin)",
+        "Bosnian",
+        "Breton",
+        "Bulgarian (Latin)",
+        "Burmese (Latin)",
+        "Catalan",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian (Latin)",
+        "German",
+        "Gujarati (Latin)",
+        "Hausa",
+        "Hebrew (Latin)",
+        "Hindi",
+        "Hindi (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese (Latin)",
+        "Javanese",
+        "Kannada (Latin)",
+        "Kazakh (Latin)",
+        "Khmer (Latin)",
+        "Kirghiz (Latin)",
+        "Korean (Latin)",
+        "Kurdish (Latin)",
+        "Lao (Latin)",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian (Latin)",
+        "Malagasy (Latin)",
+        "Malay (macrolanguage)",
+        "Malayalam (Latin)",
+        "Marathi (Latin)",
+        "Modern Greek (1453-) (Latin)",
+        "Mongolian (Latin)",
+        "Nepali (macrolanguage) (Latin)",
+        "Norwegian Bokm\u00e5l",
+        "Oriya (macrolanguage) (Latin)",
+        "Oromo (Latin)",
+        "Panjabi (Latin)",
+        "Persian (Latin)",
+        "Polish",
+        "Portuguese",
+        "Pushto (Latin)",
+        "Romanian",
+        "Russian (Latin)",
+        "Sanskrit (Latin)",
+        "Scottish Gaelic",
+        "Serbian (Latin)",
+        "Sindhi (Latin)",
+        "Sinhala (Latin)",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Spanish",
+        "Sundanese",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tamil",
+        "Tamil (Latin)",
+        "Telugu",
+        "Telugu (Latin)",
+        "Thai (Latin)",
+        "Turkish",
+        "Uighur (Latin)",
+        "Ukrainian (Latin)",
+        "Urdu",
+        "Urdu (Latin)",
+        "Uzbek",
+        "Vietnamese",
+        "Welsh",
+        "Western Frisian",
+        "Xhosa",
+        "Yiddish (Latin)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "GritLM/GritLM-7B",
+      "score": 56.73,
+      "active_params": 7109000000,
+      "total_params": 7240000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-15",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Spanish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-330M",
+      "score": 56.68,
+      "active_params": 198000000,
+      "total_params": 334000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-03-09",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Korean",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "North Azerbaijani",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Occitan (post 1500)",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Pushto",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "South Azerbaijani",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tajik",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Waray (Philippines)",
+        "Welsh",
+        "c#-Code (Code)",
+        "c++-Code (Code)",
+        "c-Code (Code)",
+        "go-Code (Code)",
+        "java-Code (Code)",
+        "javascript-Code (Code)",
+        "php-Code (Code)",
+        "python-Code (Code)",
+        "ruby-Code (Code)",
+        "rust-Code (Code)",
+        "sql-Code (Code)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-v2.0",
+      "score": 56.61,
+      "active_params": 113000000,
+      "total_params": 305000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-12-04",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Haitian",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Kirghiz",
+        "Korean",
+        "Lao",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "Panjabi",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Quechua (Latin)",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese",
+        "Welsh",
+        "Yoruba"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "openai/text-embedding-3-small",
+      "score": 56.27,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-01-25",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "Salesforce/SFR-Embedding-2_R",
+      "score": 55.81,
+      "active_params": 6980000000,
+      "total_params": 7111000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-14",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen2-1.5B-instruct",
+      "score": 55.63,
+      "active_params": 1310000000,
+      "total_params": 1543000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-07-29",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "mteb/baseline-bm25s",
+      "score": 55.57,
+      "active_params": 0,
+      "total_params": 0,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-05-06",
+      "languages": [
+        "Chinese",
+        "Chinese (Traditional)",
+        "Dutch",
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Mandarin Chinese",
+        "Mandarin Chinese (Traditional)",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Portuguese",
+        "Spanish",
+        "Swedish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a8m",
+      "score": 55.44,
+      "active_params": 8000000,
+      "total_params": 106000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-07-28",
+      "languages": [
+        "Afrikaans",
+        "Amharic",
+        "Angika",
+        "Armenian",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Betawi",
+        "Bosnian",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Central Kurdish",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "Egyptian Arabic",
+        "Esperanto",
+        "Fiji Hindi (Latin)",
+        "Filipino",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Haitian",
+        "Halh Mongolian",
+        "Hebrew",
+        "Hindi",
+        "Hmong Daw (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Kirghiz",
+        "Korean",
+        "Lao",
+        "Latin",
+        "Lithuanian",
+        "Luxembourgish",
+        "Macedonian",
+        "Malayalam",
+        "Maltese",
+        "Mandarin Chinese (Han)",
+        "Maori",
+        "Marathi",
+        "Middle High German (ca. 1050-1500) (Latin)",
+        "Modern Greek (1453-)",
+        "Moroccan Arabic",
+        "Najdi Arabic",
+        "Narom (Latin)",
+        "Neapolitan (Latin)",
+        "Nepali (individual language)",
+        "Nigerian Pidgin",
+        "North Azerbaijani",
+        "Northern Kurdish",
+        "Northern Uzbek",
+        "Northern Uzbek (Cyrillic)",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Odia",
+        "Panjabi",
+        "Persian",
+        "Plateau Malagasy",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Scottish Gaelic",
+        "Serbian",
+        "Serbian (Latin)",
+        "Sindhi",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Southern Pashto",
+        "Spanish",
+        "Standard Arabic",
+        "Standard Estonian (Latin)",
+        "Standard Latvian",
+        "Standard Malay",
+        "Swahili (individual language)",
+        "Swedish",
+        "Swiss German",
+        "Tajik",
+        "Tamil",
+        "Tatar",
+        "Telugu",
+        "Thai",
+        "Tibetan",
+        "Tosk Albanian",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese",
+        "Vlax Romani (Latin)",
+        "Welsh",
+        "Western Frisian",
+        "Xhosa",
+        "Yue Chinese (Han)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Linq-AI-Research/Linq-Embed-Mistral",
+      "score": 55.41,
+      "active_params": 6980000000,
+      "total_params": 7111000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-05-29",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "infgrad/Jasper-Token-Compression-600M",
+      "score": 55.41,
+      "active_params": 452000000,
+      "total_params": 607000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2025-11-14",
+      "languages": [
+        "Chinese",
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Salesforce/SFR-Embedding-Mistral",
+      "score": 55.28,
+      "active_params": 6980000000,
+      "total_params": 7111000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-01-24",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "manu/bge-m3-custom-fr",
+      "score": 55.12,
+      "active_params": 312000000,
+      "total_params": 568000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-11",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "intfloat/multilingual-e5-large-instruct",
+      "score": 54.87,
+      "active_params": 304000000,
+      "total_params": 560000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-08",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic (Latin)",
+        "Arabic (Latin)",
+        "Armenian (Latin)",
+        "Assamese (Latin)",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian (Latin)",
+        "Bengali",
+        "Bengali (Latin)",
+        "Bosnian",
+        "Breton",
+        "Bulgarian (Latin)",
+        "Burmese (Latin)",
+        "Catalan",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian (Latin)",
+        "German",
+        "Gujarati (Latin)",
+        "Hausa",
+        "Hebrew (Latin)",
+        "Hindi",
+        "Hindi (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese (Latin)",
+        "Javanese",
+        "Kannada (Latin)",
+        "Kazakh (Latin)",
+        "Khmer (Latin)",
+        "Kirghiz (Latin)",
+        "Korean (Latin)",
+        "Kurdish (Latin)",
+        "Lao (Latin)",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian (Latin)",
+        "Malagasy (Latin)",
+        "Malay (macrolanguage)",
+        "Malayalam (Latin)",
+        "Marathi (Latin)",
+        "Modern Greek (1453-) (Latin)",
+        "Mongolian (Latin)",
+        "Nepali (macrolanguage) (Latin)",
+        "Norwegian Bokm\u00e5l",
+        "Oriya (macrolanguage) (Latin)",
+        "Oromo (Latin)",
+        "Panjabi (Latin)",
+        "Persian (Latin)",
+        "Polish",
+        "Portuguese",
+        "Pushto (Latin)",
+        "Romanian",
+        "Russian (Latin)",
+        "Sanskrit (Latin)",
+        "Scottish Gaelic",
+        "Serbian (Latin)",
+        "Sindhi (Latin)",
+        "Sinhala (Latin)",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Spanish",
+        "Sundanese",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tamil",
+        "Tamil (Latin)",
+        "Telugu",
+        "Telugu (Latin)",
+        "Thai (Latin)",
+        "Turkish",
+        "Uighur (Latin)",
+        "Ukrainian (Latin)",
+        "Urdu",
+        "Urdu (Latin)",
+        "Uzbek",
+        "Vietnamese",
+        "Welsh",
+        "Western Frisian",
+        "Xhosa",
+        "Yiddish (Latin)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v1",
+      "score": 54.55,
+      "active_params": 358000000,
+      "total_params": 494000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-10-23",
+      "languages": [
+        "Chinese",
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Alibaba-NLP/gte-multilingual-base",
+      "score": 54.52,
+      "active_params": 113000000,
+      "total_params": 305000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-07-20",
+      "languages": [
+        "Afrikaans",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Haitian",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Kirghiz",
+        "Korean",
+        "Lao",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Panjabi",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Quechua (Latin)",
+        "Romanian",
+        "Russian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Tagalog",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese",
+        "Welsh",
+        "Yoruba"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "intfloat/e5-mistral-7b-instruct",
+      "score": 54.31,
+      "active_params": 6980000000,
+      "total_params": 7111000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-08",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Spanish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+      "score": 54.24,
+      "active_params": 6526000000,
+      "total_params": 7069000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-15",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "GritLM/GritLM-8x7B",
+      "score": 54.08,
+      "active_params": 13000000000,
+      "total_params": 57920000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-15",
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Spanish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "HIT-TMG/KaLM-embedding-multilingual-mini-v1",
+      "score": 53.87,
+      "active_params": 358000000,
+      "total_params": 494000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-08-27",
+      "languages": [
+        "Chinese",
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "OrdalieTech/Solon-embeddings-large-0.1",
+      "score": 53.74,
+      "active_params": 304000000,
+      "total_params": 560000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-12-09",
+      "languages": [
+        "French"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Lajavaness/bilingual-embedding-large",
+      "score": 52.29,
+      "active_params": 304000000,
+      "total_params": 560000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-24",
+      "languages": [
+        "English",
+        "French"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Cohere/Cohere-embed-multilingual-v3.0",
+      "score": 52.08,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-11-02",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Assamese",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bosnian",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Corsican (Latin)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Haitian",
+        "Hausa",
+        "Hawaiian (Latin)",
+        "Hebrew",
+        "Hindi",
+        "Hmong (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Igbo",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Kinyarwanda",
+        "Kirghiz",
+        "Korean (Korean)",
+        "Kurdish",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Luxembourgish",
+        "Macedonian",
+        "Malagasy (Latin)",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Maltese",
+        "Maori",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Nyanja",
+        "Oriya (macrolanguage)",
+        "Panjabi",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Samoan",
+        "Scottish Gaelic",
+        "Serbian",
+        "Shona",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Southern Sotho",
+        "Spanish",
+        "Sundanese",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tajik",
+        "Tamil",
+        "Tatar",
+        "Telugu",
+        "Thai",
+        "Tibetan",
+        "Turkish",
+        "Turkmen",
+        "Uighur",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Welsh",
+        "Western Frisian",
+        "Wolof",
+        "Xhosa",
+        "Yiddish",
+        "Yoruba",
+        "Zulu"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen1.5-7B-instruct",
+      "score": 51.62,
+      "active_params": 6477000000,
+      "total_params": 7099000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-20",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "NovaSearch/stella_en_1.5B_v5",
+      "score": 50.27,
+      "active_params": 1307000000,
+      "total_params": 1540000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-07-12",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Cohere/Cohere-embed-multilingual-light-v3.0",
+      "score": 50.17,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-11-02",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Assamese",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bosnian",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Corsican (Latin)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Haitian",
+        "Hausa",
+        "Hawaiian (Latin)",
+        "Hebrew",
+        "Hindi",
+        "Hmong (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Igbo",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Kinyarwanda",
+        "Kirghiz",
+        "Korean (Korean)",
+        "Kurdish",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Luxembourgish",
+        "Macedonian",
+        "Malagasy (Latin)",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Maltese",
+        "Maori",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Nyanja",
+        "Oriya (macrolanguage)",
+        "Panjabi",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Samoan",
+        "Scottish Gaelic",
+        "Serbian",
+        "Shona",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Southern Sotho",
+        "Spanish",
+        "Sundanese",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tajik",
+        "Tamil",
+        "Tatar",
+        "Telugu",
+        "Thai",
+        "Tibetan",
+        "Turkish",
+        "Turkmen",
+        "Uighur",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Welsh",
+        "Western Frisian",
+        "Wolof",
+        "Xhosa",
+        "Yiddish",
+        "Yoruba",
+        "Zulu"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-160M",
+      "score": 49.91,
+      "active_params": 62000000,
+      "total_params": 159000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-03-09",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Korean",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "North Azerbaijani",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Occitan (post 1500)",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Pushto",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "South Azerbaijani",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tajik",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Waray (Philippines)",
+        "Welsh",
+        "c#-Code (Code)",
+        "c++-Code (Code)",
+        "c-Code (Code)",
+        "go-Code (Code)",
+        "java-Code (Code)",
+        "javascript-Code (Code)",
+        "php-Code (Code)",
+        "python-Code (Code)",
+        "ruby-Code (Code)",
+        "rust-Code (Code)",
+        "sql-Code (Code)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Lajavaness/bilingual-embedding-small",
+      "score": 49.39,
+      "active_params": 22000000,
+      "total_params": 118000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-07-17",
+      "languages": [
+        "English",
+        "French"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Lajavaness/bilingual-embedding-base",
+      "score": 48.96,
+      "active_params": 86000000,
+      "total_params": 278000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-26",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "intfloat/multilingual-e5-base",
+      "score": 48.53,
+      "active_params": 86000000,
+      "total_params": 278000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-08",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic (Latin)",
+        "Arabic (Latin)",
+        "Armenian (Latin)",
+        "Assamese (Latin)",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian (Latin)",
+        "Bengali",
+        "Bengali (Latin)",
+        "Bosnian",
+        "Breton",
+        "Bulgarian (Latin)",
+        "Burmese (Latin)",
+        "Catalan",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian (Latin)",
+        "German",
+        "Gujarati (Latin)",
+        "Hausa",
+        "Hebrew (Latin)",
+        "Hindi",
+        "Hindi (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese (Latin)",
+        "Javanese",
+        "Kannada (Latin)",
+        "Kazakh (Latin)",
+        "Khmer (Latin)",
+        "Kirghiz (Latin)",
+        "Korean (Latin)",
+        "Kurdish (Latin)",
+        "Lao (Latin)",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian (Latin)",
+        "Malagasy (Latin)",
+        "Malay (macrolanguage)",
+        "Malayalam (Latin)",
+        "Marathi (Latin)",
+        "Modern Greek (1453-) (Latin)",
+        "Mongolian (Latin)",
+        "Nepali (macrolanguage) (Latin)",
+        "Norwegian Bokm\u00e5l",
+        "Oriya (macrolanguage) (Latin)",
+        "Oromo (Latin)",
+        "Panjabi (Latin)",
+        "Persian (Latin)",
+        "Polish",
+        "Portuguese",
+        "Pushto (Latin)",
+        "Romanian",
+        "Russian (Latin)",
+        "Sanskrit (Latin)",
+        "Scottish Gaelic",
+        "Serbian (Latin)",
+        "Sindhi (Latin)",
+        "Sinhala (Latin)",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Spanish",
+        "Sundanese",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tamil",
+        "Tamil (Latin)",
+        "Telugu",
+        "Telugu (Latin)",
+        "Thai (Latin)",
+        "Turkish",
+        "Uighur (Latin)",
+        "Ukrainian (Latin)",
+        "Urdu",
+        "Urdu (Latin)",
+        "Uzbek",
+        "Vietnamese",
+        "Welsh",
+        "Western Frisian",
+        "Xhosa",
+        "Yiddish (Latin)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "intfloat/multilingual-e5-large",
+      "score": 48.39,
+      "active_params": 304000000,
+      "total_params": 560000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-08",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic (Latin)",
+        "Arabic (Latin)",
+        "Armenian (Latin)",
+        "Assamese (Latin)",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian (Latin)",
+        "Bengali",
+        "Bengali (Latin)",
+        "Bosnian",
+        "Breton",
+        "Bulgarian (Latin)",
+        "Burmese (Latin)",
+        "Catalan",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian (Latin)",
+        "German",
+        "Gujarati (Latin)",
+        "Hausa",
+        "Hebrew (Latin)",
+        "Hindi",
+        "Hindi (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese (Latin)",
+        "Javanese",
+        "Kannada (Latin)",
+        "Kazakh (Latin)",
+        "Khmer (Latin)",
+        "Kirghiz (Latin)",
+        "Korean (Latin)",
+        "Kurdish (Latin)",
+        "Lao (Latin)",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian (Latin)",
+        "Malagasy (Latin)",
+        "Malay (macrolanguage)",
+        "Malayalam (Latin)",
+        "Marathi (Latin)",
+        "Modern Greek (1453-) (Latin)",
+        "Mongolian (Latin)",
+        "Nepali (macrolanguage) (Latin)",
+        "Norwegian Bokm\u00e5l",
+        "Oriya (macrolanguage) (Latin)",
+        "Oromo (Latin)",
+        "Panjabi (Latin)",
+        "Persian (Latin)",
+        "Polish",
+        "Portuguese",
+        "Pushto (Latin)",
+        "Romanian",
+        "Russian (Latin)",
+        "Sanskrit (Latin)",
+        "Scottish Gaelic",
+        "Serbian (Latin)",
+        "Sindhi (Latin)",
+        "Sinhala (Latin)",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Spanish",
+        "Sundanese",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tamil",
+        "Tamil (Latin)",
+        "Telugu",
+        "Telugu (Latin)",
+        "Thai (Latin)",
+        "Turkish",
+        "Uighur (Latin)",
+        "Ukrainian (Latin)",
+        "Urdu",
+        "Urdu (Latin)",
+        "Uzbek",
+        "Vietnamese",
+        "Welsh",
+        "Western Frisian",
+        "Xhosa",
+        "Yiddish (Latin)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "deepvk/USER-bge-m3",
+      "score": 47.4,
+      "active_params": 312000000,
+      "total_params": 359000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-07-05",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "intfloat/multilingual-e5-small",
+      "score": 47.36,
+      "active_params": 22000000,
+      "total_params": 118000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-08",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic (Latin)",
+        "Arabic (Latin)",
+        "Armenian (Latin)",
+        "Assamese (Latin)",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian (Latin)",
+        "Bengali",
+        "Bengali (Latin)",
+        "Bosnian",
+        "Breton",
+        "Bulgarian (Latin)",
+        "Burmese (Latin)",
+        "Catalan",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian (Latin)",
+        "German",
+        "Gujarati (Latin)",
+        "Hausa",
+        "Hebrew (Latin)",
+        "Hindi",
+        "Hindi (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese (Latin)",
+        "Javanese",
+        "Kannada (Latin)",
+        "Kazakh (Latin)",
+        "Khmer (Latin)",
+        "Kirghiz (Latin)",
+        "Korean (Latin)",
+        "Kurdish (Latin)",
+        "Lao (Latin)",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian (Latin)",
+        "Malagasy (Latin)",
+        "Malay (macrolanguage)",
+        "Malayalam (Latin)",
+        "Marathi (Latin)",
+        "Modern Greek (1453-) (Latin)",
+        "Mongolian (Latin)",
+        "Nepali (macrolanguage) (Latin)",
+        "Norwegian Bokm\u00e5l",
+        "Oriya (macrolanguage) (Latin)",
+        "Oromo (Latin)",
+        "Panjabi (Latin)",
+        "Persian (Latin)",
+        "Polish",
+        "Portuguese",
+        "Pushto (Latin)",
+        "Romanian",
+        "Russian (Latin)",
+        "Sanskrit (Latin)",
+        "Scottish Gaelic",
+        "Serbian (Latin)",
+        "Sindhi (Latin)",
+        "Sinhala (Latin)",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Spanish",
+        "Sundanese",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tamil",
+        "Tamil (Latin)",
+        "Telugu",
+        "Telugu (Latin)",
+        "Thai (Latin)",
+        "Turkish",
+        "Uighur (Latin)",
+        "Ukrainian (Latin)",
+        "Urdu",
+        "Urdu (Latin)",
+        "Uzbek",
+        "Vietnamese",
+        "Welsh",
+        "Western Frisian",
+        "Xhosa",
+        "Yiddish (Latin)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "nvidia/NV-Embed-v1",
+      "score": 46.49,
+      "active_params": 7719000000,
+      "total_params": 7850000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-09-13",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "ibm-granite/granite-embedding-278m-multilingual",
+      "score": 45.8,
+      "active_params": 86000000,
+      "total_params": 278000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-12-18",
+      "languages": [
+        "Arabic (Latin)",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Czech",
+        "Dutch",
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Japanese (Latin)",
+        "Korean (Latin)",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "nomic-ai/nomic-embed-text-v1-unsupervised",
+      "score": 45.48,
+      "active_params": null,
+      "total_params": 137000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-01-15",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "NovaSearch/stella_en_400M_v5",
+      "score": 44.91,
+      "active_params": null,
+      "total_params": 435000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-07-12",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+      "score": 44.82,
+      "active_params": 0,
+      "total_params": 108000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2025-01-15",
+      "languages": [
+        "Albanian",
+        "Arabic",
+        "Armenian",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Chinese",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Korean",
+        "Kurdish (Latin)",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Norwegian Bokm\u00e5l",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Slovak",
+        "Slovenian",
+        "Spanish",
+        "Swedish",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "nvidia/NV-Embed-v2",
+      "score": 44.32,
+      "active_params": 7719000000,
+      "total_params": 7850000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-09-09",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.4",
+      "score": 43.93,
+      "active_params": 1214000000,
+      "total_params": 1280000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-27",
+      "languages": [
+        "English",
+        "French"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.3",
+      "score": 43.47,
+      "active_params": 1214000000,
+      "total_params": 1280000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-26",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Cohere/Cohere-embed-english-v3.0",
+      "score": 43.09,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-11-02",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "score": 43.03,
+      "active_params": 32000000,
+      "total_params": 80000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2026-03-09",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Korean",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "North Azerbaijani",
+        "Norwegian",
+        "Norwegian Bokm\u00e5l",
+        "Norwegian Nynorsk",
+        "Occitan (post 1500)",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Pushto",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "South Azerbaijani",
+        "Spanish",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tagalog",
+        "Tajik",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Waray (Philippines)",
+        "Welsh",
+        "c#-Code (Code)",
+        "c++-Code (Code)",
+        "c-Code (Code)",
+        "go-Code (Code)",
+        "java-Code (Code)",
+        "javascript-Code (Code)",
+        "php-Code (Code)",
+        "python-Code (Code)",
+        "ruby-Code (Code)",
+        "rust-Code (Code)",
+        "sql-Code (Code)"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Haon-Chen/speed-embedding-7b-instruct",
+      "score": 42.95,
+      "active_params": 6980000000,
+      "total_params": 7111000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-10-31",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "manu/sentence_croissant_alpha_v0.2",
+      "score": 42.35,
+      "active_params": 1214000000,
+      "total_params": 1280000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-03-15",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "dwzhu/e5-base-4k",
+      "score": 41.92,
+      "active_params": 89000000,
+      "total_params": 112000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-03-28",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "ibm-granite/granite-embedding-107m-multilingual",
+      "score": 41.81,
+      "active_params": 11000000,
+      "total_params": 107000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-12-18",
+      "languages": [
+        "Arabic (Latin)",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Czech",
+        "Dutch",
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Japanese (Latin)",
+        "Korean (Latin)",
+        "Portuguese",
+        "Spanish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "w601sxs/b1ade-embed",
+      "score": 41.78,
+      "active_params": 304000000,
+      "total_params": 335000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2025-03-10",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "nomic-ai/nomic-embed-text-v1",
+      "score": 41.78,
+      "active_params": null,
+      "total_params": 137000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-01-31",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "intfloat/e5-large-v2",
+      "score": 41.73,
+      "active_params": 304000000,
+      "total_params": 335000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-08",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "deepfile/embedder-100p",
+      "score": 41.63,
+      "active_params": 86000000,
+      "total_params": 278000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-07-24",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-l",
+      "score": 41.51,
+      "active_params": 304000000,
+      "total_params": 335000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-12",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "avsolatorio/GIST-large-Embedding-v0",
+      "score": 41.48,
+      "active_params": 304000000,
+      "total_params": 335000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-14",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "intfloat/e5-large",
+      "score": 41.24,
+      "active_params": 304000000,
+      "total_params": 335000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2022-12-26",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "thenlper/gte-large",
+      "score": 41.2,
+      "active_params": 304000000,
+      "total_params": 335000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-07-27",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "jinaai/jina-embedding-b-en-v1",
+      "score": 40.77,
+      "active_params": 85000000,
+      "total_params": 110000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-07-07",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "avsolatorio/GIST-Embedding-v0",
+      "score": 40.7,
+      "active_params": 86000000,
+      "total_params": 109000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-01-31",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Cohere/Cohere-embed-english-light-v3.0",
+      "score": 40.39,
+      "active_params": null,
+      "total_params": null,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-11-02",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "ibm-granite/granite-embedding-125m-english",
+      "score": 40.32,
+      "active_params": 86000000,
+      "total_params": 125000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-12-18",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Mihaiii/Ivysaur",
+      "score": 40.25,
+      "active_params": 11000000,
+      "total_params": 23000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-27",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "score": 40.24,
+      "active_params": 86000000,
+      "total_params": 109000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-09-11",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "thenlper/gte-base",
+      "score": 40.01,
+      "active_params": 86000000,
+      "total_params": 109000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-07-27",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "thenlper/gte-small",
+      "score": 39.94,
+      "active_params": 22000000,
+      "total_params": 33000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-07-27",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "mixedbread-ai/mxbai-embed-large-v1",
+      "score": 39.86,
+      "active_params": 304000000,
+      "total_params": 335000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-03-07",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-v1.5",
+      "score": 39.85,
+      "active_params": 86000000,
+      "total_params": 109000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-07-08",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m",
+      "score": 39.84,
+      "active_params": 86000000,
+      "total_params": 109000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-12",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "BAAI/bge-large-en-v1.5",
+      "score": 39.58,
+      "active_params": 304000000,
+      "total_params": 335000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-09-12",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "intfloat/e5-base-v2",
+      "score": 39.53,
+      "active_params": 86000000,
+      "total_params": 109000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-08",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "avsolatorio/GIST-small-Embedding-v0",
+      "score": 39.38,
+      "active_params": 22000000,
+      "total_params": 33000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-03",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "WhereIsAI/UAE-Large-V1",
+      "score": 39.29,
+      "active_params": 304000000,
+      "total_params": 335000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-12-04",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sdadas/mmlw-e5-large",
+      "score": 39.29,
+      "active_params": 304000000,
+      "total_params": 560000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-11-17",
+      "languages": [
+        "Polish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "intfloat/e5-small-v2",
+      "score": 39.26,
+      "active_params": 21000000,
+      "total_params": 33000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-08",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "avsolatorio/GIST-all-MiniLM-L6-v2",
+      "score": 39.16,
+      "active_params": 11000000,
+      "total_params": 23000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-03",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "omarelshehy/arabic-english-sts-matryoshka",
+      "score": 39.0,
+      "active_params": 304000000,
+      "total_params": 560000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-10-13",
+      "languages": [
+        "Arabic",
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "avsolatorio/NoInstruct-small-Embedding-v0",
+      "score": 38.94,
+      "active_params": 22000000,
+      "total_params": 33000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-05-01",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "infgrad/stella-base-en-v2",
+      "score": 38.85,
+      "active_params": 86000000,
+      "total_params": 109000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-10-19",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "score": 38.23,
+      "active_params": 22000000,
+      "total_params": 33000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-09-12",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-s",
+      "score": 38.04,
+      "active_params": 22000000,
+      "total_params": 33000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-12",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "jinaai/jina-embedding-s-en-v1",
+      "score": 37.93,
+      "active_params": 19000000,
+      "total_params": 35000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-07-07",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "minishlab/potion-multilingual-128M",
+      "score": 37.93,
+      "active_params": 0,
+      "total_params": 128000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2025-05-23",
+      "languages": [
+        "Afrikaans",
+        "Albanian",
+        "Amharic",
+        "Arabic",
+        "Armenian",
+        "Azerbaijani",
+        "Basque",
+        "Belarusian",
+        "Bengali",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Cebuano",
+        "Chinese",
+        "Corsican (Latin)",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Esperanto",
+        "Estonian",
+        "Filipino",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Haitian",
+        "Hausa",
+        "Hawaiian (Latin)",
+        "Hebrew",
+        "Hindi",
+        "Hmong (Latin)",
+        "Hungarian",
+        "Icelandic",
+        "Igbo",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Kannada",
+        "Kazakh",
+        "Khmer",
+        "Kirghiz",
+        "Korean",
+        "Kurdish (Latin)",
+        "Lao",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Luxembourgish",
+        "Macedonian",
+        "Malagasy (Latin)",
+        "Malay (macrolanguage)",
+        "Malayalam",
+        "Maltese",
+        "Maori",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Nepali (macrolanguage)",
+        "Norwegian Bokm\u00e5l",
+        "Nyanja",
+        "Panjabi",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Pushto",
+        "Romanian",
+        "Russian",
+        "Samoan",
+        "Scottish Gaelic",
+        "Serbian",
+        "Shona",
+        "Sindhi",
+        "Sinhala",
+        "Slovak",
+        "Slovenian",
+        "Somali",
+        "Southern Sotho",
+        "Spanish",
+        "Sundanese",
+        "Swahili (macrolanguage)",
+        "Swedish",
+        "Tajik (Latin)",
+        "Tamil",
+        "Telugu",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Welsh",
+        "Western Frisian",
+        "Xhosa",
+        "Yiddish",
+        "Yoruba",
+        "Zulu"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "intfloat/e5-small",
+      "score": 37.81,
+      "active_params": 21000000,
+      "total_params": 33000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-08",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sdadas/mmlw-e5-base",
+      "score": 37.69,
+      "active_params": 86000000,
+      "total_params": 278000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-11-17",
+      "languages": [
+        "Polish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-long",
+      "score": 37.51,
+      "active_params": null,
+      "total_params": 137000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-12",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "abhinand/MedEmbed-small-v0.1",
+      "score": 37.51,
+      "active_params": 22000000,
+      "total_params": 33000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-10-20",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sentence-transformers/all-mpnet-base-v2",
+      "score": 37.4,
+      "active_params": 86000000,
+      "total_params": 109000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2021-08-30",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sdadas/mmlw-roberta-large",
+      "score": 37.27,
+      "active_params": 304000000,
+      "total_params": 435000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-11-17",
+      "languages": [
+        "Polish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "intfloat/e5-base",
+      "score": 36.98,
+      "active_params": 86000000,
+      "total_params": 109000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2022-12-26",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "McGill-NLP/LLM2Vec-Mistral-7B-Instruct-v2-mntp-supervised",
+      "score": 36.52,
+      "active_params": 7022000000,
+      "total_params": 7153000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-09",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "score": 36.4,
+      "active_params": 86000000,
+      "total_params": 278000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2019-11-01",
+      "languages": [
+        "Albanian",
+        "Arabic",
+        "Armenian",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Korean",
+        "Kurdish",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Norwegian Bokm\u00e5l",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Slovak",
+        "Slovenian",
+        "Spanish",
+        "Swedish",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Mihaiii/gte-micro-v4",
+      "score": 36.26,
+      "active_params": 7000000,
+      "total_params": 19000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-22",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-labse-Matryoshka",
+      "score": 35.91,
+      "active_params": 86000000,
+      "total_params": 471000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-16",
+      "languages": [
+        "Arabic"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "nomic-ai/nomic-embed-text-v1.5",
+      "score": 35.8,
+      "active_params": null,
+      "total_params": 137000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-02-10",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "Mihaiii/Bulbasaur",
+      "score": 35.79,
+      "active_params": 6000000,
+      "total_params": 17000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-27",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "ibm-granite/granite-embedding-30m-english",
+      "score": 35.75,
+      "active_params": 11000000,
+      "total_params": 30000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-12-18",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-xs",
+      "score": 35.73,
+      "active_params": 11000000,
+      "total_params": 23000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-07-08",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sdadas/mmlw-e5-small",
+      "score": 35.72,
+      "active_params": 22000000,
+      "total_params": 118000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-11-17",
+      "languages": [
+        "Polish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "brahmairesearch/slx-v0.1",
+      "score": 35.37,
+      "active_params": 11000000,
+      "total_params": 23000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-08-13",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "score": 35.37,
+      "active_params": 11000000,
+      "total_params": 23000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2021-08-30",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sdadas/mmlw-roberta-base",
+      "score": 35.31,
+      "active_params": 86000000,
+      "total_params": 124000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-11-17",
+      "languages": [
+        "Polish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "bigscience/sgpt-bloom-7b1-msmarco",
+      "score": 35.25,
+      "active_params": 6041000000,
+      "total_params": 7068000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2022-08-26",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-all-nli-triplet-Matryoshka",
+      "score": 35.03,
+      "active_params": 86000000,
+      "total_params": 278000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-14",
+      "languages": [
+        "Arabic"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "minishlab/potion-base-8M",
+      "score": 34.77,
+      "active_params": 0,
+      "total_params": 8000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-10-29",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "aari1995/German_Semantic_STS_V2",
+      "score": 34.58,
+      "active_params": 304000000,
+      "total_params": 336000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2022-11-17",
+      "languages": [
+        "German"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "score": 34.43,
+      "active_params": 22000000,
+      "total_params": 118000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2019-11-01",
+      "languages": [
+        "Albanian",
+        "Arabic",
+        "Armenian",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Korean",
+        "Kurdish",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Norwegian Bokm\u00e5l",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Slovak",
+        "Slovenian",
+        "Spanish",
+        "Swedish",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sentence-transformers/all-MiniLM-L12-v2",
+      "score": 33.92,
+      "active_params": 22000000,
+      "total_params": 33000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2021-08-30",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sergeyzh/LaBSE-ru-turbo",
+      "score": 33.35,
+      "active_params": 87000000,
+      "total_params": 129000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-27",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-MiniLM-L12-v2-all-nli-triplet",
+      "score": 33.24,
+      "active_params": 22000000,
+      "total_params": 118000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-25",
+      "languages": [
+        "Arabic"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Mihaiii/Wartortle",
+      "score": 32.96,
+      "active_params": 6000000,
+      "total_params": 17000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-30",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "minishlab/potion-base-4M",
+      "score": 32.92,
+      "active_params": 0,
+      "total_params": 4000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-10-29",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "ai-forever/ru-en-RoSBERTa",
+      "score": 32.57,
+      "active_params": 303000000,
+      "total_params": 404000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-07-29",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sentence-transformers/LaBSE",
+      "score": 32.28,
+      "active_params": 86000000,
+      "total_params": 471000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2019-11-01",
+      "languages": [
+        "Albanian",
+        "Arabic",
+        "Armenian",
+        "Bulgarian",
+        "Burmese",
+        "Catalan",
+        "Chinese",
+        "Chinese (Traditional)",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Finnish",
+        "French",
+        "Galician",
+        "Georgian",
+        "German",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Indonesian",
+        "Italian",
+        "Japanese",
+        "Korean",
+        "Kurdish",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay (macrolanguage)",
+        "Marathi",
+        "Modern Greek (1453-)",
+        "Mongolian",
+        "Norwegian Bokm\u00e5l",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Romanian",
+        "Russian",
+        "Serbian",
+        "Slovak",
+        "Slovenian",
+        "Spanish",
+        "Swedish",
+        "Thai",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Vietnamese"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Gameselo/STS-multilingual-mpnet-base-v2",
+      "score": 32.26,
+      "active_params": 86000000,
+      "total_params": 278000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-07",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Mihaiii/Venusaur",
+      "score": 31.4,
+      "active_params": 4000000,
+      "total_params": 16000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-29",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "minishlab/M2V_base_output",
+      "score": 31.23,
+      "active_params": 0,
+      "total_params": 8000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-09-21",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "minishlab/M2V_base_glove_subword",
+      "score": 31.0,
+      "active_params": 0,
+      "total_params": 103000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-09-21",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "shibing624/text2vec-base-multilingual",
+      "score": 30.62,
+      "active_params": 22000000,
+      "total_params": 118000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-06-22",
+      "languages": [
+        "Chinese",
+        "Dutch",
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Polish",
+        "Portuguese",
+        "Russian",
+        "Spanish"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Mihaiii/Squirtle",
+      "score": 30.14,
+      "active_params": 4000000,
+      "total_params": 16000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-30",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "cointegrated/LaBSE-en-ru",
+      "score": 30.12,
+      "active_params": 87000000,
+      "total_params": 129000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2021-06-10",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "minishlab/potion-base-2M",
+      "score": 29.44,
+      "active_params": 0,
+      "total_params": 2000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-10-29",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "consciousAI/cai-lunaris-text-embeddings",
+      "score": 28.88,
+      "active_params": 304000000,
+      "total_params": 335000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-06-22",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "minishlab/M2V_base_glove",
+      "score": 28.31,
+      "active_params": 0,
+      "total_params": 102000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-09-21",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "McGill-NLP/LLM2Vec-Mistral-7B-Instruct-v2-mntp-unsup-simcse",
+      "score": 27.05,
+      "active_params": 7022000000,
+      "total_params": 7153000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-09",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Mihaiii/gte-micro",
+      "score": 26.45,
+      "active_params": 6000000,
+      "total_params": 17000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-04-21",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "deepvk/USER-base",
+      "score": 26.25,
+      "active_params": 388000000,
+      "total_params": 427000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-10",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Jaume/gemma-2b-embeddings",
+      "score": 23.88,
+      "active_params": 1982000000,
+      "total_params": 2506000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-29",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "sergeyzh/rubert-tiny-turbo",
+      "score": 23.03,
+      "active_params": 3000000,
+      "total_params": 29000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-21",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "cointegrated/rubert-tiny2",
+      "score": 22.44,
+      "active_params": 3000000,
+      "total_params": 29000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2021-10-28",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-mpnet-base-all-nli-triplet",
+      "score": 20.11,
+      "active_params": 86000000,
+      "total_params": 109000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-15",
+      "languages": [
+        "Arabic"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "cointegrated/rubert-tiny",
+      "score": 19.98,
+      "active_params": 3000000,
+      "total_params": 12000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2021-05-24",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "silma-ai/silma-embeddding-matryoshka-v0.1",
+      "score": 19.88,
+      "active_params": 86000000,
+      "total_params": 135000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-10-12",
+      "languages": [
+        "Arabic",
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabert-all-nli-triplet-Matryoshka",
+      "score": 16.41,
+      "active_params": 86000000,
+      "total_params": 135000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-16",
+      "languages": [
+        "Arabic"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "jinaai/jina-embeddings-v2-small-en",
+      "score": 15.99,
+      "active_params": 17000000,
+      "total_params": 33000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-09-27",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "DeepPavlov/rubert-base-cased-sentence",
+      "score": 15.08,
+      "active_params": 15000000,
+      "total_params": 107000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2020-03-04",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "DeepPavlov/distilrubert-small-cased-conversational",
+      "score": 14.91,
+      "active_params": 15000000,
+      "total_params": 107000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2022-06-28",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "ai-forever/sbert_large_nlu_ru",
+      "score": 11.89,
+      "active_params": 304000000,
+      "total_params": 427000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2020-11-20",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Marbert-all-nli-triplet-Matryoshka",
+      "score": 11.84,
+      "active_params": 86000000,
+      "total_params": 163000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-06-17",
+      "languages": [
+        "Arabic"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "DeepPavlov/rubert-base-cased",
+      "score": 11.72,
+      "active_params": 1188000000,
+      "total_params": 1280000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2020-03-04",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "malenia1/ternary-weight-embedding",
+      "score": 11.57,
+      "active_params": null,
+      "total_params": 99000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2024-10-23",
+      "languages": [],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": false
+    },
+    {
+      "model": "ai-forever/sbert_large_mt_nlu_ru",
+      "score": 10.64,
+      "active_params": 304000000,
+      "total_params": 427000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2021-05-18",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "deepvk/deberta-v1-base",
+      "score": 9.28,
+      "active_params": 85000000,
+      "total_params": 124000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-02-07",
+      "languages": [
+        "Russian"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    },
+    {
+      "model": "jinaai/jina-embeddings-v2-base-en",
+      "score": 3.2,
+      "active_params": 114000000,
+      "total_params": 137000000,
+      "n_tasks": 8,
+      "n_benchmark_tasks": 8,
+      "release_date": "2023-09-27",
+      "languages": [
+        "English"
+      ],
+      "modalities": [
+        "text"
+      ],
+      "complete": true,
+      "plottable": true
+    }
+  ]
+}
