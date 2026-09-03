@@ -15,6 +15,8 @@ sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5220
   - https://github.com/embeddings-benchmark/results/pull/679
   - https://ai.google.dev/gemini-api/docs/embeddings
+posted_on: 2026-09-03
+url: https://bsky.app/profile/mteb.org/post/3mumnnl3wdw2s
 ---
 
 Post 1 — card: `card-1-single-vector.png`
