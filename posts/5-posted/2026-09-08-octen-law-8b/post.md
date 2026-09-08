@@ -15,6 +15,8 @@ sources:
   - https://github.com/embeddings-benchmark/mteb/pull/5305
   - https://github.com/embeddings-benchmark/results/pull/688
   - https://huggingface.co/litillabs/octen-law-8b-v1
+posted_on: 2026-09-08
+url: https://bsky.app/profile/mteb.org/post/3muz7xab4y224
 ---
 
 ```
