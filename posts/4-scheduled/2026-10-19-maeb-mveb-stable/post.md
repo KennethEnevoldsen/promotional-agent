@@ -1,10 +1,10 @@
 ---
-id: 2026-10-16-maeb-mveb-stable
+id: 2026-10-19-maeb-mveb-stable
 type: benchmark_addition
 trigger: mteb#5640 (benchmarks: promote MAEB and MVEB to v1), merge 50631ac4
 trigger_date: 2026-10-12
 approved_by: kennethenevoldsen (explicit instruction, 2026-10-12)
-scheduled_for: 2026-10-16T14:30:00+02:00
+scheduled_for: 2026-10-19T14:30:00+02:00
 expires: 2026-11-09
 verified: true
 media: none
@@ -116,10 +116,10 @@ code at the merge commit or the live API, as listed above.
 
 ## Notes
 
-**Release check before 2026-10-16 14:30.** Scheduled on 2026-10-12 while no mteb release
+**Release check before 2026-10-19 14:30.** Scheduled on 2026-10-12 while no mteb release
 contained 50631ac4 (latest 2.24.10, "ahead"). The post gives no code, so it is not wrong
 without a release, but `pip install mteb` users would still see the `(beta)` names. If no
-release containing 50631ac4 exists by the morning of the 16th, move the date.
+release containing 50631ac4 exists by the morning of the 19th, move the date.
 
 
 **Written for a reader who has never heard of either benchmark.** Part 1 says what they
