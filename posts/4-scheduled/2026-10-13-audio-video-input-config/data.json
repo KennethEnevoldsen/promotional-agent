@@ -1,0 +1,1241 @@
+{
+  "generated": "2026-10-12",
+  "mteb_merge_commit": "5621901c07940b64ff71cd00e74b20f362571eeb",
+  "first_release": "2.24.4",
+  "results_repo_commit": "6661f31394a87ba17f527f459a8620e94990bddd",
+  "summary": {
+    "models_with_audio_or_video_results": 93,
+    "of_which_any_result_before_2_24_4": 93,
+    "of_which_any_result_on_or_after_2_24_4": 0,
+    "of_which_all_results_on_or_after_2_24_4": 0,
+    "models_with_audio_results": 75,
+    "models_with_video_results": 37,
+    "behavioural_wrapper_modules": 48,
+    "comment_only_modules": 17,
+    "audio_tasks_with_stats": 75,
+    "audio_tasks_with_clips_over_30s_in_eval_splits": 16,
+    "audio_tasks_with_clips_over_30s_in_any_split": 19
+  },
+  "behavioural_modules": [
+    "mteb/models/modality_collators.py",
+    "mteb/models/model_implementations/ast_model.py",
+    "mteb/models/model_implementations/audio_flamingo.py",
+    "mteb/models/model_implementations/audio_qwen2_models.py",
+    "mteb/models/model_implementations/aurola_omni_models.py",
+    "mteb/models/model_implementations/bedrock_models.py",
+    "mteb/models/model_implementations/clap_models.py",
+    "mteb/models/model_implementations/cnn14_model.py",
+    "mteb/models/model_implementations/colqwen_models.py",
+    "mteb/models/model_implementations/cosmos_embed_models.py",
+    "mteb/models/model_implementations/data2vec_models.py",
+    "mteb/models/model_implementations/e5_omni_models.py",
+    "mteb/models/model_implementations/ebind_models.py",
+    "mteb/models/model_implementations/encodec_model.py",
+    "mteb/models/model_implementations/fusion_embedding_models.py",
+    "mteb/models/model_implementations/gve_models.py",
+    "mteb/models/model_implementations/hear_s11_models.py",
+    "mteb/models/model_implementations/hubert_models.py",
+    "mteb/models/model_implementations/jina_models.py",
+    "mteb/models/model_implementations/language_bind_models.py",
+    "mteb/models/model_implementations/lco_embedding_models.py",
+    "mteb/models/model_implementations/mctct_model.py",
+    "mteb/models/model_implementations/mms_models.py",
+    "mteb/models/model_implementations/msclap_models.py",
+    "mteb/models/model_implementations/muq_mulan_model.py",
+    "mteb/models/model_implementations/omni_embed_nemotron_models.py",
+    "mteb/models/model_implementations/omniretriever_models.py",
+    "mteb/models/model_implementations/omnivinci_models.py",
+    "mteb/models/model_implementations/pe_av_models.py",
+    "mteb/models/model_implementations/qwen3_vl_embedding_models.py",
+    "mteb/models/model_implementations/qwen3_vl_reranker.py",
+    "mteb/models/model_implementations/qwen3_voice_models.py",
+    "mteb/models/model_implementations/qwen_omni_lm.py",
+    "mteb/models/model_implementations/rzen_embed_model.py",
+    "mteb/models/model_implementations/seamlessm4t_models.py",
+    "mteb/models/model_implementations/sewd_models.py",
+    "mteb/models/model_implementations/speecht5_models.py",
+    "mteb/models/model_implementations/tevatron_omni_embed_models.py",
+    "mteb/models/model_implementations/ume_r1.py",
+    "mteb/models/model_implementations/unispeech_models.py",
+    "mteb/models/model_implementations/vggish_models.py",
+    "mteb/models/model_implementations/viclip_models.py",
+    "mteb/models/model_implementations/vlm2vec_models.py",
+    "mteb/models/model_implementations/voiceclap_models.py",
+    "mteb/models/model_implementations/wav2clip_model.py",
+    "mteb/models/model_implementations/wav2vec2_models.py",
+    "mteb/models/model_implementations/wavlm_models.py",
+    "mteb/models/model_implementations/whisper_models.py",
+    "mteb/models/model_implementations/yamnet_models.py"
+  ],
+  "comment_only_modules": [
+    "mteb/models/model_implementations/bidirlm_omni_models.py",
+    "mteb/models/model_implementations/biovita_models.py",
+    "mteb/models/model_implementations/dasheng_models.py",
+    "mteb/models/model_implementations/facebook_jepa.py",
+    "mteb/models/model_implementations/google_gemini.py",
+    "mteb/models/model_implementations/imagebind_models.py",
+    "mteb/models/model_implementations/internvideo2_models.py",
+    "mteb/models/model_implementations/ops_mm_models.py",
+    "mteb/models/model_implementations/random_baseline.py",
+    "mteb/models/model_implementations/semantic_router_multimodal_models.py",
+    "mteb/models/model_implementations/uembed_models.py",
+    "mteb/models/model_implementations/unime_v2_models.py",
+    "mteb/models/model_implementations/unite_models.py",
+    "mteb/models/model_implementations/videomae_models.py",
+    "mteb/models/model_implementations/videoprism_models.py",
+    "mteb/models/model_implementations/wemm_models.py",
+    "mteb/models/model_implementations/xclip_models.py"
+  ],
+  "audio_tasks_over_30s_eval_splits": [
+    [
+      "INatSounds",
+      1271.6
+    ],
+    [
+      "BirdCLEF",
+      491.3
+    ],
+    [
+      "BirdCLEFSpeciesClustering",
+      491.3
+    ],
+    [
+      "VoxPopuliAccentID",
+      117.0
+    ],
+    [
+      "VoxPopuliAccentClustering",
+      73.4
+    ],
+    [
+      "SIBFLEURS",
+      68.4
+    ],
+    [
+      "MInDS14",
+      67.9
+    ],
+    [
+      "VoiceGenderClustering",
+      58.3
+    ],
+    [
+      "VoxPopuliGenderID",
+      48.3
+    ],
+    [
+      "VoxPopuliLanguageID",
+      48.3
+    ],
+    [
+      "VoxPopuliGenderClustering",
+      48.3
+    ],
+    [
+      "VimSketchImitationClustering",
+      45.8
+    ],
+    [
+      "IEMOCAPEmotion",
+      34.1
+    ],
+    [
+      "IEMOCAPGender",
+      34.1
+    ],
+    [
+      "GTZANGenre",
+      30.6
+    ],
+    [
+      "GTZANGenreClustering",
+      30.6
+    ]
+  ],
+  "audio_tasks_over_30s_any_split": [
+    [
+      "INatSounds",
+      1271.6
+    ],
+    [
+      "BirdSet",
+      1190.1
+    ],
+    [
+      "BirdCLEF",
+      491.3
+    ],
+    [
+      "BirdCLEFSpeciesClustering",
+      491.3
+    ],
+    [
+      "VoxPopuliAccentID",
+      117.0
+    ],
+    [
+      "SpeechCommands",
+      95.2
+    ],
+    [
+      "VoxPopuliAccentClustering",
+      73.4
+    ],
+    [
+      "SIBFLEURS",
+      68.4
+    ],
+    [
+      "MInDS14",
+      67.9
+    ],
+    [
+      "VoiceGenderClustering",
+      58.3
+    ],
+    [
+      "FSD2019Kaggle",
+      57.6
+    ],
+    [
+      "VoxPopuliGenderID",
+      48.3
+    ],
+    [
+      "VoxPopuliLanguageID",
+      48.3
+    ],
+    [
+      "VoxPopuliGenderClustering",
+      48.3
+    ],
+    [
+      "VimSketchImitationClustering",
+      45.8
+    ],
+    [
+      "IEMOCAPEmotion",
+      34.1
+    ],
+    [
+      "IEMOCAPGender",
+      34.1
+    ],
+    [
+      "GTZANGenre",
+      30.6
+    ],
+    [
+      "GTZANGenreClustering",
+      30.6
+    ]
+  ],
+  "models": {
+    "BidirLM/BidirLM-Omni-2.5B-Embedding": {
+      "audio": 129,
+      "video": 179,
+      "pre": 209,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.15",
+        "2.12.16",
+        "2.14.2"
+      ]
+    },
+    "EximiusLabs/fusion-embedding-1-2b-preview": {
+      "audio": 9,
+      "video": 17,
+      "pre": 26,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.18.0",
+        "2.18.2"
+      ]
+    },
+    "EximiusLabs/fusion-embedding-2-2b-preview": {
+      "audio": 30,
+      "video": 17,
+      "pre": 47,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.18.0",
+        "2.18.3"
+      ]
+    },
+    "Haon-Chen/e5-omni-3B": {
+      "audio": 131,
+      "video": 183,
+      "pre": 213,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32"
+      ]
+    },
+    "Haon-Chen/e5-omni-7B": {
+      "audio": 131,
+      "video": 183,
+      "pre": 213,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32"
+      ]
+    },
+    "LCO-Embedding/LCO-Embedding-Omni-3B": {
+      "audio": 199,
+      "video": 185,
+      "pre": 281,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32",
+        "2.18.3",
+        "2.20.5",
+        "2.4.2"
+      ]
+    },
+    "LCO-Embedding/LCO-Embedding-Omni-7B": {
+      "audio": 195,
+      "video": 183,
+      "pre": 277,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32",
+        "2.4.2"
+      ]
+    },
+    "LanguageBind/LanguageBind_Audio_FT": {
+      "audio": 2,
+      "video": 0,
+      "pre": 2,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.20.0"
+      ]
+    },
+    "LanguageBind/LanguageBind_Omni": {
+      "audio": 41,
+      "video": 19,
+      "pre": 47,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.20.0"
+      ]
+    },
+    "LanguageBind/LanguageBind_Video_FT": {
+      "audio": 0,
+      "video": 1,
+      "pre": 1,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.20.0"
+      ]
+    },
+    "MIT/ast-finetuned-audioset-10-10-0.4593": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "OpenMuQ/MuQ-MuLan-large": {
+      "audio": 94,
+      "video": 0,
+      "pre": 94,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.4.2",
+        "2.6.5"
+      ]
+    },
+    "Qwen/Qwen2-Audio-7B": {
+      "audio": 95,
+      "video": 0,
+      "pre": 95,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "Qwen/Qwen2.5-Omni-3B": {
+      "audio": 131,
+      "video": 183,
+      "pre": 213,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.21",
+        "2.12.32"
+      ]
+    },
+    "Qwen/Qwen2.5-Omni-7B": {
+      "audio": 130,
+      "video": 183,
+      "pre": 212,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.21",
+        "2.12.32"
+      ]
+    },
+    "Qwen/Qwen3-Omni-30B-A3B-Instruct": {
+      "audio": 28,
+      "video": 0,
+      "pre": 28,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.21"
+      ]
+    },
+    "Qwen/Qwen3-Omni-30B-A3B-Thinking": {
+      "audio": 28,
+      "video": 0,
+      "pre": 28,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.21"
+      ]
+    },
+    "Qwen/Qwen3-VL-Embedding-2B": {
+      "audio": 0,
+      "video": 82,
+      "pre": 82,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.14.1"
+      ]
+    },
+    "Qwen/Qwen3-VL-Embedding-8B": {
+      "audio": 0,
+      "video": 82,
+      "pre": 82,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.14.1"
+      ]
+    },
+    "Tevatron/OmniEmbed-v0.1": {
+      "audio": 131,
+      "video": 183,
+      "pre": 213,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32"
+      ]
+    },
+    "VLM2Vec/VLM2Vec-V2.0": {
+      "audio": 0,
+      "video": 82,
+      "pre": 82,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.14.0"
+      ]
+    },
+    "asapp/sew-d-base-plus-400k-ft-ls100h": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "asapp/sew-d-mid-400k-ft-ls100h": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "asapp/sew-d-tiny-100k-ft-ls100h": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "encord-team/ebind-audio-vision": {
+      "audio": 101,
+      "video": 183,
+      "pre": 183,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32"
+      ]
+    },
+    "encord-team/ebind-full": {
+      "audio": 131,
+      "video": 183,
+      "pre": 213,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32",
+        "2.13.1"
+      ]
+    },
+    "encord-team/ebind-points-vision": {
+      "audio": 0,
+      "video": 82,
+      "pre": 82,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "facebook/data2vec-audio-base-960h": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/data2vec-audio-large-960h": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/encodec_24khz": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/hubert-base-ls960": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/hubert-large-ls960-ft": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/mms-1b-all": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/mms-1b-fl102": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/mms-1b-l1107": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/pe-av-base": {
+      "audio": 101,
+      "video": 183,
+      "pre": 183,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32"
+      ]
+    },
+    "facebook/pe-av-large": {
+      "audio": 101,
+      "video": 183,
+      "pre": 183,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32"
+      ]
+    },
+    "facebook/pe-av-small": {
+      "audio": 101,
+      "video": 183,
+      "pre": 183,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32"
+      ]
+    },
+    "facebook/seamless-m4t-v2-large": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/vjepa2-vitg-fpc32-384-diving48": {
+      "audio": 0,
+      "video": 31,
+      "pre": 31,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "facebook/vjepa2-vitg-fpc64-256": {
+      "audio": 0,
+      "video": 31,
+      "pre": 31,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "facebook/vjepa2-vitg-fpc64-384": {
+      "audio": 0,
+      "video": 31,
+      "pre": 31,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "facebook/vjepa2-vitg-fpc64-384-ssv2": {
+      "audio": 0,
+      "video": 31,
+      "pre": 31,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "facebook/vjepa2-vith-fpc64-256": {
+      "audio": 0,
+      "video": 31,
+      "pre": 31,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "facebook/vjepa2-vitl-fpc16-256-ssv2": {
+      "audio": 0,
+      "video": 31,
+      "pre": 31,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "facebook/vjepa2-vitl-fpc32-256-diving48": {
+      "audio": 0,
+      "video": 31,
+      "pre": 31,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "facebook/vjepa2-vitl-fpc64-256": {
+      "audio": 0,
+      "video": 31,
+      "pre": 31,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "facebook/wav2vec2-base": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/wav2vec2-base-960h": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/wav2vec2-large": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/wav2vec2-large-xlsr-53": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/wav2vec2-lv-60-espeak-cv-ft": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/wav2vec2-xls-r-1b": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/wav2vec2-xls-r-2b": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "facebook/wav2vec2-xls-r-2b-21-to-en": {
+      "audio": 10,
+      "video": 0,
+      "pre": 10,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.4.2"
+      ]
+    },
+    "facebook/wav2vec2-xls-r-300m": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "google/vggish": {
+      "audio": 54,
+      "video": 0,
+      "pre": 54,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.4.2"
+      ]
+    },
+    "google/yamnet": {
+      "audio": 54,
+      "video": 0,
+      "pre": 54,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.4.2"
+      ]
+    },
+    "jinaai/jina-embeddings-v5-omni-nano": {
+      "audio": 131,
+      "video": 183,
+      "pre": 213,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "jinaai/jina-embeddings-v5-omni-small": {
+      "audio": 131,
+      "video": 183,
+      "pre": 213,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "laion/clap-htsat-fused": {
+      "audio": 95,
+      "video": 0,
+      "pre": 95,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.1.13",
+        "2.4.2"
+      ]
+    },
+    "laion/clap-htsat-unfused": {
+      "audio": 95,
+      "video": 0,
+      "pre": 95,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.1.13",
+        "2.4.2"
+      ]
+    },
+    "laion/larger_clap_general": {
+      "audio": 95,
+      "video": 0,
+      "pre": 95,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.1.13",
+        "2.4.2"
+      ]
+    },
+    "laion/larger_clap_music": {
+      "audio": 95,
+      "video": 0,
+      "pre": 95,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.1.13",
+        "2.4.2"
+      ]
+    },
+    "laion/larger_clap_music_and_speech": {
+      "audio": 95,
+      "video": 0,
+      "pre": 95,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.1.13",
+        "2.4.2"
+      ]
+    },
+    "lyrebird/wav2clip": {
+      "audio": 94,
+      "video": 0,
+      "pre": 94,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.4.2"
+      ]
+    },
+    "matthewagi/HeAR-s1.1": {
+      "audio": 19,
+      "video": 0,
+      "pre": 19,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.38"
+      ]
+    },
+    "microsoft/msclap-2022": {
+      "audio": 94,
+      "video": 0,
+      "pre": 94,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.4.2"
+      ]
+    },
+    "microsoft/msclap-2023": {
+      "audio": 94,
+      "video": 0,
+      "pre": 94,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.4.2"
+      ]
+    },
+    "microsoft/speecht5_multimodal": {
+      "audio": 94,
+      "video": 0,
+      "pre": 94,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.4.2"
+      ]
+    },
+    "microsoft/unispeech-sat-base-100h-libri-ft": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "microsoft/wavlm-base": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "microsoft/wavlm-base-plus": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "microsoft/wavlm-base-plus-sd": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "microsoft/wavlm-base-plus-sv": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "microsoft/wavlm-base-sd": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "microsoft/wavlm-base-sv": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "microsoft/wavlm-large": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "microsoft/xclip-base-patch16": {
+      "audio": 0,
+      "video": 82,
+      "pre": 82,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "microsoft/xclip-base-patch32": {
+      "audio": 0,
+      "video": 82,
+      "pre": 82,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "microsoft/xclip-large-patch14": {
+      "audio": 0,
+      "video": 82,
+      "pre": 82,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "nielsr/imagebind-huge": {
+      "audio": 3,
+      "video": 0,
+      "pre": 3,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.20.1"
+      ]
+    },
+    "nvidia/omni-embed-nemotron-3b": {
+      "audio": 101,
+      "video": 183,
+      "pre": 183,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.12.32"
+      ]
+    },
+    "openai/whisper-base": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "openai/whisper-large-v3": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "openai/whisper-medium": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "openai/whisper-small": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "openai/whisper-tiny": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "speechbrain/cnn14-esc50": {
+      "audio": 54,
+      "video": 0,
+      "pre": 54,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.4.2"
+      ]
+    },
+    "speechbrain/m-ctc-t-large": {
+      "audio": 53,
+      "video": 0,
+      "pre": 53,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.4.2",
+        "2.6.5"
+      ]
+    },
+    "vitouphy/wav2vec2-xls-r-300m-phoneme": {
+      "audio": 55,
+      "video": 0,
+      "pre": 55,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "1.38.33",
+        "2.4.2"
+      ]
+    },
+    "zhibinlan/UME-R1-2B": {
+      "audio": 0,
+      "video": 82,
+      "pre": 82,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    },
+    "zhibinlan/UME-R1-7B": {
+      "audio": 0,
+      "video": 82,
+      "pre": 82,
+      "post": 0,
+      "unknown_version": 0,
+      "versions": [
+        "2.13.1"
+      ]
+    }
+  },
+  "result_files_on_unregistered_tasks": {
+    "DiaBLaBitextMining": 21,
+    "SynPerChatbotConvSAToneClassification": 15,
+    "SynPerChatbotRAGToneClassification": 15,
+    "SynPerChatbotToneClassification": 15,
+    "GPUSpeedTask": 14,
+    "CMedQAv1": 13,
+    "CMedQAv2": 13,
+    "NorwegianParliament": 7,
+    "ScalaDaClassification": 7,
+    "ScalaNbClassification": 7,
+    "ScalaSvClassification": 7,
+    "8TagsClustering": 3,
+    "PPC": 3,
+    "mFollowIRCrossLingualInstructionRetrieval": 1,
+    "CPUSpeedTask": 1
+  }
+}

@@ -1,0 +1,202 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Audio length, before and after</title>
+<!--
+  Card for part 1 of the audio-video-input-config thread. It shows the change, not just
+  the old cut: one real long recording (BirdCLEF's longest evaluation clip, 491.3 s, from
+  data.json) is the axis, and each row shows how much of it a model family processes
+  before mteb 2.24.4 and from 2.24.4. Whisper is included on purpose: "now" means the
+  model's own limit, which is not always longer.
+
+  Every before/after value is read from the wrapper code, parent 8f266949 vs merge
+  5621901c (mteb#5454). Rows were kept only where both ends could be confirmed there:
+    wav2vec2  parent wav2vec2_models.py:85 (default 30.0), :140 (max_length=30 s)
+              merge  wav2vec2_models.py:91 (default None) -> :150 seconds_to_samples ->
+                     modality_collators.py:142-147 (None = no truncation); no override
+                     in any ModelMeta
+    HuBERT    parent hubert_models.py:25, :69 ; merge hubert_models.py:31 (None), :65
+    OmniVinci parent omnivinci_models.py:42 (30.0), :56-58, :219-223 -> VideoCollator ->
+              modality_collators.py:111-114 (truncates audio) ; merge omnivinci_models.py:44-46
+              (120.0, "audio_chunk_length=120" in nvidia/omnivinci config.json), :60, :220-223
+    Whisper   parent whisper_models.py:25, :70 ; merge whisper_models.py:25-27 (30.0,
+              "chunk_length=30"), :72-73
+  Dropped: WavLM (its new 240 s is an mteb memory cap, not a limit its authors set, so it
+  contradicts the post); Qwen2.5-Omni based models (parent passed max_length=None to the processor, so
+  the effective cut depends on transformers' defaults, not on mteb code) and e5-omni
+  (~20 s via a text-token limit, not a length setting).
+
+  Colour encodes one thing: before (grey) vs from 2.24.4 (blue).
+
+    uv run mteb-render --card posts/3-review/audio-video-input-config/card-1-before-after.html \
+      --out posts/3-review/audio-video-input-config/card-1-before-after.png
+-->
+
+<script type="application/json" id="card-data">
+{
+  "clip": {"task": "BirdCLEF", "seconds": 491.3},
+  "version": "2.24.4",
+  "rows": [
+    {"family": "wav2vec2", "before_s": 30, "now_s": null},
+    {"family": "HuBERT", "before_s": 30, "now_s": null},
+    {"family": "OmniVinci", "before_s": 30, "now_s": 120},
+    {"family": "Whisper", "before_s": 30, "now_s": 30}
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+Changed in mteb 2.24.4: Audio models now use their own length limit. One 8-minute BirdCLEF recording (491.3 s): how much of it each model is scored on. Bar chart with two bars per model family, before mteb 2.24.4 (grey) and from mteb 2.24.4 (blue), on an axis from 0 to 491.3 seconds. wav2vec2 (its config sets no length limit): before, the first 30 s; now, the whole clip (491.3 s). HuBERT (its config sets no length limit): before, the first 30 s; now, the whole clip (491.3 s). OmniVinci (its config sets 120 s): before, the first 30 s; now, the first 120 s. Whisper (its config sets 30 s): before, the first 30 s; now, the first 30 s. Clip length from mteb's task statistics. Limits from each model's published config, as applied in mteb before and from 2.24.4.
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,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");
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --peer:           #898781;
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --peer:           #898781;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow { font-size: 18px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+  h1 { font-size: 42px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; line-height: 1.12; max-width: 900px; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 10px; }
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name { font-size: 30px; font-weight: 700; letter-spacing: 0.01em; }
+  .logo { width: 39px; height: 41px; flex: none; background: var(--logo-uri) left center / contain no-repeat; }
+
+  .legend { display: flex; gap: 32px; margin-top: 28px; font-size: 19px; color: var(--text-secondary); }
+  .legend span { display: inline-flex; align-items: center; gap: 10px; }
+  .sw { width: 26px; height: 16px; border-radius: 3px; display: inline-block; }
+  .sw.before { background: var(--peer); }
+  .sw.now { background: var(--accent); }
+
+  /* label | track | value. The track column is the clip, 0 to its full length. */
+  .grid { display: grid; grid-template-columns: 250px 1fr 150px; column-gap: 22px; }
+  .plot { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 64px; }
+  .row { align-items: center; }
+  .label .fam { font-size: 28px; font-weight: 640; }
+  .label .note { font-size: 17px; color: var(--text-muted); margin-top: 4px; line-height: 1.3; }
+  .bars { display: flex; flex-direction: column; gap: 10px; position: relative; }
+  .track { height: 40px; position: relative; background: var(--gridline); border-radius: 0 4px 4px 0; }
+  .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 0 4px 4px 0; }
+  .fill.before { background: var(--peer); }
+  .fill.now { background: var(--accent); }
+  .vals { display: flex; flex-direction: column; gap: 10px; }
+  .vals span { height: 40px; line-height: 40px; font-size: 21px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .vals .before { color: var(--text-muted); }
+  .vals .now { color: var(--text-primary); font-weight: 640; }
+
+  .axis { margin-top: -20px; }
+  .ticks { position: relative; height: 22px; border-top: 1px solid var(--axis); }
+  .ticks span { position: absolute; top: 8px; transform: translateX(-50%); font-size: 17px; color: var(--text-muted); white-space: nowrap; }
+  .ticks span:first-child { transform: none; }
+  .axis-name { grid-column: 2; text-align: center; font-size: 18px; color: var(--text-secondary); margin-top: 18px; }
+
+  footer { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--hairline); }
+  .source { font-size: 15px; color: var(--text-muted); line-height: 1.45; }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="legend">
+  <span><i class="sw before"></i><span id="legend-before"></span></span>
+  <span><i class="sw now"></i><span id="legend-now"></span></span>
+</div>
+
+<div class="plot" id="plot"></div>
+
+<footer><div class="source" id="source"></div></footer>
+
+<script>
+const COPY = {
+  eyebrow: "Changed in mteb 2.24.4",
+  title: "Audio models now use their own length limit",
+  subtitle: "One 8-minute BirdCLEF recording (491.3 s): how much of it each model is scored on",
+  legend_before: "before mteb 2.24.4",
+  legend_now: "from mteb 2.24.4",
+  notes: {
+    "wav2vec2": "its config sets no length limit",
+    "HuBERT": "its config sets no length limit",
+    "OmniVinci": "its config sets 120 s",
+    "Whisper": "its config sets 30 s",
+  },
+  axis_name: "seconds of the recording",
+  source: "Clip length from mteb's task statistics. Limits from each model's published config, as applied in mteb before and from 2.24.4.",
+};
+
+const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
+const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+["eyebrow","title","subtitle","source"].forEach(k => set(k, d[k]));
+set("legend-before", d.legend_before); set("legend-now", d.legend_now);
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+const L = d.clip.seconds;
+// null = no cap: the model gets the whole clip.
+const used = s => s == null ? L : Math.min(s, L);
+const pct = s => (used(s) / L * 100).toFixed(2);
+const fmt = s => s == null || s >= L ? "whole clip" : `${s} s`;
+
+const rows = d.rows.map(r => `
+  <div class="grid row">
+    <div class="label"><div class="fam">${r.family}</div><div class="note">${d.notes[r.family] ?? ""}</div></div>
+    <div class="bars">
+      <div class="track"><div class="fill before" style="width:${pct(r.before_s)}%"></div></div>
+      <div class="track"><div class="fill now" style="width:${pct(r.now_s)}%"></div></div>
+    </div>
+    <div class="vals"><span class="before">${fmt(r.before_s)}</span><span class="now">${fmt(r.now_s)}</span></div>
+  </div>`).join("");
+
+const ticks = [0, 60, 120, 180, 240, 300, 360, 420, 480];
+const axis = `
+  <div class="grid axis">
+    <div></div>
+    <div class="ticks">${ticks.map(v => `<span style="left:${(v / L * 100).toFixed(2)}%">${v}</span>`).join("")}</div>
+    <div></div>
+    <div class="axis-name">${d.axis_name}</div>
+  </div>`;
+document.getElementById("plot").innerHTML = rows + axis;
+
+const say = s => s == null || s >= L ? `the whole clip (${L} s)` : `the first ${s} s`;
+window.__altText = [
+  `${d.eyebrow}: ${d.title}. ${d.subtitle}.`,
+  `Bar chart with two bars per model family, ${d.legend_before} (grey) and ${d.legend_now} (blue), on an axis from 0 to ${L} seconds.`,
+  d.rows.map(r => `${r.family} (${d.notes[r.family]}): before, ${say(r.before_s)}; now, ${say(r.now_s)}`).join(". ") + ".",
+  d.source,
+].join(" ");
+</script>

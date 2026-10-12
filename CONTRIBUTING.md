@@ -183,6 +183,15 @@ long structurally.
 House style: factual, specific, understated. Lead with the concrete thing. No hype
 adjectives, no emoji strings, no hashtag stuffing.
 
+**Explain, don't list changes.** Write for a reader who has never seen the PR. A post
+about a change answers, in order: what the situation was and why it was that way, what
+changed and why, and what it means for the reader (what to do). A list of what changed
+(clip length, sampling rate, frame count) reads like a diff and tells the reader nothing.
+One concrete example ("models were only scored on the start of each recording") beats an
+enumeration. Plain sentences, too: if a line sounds clever but you could not say what it
+means ("part of what the leaderboard measured was our setting"), cut it. Both failures
+are in the history of `audio-video-input-config` (2026-10-12).
+
 **Voice is "we", meaning the MTEB team** — the org is accountable for what goes out
 whoever drafted it. Never first-person-singular: the tooling is not a character, and a
 character invites the replies this account does not make. "We" is for accountability, not
@@ -222,27 +231,20 @@ argument. See `docs/card-design.md`.
 
 ### The LinkedIn version
 
-**Default: the LinkedIn post is the Bluesky text.** Same words, no second version.
+**The LinkedIn post is the Bluesky text.** Join the thread's parts into one post, drop the
+`1/ 2/` numbering, and change nothing else. The only permitted difference is the credit
+line, which may @-mention someone who has a `linkedin:` entry in `social-handles.yaml`.
 
-Write a separate one only when the 300-character limit forced out something a reader
-genuinely needs — usually a caveat that prevents a misreading. Then say, above the block,
-what that something is. If you cannot name it in a sentence, there was no reason.
+Do not add detail, caveats, links or instructions to the LinkedIn version, even though it
+has room. If something is missing that a reader genuinely needs, it belongs in the Bluesky
+text, or the post needs a rethink. An expanded LinkedIn version was rejected on
+2026-10-12 for exactly this, and the earlier rule allowing a separate version for a
+forced-out caveat is withdrawn.
 
-When it exists it goes in `post.md` under a `## LinkedIn` heading inside a
-```` ```linkedin ```` block — same file, and the fence keeps it out of the 300-character
-check, which only scans bare ``` blocks.
-
-**Same voice, not a second one.** The failure mode is two formats drifting into two
-personalities — one terse and factual, the other doing thought leadership. More room is
-not a reason to become a different account.
-
-The extra length is for a caveat, a coverage limit, or the scope a card stopped
-printing. It is **not** for restating the same sentence at greater length, adding a
-call-to-action, or reaching for a broader claim to justify the word count. A LinkedIn
-version that needs a bigger claim to earn its length does not need the length.
-
-Keep it close to the Bluesky text and derive both from the same `data.json`. If the two
-ever disagree on a number, that is a bug rather than a style difference.
+It goes in `post.md` under a `## LinkedIn` heading inside a ```` ```linkedin ```` block —
+same file, and the fence keeps it out of the 300-character check, which only scans bare
+``` blocks. Because it is the same text, the two can never disagree on a number; if they
+do, that is a bug.
 
 ### Credit
 
@@ -254,8 +256,18 @@ plain text. Tagging requires an opt-in handle in `social-handles.yaml` — never
 from a name or profile. A wrong-person mention is precisely the spammy, follower-farming
 behaviour this account exists to avoid.
 
+The same applies on LinkedIn: tag only someone with a `linkedin:` entry in
+`social-handles.yaml`, whose `via:` records who decided. Write the mention as
+`@Full Name` in the ```` ```linkedin ```` block. LinkedIn text is pasted by hand, and the
+person posting must pick the name from LinkedIn's mention dropdown, or it stays plain text.
+
 State-of-the-field posts describe no single person's submission and carry no credit line.
 That is a deliberate signal, not an oversight.
+
+The same goes for work that is a large group effort, such as an MTEB benchmark with a
+many-author paper (MAEB, MVEB). Naming one or two people misrepresents a group effort,
+and naming everyone does not fit, so these posts carry no credit line. The paper links do
+the crediting.
 
 ---
 
