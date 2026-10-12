@@ -1,0 +1,1215 @@
+{
+  "generated": "2026-10-12",
+  "benchmark": "MTEB(Multilingual, v2)",
+  "n_benchmark_tasks": 131,
+  "api": "https://mteb-leaderboard-backend.hf.space/v1/benchmarks/MTEB%28Multilingual%2C%20v2%29/scores",
+  "frontend_rule": "leaderboard-frontend src/lib/pareto.ts paretoFrontier() @ fbb28ce",
+  "n_leaderboard_rows": 468,
+  "n_cohort": 80,
+  "problems": [],
+  "score_differences_off_frontier": [
+    "intfloat/e5-mistral-7b-instruct: recomputed 60.25 vs site 60.03"
+  ],
+  "models": [
+    {
+      "model": "minishlab/potion-multilingual-128M",
+      "rank": 118,
+      "active_b": 0.0,
+      "score": 47.2,
+      "site_score": 47.2,
+      "revision": "38ebd7f10f71e67fa8db898290f92b82e9cfff2a+73908c3438cf03b6a01bcb9611d62b23d0726f08",
+      "complete_revisions": [
+        {
+          "revision": "38ebd7f10f71e67fa8db898290f92b82e9cfff2a+73908c3438cf03b6a01bcb9611d62b23d0726f08",
+          "score": 47.2
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+      "rank": 119,
+      "active_b": 0.0,
+      "score": 47.21,
+      "site_score": 47.21,
+      "revision": "7264ea07c5365a11d7e6d87dbb6195889a13054f",
+      "complete_revisions": [
+        {
+          "revision": "7264ea07c5365a11d7e6d87dbb6195889a13054f",
+          "score": 47.21
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "model": "cnmoro/static-nomic-384-pten-v2-st",
+      "rank": 135,
+      "active_b": 0.0,
+      "score": 45.52,
+      "site_score": 45.52,
+      "revision": "50fed70340b370b707f0f220010eac250bee7c18",
+      "complete_revisions": [
+        {
+          "revision": "50fed70340b370b707f0f220010eac250bee7c18",
+          "score": 45.52
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "mteb/baseline-random-encoder",
+      "rank": 191,
+      "active_b": 0.0,
+      "score": 18.79,
+      "site_score": 18.79,
+      "revision": "1",
+      "complete_revisions": [
+        {
+          "revision": "1",
+          "score": 18.79
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Mihaiii/gte-micro",
+      "rank": 161,
+      "active_b": 0.006,
+      "score": 39.42,
+      "site_score": 39.42,
+      "revision": "6fd2397cb9dfa7c901aedf9a2a44d3c888ccafdd+external",
+      "complete_revisions": [
+        {
+          "revision": "6fd2397cb9dfa7c901aedf9a2a44d3c888ccafdd+external",
+          "score": 39.42
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Mihaiii/gte-micro-v4",
+      "rank": 144,
+      "active_b": 0.007,
+      "score": 41.53,
+      "site_score": 41.53,
+      "revision": "78e1a4b348f8524c3ab2e3e3475788f5adb8c98f+external",
+      "complete_revisions": [
+        {
+          "revision": "78e1a4b348f8524c3ab2e3e3475788f5adb8c98f+external",
+          "score": 41.53
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a8m",
+      "rank": 67,
+      "active_b": 0.008,
+      "score": 56.73,
+      "site_score": 56.73,
+      "revision": "a8cedb6b46fad5df6f10e1c94750ff62e298fbd2",
+      "complete_revisions": [
+        {
+          "revision": "a8cedb6b46fad5df6f10e1c94750ff62e298fbd2",
+          "score": 56.73
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "rank": 150,
+      "active_b": 0.011,
+      "score": 41.39,
+      "site_score": 41.39,
+      "revision": "8b3219a92973c328a8e22fadcfa821b5dc75636a",
+      "complete_revisions": [
+        {
+          "revision": "8b3219a92973c328a8e22fadcfa821b5dc75636a",
+          "score": 41.39
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "intfloat/e5-small-v2",
+      "rank": 117,
+      "active_b": 0.021,
+      "score": 44.47,
+      "site_score": 44.47,
+      "revision": "dca8b1a9dae0d4575df2bf423a5edb485a431236",
+      "complete_revisions": [
+        {
+          "revision": "dca8b1a9dae0d4575df2bf423a5edb485a431236",
+          "score": 44.47
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-MiniLM-L12-v2-all-nli-triplet",
+      "rank": 99,
+      "active_b": 0.022,
+      "score": 49.69,
+      "site_score": 49.69,
+      "revision": "6916465c43b984e955aa6dc72851474f0128f428+external",
+      "complete_revisions": [
+        {
+          "revision": "6916465c43b984e955aa6dc72851474f0128f428+external",
+          "score": 49.69
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "rank": 102,
+      "active_b": 0.022,
+      "score": 48.73,
+      "site_score": 48.73,
+      "revision": "bf3bf13ab40c3157080a7ab344c831b9ad18b5eb",
+      "complete_revisions": [
+        {
+          "revision": "bf3bf13ab40c3157080a7ab344c831b9ad18b5eb",
+          "score": 48.73
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "rank": 120,
+      "active_b": 0.022,
+      "score": 43.76,
+      "site_score": 43.76,
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "complete_revisions": [
+        {
+          "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+          "score": 43.76
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "sdadas/mmlw-e5-small",
+      "rank": 124,
+      "active_b": 0.022,
+      "score": 43.11,
+      "site_score": 43.11,
+      "revision": "external+ff1298cb6d997f18b794d2f3d73cad2ba2ad739a",
+      "complete_revisions": [
+        {
+          "revision": "external+ff1298cb6d997f18b794d2f3d73cad2ba2ad739a",
+          "score": 43.11
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a25m",
+      "rank": 57,
+      "active_b": 0.025,
+      "score": 58.36,
+      "site_score": 58.36,
+      "revision": "aede922b27c1751d091b1e26c86dc82446a46cb4",
+      "complete_revisions": [
+        {
+          "revision": "aede922b27c1751d091b1e26c86dc82446a46cb4",
+          "score": 58.36
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "model": "ibm-granite/granite-embedding-97m-multilingual-r2",
+      "rank": 88,
+      "active_b": 0.028,
+      "score": 51.92,
+      "site_score": 51.92,
+      "revision": "c61e626a6255c490879d0af885078b61929d51f6",
+      "complete_revisions": [
+        {
+          "revision": "c61e626a6255c490879d0af885078b61929d51f6",
+          "score": 51.92
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "rank": 74,
+      "active_b": 0.032,
+      "score": 55.23,
+      "site_score": 55.23,
+      "revision": "35baae5091e26211dbe628f1723448c146fafdf2",
+      "complete_revisions": [
+        {
+          "revision": "35baae5091e26211dbe628f1723448c146fafdf2",
+          "score": 55.23
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-160M",
+      "rank": 62,
+      "active_b": 0.062,
+      "score": 57.98,
+      "site_score": 57.98,
+      "revision": "9eb35007d12e8624e6bf3e9e35d2255b5269597f",
+      "complete_revisions": [
+        {
+          "revision": "9eb35007d12e8624e6bf3e9e35d2255b5269597f",
+          "score": 57.98
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-base",
+      "rank": 68,
+      "active_b": 0.086,
+      "score": 57.02,
+      "site_score": 57.02,
+      "revision": "d13f1b27baf31030b7fd040960d60d909913633f",
+      "complete_revisions": [
+        {
+          "revision": "d13f1b27baf31030b7fd040960d60d909913633f",
+          "score": 57.02
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-labse-Matryoshka",
+      "rank": 77,
+      "active_b": 0.086,
+      "score": 53.65,
+      "site_score": 53.65,
+      "revision": "ee6d5e33c78ed582ade47fd452a74ea52aa5bfe2+external",
+      "complete_revisions": [
+        {
+          "revision": "ee6d5e33c78ed582ade47fd452a74ea52aa5bfe2+external",
+          "score": 53.65
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "rank": 82,
+      "active_b": 0.086,
+      "score": 51.93,
+      "site_score": 51.93,
+      "revision": "79f2382ceacceacdf38563d7c5d16b9ff8d725d6",
+      "complete_revisions": [
+        {
+          "revision": "79f2382ceacceacdf38563d7c5d16b9ff8d725d6",
+          "score": 51.93
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-all-nli-triplet-Matryoshka",
+      "rank": 83,
+      "active_b": 0.086,
+      "score": 52.0,
+      "site_score": 52.0,
+      "revision": "1ca467cc576bd76666a4d21b24ee43afa914dd10+external",
+      "complete_revisions": [
+        {
+          "revision": "1ca467cc576bd76666a4d21b24ee43afa914dd10+external",
+          "score": 52.0
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "sentence-transformers/LaBSE",
+      "rank": 84,
+      "active_b": 0.086,
+      "score": 52.07,
+      "site_score": 52.07,
+      "revision": "e34fab64a3011d2176c99545a93d5cbddc9a91b7",
+      "complete_revisions": [
+        {
+          "revision": "e34fab64a3011d2176c99545a93d5cbddc9a91b7",
+          "score": 52.07
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Gameselo/STS-multilingual-mpnet-base-v2",
+      "rank": 95,
+      "active_b": 0.086,
+      "score": 48.52,
+      "site_score": 48.52,
+      "revision": "449f917af30f590fc31f9ffb226c94f21a2f47b8+external",
+      "complete_revisions": [
+        {
+          "revision": "449f917af30f590fc31f9ffb226c94f21a2f47b8+external",
+          "score": 48.52
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "intfloat/e5-base-v2",
+      "rank": 98,
+      "active_b": 0.086,
+      "score": 45.98,
+      "site_score": 45.98,
+      "revision": "1c644c92ad3ba1efdad3f1451a637716616a20e8",
+      "complete_revisions": [
+        {
+          "revision": "1c644c92ad3ba1efdad3f1451a637716616a20e8",
+          "score": 45.98
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "sdadas/mmlw-e5-base",
+      "rank": 108,
+      "active_b": 0.086,
+      "score": 44.15,
+      "site_score": 44.15,
+      "revision": "external+f10628ed55b5ec400502aff439bd714a6da0af30",
+      "complete_revisions": [
+        {
+          "revision": "external+f10628ed55b5ec400502aff439bd714a6da0af30",
+          "score": 44.15
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "rank": 109,
+      "active_b": 0.086,
+      "score": 44.52,
+      "site_score": 44.52,
+      "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+      "complete_revisions": [
+        {
+          "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+          "score": 44.52
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "sdadas/mmlw-roberta-base",
+      "rank": 129,
+      "active_b": 0.086,
+      "score": 41.51,
+      "site_score": 41.51,
+      "revision": "0ac7f23f6c96af601fa6a17852bd08d5136d6365+external",
+      "complete_revisions": [
+        {
+          "revision": "0ac7f23f6c96af601fa6a17852bd08d5136d6365+external",
+          "score": 41.51
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-v1.5",
+      "rank": 143,
+      "active_b": 0.086,
+      "score": 41.99,
+      "site_score": 41.99,
+      "revision": "97eab2e17fcb7ccb8bb94d6e547898fa1a6a0f47",
+      "complete_revisions": [
+        {
+          "revision": "97eab2e17fcb7ccb8bb94d6e547898fa1a6a0f47",
+          "score": 41.99
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-mpnet-base-all-nli-triplet",
+      "rank": 180,
+      "active_b": 0.086,
+      "score": 35.2,
+      "site_score": 35.2,
+      "revision": "2628cb641e040f44328195fadcdfb58e6d5cffa7+external",
+      "complete_revisions": [
+        {
+          "revision": "2628cb641e040f44328195fadcdfb58e6d5cffa7+external",
+          "score": 35.2
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabert-all-nli-triplet-Matryoshka",
+      "rank": 183,
+      "active_b": 0.086,
+      "score": 33.11,
+      "site_score": 33.11,
+      "revision": "d0361a36f6fe69febfc8550d0918abab174f6f30+external",
+      "complete_revisions": [
+        {
+          "revision": "d0361a36f6fe69febfc8550d0918abab174f6f30+external",
+          "score": 33.11
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Marbert-all-nli-triplet-Matryoshka",
+      "rank": 185,
+      "active_b": 0.086,
+      "score": 32.14,
+      "site_score": 32.14,
+      "revision": "ecf3274e164f057c4a3dd70691cae0265d87a9d0+external",
+      "complete_revisions": [
+        {
+          "revision": "ecf3274e164f057c4a3dd70691cae0265d87a9d0+external",
+          "score": 32.14
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "microsoft/harrier-oss-v1-270m",
+      "rank": 19,
+      "active_b": 0.1,
+      "score": 66.55,
+      "site_score": 66.55,
+      "revision": "31de22b673913c7d658c0f03f792d77c2dcf8ebd",
+      "complete_revisions": [
+        {
+          "revision": "31de22b673913c7d658c0f03f792d77c2dcf8ebd",
+          "score": 66.55
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "model": "BidirLM/BidirLM-270M-Embedding",
+      "rank": 66,
+      "active_b": 0.1,
+      "score": 56.81,
+      "site_score": 56.81,
+      "revision": "769f3a064aa4113a97d9b19c2417cb67a8cf5f30",
+      "complete_revisions": [
+        {
+          "revision": "769f3a064aa4113a97d9b19c2417cb67a8cf5f30",
+          "score": 56.81
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "google/embeddinggemma-300m",
+      "rank": 31,
+      "active_b": 0.106,
+      "score": 61.15,
+      "site_score": 61.15,
+      "revision": "64614b0b8b64f0c6c1e52b07e4e9a4e8fe4d2da2",
+      "complete_revisions": [
+        {
+          "revision": "64614b0b8b64f0c6c1e52b07e4e9a4e8fe4d2da2",
+          "score": 61.15
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "ibm-granite/granite-embedding-311m-multilingual-r2",
+      "rank": 73,
+      "active_b": 0.11,
+      "score": 55.96,
+      "site_score": 55.96,
+      "revision": "dba7b0ee9d789f330fecfb85df57699f9e7d9c42",
+      "complete_revisions": [
+        {
+          "revision": "dba7b0ee9d789f330fecfb85df57699f9e7d9c42",
+          "score": 55.96
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-text-nano",
+      "rank": 21,
+      "active_b": 0.113,
+      "score": 65.52,
+      "site_score": 65.52,
+      "revision": "4c1f9846bb85490df1d9e535834cf00ceb33823b",
+      "complete_revisions": [
+        {
+          "revision": "4c1f9846bb85490df1d9e535834cf00ceb33823b",
+          "score": 65.52
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "nomic-ai/nomic-embed-text-v2-moe",
+      "rank": 56,
+      "active_b": 0.142,
+      "score": 57.64,
+      "site_score": 57.64,
+      "revision": "1066b6599d099fbb93dfcb64f9c37a7c9e503e85",
+      "complete_revisions": [
+        {
+          "revision": "1066b6599d099fbb93dfcb64f9c37a7c9e503e85",
+          "score": 57.64
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-330M",
+      "rank": 42,
+      "active_b": 0.198,
+      "score": 60.84,
+      "site_score": 60.84,
+      "revision": "b0e8e19bdf603b9826422852572c0d18d482c414",
+      "complete_revisions": [
+        {
+          "revision": "b0e8e19bdf603b9826422852572c0d18d482c414",
+          "score": 60.84
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "ai-forever/ru-en-RoSBERTa",
+      "rank": 153,
+      "active_b": 0.303,
+      "score": 41.57,
+      "site_score": 41.57,
+      "revision": "89fb1651989adbb1cfcfdedafd7d102951ad0555+external",
+      "complete_revisions": [
+        {
+          "revision": "89fb1651989adbb1cfcfdedafd7d102951ad0555+external",
+          "score": 41.57
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-large-instruct",
+      "rank": 27,
+      "active_b": 0.304,
+      "score": 63.22,
+      "site_score": 63.22,
+      "revision": "baa7be480a7de1539afce709c8f13f833a510e0a",
+      "complete_revisions": [
+        {
+          "revision": "baa7be480a7de1539afce709c8f13f833a510e0a",
+          "score": 63.22
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "WhereIsAI/UAE-Large-V1",
+      "rank": 86,
+      "active_b": 0.304,
+      "score": 46.09,
+      "site_score": 46.09,
+      "revision": "369c368f70f16a613f19f5598d4f12d9f44235d4+external",
+      "complete_revisions": [
+        {
+          "revision": "369c368f70f16a613f19f5598d4f12d9f44235d4+external",
+          "score": 46.09
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "mixedbread-ai/mxbai-embed-large-v1",
+      "rank": 87,
+      "active_b": 0.304,
+      "score": 45.91,
+      "site_score": 45.91,
+      "revision": "990580e27d329c7408b3741ecff85876e128e203",
+      "complete_revisions": [
+        {
+          "revision": "990580e27d329c7408b3741ecff85876e128e203",
+          "score": 45.91
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "intfloat/e5-large-v2",
+      "rank": 90,
+      "active_b": 0.304,
+      "score": 46.64,
+      "site_score": 46.64,
+      "revision": "b322e09026e4ea05f42beadf4d661fb4e101d311",
+      "complete_revisions": [
+        {
+          "revision": "b322e09026e4ea05f42beadf4d661fb4e101d311",
+          "score": 46.64
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "sdadas/mmlw-e5-large",
+      "rank": 94,
+      "active_b": 0.304,
+      "score": 45.4,
+      "site_score": 45.4,
+      "revision": "5c143fb045ebed664fd85b43fc45155999eb110f+external",
+      "complete_revisions": [
+        {
+          "revision": "5c143fb045ebed664fd85b43fc45155999eb110f+external",
+          "score": 45.4
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "BAAI/bge-large-en-v1.5",
+      "rank": 96,
+      "active_b": 0.304,
+      "score": 45.08,
+      "site_score": 45.08,
+      "revision": "d4aa6901d3a41ba39fb536a557fa166f842b0e09",
+      "complete_revisions": [
+        {
+          "revision": "d4aa6901d3a41ba39fb536a557fa166f842b0e09",
+          "score": 45.08
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "sdadas/mmlw-roberta-large",
+      "rank": 111,
+      "active_b": 0.304,
+      "score": 42.52,
+      "site_score": 42.52,
+      "revision": "b8058066a8de32d0737b3cd82d8b4f4108745af9+external",
+      "complete_revisions": [
+        {
+          "revision": "b8058066a8de32d0737b3cd82d8b4f4108745af9+external",
+          "score": 42.52
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "aari1995/German_Semantic_STS_V2",
+      "rank": 163,
+      "active_b": 0.304,
+      "score": 38.33,
+      "site_score": 38.33,
+      "revision": "22912542b0ec7a7ef369837e28ffe6352a27afc9+external",
+      "complete_revisions": [
+        {
+          "revision": "22912542b0ec7a7ef369837e28ffe6352a27afc9+external",
+          "score": 38.33
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-l-v2.0",
+      "rank": 63,
+      "active_b": 0.312,
+      "score": 57.03,
+      "site_score": 57.03,
+      "revision": "edc2df7b6c25794b340229ca082e7c78782e6374",
+      "complete_revisions": [
+        {
+          "revision": "edc2df7b6c25794b340229ca082e7c78782e6374",
+          "score": 57.03
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v3",
+      "rank": 50,
+      "active_b": 0.316,
+      "score": 58.37,
+      "site_score": 58.37,
+      "revision": "215a6e121fa0183376388ac6b1ae230326bfeaed",
+      "complete_revisions": [
+        {
+          "revision": "215a6e121fa0183376388ac6b1ae230326bfeaed",
+          "score": 58.37
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "microsoft/harrier-oss-v1-0.6b",
+      "rank": 10,
+      "active_b": 0.44,
+      "score": 69.01,
+      "site_score": 69.01,
+      "revision": "f9b9dc8d367d443f2479d27aa5d8d2850c0774ee",
+      "complete_revisions": [
+        {
+          "revision": "f9b9dc8d367d443f2479d27aa5d8d2850c0774ee",
+          "score": 69.01
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "rank": 20,
+      "active_b": 0.44,
+      "score": 64.34,
+      "site_score": 64.34,
+      "revision": "b22da495047858cce924d27d76261e96be6febc0",
+      "complete_revisions": [
+        {
+          "revision": "b22da495047858cce924d27d76261e96be6febc0",
+          "score": 64.34
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "BidirLM/BidirLM-0.6B-Embedding",
+      "rank": 40,
+      "active_b": 0.44,
+      "score": 60.42,
+      "site_score": 60.42,
+      "revision": "f6279763d6bd59ff963897965f29fed0b447ed3c",
+      "complete_revisions": [
+        {
+          "revision": "f6279763d6bd59ff963897965f29fed0b447ed3c",
+          "score": 60.42
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-0.6B",
+      "rank": 30,
+      "active_b": 0.441,
+      "score": 62.74,
+      "site_score": 62.74,
+      "revision": "54b4e2dc74e01be7126d4cf5f016af6b21edc563",
+      "complete_revisions": [
+        {
+          "revision": "54b4e2dc74e01be7126d4cf5f016af6b21edc563",
+          "score": 62.74
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "BidirLM/BidirLM-1B-Embedding",
+      "rank": 28,
+      "active_b": 0.698,
+      "score": 63.21,
+      "site_score": 63.21,
+      "revision": "8b9661377d17cc1c41f8c02df4a6e90487c5a7f9",
+      "complete_revisions": [
+        {
+          "revision": "8b9661377d17cc1c41f8c02df4a6e90487c5a7f9",
+          "score": 63.21
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-omni-nano",
+      "rank": 22,
+      "active_b": 0.887,
+      "score": 65.52,
+      "site_score": 65.52,
+      "revision": "2b230c93c996e091a45b95af4e3315dd07605ee3",
+      "complete_revisions": [
+        {
+          "revision": "2b230c93c996e091a45b95af4e3315dd07605ee3",
+          "score": 65.52
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "NovaSearch/stella_en_1.5B_v5",
+      "rank": 45,
+      "active_b": 1.307,
+      "score": 56.53,
+      "site_score": 56.53,
+      "revision": "d03be74b361d4eb24f42a2fe5bd2e29917df4604",
+      "complete_revisions": [
+        {
+          "revision": "d03be74b361d4eb24f42a2fe5bd2e29917df4604",
+          "score": 56.53
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "BidirLM/BidirLM-1.7B-Embedding",
+      "rank": 24,
+      "active_b": 1.409,
+      "score": 63.54,
+      "site_score": 63.54,
+      "revision": "4c56fc685a1fb7028d12822ea607ab08718b43cd",
+      "complete_revisions": [
+        {
+          "revision": "4c56fc685a1fb7028d12822ea607ab08718b43cd",
+          "score": 63.54
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-1.7B",
+      "rank": 16,
+      "active_b": 1.41,
+      "score": 65.21,
+      "site_score": 65.21,
+      "revision": "3766d46e7a68545ed6190c15330983f9b39ab718",
+      "complete_revisions": [
+        {
+          "revision": "3766d46e7a68545ed6190c15330983f9b39ab718",
+          "score": 65.21
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-omni-small",
+      "rank": 14,
+      "active_b": 1.471,
+      "score": 67.0,
+      "site_score": 67.0,
+      "revision": "dfdcc361ec47c69a5afcd81e4bd148abb9d0568e",
+      "complete_revisions": [
+        {
+          "revision": "dfdcc361ec47c69a5afcd81e4bd148abb9d0568e",
+          "score": 67.0
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "ai-sage/Giga-Embeddings-instruct-10B-A1.8B-0826",
+      "rank": 13,
+      "active_b": 1.8,
+      "score": 65.64,
+      "site_score": 65.64,
+      "revision": "025be2d75c0f5d978c4945749e8125f12cf6e9d9",
+      "complete_revisions": [
+        {
+          "revision": "025be2d75c0f5d978c4945749e8125f12cf6e9d9",
+          "score": 65.64
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Jaume/gemma-2b-embeddings",
+      "rank": 148,
+      "active_b": 1.982,
+      "score": 37.27,
+      "site_score": 37.27,
+      "revision": "86431f65d7c3f66b2af096c61e614a2958f191f1",
+      "complete_revisions": [
+        {
+          "revision": "86431f65d7c3f66b2af096c61e614a2958f191f1",
+          "score": 37.27
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "BidirLM/BidirLM-Omni-2.5B-Embedding",
+      "rank": 17,
+      "active_b": 2.13,
+      "score": 63.5,
+      "site_score": 63.5,
+      "revision": "4d8a7d34095ef8c4ab760744015825b809756dfe",
+      "complete_revisions": [
+        {
+          "revision": "4d8a7d34095ef8c4ab760744015825b809756dfe",
+          "score": 63.5
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "ai-sage/Giga-Embeddings-instruct-3B-0826",
+      "rank": 18,
+      "active_b": 2.888,
+      "score": 63.89,
+      "site_score": 63.89,
+      "revision": "fc038d2185236427de311026532be6c167e4030b",
+      "complete_revisions": [
+        {
+          "revision": "fc038d2185236427de311026532be6c167e4030b",
+          "score": 63.89
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "ICT-TIME-and-Querit/ICT-TIME-and-Querit-embedding-v1",
+      "rank": 26,
+      "active_b": 3.633,
+      "score": 63.78,
+      "site_score": 63.78,
+      "revision": "250cb18f3676bb942a3caf0ec390cf26458227b5",
+      "complete_revisions": [
+        {
+          "revision": "250cb18f3676bb942a3caf0ec390cf26458227b5",
+          "score": 63.78
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "ICT-TIME-and-Querit/BOOM_4B_v1",
+      "rank": 29,
+      "active_b": 3.633,
+      "score": 63.52,
+      "site_score": 63.52,
+      "revision": "447ab88574d27e67c428acc2b429d7d4580a4ea7",
+      "complete_revisions": [
+        {
+          "revision": "447ab88574d27e67c428acc2b429d7d4580a4ea7",
+          "score": 63.52
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-4B",
+      "rank": 6,
+      "active_b": 3.634,
+      "score": 69.45,
+      "site_score": 69.45,
+      "revision": "636cd9bf47d976946cdbb2b0c3ca0cb2f8eea5ff",
+      "complete_revisions": [
+        {
+          "revision": "636cd9bf47d976946cdbb2b0c3ca0cb2f8eea5ff",
+          "score": 69.45
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-4B",
+      "rank": 12,
+      "active_b": 3.634,
+      "score": 67.06,
+      "site_score": 67.06,
+      "revision": "e04d1a04f4a0e154bf43969d3dcc596bbd92b1f8",
+      "complete_revisions": [
+        {
+          "revision": "e04d1a04f4a0e154bf43969d3dcc596bbd92b1f8",
+          "score": 67.06
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "zeroentropy/zembed-1",
+      "rank": 65,
+      "active_b": 3.634,
+      "score": 56.58,
+      "site_score": 56.58,
+      "revision": "10378878bba40172305a1a979db64a413ab7da7b",
+      "complete_revisions": [
+        {
+          "revision": "10378878bba40172305a1a979db64a413ab7da7b",
+          "score": 56.58
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+      "rank": 23,
+      "active_b": 6.526,
+      "score": 62.51,
+      "site_score": 62.51,
+      "revision": "e26182b2122f4435e8b3ebecbf363990f409b45b",
+      "complete_revisions": [
+        {
+          "revision": "e26182b2122f4435e8b3ebecbf363990f409b45b",
+          "score": 62.51
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-8B",
+      "rank": 4,
+      "active_b": 6.946,
+      "score": 70.58,
+      "site_score": 70.58,
+      "revision": "4e423935c619ae4df87b646a3ce949610c66241c",
+      "complete_revisions": [
+        {
+          "revision": "4e423935c619ae4df87b646a3ce949610c66241c",
+          "score": 70.58
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "model": "Octen/Octen-Embedding-8B",
+      "rank": 7,
+      "active_b": 6.946,
+      "score": 67.84,
+      "site_score": 67.84,
+      "revision": "2030603c2926ab005fafd824fac5911e271be21f+f7db178d5a82fb841f606a6a67c423cead2fdbba",
+      "complete_revisions": [
+        {
+          "revision": "2030603c2926ab005fafd824fac5911e271be21f+f7db178d5a82fb841f606a6a67c423cead2fdbba",
+          "score": 67.84
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-8B",
+      "rank": 9,
+      "active_b": 6.947,
+      "score": 68.09,
+      "site_score": 68.09,
+      "revision": "5ac7d57351026337281e8e6a23e05cce16e79415",
+      "complete_revisions": [
+        {
+          "revision": "5ac7d57351026337281e8e6a23e05cce16e79415",
+          "score": 68.09
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "nvidia/llama-embed-nemotron-8b",
+      "rank": 3,
+      "active_b": 6.98,
+      "score": 69.46,
+      "site_score": 69.46,
+      "revision": "84a375593d27d3528beb4e104822515659e093b4",
+      "complete_revisions": [
+        {
+          "revision": "84a375593d27d3528beb4e104822515659e093b4",
+          "score": 69.46
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "intfloat/e5-mistral-7b-instruct",
+      "rank": 36,
+      "active_b": 6.98,
+      "score": 60.25,
+      "site_score": 60.03,
+      "revision": "07163b72af1488142a360786df853f237b1a3ca1",
+      "complete_revisions": [
+        {
+          "revision": "07163b72af1488142a360786df853f237b1a3ca1",
+          "score": 60.25
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "Salesforce/SFR-Embedding-2_R",
+      "rank": 41,
+      "active_b": 6.98,
+      "score": 59.8,
+      "site_score": 59.8,
+      "revision": "91762139d94ed4371a9fa31db5551272e0b83818",
+      "complete_revisions": [
+        {
+          "revision": "91762139d94ed4371a9fa31db5551272e0b83818",
+          "score": 59.8
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "GritLM/GritLM-7B",
+      "rank": 34,
+      "active_b": 7.109,
+      "score": 60.92,
+      "site_score": 60.92,
+      "revision": "13f00a0e36500c80ce12870ea513846a066004af",
+      "complete_revisions": [
+        {
+          "revision": "13f00a0e36500c80ce12870ea513846a066004af",
+          "score": 60.92
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "tencent/KaLM-Embedding-Gemma3-12B-2511",
+      "rank": 2,
+      "active_b": 10.759,
+      "score": 72.32,
+      "site_score": 72.32,
+      "revision": "edf22f4753f58b05e3f5495818d31f12db63056d",
+      "complete_revisions": [
+        {
+          "revision": "edf22f4753f58b05e3f5495818d31f12db63056d",
+          "score": 72.32
+        }
+      ],
+      "pareto": true
+    },
+    {
+      "model": "GritLM/GritLM-8x7B",
+      "rank": 35,
+      "active_b": 13.0,
+      "score": 60.49,
+      "site_score": 60.49,
+      "revision": "7f089b13e3345510281733ca1e6ff871b5b4bc76",
+      "complete_revisions": [
+        {
+          "revision": "7f089b13e3345510281733ca1e6ff871b5b4bc76",
+          "score": 60.49
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-14B",
+      "rank": 8,
+      "active_b": 13.214,
+      "score": 68.74,
+      "site_score": 68.74,
+      "revision": "e42037a37e12999db44ce8e1a0e63c366c273f6a",
+      "complete_revisions": [
+        {
+          "revision": "e42037a37e12999db44ce8e1a0e63c366c273f6a",
+          "score": 68.74
+        }
+      ],
+      "pareto": false
+    },
+    {
+      "model": "microsoft/harrier-oss-v1-27b",
+      "rank": 1,
+      "active_b": 25.599,
+      "score": 74.27,
+      "site_score": 74.27,
+      "revision": "0c0fc62f6d8af9e8604cb818c412301b103a0093",
+      "complete_revisions": [
+        {
+          "revision": "0c0fc62f6d8af9e8604cb818c412301b103a0093",
+          "score": 74.27
+        }
+      ],
+      "pareto": true
+    }
+  ]
+}

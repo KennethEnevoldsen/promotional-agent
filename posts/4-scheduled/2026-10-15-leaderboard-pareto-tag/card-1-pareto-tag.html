@@ -1,0 +1,780 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Pareto tag — MTEB leaderboard</title>
+<!--
+  Card for the leaderboard Pareto-tag post. Shows which models the new tag marks on the
+  leaderboard's default board, and how far down the ranking some of them sit — the post's
+  point is that the ranking ignores size and the tag does not.
+
+  Form: score against active parameters (the frontend's own "Performance per Model Size"
+  axes), every eligible model in context grey, tagged models in the accent with the
+  frontier drawn as a staircase. Tagged models are numbered on the plot and named in full
+  in the table below rather than labelled in place: the frontier's top end packs four
+  models into ~250px, and full Hugging Face ids do not fit there.
+
+  Colour encodes one thing: tagged or not.
+
+  fetch.py writes #card-data (scores recomputed with get_score; ranks from the live
+  leaderboard). Copy lives in COPY below.
+-->
+
+<script type="application/json" id="card-data">
+{
+  "benchmark": "MTEB(Multilingual, v2)",
+  "n_rows": 468,
+  "points": [
+    {
+      "model": "microsoft/harrier-oss-v1-27b",
+      "rank": 1,
+      "active_b": 25.599,
+      "score": 74.27,
+      "pareto": true
+    },
+    {
+      "model": "tencent/KaLM-Embedding-Gemma3-12B-2511",
+      "rank": 2,
+      "active_b": 10.759,
+      "score": 72.32,
+      "pareto": true
+    },
+    {
+      "model": "nvidia/llama-embed-nemotron-8b",
+      "rank": 3,
+      "active_b": 6.98,
+      "score": 69.46,
+      "pareto": false
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-8B",
+      "rank": 4,
+      "active_b": 6.946,
+      "score": 70.58,
+      "pareto": true
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-4B",
+      "rank": 6,
+      "active_b": 3.634,
+      "score": 69.45,
+      "pareto": true
+    },
+    {
+      "model": "Octen/Octen-Embedding-8B",
+      "rank": 7,
+      "active_b": 6.946,
+      "score": 67.84,
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-14B",
+      "rank": 8,
+      "active_b": 13.214,
+      "score": 68.74,
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-8B",
+      "rank": 9,
+      "active_b": 6.947,
+      "score": 68.09,
+      "pareto": false
+    },
+    {
+      "model": "microsoft/harrier-oss-v1-0.6b",
+      "rank": 10,
+      "active_b": 0.44,
+      "score": 69.01,
+      "pareto": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-4B",
+      "rank": 12,
+      "active_b": 3.634,
+      "score": 67.06,
+      "pareto": false
+    },
+    {
+      "model": "ai-sage/Giga-Embeddings-instruct-10B-A1.8B-0826",
+      "rank": 13,
+      "active_b": 1.8,
+      "score": 65.64,
+      "pareto": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-omni-small",
+      "rank": 14,
+      "active_b": 1.471,
+      "score": 67.0,
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-1.7B",
+      "rank": 16,
+      "active_b": 1.41,
+      "score": 65.21,
+      "pareto": false
+    },
+    {
+      "model": "BidirLM/BidirLM-Omni-2.5B-Embedding",
+      "rank": 17,
+      "active_b": 2.13,
+      "score": 63.5,
+      "pareto": false
+    },
+    {
+      "model": "ai-sage/Giga-Embeddings-instruct-3B-0826",
+      "rank": 18,
+      "active_b": 2.888,
+      "score": 63.89,
+      "pareto": false
+    },
+    {
+      "model": "microsoft/harrier-oss-v1-270m",
+      "rank": 19,
+      "active_b": 0.1,
+      "score": 66.55,
+      "pareto": true
+    },
+    {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "rank": 20,
+      "active_b": 0.44,
+      "score": 64.34,
+      "pareto": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-text-nano",
+      "rank": 21,
+      "active_b": 0.113,
+      "score": 65.52,
+      "pareto": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v5-omni-nano",
+      "rank": 22,
+      "active_b": 0.887,
+      "score": 65.52,
+      "pareto": false
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+      "rank": 23,
+      "active_b": 6.526,
+      "score": 62.51,
+      "pareto": false
+    },
+    {
+      "model": "BidirLM/BidirLM-1.7B-Embedding",
+      "rank": 24,
+      "active_b": 1.409,
+      "score": 63.54,
+      "pareto": false
+    },
+    {
+      "model": "ICT-TIME-and-Querit/ICT-TIME-and-Querit-embedding-v1",
+      "rank": 26,
+      "active_b": 3.633,
+      "score": 63.78,
+      "pareto": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-large-instruct",
+      "rank": 27,
+      "active_b": 0.304,
+      "score": 63.22,
+      "pareto": false
+    },
+    {
+      "model": "BidirLM/BidirLM-1B-Embedding",
+      "rank": 28,
+      "active_b": 0.698,
+      "score": 63.21,
+      "pareto": false
+    },
+    {
+      "model": "ICT-TIME-and-Querit/BOOM_4B_v1",
+      "rank": 29,
+      "active_b": 3.633,
+      "score": 63.52,
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-0.6B",
+      "rank": 30,
+      "active_b": 0.441,
+      "score": 62.74,
+      "pareto": false
+    },
+    {
+      "model": "google/embeddinggemma-300m",
+      "rank": 31,
+      "active_b": 0.106,
+      "score": 61.15,
+      "pareto": false
+    },
+    {
+      "model": "GritLM/GritLM-7B",
+      "rank": 34,
+      "active_b": 7.109,
+      "score": 60.92,
+      "pareto": false
+    },
+    {
+      "model": "GritLM/GritLM-8x7B",
+      "rank": 35,
+      "active_b": 13.0,
+      "score": 60.49,
+      "pareto": false
+    },
+    {
+      "model": "intfloat/e5-mistral-7b-instruct",
+      "rank": 36,
+      "active_b": 6.98,
+      "score": 60.25,
+      "pareto": false
+    },
+    {
+      "model": "BidirLM/BidirLM-0.6B-Embedding",
+      "rank": 40,
+      "active_b": 0.44,
+      "score": 60.42,
+      "pareto": false
+    },
+    {
+      "model": "Salesforce/SFR-Embedding-2_R",
+      "rank": 41,
+      "active_b": 6.98,
+      "score": 59.8,
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-330M",
+      "rank": 42,
+      "active_b": 0.198,
+      "score": 60.84,
+      "pareto": false
+    },
+    {
+      "model": "NovaSearch/stella_en_1.5B_v5",
+      "rank": 45,
+      "active_b": 1.307,
+      "score": 56.53,
+      "pareto": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v3",
+      "rank": 50,
+      "active_b": 0.316,
+      "score": 58.37,
+      "pareto": false
+    },
+    {
+      "model": "nomic-ai/nomic-embed-text-v2-moe",
+      "rank": 56,
+      "active_b": 0.142,
+      "score": 57.64,
+      "pareto": false
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a25m",
+      "rank": 57,
+      "active_b": 0.025,
+      "score": 58.36,
+      "pareto": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-160M",
+      "rank": 62,
+      "active_b": 0.062,
+      "score": 57.98,
+      "pareto": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-l-v2.0",
+      "rank": 63,
+      "active_b": 0.312,
+      "score": 57.03,
+      "pareto": false
+    },
+    {
+      "model": "zeroentropy/zembed-1",
+      "rank": 65,
+      "active_b": 3.634,
+      "score": 56.58,
+      "pareto": false
+    },
+    {
+      "model": "BidirLM/BidirLM-270M-Embedding",
+      "rank": 66,
+      "active_b": 0.1,
+      "score": 56.81,
+      "pareto": false
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a8m",
+      "rank": 67,
+      "active_b": 0.008,
+      "score": 56.73,
+      "pareto": true
+    },
+    {
+      "model": "intfloat/multilingual-e5-base",
+      "rank": 68,
+      "active_b": 0.086,
+      "score": 57.02,
+      "pareto": false
+    },
+    {
+      "model": "ibm-granite/granite-embedding-311m-multilingual-r2",
+      "rank": 73,
+      "active_b": 0.11,
+      "score": 55.96,
+      "pareto": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "rank": 74,
+      "active_b": 0.032,
+      "score": 55.23,
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-labse-Matryoshka",
+      "rank": 77,
+      "active_b": 0.086,
+      "score": 53.65,
+      "pareto": false
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "rank": 82,
+      "active_b": 0.086,
+      "score": 51.93,
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-all-nli-triplet-Matryoshka",
+      "rank": 83,
+      "active_b": 0.086,
+      "score": 52.0,
+      "pareto": false
+    },
+    {
+      "model": "sentence-transformers/LaBSE",
+      "rank": 84,
+      "active_b": 0.086,
+      "score": 52.07,
+      "pareto": false
+    },
+    {
+      "model": "WhereIsAI/UAE-Large-V1",
+      "rank": 86,
+      "active_b": 0.304,
+      "score": 46.09,
+      "pareto": false
+    },
+    {
+      "model": "mixedbread-ai/mxbai-embed-large-v1",
+      "rank": 87,
+      "active_b": 0.304,
+      "score": 45.91,
+      "pareto": false
+    },
+    {
+      "model": "ibm-granite/granite-embedding-97m-multilingual-r2",
+      "rank": 88,
+      "active_b": 0.028,
+      "score": 51.92,
+      "pareto": false
+    },
+    {
+      "model": "intfloat/e5-large-v2",
+      "rank": 90,
+      "active_b": 0.304,
+      "score": 46.64,
+      "pareto": false
+    },
+    {
+      "model": "sdadas/mmlw-e5-large",
+      "rank": 94,
+      "active_b": 0.304,
+      "score": 45.4,
+      "pareto": false
+    },
+    {
+      "model": "Gameselo/STS-multilingual-mpnet-base-v2",
+      "rank": 95,
+      "active_b": 0.086,
+      "score": 48.52,
+      "pareto": false
+    },
+    {
+      "model": "BAAI/bge-large-en-v1.5",
+      "rank": 96,
+      "active_b": 0.304,
+      "score": 45.08,
+      "pareto": false
+    },
+    {
+      "model": "intfloat/e5-base-v2",
+      "rank": 98,
+      "active_b": 0.086,
+      "score": 45.98,
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-MiniLM-L12-v2-all-nli-triplet",
+      "rank": 99,
+      "active_b": 0.022,
+      "score": 49.69,
+      "pareto": false
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "rank": 102,
+      "active_b": 0.022,
+      "score": 48.73,
+      "pareto": false
+    },
+    {
+      "model": "sdadas/mmlw-e5-base",
+      "rank": 108,
+      "active_b": 0.086,
+      "score": 44.15,
+      "pareto": false
+    },
+    {
+      "model": "BAAI/bge-base-en-v1.5",
+      "rank": 109,
+      "active_b": 0.086,
+      "score": 44.52,
+      "pareto": false
+    },
+    {
+      "model": "sdadas/mmlw-roberta-large",
+      "rank": 111,
+      "active_b": 0.304,
+      "score": 42.52,
+      "pareto": false
+    },
+    {
+      "model": "intfloat/e5-small-v2",
+      "rank": 117,
+      "active_b": 0.021,
+      "score": 44.47,
+      "pareto": false
+    },
+    {
+      "model": "minishlab/potion-multilingual-128M",
+      "rank": 118,
+      "active_b": 0.0,
+      "score": 47.2,
+      "pareto": false
+    },
+    {
+      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+      "rank": 119,
+      "active_b": 0.0,
+      "score": 47.21,
+      "pareto": true
+    },
+    {
+      "model": "BAAI/bge-small-en-v1.5",
+      "rank": 120,
+      "active_b": 0.022,
+      "score": 43.76,
+      "pareto": false
+    },
+    {
+      "model": "sdadas/mmlw-e5-small",
+      "rank": 124,
+      "active_b": 0.022,
+      "score": 43.11,
+      "pareto": false
+    },
+    {
+      "model": "sdadas/mmlw-roberta-base",
+      "rank": 129,
+      "active_b": 0.086,
+      "score": 41.51,
+      "pareto": false
+    },
+    {
+      "model": "cnmoro/static-nomic-384-pten-v2-st",
+      "rank": 135,
+      "active_b": 0.0,
+      "score": 45.52,
+      "pareto": false
+    },
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-v1.5",
+      "rank": 143,
+      "active_b": 0.086,
+      "score": 41.99,
+      "pareto": false
+    },
+    {
+      "model": "Mihaiii/gte-micro-v4",
+      "rank": 144,
+      "active_b": 0.007,
+      "score": 41.53,
+      "pareto": false
+    },
+    {
+      "model": "Jaume/gemma-2b-embeddings",
+      "rank": 148,
+      "active_b": 1.982,
+      "score": 37.27,
+      "pareto": false
+    },
+    {
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "rank": 150,
+      "active_b": 0.011,
+      "score": 41.39,
+      "pareto": false
+    },
+    {
+      "model": "ai-forever/ru-en-RoSBERTa",
+      "rank": 153,
+      "active_b": 0.303,
+      "score": 41.57,
+      "pareto": false
+    },
+    {
+      "model": "Mihaiii/gte-micro",
+      "rank": 161,
+      "active_b": 0.006,
+      "score": 39.42,
+      "pareto": false
+    },
+    {
+      "model": "aari1995/German_Semantic_STS_V2",
+      "rank": 163,
+      "active_b": 0.304,
+      "score": 38.33,
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabic-mpnet-base-all-nli-triplet",
+      "rank": 180,
+      "active_b": 0.086,
+      "score": 35.2,
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Arabert-all-nli-triplet-Matryoshka",
+      "rank": 183,
+      "active_b": 0.086,
+      "score": 33.11,
+      "pareto": false
+    },
+    {
+      "model": "Omartificial-Intelligence-Space/Marbert-all-nli-triplet-Matryoshka",
+      "rank": 185,
+      "active_b": 0.086,
+      "score": 32.14,
+      "pareto": false
+    },
+    {
+      "model": "mteb/baseline-random-encoder",
+      "rank": 191,
+      "active_b": 0.0,
+      "score": 18.79,
+      "pareto": false
+    }
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+New on the leaderboard: The Pareto tag: best score for its size. No model with the same or fewer active parameters scores higher. Scatter plot of Mean (Task) score against active parameters on MTEB(Multilingual, v2), for 80 models with complete results and a known size. 9 models carry the Pareto tag and are joined by a staircase line: 1. sentence-transformers/static-similarity-mrl-multilingual-v1, 0 active parameters, score 47.21, leaderboard rank 119; 2. hotchpotch/bekko-embedding-v1-a8m, 8M active parameters, score 56.73, leaderboard rank 67; 3. hotchpotch/bekko-embedding-v1-a25m, 25M active parameters, score 58.36, leaderboard rank 57; 4. microsoft/harrier-oss-v1-270m, 100M active parameters, score 66.55, leaderboard rank 19; 5. microsoft/harrier-oss-v1-0.6b, 440M active parameters, score 69.01, leaderboard rank 10; 6. Qwen/Qwen3-Embedding-4B, 3.63B active parameters, score 69.45, leaderboard rank 6; 7. Qwen/Qwen3-Embedding-8B, 6.95B active parameters, score 70.58, leaderboard rank 4; 8. tencent/KaLM-Embedding-Gemma3-12B-2511, 10.8B active parameters, score 72.32, leaderboard rank 2; 9. microsoft/harrier-oss-v1-27b, 25.6B active parameters, score 74.27, leaderboard rank 1. Source: leaderboard.mteb.org.
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,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");
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --peer:           #c9c7c0;
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --peer:           #55534e;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 30px;
+  }
+  header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .eyebrow { font-size: 18px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+  h1 { font-size: 44px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; }
+  .subtitle { font-size: 21px; color: var(--text-secondary); margin-top: 6px; }
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name { font-size: 30px; font-weight: 700; letter-spacing: 0.01em; }
+  .logo { width: 39px; height: 41px; flex: none; background: var(--logo-uri) left center / contain no-repeat; }
+
+  .plot { height: 500px; margin-top: 14px; }
+  svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .grid { stroke: var(--gridline); stroke-width: 1; }
+  .axis-line { stroke: var(--axis); stroke-width: 1; }
+  .tick { fill: var(--text-muted); font-size: 15px; }
+  .axis-title { fill: var(--text-secondary); font-size: 16px; font-weight: 550; }
+  .zero-note { fill: var(--text-muted); font-size: 13px; font-style: italic; }
+  .peer-dot { fill: var(--peer); }
+  .fline { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linejoin: round; opacity: 0.55; }
+  .tag-dot { fill: var(--accent); }
+  .tag-num { fill: #fff; font-size: 14px; font-weight: 700; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 17px; }
+  th { text-align: left; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+       color: var(--text-muted); padding: 0 8px 6px; border-bottom: 1px solid var(--hairline); }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--hairline); white-space: nowrap; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.idx span { display: inline-block; width: 24px; height: 24px; border-radius: 12px; background: var(--accent);
+                color: #fff; font-size: 13px; font-weight: 700; text-align: center; line-height: 24px; }
+  td.model .org { color: var(--text-muted); }
+  td.rank { font-weight: 640; }
+
+  footer { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--hairline);
+           font-size: 14px; color: var(--text-muted); }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="plot"><svg id="plot"></svg></div>
+
+<table>
+  <thead><tr><th></th><th>model</th><th class="num">active params</th><th class="num">score</th><th class="num">leaderboard rank</th></tr></thead>
+  <tbody id="rows"></tbody>
+</table>
+
+<footer id="footer"></footer>
+
+<script>
+// COPY — sentences here; fetch.py supplies only values.
+const COPY = {
+  eyebrow: "New on the leaderboard",
+  title: "The Pareto tag: best score for its size",
+  subtitle: "No model with the same or fewer active parameters scores higher",
+  yTitle: "Mean (Task)",
+  xTitle: "Active parameters",
+  footer: "MTEB(Multilingual, v2): models with complete results and a known size. Source: leaderboard.mteb.org",
+};
+
+const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
+const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+["eyebrow", "title", "subtitle", "footer"].forEach(k => set(k, d[k]));
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+const pts = (d.points || []).map(p => ({ ...p, x: p.active_b * 1e9 }));
+const tagged = pts.filter(p => p.pareto).sort((a, b) => a.x - b.x || b.score - a.score);
+tagged.forEach((p, i) => p.n = i + 1);
+
+const svg = document.getElementById("plot");
+const box = svg.getBoundingClientRect();
+const W = Math.round(box.width), H = Math.round(box.height);
+svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+const el = (t, a, txt) => {
+  const n = document.createElementNS("http://www.w3.org/2000/svg", t);
+  for (const k in a) n.setAttribute(k, a[k]);
+  if (txt != null) n.textContent = txt;
+  svg.appendChild(n); return n;
+};
+
+// Static models sit at exactly 0 active parameters — a real value log() cannot take,
+// so they get their own band behind an explicit axis break.
+const hasZero = pts.some(p => p.x === 0);
+const M = { t: 30, r: 24, b: 52, l: 54 };
+const ZERO_W = hasZero ? 62 : 0, BREAK_W = hasZero ? 22 : 0;
+const nz = pts.filter(p => p.x > 0).map(p => Math.log10(p.x));
+const xmin = Math.floor(Math.min(...nz) * 2) / 2 - 0.1;
+const xmax = Math.ceil(Math.max(...nz) * 2) / 2 + 0.1;
+const ys = pts.map(p => p.score);
+const ymin = Math.floor((Math.min(...ys) - 2) / 5) * 5, ymax = Math.ceil((Math.max(...ys) + 2) / 5) * 5;
+const LOG_L = M.l + ZERO_W + BREAK_W;
+const X = v => v === 0 ? M.l + ZERO_W / 2 : LOG_L + (Math.log10(v) - xmin) / (xmax - xmin) * (W - LOG_L - M.r);
+const Y = v => H - M.b - (v - ymin) / (ymax - ymin) * (H - M.t - M.b);
+
+for (let v = ymin; v <= ymax; v += 5) {
+  el("line", { class: "grid", x1: M.l, x2: W - M.r, y1: Y(v), y2: Y(v) });
+  el("text", { class: "tick", x: M.l - 10, y: Y(v) + 5, "text-anchor": "end" }, v);
+}
+const fmt = n => n === 0 ? "0" : n >= 1e9 ? +(n / 1e9).toPrecision(3) + "B" : n >= 1e6 ? Math.round(n / 1e6) + "M" : Math.round(n / 1e3) + "K";
+for (let e = Math.ceil(xmin); e <= Math.floor(xmax); e++) {
+  el("text", { class: "tick", x: X(10 ** e), y: H - M.b + 24, "text-anchor": "middle" }, fmt(10 ** e));
+}
+if (hasZero) {
+  el("text", { class: "tick", x: X(0), y: H - M.b + 24, "text-anchor": "middle" }, "0");
+  el("text", { class: "zero-note", x: X(0), y: H - M.b + 41, "text-anchor": "middle" }, "static");
+}
+el("line", { class: "axis-line", x1: M.l, x2: W - M.r, y1: H - M.b, y2: H - M.b });
+if (hasZero) {
+  const bx = M.l + ZERO_W + BREAK_W / 2, by = H - M.b;
+  el("rect", { x: bx - 9, y: by - 6, width: 18, height: 12, fill: "var(--surface)" });
+  for (const dx of [-4, 3]) el("line", { class: "axis-line", x1: bx + dx, y1: by + 7, x2: bx + dx + 6, y2: by - 7 });
+}
+el("text", { class: "axis-title", x: (LOG_L + W - M.r) / 2, y: H - 4, "text-anchor": "middle" }, d.xTitle);
+el("text", { class: "axis-title", x: 0, y: 12, "text-anchor": "start" }, d.yTitle);
+
+pts.filter(p => !p.pareto).forEach(p => el("circle", { class: "peer-dot", cx: X(p.x), cy: Y(p.score), r: 6 }));
+
+if (tagged.length) {
+  // staircase: a tagged model's score holds until the next larger tagged model
+  let path = `M ${X(tagged[0].x)} ${Y(tagged[0].score)}`;
+  for (let j = 1; j < tagged.length; j++)
+    path += ` L ${X(tagged[j].x)} ${Y(tagged[j - 1].score)} L ${X(tagged[j].x)} ${Y(tagged[j].score)}`;
+  path += ` L ${W - M.r} ${Y(tagged[tagged.length - 1].score)}`;
+  el("path", { class: "fline", d: path });
+}
+tagged.forEach(p => {
+  el("circle", { class: "tag-dot", cx: X(p.x), cy: Y(p.score), r: 13 });
+  el("text", { class: "tag-num", x: X(p.x), y: Y(p.score) + 5, "text-anchor": "middle" }, p.n);
+});
+
+const tbody = document.getElementById("rows");
+tagged.forEach(p => {
+  const [org, name] = p.model.includes("/") ? p.model.split("/", 2) : ["", p.model];
+  const tr = document.createElement("tr");
+  tr.innerHTML = `<td class="idx"><span>${p.n}</span></td>
+    <td class="model"><span class="org">${org}/</span>${name}</td>
+    <td class="num">${fmt(p.x)}</td>
+    <td class="num">${p.score.toFixed(2)}</td>
+    <td class="num rank">${p.rank}</td>`;
+  tbody.appendChild(tr);
+});
+
+window.__altText = [
+  `${d.eyebrow}: ${d.title}. ${d.subtitle}.`,
+  `Scatter plot of Mean (Task) score against active parameters on ${d.benchmark}, for ${pts.length} models with complete results and a known size. ${tagged.length} models carry the Pareto tag and are joined by a staircase line:`,
+  tagged.map(p => `${p.n}. ${p.model}, ${fmt(p.x)} active parameters, score ${p.score.toFixed(2)}, leaderboard rank ${p.rank}`).join("; ") + ".",
+  `Source: leaderboard.mteb.org.`,
+].join(" ");
+</script>

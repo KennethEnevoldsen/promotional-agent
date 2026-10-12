@@ -72,11 +72,12 @@ contributors:
       GitHub profile or adnanelassadi.github.io (X and LinkedIn only), so bluesky stays null.
   ayush1298:
     bluesky: null
-    linkedin: null
+    linkedin: https://www.linkedin.com/in/ayush-munot-5b4963223/
     affiliation: null
-    # 2026-10-12: no Bluesky handle on his GitHub profile or ayush1298.github.io. His GitHub
-    # profile links LinkedIn: https://www.linkedin.com/in/ayush-munot-5b4963223/ — not set
-    # as `linkedin:` until a maintainer decides he should be tagged (see header).
+    via: >-
+      linkedin added on kennethenevoldsen's instruction (maintainer, 2026-10-12); the
+      profile is the one linked from his own GitHub account. No Bluesky handle on his
+      GitHub profile or ayush1298.github.io, so bluesky stays null.
 
 organizations:
   lightonai:
