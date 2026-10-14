@@ -1,0 +1,447 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>shekar-ai/Noql on MTEB(fas, v2)</title>
+<!--
+  model_addition card for shekar-ai/Noql. Started from templates/model-release/card-pareto.html,
+  with the Pareto shading removed on purpose: on total parameters Noql is on the frontier
+  only trivially (it is the smallest model), and on the leaderboard's own axis (active
+  parameters) it is not tagged — hotchpotch/bekko-embedding-v1-a8m is marginally smaller
+  and scores higher. Shading a frontier here would make a claim the leaderboard does not.
+
+  x = TOTAL parameters (what has to be downloaded and held in memory), not active: see
+  fetch.py for why. Colour: subject in brand blue, the one model the post names (the
+  next-smallest) in brand purple, everything else grey context.
+
+    uv run posts/<stage>/noql-persian/fetch.py
+    uv run mteb-render --card posts/<stage>/noql-persian/card-1-noql-persian.html \
+      --out posts/<stage>/noql-persian/card-1-noql-persian.png
+-->
+
+<script type="application/json" id="card-data">
+{
+  "benchmark": "MTEB(fas, v2)",
+  "n_tasks": 52,
+  "n_models": 32,
+  "points": [
+    {
+      "model": "shekar-ai/Noql",
+      "x": 12000000,
+      "y": 58.2,
+      "subject": true,
+      "rival": false
+    },
+    {
+      "model": "MCINext/Hakim-small",
+      "x": 39000000,
+      "y": 68.55,
+      "subject": false,
+      "rival": true
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "x": 80000000,
+      "y": 60.1,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a8m",
+      "x": 106000000,
+      "y": 62.17,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "x": 118000000,
+      "y": 51.29,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "m3hrdadfi/bert-zwnj-wnli-mean-tokens",
+      "x": 118000000,
+      "y": 43.25,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "m3hrdadfi/roberta-zwnj-wnli-mean-tokens",
+      "x": 118000000,
+      "y": 43.14,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a25m",
+      "x": 123000000,
+      "y": 64.21,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "PartAI/Tooka-SBERT-V2-Small",
+      "x": 123000000,
+      "y": 62.01,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "PartAI/TookaBERT-Base",
+      "x": 123000000,
+      "y": 46.51,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "MCINext/Hakim",
+      "x": 124000000,
+      "y": 71.58,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "MCINext/Hakim-unsup",
+      "x": 124000000,
+      "y": 63.8,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "sbunlp/fabert",
+      "x": 124000000,
+      "y": 46.39,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-160M",
+      "x": 159000000,
+      "y": 62.36,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "HooshvareLab/bert-base-parsbert-uncased",
+      "x": 163000000,
+      "y": 45.59,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "myrkur/sentence-transformer-parsbert-fa",
+      "x": 163000000,
+      "y": 43.28,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-base",
+      "x": 278000000,
+      "y": 62.59,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "google/embeddinggemma-300m",
+      "x": 308000000,
+      "y": 67.76,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-330M",
+      "x": 334000000,
+      "y": 66.36,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "PartAI/Tooka-SBERT-V2-Large",
+      "x": 353000000,
+      "y": 63.3,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "PartAI/Tooka-SBERT",
+      "x": 353000000,
+      "y": 59.25,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "sentence-transformers/LaBSE",
+      "x": 471000000,
+      "y": 53.2,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-large",
+      "x": 560000000,
+      "y": 64.28,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "BAAI/bge-m3",
+      "x": 568000000,
+      "y": 65.57,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v3",
+      "x": 572000000,
+      "y": 65.26,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-0.6B",
+      "x": 596000000,
+      "y": 68.33,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-1.7B",
+      "x": 1721000000,
+      "y": 70.39,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-4B",
+      "x": 4022000000,
+      "y": 72.07,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+      "x": 7069000000,
+      "y": 64.63,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "intfloat/e5-mistral-7b-instruct",
+      "x": 7111000000,
+      "y": 60.72,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-8B",
+      "x": 7568000000,
+      "y": 73.04,
+      "subject": false,
+      "rival": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-14B",
+      "x": 13990000000,
+      "y": 73.94,
+      "subject": false,
+      "rival": false
+    }
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+A 12M-parameter Persian embedding model, scored on all 52 tasks. shekar-ai/Noql is the smallest of the 32 models with a published size and complete MTEB(fas, v2) results. The next-smallest, at 39M, scores higher. Scatter plot of MTEB(fas, v2), Mean (Task) against total parameters for the 32 models with complete results on all 52 tasks and a published size. shekar-ai/Noql scores 58.20 at 12M total parameters, the smallest on the chart. The next-smallest, MCINext/Hakim-small, scores 68.55 at 39M. Scores on the chart range from 43.14 to 73.94 (codefuse-ai/F2LLM-v2-14B, 13.99B). Results submitted by amirivojdan. Source: leaderboard.mteb.org.
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,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");
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --rival:          #a06bff;
+    --peer:           #b9b7b0;
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --rival:          #a06bff;
+    --peer:           #6f6d67;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+  .eyebrow {
+    font-size: 18px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 { font-size: 46px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; line-height: 1.12; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 12px; line-height: 1.35; max-width: 900px; }
+  .specs { font-size: 16px; color: var(--text-muted); margin-top: 10px; }
+
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name { font-size: 30px; font-weight: 700; letter-spacing: 0.01em; color: var(--text-primary); }
+
+  .plot { flex: 1; margin-top: 30px; }
+  svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .grid { stroke: var(--gridline); stroke-width: 1; }
+  .axis-line { stroke: var(--axis); stroke-width: 1; }
+  .tick { fill: var(--text-muted); font-size: 18px; }
+  .axis-title { fill: var(--text-secondary); font-size: 19px; font-weight: 550; }
+  .peer-dot { fill: var(--peer); }
+  .subject-dot { fill: var(--accent); }
+  .rival-dot { fill: var(--rival); }
+  .subject-label { fill: var(--text-primary); font-size: 22px; font-weight: 640; }
+  .subject-org { fill: var(--text-secondary); font-size: 15px; }
+  .subject-score { fill: var(--text-secondary); font-size: 20px; }
+  .rival-label { fill: var(--text-primary); font-size: 19px; font-weight: 600; }
+  .peer-label { fill: var(--text-muted); font-size: 16px; }
+  .peer-org { fill: var(--text-muted); font-size: 13px; opacity: 0.85; }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 12px; padding-top: 14px; border-top: 1px solid var(--hairline);
+    font-size: 17px; color: var(--text-muted);
+  }
+  .source { font-size: 15px; color: var(--text-muted); }
+
+  .logo {
+    width: 39px; height: 41px; flex: none;   /* asset aspect 0.958 */
+    background: var(--logo-uri) left center / contain no-repeat;
+  }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="subtitle" id="subtitle"></div>
+    <div class="specs" id="specs"></div>
+  </div>
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="plot"><svg id="plot"></svg></div>
+
+<footer>
+  <span class="source" id="source"></span>
+  <span id="footer"></span>
+</footer>
+
+<script>
+// COPY — every sentence a person chose. fetch.py writes only #card-data.
+const COPY = {
+  eyebrow: "New model on MTEB · Persian",
+  title: "A 12M-parameter Persian embedding model, scored on all 52 tasks",
+  subtitle: "shekar-ai/Noql is the smallest of the 32 models with a published size and complete MTEB(fas, v2) results. The next-smallest, at 39M, scores higher.",
+  specs: "",
+  x_label: "Total parameters (log scale)",
+  source: "MTEB(fas, v2), mean over 52 tasks · Source: leaderboard.mteb.org",
+  footer: "Results submitted by amirivojdan",
+};
+
+const LABELLED = {};  // grey peers stay unnamed: at this density names collide and add nothing to the claim
+
+const data = JSON.parse(document.getElementById("card-data").textContent);
+const d = { ...COPY, ...data, y_label: `${data.benchmark}, Mean (Task)` };
+const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+["eyebrow", "title", "subtitle", "specs", "source", "footer"].forEach(k => set(k, d[k]));
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+const svgEl = document.getElementById("plot");
+const box = svgEl.getBoundingClientRect();
+const W = Math.round(box.width), H = Math.round(box.height);
+svgEl.setAttribute("viewBox", `0 0 ${W} ${H}`);
+const M = { t: 36, r: 24, b: 58, l: 58 };
+const pts = d.points;
+
+const xs = pts.map(p => Math.log10(p.x)), ys = pts.map(p => p.y);
+const xmin = Math.floor(Math.min(...xs) * 2) / 2 - 0.1;
+const xmax = Math.ceil(Math.max(...xs) * 2) / 2 + 0.05;
+const ymin = Math.floor((Math.min(...ys) - 3) / 5) * 5, ymax = Math.ceil((Math.max(...ys) + 3) / 5) * 5;
+const X = v => M.l + (Math.log10(v) - xmin) / (xmax - xmin) * (W - M.l - M.r);
+const Y = v => H - M.b - (v - ymin) / (ymax - ymin) * (H - M.t - M.b);
+const fmt = n => n >= 1e9 ? (n / 1e9) + "B" : n >= 1e6 ? Math.round(n / 1e6) + "M" : Math.round(n / 1e3) + "K";
+
+const el = (t, a, txt) => {
+  const n = document.createElementNS("http://www.w3.org/2000/svg", t);
+  for (const k in a) n.setAttribute(k, a[k]);
+  if (txt != null) n.textContent = txt;
+  svgEl.appendChild(n); return n;
+};
+
+for (let v = ymin; v <= ymax; v += 5) {
+  el("line", { x1: M.l, x2: W - M.r, y1: Y(v), y2: Y(v), class: "grid" });
+  el("text", { x: M.l - 12, y: Y(v) + 6, class: "tick", "text-anchor": "end" }, v);
+}
+const xticks = [];
+for (let e = Math.floor(xmin); e <= Math.ceil(xmax); e++)
+  for (const m of [1, 3]) { const v = m * 10 ** e; const lv = Math.log10(v); if (lv >= xmin && lv <= xmax) xticks.push(v); }
+for (const v of xticks) el("text", { x: X(v), y: H - M.b + 28, class: "tick", "text-anchor": "middle" }, fmt(v));
+el("line", { x1: M.l, x2: W - M.r, y1: H - M.b, y2: H - M.b, class: "axis-line" });
+el("text", { x: (M.l + W - M.r) / 2, y: H - 6, class: "axis-title", "text-anchor": "middle" }, d.x_label);
+el("text", { x: 0, y: 12, class: "axis-title", "text-anchor": "start" }, d.y_label);
+
+const splitName = n => { const i = n.indexOf("/"); return i === -1 ? [null, n] : [n.slice(0, i + 1), n.slice(i + 1)]; };
+
+const peers = pts.filter(p => !p.subject && !p.rival);
+for (const p of peers) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 6, class: "peer-dot" });
+  const side = LABELLED[p.model];
+  if (!side) continue;
+  const [org, name] = splitName(p.model);
+  const a = { x: X(p.x) + (side === "left" ? -11 : 11), "text-anchor": side === "left" ? "end" : "start" };
+  el("text", { ...a, y: Y(p.y) - 3, class: "peer-org" }, org);
+  el("text", { ...a, y: Y(p.y) + 14, class: "peer-label" }, name);
+}
+for (const p of pts.filter(p => p.rival)) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 7.5, class: "rival-dot" });
+  const a = { x: X(p.x) + 13, "text-anchor": "start" };
+  el("text", { ...a, y: Y(p.y) - 22, class: "subject-org" }, splitName(p.model)[0]);
+  el("text", { ...a, y: Y(p.y) - 3, class: "rival-label" }, splitName(p.model)[1]);
+  el("text", { ...a, y: Y(p.y) + 19, class: "subject-score" }, `${p.y.toFixed(2)} · ${fmt(p.x)}`);
+}
+for (const p of pts.filter(p => p.subject)) {
+  el("circle", { cx: X(p.x), cy: Y(p.y), r: 8.5, class: "subject-dot" });
+  const a = { x: X(p.x) + 14, "text-anchor": "start" };
+  el("text", { ...a, y: Y(p.y) - 24, class: "subject-org" }, splitName(p.model)[0]);
+  el("text", { ...a, y: Y(p.y) - 4, class: "subject-label" }, splitName(p.model)[1]);
+  el("text", { ...a, y: Y(p.y) + 19, class: "subject-score" }, `${p.y.toFixed(2)} · ${fmt(p.x)}`);
+}
+
+const subj = pts.find(p => p.subject), rival = pts.find(p => p.rival);
+const best = [...pts].sort((a, b) => b.y - a.y)[0];
+window.__altText = [
+  `${d.title}. ${d.subtitle}`,
+  `Scatter plot of ${d.y_label} against total parameters for the ${pts.length} models with complete results on all ${d.n_tasks} tasks and a published size.`,
+  `${subj.model} scores ${subj.y.toFixed(2)} at ${fmt(subj.x)} total parameters, the smallest on the chart.`,
+  rival ? `The next-smallest, ${rival.model}, scores ${rival.y.toFixed(2)} at ${fmt(rival.x)}.` : "",
+  `Scores on the chart range from ${Math.min(...ys).toFixed(2)} to ${best.y.toFixed(2)} (${best.model}, ${fmt(best.x)}).`,
+  `${d.footer}.`,
+  "Source: leaderboard.mteb.org.",
+].filter(Boolean).join(" ");
+</script>

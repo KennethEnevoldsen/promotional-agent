@@ -164,7 +164,7 @@ The label is a self-label on our own `app.bsky.actor.profile` record, so it is o
 remove if the tier ever moves back.
 
 Two of Bluesky's bot norms already hold regardless: interactions must be opt-in (we never
-reply at all — `AGENTS.md` rule 11), and rate limits must be respected (at most one post
+reply at all — `AGENTS.md`, "This account publishes; it does not converse"), and rate limits must be respected (at most one post
 a day, far below any limit).
 
 ## LinkedIn

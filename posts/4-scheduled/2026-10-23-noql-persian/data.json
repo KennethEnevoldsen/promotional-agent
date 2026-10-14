@@ -1,0 +1,592 @@
+{
+  "generated": "2026-10-12",
+  "benchmark": "MTEB(fas, v2)",
+  "n_benchmark_tasks": 52,
+  "api": "https://mteb-leaderboard-backend.hf.space/v1/benchmarks/MTEB%28fas%2C%20v2%29/scores",
+  "n_leaderboard_rows": 286,
+  "n_full_coverage": 33,
+  "n_full_coverage_with_size": 32,
+  "subject": {
+    "model": "shekar-ai/Noql",
+    "rank": 24,
+    "total_b": 0.012,
+    "active_b": 0.008,
+    "score": 58.2,
+    "site_score": 58.2,
+    "revisions": [
+      "fcdec3f8c64107a4a552b1877156d561fa1b6eb9"
+    ],
+    "persian_only": true,
+    "n_languages": 1,
+    "open_weights": true,
+    "zero_shot_pct": 100,
+    "subject": true
+  },
+  "subject_model_meta": {
+    "revision": "fcdec3f8c64107a4a552b1877156d561fa1b6eb9",
+    "n_parameters": 11940096,
+    "n_embedding_parameters": 4096512,
+    "n_active_parameters": 7843584,
+    "embed_dim": [
+      768,
+      512,
+      256,
+      128,
+      64
+    ],
+    "max_tokens": 512.0,
+    "languages": [
+      "fas-Arab"
+    ],
+    "adapted_from": "shekar-ai/albert-base-v2-persian-zwnj-naab-mlm"
+  },
+  "next_smallest": {
+    "model": "MCINext/Hakim-small",
+    "rank": 10,
+    "total_b": 0.039,
+    "active_b": null,
+    "score": 68.55,
+    "site_score": 68.55,
+    "revisions": [
+      "1"
+    ],
+    "persian_only": true,
+    "n_languages": 1,
+    "open_weights": false,
+    "zero_shot_pct": 42,
+    "subject": false
+  },
+  "problems": [],
+  "score_differences_not_on_card": [],
+  "models": [
+    {
+      "model": "codefuse-ai/F2LLM-v2-14B",
+      "rank": 1,
+      "total_b": 13.99,
+      "active_b": 13.214,
+      "score": 73.94,
+      "site_score": 73.94,
+      "revisions": [
+        "e42037a37e12999db44ce8e1a0e63c366c273f6a"
+      ],
+      "persian_only": false,
+      "n_languages": 92,
+      "open_weights": true,
+      "zero_shot_pct": 78,
+      "subject": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-8B",
+      "rank": 2,
+      "total_b": 7.568,
+      "active_b": 6.947,
+      "score": 73.04,
+      "site_score": 73.04,
+      "revisions": [
+        "5ac7d57351026337281e8e6a23e05cce16e79415"
+      ],
+      "persian_only": false,
+      "n_languages": 92,
+      "open_weights": true,
+      "zero_shot_pct": 78,
+      "subject": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-4B",
+      "rank": 3,
+      "total_b": 4.022,
+      "active_b": 3.634,
+      "score": 72.07,
+      "site_score": 72.07,
+      "revisions": [
+        "e04d1a04f4a0e154bf43969d3dcc596bbd92b1f8"
+      ],
+      "persian_only": false,
+      "n_languages": 92,
+      "open_weights": true,
+      "zero_shot_pct": 78,
+      "subject": false
+    },
+    {
+      "model": "MCINext/Hakim",
+      "rank": 6,
+      "total_b": 0.124,
+      "active_b": null,
+      "score": 71.58,
+      "site_score": 71.58,
+      "revisions": [
+        "1"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": false,
+      "zero_shot_pct": 42,
+      "subject": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-1.7B",
+      "rank": 4,
+      "total_b": 1.721,
+      "active_b": 1.41,
+      "score": 70.39,
+      "site_score": 70.39,
+      "revisions": [
+        "3766d46e7a68545ed6190c15330983f9b39ab718"
+      ],
+      "persian_only": false,
+      "n_languages": 92,
+      "open_weights": true,
+      "zero_shot_pct": 78,
+      "subject": false
+    },
+    {
+      "model": "MCINext/Hakim-small",
+      "rank": 10,
+      "total_b": 0.039,
+      "active_b": null,
+      "score": 68.55,
+      "site_score": 68.55,
+      "revisions": [
+        "1"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": false,
+      "zero_shot_pct": 42,
+      "subject": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-0.6B",
+      "rank": 7,
+      "total_b": 0.596,
+      "active_b": 0.441,
+      "score": 68.33,
+      "site_score": 68.33,
+      "revisions": [
+        "54b4e2dc74e01be7126d4cf5f016af6b21edc563"
+      ],
+      "persian_only": false,
+      "n_languages": 92,
+      "open_weights": true,
+      "zero_shot_pct": 78,
+      "subject": false
+    },
+    {
+      "model": "google/embeddinggemma-300m",
+      "rank": 5,
+      "total_b": 0.308,
+      "active_b": 0.106,
+      "score": 67.76,
+      "site_score": 67.76,
+      "revisions": [
+        "64614b0b8b64f0c6c1e52b07e4e9a4e8fe4d2da2"
+      ],
+      "persian_only": false,
+      "n_languages": 19,
+      "open_weights": true,
+      "zero_shot_pct": 90,
+      "subject": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-330M",
+      "rank": 9,
+      "total_b": 0.334,
+      "active_b": 0.198,
+      "score": 66.36,
+      "site_score": 66.36,
+      "revisions": [
+        "b0e8e19bdf603b9826422852572c0d18d482c414"
+      ],
+      "persian_only": false,
+      "n_languages": 92,
+      "open_weights": true,
+      "zero_shot_pct": 78,
+      "subject": false
+    },
+    {
+      "model": "BAAI/bge-m3",
+      "rank": 8,
+      "total_b": 0.568,
+      "active_b": 0.312,
+      "score": 65.57,
+      "site_score": 65.57,
+      "revisions": [
+        "5617a9f61b028005a4858fdac845db406aefb181"
+      ],
+      "persian_only": false,
+      "n_languages": 28,
+      "open_weights": true,
+      "zero_shot_pct": 90,
+      "subject": false
+    },
+    {
+      "model": "jinaai/jina-embeddings-v3",
+      "rank": 13,
+      "total_b": 0.572,
+      "active_b": 0.316,
+      "score": 65.26,
+      "site_score": 65.26,
+      "revisions": [
+        "215a6e121fa0183376388ac6b1ae230326bfeaed"
+      ],
+      "persian_only": false,
+      "n_languages": 99,
+      "open_weights": true,
+      "zero_shot_pct": 96,
+      "subject": false
+    },
+    {
+      "model": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+      "rank": 12,
+      "total_b": 7.069,
+      "active_b": 6.526,
+      "score": 64.63,
+      "site_score": 64.63,
+      "revisions": [
+        "e26182b2122f4435e8b3ebecbf363990f409b45b"
+      ],
+      "persian_only": false,
+      "n_languages": 0,
+      "open_weights": true,
+      "zero_shot_pct": -1,
+      "subject": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-large",
+      "rank": 11,
+      "total_b": 0.56,
+      "active_b": 0.304,
+      "score": 64.28,
+      "site_score": 64.28,
+      "revisions": [
+        "ab10c1a7f42e74530fe7ae5be82e6d4f11a719eb"
+      ],
+      "persian_only": false,
+      "n_languages": 99,
+      "open_weights": true,
+      "zero_shot_pct": 88,
+      "subject": false
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a25m",
+      "rank": 15,
+      "total_b": 0.123,
+      "active_b": 0.025,
+      "score": 64.21,
+      "site_score": 64.21,
+      "revisions": [
+        "aede922b27c1751d091b1e26c86dc82446a46cb4"
+      ],
+      "persian_only": false,
+      "n_languages": 110,
+      "open_weights": true,
+      "zero_shot_pct": 90,
+      "subject": false
+    },
+    {
+      "model": "MCINext/Hakim-unsup",
+      "rank": 16,
+      "total_b": 0.124,
+      "active_b": null,
+      "score": 63.8,
+      "site_score": 63.8,
+      "revisions": [
+        "1"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": false,
+      "zero_shot_pct": 94,
+      "subject": false
+    },
+    {
+      "model": "PartAI/Tooka-SBERT-V2-Large",
+      "rank": 14,
+      "total_b": 0.353,
+      "active_b": 0.304,
+      "score": 63.3,
+      "site_score": 63.3,
+      "revisions": [
+        "b59682efa961122cc0e4408296d5852870c82eae"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": true,
+      "zero_shot_pct": -1,
+      "subject": false
+    },
+    {
+      "model": "intfloat/multilingual-e5-base",
+      "rank": 18,
+      "total_b": 0.278,
+      "active_b": 0.086,
+      "score": 62.59,
+      "site_score": 62.59,
+      "revisions": [
+        "d13f1b27baf31030b7fd040960d60d909913633f"
+      ],
+      "persian_only": false,
+      "n_languages": 99,
+      "open_weights": true,
+      "zero_shot_pct": 88,
+      "subject": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-160M",
+      "rank": 20,
+      "total_b": 0.159,
+      "active_b": 0.062,
+      "score": 62.36,
+      "site_score": 62.36,
+      "revisions": [
+        "9eb35007d12e8624e6bf3e9e35d2255b5269597f"
+      ],
+      "persian_only": false,
+      "n_languages": 92,
+      "open_weights": true,
+      "zero_shot_pct": 78,
+      "subject": false
+    },
+    {
+      "model": "hotchpotch/bekko-embedding-v1-a8m",
+      "rank": 21,
+      "total_b": 0.106,
+      "active_b": 0.008,
+      "score": 62.17,
+      "site_score": 62.17,
+      "revisions": [
+        "a8cedb6b46fad5df6f10e1c94750ff62e298fbd2"
+      ],
+      "persian_only": false,
+      "n_languages": 110,
+      "open_weights": true,
+      "zero_shot_pct": 90,
+      "subject": false
+    },
+    {
+      "model": "PartAI/Tooka-SBERT-V2-Small",
+      "rank": 19,
+      "total_b": 0.123,
+      "active_b": 0.086,
+      "score": 62.01,
+      "site_score": 62.01,
+      "revisions": [
+        "8bbed87e36669387f71437c061430ba56d1b496f"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": true,
+      "zero_shot_pct": -1,
+      "subject": false
+    },
+    {
+      "model": "intfloat/e5-mistral-7b-instruct",
+      "rank": 17,
+      "total_b": 7.111,
+      "active_b": 6.98,
+      "score": 60.72,
+      "site_score": 60.72,
+      "revisions": [
+        "07163b72af1488142a360786df853f237b1a3ca1"
+      ],
+      "persian_only": false,
+      "n_languages": 5,
+      "open_weights": true,
+      "zero_shot_pct": 88,
+      "subject": false
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "rank": 23,
+      "total_b": 0.08,
+      "active_b": 0.032,
+      "score": 60.1,
+      "site_score": 60.1,
+      "revisions": [
+        "35baae5091e26211dbe628f1723448c146fafdf2",
+        "6faa7738f343cd4321f9b2fa92fdb7cae3c117a5"
+      ],
+      "persian_only": false,
+      "n_languages": 92,
+      "open_weights": true,
+      "zero_shot_pct": 78,
+      "subject": false
+    },
+    {
+      "model": "PartAI/Tooka-SBERT",
+      "rank": 22,
+      "total_b": 0.353,
+      "active_b": 0.304,
+      "score": 59.25,
+      "site_score": 59.25,
+      "revisions": [
+        "5d07f0c543aca654373b931ae07cd197769110fd"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": true,
+      "zero_shot_pct": -1,
+      "subject": false
+    },
+    {
+      "model": "shekar-ai/Noql",
+      "rank": 24,
+      "total_b": 0.012,
+      "active_b": 0.008,
+      "score": 58.2,
+      "site_score": 58.2,
+      "revisions": [
+        "fcdec3f8c64107a4a552b1877156d561fa1b6eb9"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": true,
+      "zero_shot_pct": 100,
+      "subject": true
+    },
+    {
+      "model": "openai/text-embedding-3-small",
+      "rank": 26,
+      "total_b": null,
+      "active_b": null,
+      "score": 54.9,
+      "site_score": 54.9,
+      "revisions": [
+        "3"
+      ],
+      "persian_only": false,
+      "n_languages": 0,
+      "open_weights": false,
+      "zero_shot_pct": -1,
+      "subject": false
+    },
+    {
+      "model": "sentence-transformers/LaBSE",
+      "rank": 25,
+      "total_b": 0.471,
+      "active_b": 0.086,
+      "score": 53.2,
+      "site_score": 53.2,
+      "revisions": [
+        "e34fab64a3011d2176c99545a93d5cbddc9a91b7"
+      ],
+      "persian_only": false,
+      "n_languages": 51,
+      "open_weights": true,
+      "zero_shot_pct": 100,
+      "subject": false
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "rank": 28,
+      "total_b": 0.118,
+      "active_b": 0.022,
+      "score": 51.29,
+      "site_score": 51.29,
+      "revisions": [
+        "bf3bf13ab40c3157080a7ab344c831b9ad18b5eb"
+      ],
+      "persian_only": false,
+      "n_languages": 51,
+      "open_weights": true,
+      "zero_shot_pct": 96,
+      "subject": false
+    },
+    {
+      "model": "PartAI/TookaBERT-Base",
+      "rank": 29,
+      "total_b": 0.123,
+      "active_b": 0.086,
+      "score": 46.51,
+      "site_score": 46.51,
+      "revisions": [
+        "fa5ca89df5670700d9325b8872ac65c17cb24582"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": true,
+      "zero_shot_pct": 100,
+      "subject": false
+    },
+    {
+      "model": "sbunlp/fabert",
+      "rank": 31,
+      "total_b": 0.124,
+      "active_b": 0.086,
+      "score": 46.39,
+      "site_score": 46.39,
+      "revisions": [
+        "a0e3973064c97768e121b9b95f21adc94e0ca3fb"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": true,
+      "zero_shot_pct": 100,
+      "subject": false
+    },
+    {
+      "model": "HooshvareLab/bert-base-parsbert-uncased",
+      "rank": 30,
+      "total_b": 0.163,
+      "active_b": 0.086,
+      "score": 45.59,
+      "site_score": 45.59,
+      "revisions": [
+        "d73a0e2c7492c33bd5819bcdb23eba207404dd19"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": true,
+      "zero_shot_pct": 100,
+      "subject": false
+    },
+    {
+      "model": "myrkur/sentence-transformer-parsbert-fa",
+      "rank": 32,
+      "total_b": 0.163,
+      "active_b": 0.086,
+      "score": 43.28,
+      "site_score": 43.28,
+      "revisions": [
+        "72bd0a3557622f0ae08a092f4643609e0b950cdd"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": true,
+      "zero_shot_pct": 100,
+      "subject": false
+    },
+    {
+      "model": "m3hrdadfi/bert-zwnj-wnli-mean-tokens",
+      "rank": 33,
+      "total_b": 0.118,
+      "active_b": 0.086,
+      "score": 43.25,
+      "site_score": 43.25,
+      "revisions": [
+        "b9506ddc579ac8c398ae6dae680401ae0a1a5b23"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": true,
+      "zero_shot_pct": 98,
+      "subject": false
+    },
+    {
+      "model": "m3hrdadfi/roberta-zwnj-wnli-mean-tokens",
+      "rank": 34,
+      "total_b": 0.118,
+      "active_b": 0.086,
+      "score": 43.14,
+      "site_score": 43.14,
+      "revisions": [
+        "36f912ac44e22250aee16ea533a4ff8cd848c1a1"
+      ],
+      "persian_only": true,
+      "n_languages": 1,
+      "open_weights": true,
+      "zero_shot_pct": 98,
+      "subject": false
+    }
+  ]
+}

@@ -1,29 +1,25 @@
 # GitHub handle -> social handle mapping, for credit lines in posts.
 #
 # Credit is not optional: every post names the people whose work it describes.
-# Tagging is. A `bluesky:` entry is an opt-in signal — the agent may @-mention that
+# Tagging needs an entry here. A `bluesky:` entry means the agent may @-mention that
 # handle. With no entry, the post still credits the person by their GitHub handle as
-# plain text, which is a statement of fact rather than a notification.
+# plain text.
 #
-# Do not guess a Bluesky handle from a name or a GitHub profile. Wrong-person mentions
-# are the exact failure mode that makes an automated account feel spammy. Populate this
-# file only from handles people have volunteered.
+# `via:` records where the handle came from, and is required wherever `bluesky:` or
+# `linkedin:` is set. Three sources qualify:
 #
-# `via:` records what counts as volunteering, and is required wherever `bluesky:` is set.
-# Two things qualify:
-#
+#   * the person links it from their own GitHub profile (`gh api users/<h>/social_accounts`,
+#     or the profile's website or bio). They published it themselves. Record the date
+#     checked;
 #   * the person said so directly, to a maintainer or to the account;
-#   * the person quoted or replied to a post *about their own work* from that handle.
-#     Publicly attaching your name to coverage of your own model is a fair signal that a
-#     mention is wanted. Commenting on someone else's is not — that is a reader, and
-#     tagging readers is how an account starts feeling like spam.
+#   * the person quoted or replied to a post about their own work from that handle.
 #
-# Being findable is not volunteering. If the only evidence is that a handle exists and
-# looks like the right person, the entry stays null and the post credits by GitHub handle.
+# Never infer a handle any other way: not by searching Bluesky or LinkedIn for a name,
+# and not because an account looks like the right person. Wrong-person mentions are the
+# failure mode that makes an automated account feel spammy.
 #
-# `linkedin:` (a profile URL) works the same way for the LinkedIn version of a post: set
-# only when the person or a maintainer has decided they should be tagged, and record who
-# in `via:`. See CONTRIBUTING.md, "Credit".
+# `linkedin:` is a profile URL and follows the same rules, for the LinkedIn version of a
+# post. See CONTRIBUTING.md, "Credit".
 #
 # affiliation is optional and used only where the org is the more natural credit
 # (e.g. a lab releasing a model family).
@@ -68,7 +64,7 @@ contributors:
     affiliation: null
     via: >-
       linkedin added on kennethenevoldsen's instruction (maintainer, 2026-10-12); the
-      profile is the one linked from his own GitHub account. No Bluesky handle on his
+      profile is the one linked from their own GitHub account. No Bluesky handle on his
       GitHub profile or adnanelassadi.github.io (X and LinkedIn only), so bluesky stays null.
   ayush1298:
     bluesky: null
@@ -76,8 +72,22 @@ contributors:
     affiliation: null
     via: >-
       linkedin added on kennethenevoldsen's instruction (maintainer, 2026-10-12); the
-      profile is the one linked from his own GitHub account. No Bluesky handle on his
+      profile is the one linked from their own GitHub account. No Bluesky handle on his
       GitHub profile or ayush1298.github.io, so bluesky stays null.
+  SimonLupart:
+    bluesky: null
+    linkedin: https://www.linkedin.com/in/simon-lupart/
+    affiliation: null
+    via: >-
+      linkedin linked from their own GitHub profile (social_accounts) and from
+      simonlupart.github.io, checked 2026-10-13. No Bluesky handle in either place.
+  amirivojdan:
+    bluesky: null
+    linkedin: https://www.linkedin.com/in/amirivojdan/
+    affiliation: null
+    via: >-
+      linkedin linked from their own GitHub profile (social_accounts) and from
+      amirivojdan.com, checked 2026-10-13. No Bluesky handle in either place.
 
 organizations:
   lightonai:

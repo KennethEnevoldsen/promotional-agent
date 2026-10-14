@@ -1,0 +1,255 @@
+{
+  "generated": "2026-10-13",
+  "task": "JuriFindITRetrieval",
+  "main_score": "ndcg_at_10",
+  "eval_langs": [
+    "ita-Latn"
+  ],
+  "domains": [
+    "Legal",
+    "Government",
+    "Written"
+  ],
+  "annotations_creators": "expert-annotated",
+  "sample_creation": "created",
+  "reference": "https://aclanthology.org/2026.findings-eacl.221/",
+  "descriptive_stats_test": {
+    "num_samples": 24008,
+    "num_queries": 895,
+    "num_documents": 23113,
+    "number_of_characters": 37746932,
+    "documents_text_statistics": {
+      "total_text_length": 37591366,
+      "min_text_length": 10,
+      "average_text_length": 1626.4165621079046,
+      "max_text_length": 1134897,
+      "unique_texts": 23113
+    },
+    "documents_image_statistics": null,
+    "documents_audio_statistics": null,
+    "documents_video_statistics": null,
+    "queries_text_statistics": {
+      "total_text_length": 155566,
+      "min_text_length": 40,
+      "average_text_length": 173.81675977653632,
+      "max_text_length": 492,
+      "unique_texts": 895
+    },
+    "queries_image_statistics": null,
+    "queries_audio_statistics": null,
+    "queries_video_statistics": null,
+    "relevant_docs_statistics": {
+      "num_relevant_docs": 4007,
+      "min_relevant_docs_per_query": 1,
+      "average_relevant_docs_per_query": 4.477094972067039,
+      "max_relevant_docs_per_query": 292,
+      "unique_relevant_docs": 2439,
+      "num_missing_query_ids": 0,
+      "num_missing_corpus_ids": 0
+    },
+    "top_ranked_statistics": null
+  },
+  "italian_legal_retrieval_tasks": [
+    {
+      "task": "JuriFindITRetrieval",
+      "annotations_creators": "expert-annotated",
+      "sample_creation": "created",
+      "description": "JuriFindIT is a native Italian statutory article retrieval dataset. The corpus holds statutory articles from Italian and EU legislative acts in Akoma Ntoso format, covering civil law, criminal law, anti-money laundering and counter-terrorism, and data protection. The queries are the 895 legal questions written by four Italian legal professionals (one per macro-area), each mapped to every article of the corpus that answers it. The dataset also ships 169,301 LLM-generated questions, which are deliberately excluded here so the task stays fully human-authored. Exact-duplicate articles (boilerplate provisions such as entry-into-force clauses repeated across acts) are collapsed onto a single document id so that retrieving an identical twin of a relevant article is not scored as an error."
+    },
+    {
+      "task": "MuPLeR-retrieval",
+      "annotations_creators": "LM-generated and reviewed",
+      "sample_creation": "found",
+      "description": "MuPLeR-retrieval is a multilingual, parallel legal dataset designed for evaluating retrieval and cross-lingual retrieval tasks. Dataset contains 10,000 human-translated parallel passages (derived from the European Union's DGT-Acquis corpus) & 200 parallel queries (synthetic) across 14 European languages."
+    }
+  ],
+  "scoring": "Mean(Task) of mteb.Benchmark(tasks=[JuriFindITRetrieval]).get_score(), equal to the task's main score; cross-checked against TaskResult.get_score() and the API",
+  "api": "https://mteb-leaderboard-backend.hf.space/v1/tasks/JuriFindITRetrieval/scores",
+  "base_model_check": {
+    "model": "BAAI/bge-m3",
+    "revisions_with_task": []
+  },
+  "problems": [],
+  "models": [
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-v2.0",
+      "score": 62.92,
+      "site_score": 62.91,
+      "baseline": false,
+      "revisions": [
+        "f2a7d59d80dfda5b1d14f096f3ce88bb6bf9ebdc"
+      ],
+      "mteb_version": "2.20.13",
+      "n_parameters": 305000000,
+      "n_active_parameters": 112963136,
+      "declares_italian": true,
+      "n_languages": 74,
+      "task_in_training_data": false,
+      "adapted_from": "Alibaba-NLP/gte-multilingual-base",
+      "release_date": "2024-12-04",
+      "rank": 1
+    },
+    {
+      "model": "jinaai/jina-embeddings-v3",
+      "score": 62.37,
+      "site_score": 62.37,
+      "baseline": false,
+      "revisions": [
+        "215a6e121fa0183376388ac6b1ae230326bfeaed"
+      ],
+      "mteb_version": "2.20.13",
+      "n_parameters": 572310396,
+      "n_active_parameters": 316308348,
+      "declares_italian": true,
+      "n_languages": 99,
+      "task_in_training_data": false,
+      "adapted_from": "XLM-RoBERTa",
+      "release_date": "2024-09-18",
+      "rank": 2
+    },
+    {
+      "model": "albertobarnabo/bge-m3-italian",
+      "score": 61.73,
+      "site_score": 61.73,
+      "baseline": false,
+      "revisions": [
+        "f22ed34934c792dee1a399e487d15d071754666f"
+      ],
+      "mteb_version": "2.20.12",
+      "n_parameters": 567754752,
+      "n_active_parameters": 311752704,
+      "declares_italian": true,
+      "n_languages": 1,
+      "task_in_training_data": false,
+      "adapted_from": "BAAI/bge-m3",
+      "release_date": "2026-09-13",
+      "rank": 3
+    },
+    {
+      "model": "intfloat/multilingual-e5-large",
+      "score": 59.37,
+      "site_score": 59.37,
+      "baseline": false,
+      "revisions": [
+        "ab10c1a7f42e74530fe7ae5be82e6d4f11a719eb"
+      ],
+      "mteb_version": "2.20.12",
+      "n_parameters": 560000000,
+      "n_active_parameters": 303997952,
+      "declares_italian": true,
+      "n_languages": 99,
+      "task_in_training_data": false,
+      "adapted_from": "FacebookAI/xlm-roberta-large",
+      "release_date": "2024-02-08",
+      "rank": 4
+    },
+    {
+      "model": "intfloat/multilingual-e5-small",
+      "score": 48.72,
+      "site_score": 48.72,
+      "baseline": false,
+      "revisions": [
+        "fd1525a9fd15316a2d503bf26ab031a61d056e98"
+      ],
+      "mteb_version": "2.20.12",
+      "n_parameters": 118000000,
+      "n_active_parameters": 21985792,
+      "declares_italian": true,
+      "n_languages": 99,
+      "task_in_training_data": false,
+      "adapted_from": "microsoft/Multilingual-MiniLM-L12-H384",
+      "release_date": "2024-02-08",
+      "rank": 5
+    },
+    {
+      "model": "mteb/baseline-bm25s",
+      "score": 47.79,
+      "site_score": 47.79,
+      "baseline": true,
+      "revisions": [
+        "0_3_0"
+      ],
+      "mteb_version": "2.20.12",
+      "n_parameters": 0,
+      "n_active_parameters": 0,
+      "declares_italian": true,
+      "n_languages": 15,
+      "task_in_training_data": false,
+      "adapted_from": null,
+      "release_date": "2026-05-06",
+      "rank": 6
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "score": 39.51,
+      "site_score": 39.51,
+      "baseline": false,
+      "revisions": [
+        "6faa7738f343cd4321f9b2fa92fdb7cae3c117a5"
+      ],
+      "mteb_version": "2.20.12",
+      "n_parameters": 80084288,
+      "n_active_parameters": 31550208,
+      "declares_italian": true,
+      "n_languages": 92,
+      "task_in_training_data": false,
+      "adapted_from": null,
+      "release_date": "2026-03-09",
+      "rank": 7
+    },
+    {
+      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+      "score": 35.53,
+      "site_score": 35.53,
+      "baseline": false,
+      "revisions": [
+        "7264ea07c5365a11d7e6d87dbb6195889a13054f"
+      ],
+      "mteb_version": "2.20.12",
+      "n_parameters": 108420096,
+      "n_active_parameters": 0,
+      "declares_italian": true,
+      "n_languages": 49,
+      "task_in_training_data": false,
+      "adapted_from": null,
+      "release_date": "2025-01-15",
+      "rank": 8
+    },
+    {
+      "model": "minishlab/potion-multilingual-128M",
+      "score": 30.75,
+      "site_score": 30.75,
+      "baseline": false,
+      "revisions": [
+        "73908c3438cf03b6a01bcb9611d62b23d0726f08"
+      ],
+      "mteb_version": "2.20.12",
+      "n_parameters": 128000000,
+      "n_active_parameters": 0,
+      "declares_italian": true,
+      "n_languages": 101,
+      "task_in_training_data": false,
+      "adapted_from": "BAAI/bge-m3",
+      "release_date": "2025-05-23",
+      "rank": 9
+    },
+    {
+      "model": "mteb/baseline-random-encoder",
+      "score": 0.0,
+      "site_score": 0.0,
+      "baseline": true,
+      "revisions": [
+        "1"
+      ],
+      "mteb_version": "2.20.12",
+      "n_parameters": 0,
+      "n_active_parameters": 0,
+      "declares_italian": false,
+      "n_languages": 0,
+      "task_in_training_data": false,
+      "adapted_from": null,
+      "release_date": null,
+      "rank": 10
+    }
+  ]
+}

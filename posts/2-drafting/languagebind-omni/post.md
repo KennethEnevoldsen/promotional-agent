@@ -25,7 +25,7 @@ New on MTEB: LanguageBind/LanguageBind_Omni — video, audio, image and text in 
 
 It scores 47.14 on 18 MVEB(beta) tasks. Every other model on that board was released in 2025 or later, and the best reaches 61.30.
 
-Integration by myang333, results by isaac-chung.
+Integration by myang333, results submitted by isaac-chung.
 ```
 
 ## LinkedIn
@@ -40,7 +40,7 @@ It is a composite with no checkpoint of its own: mteb's wrapper dispatches each 
 
 It scores 47.14 on the 18 MVEB(beta) tasks it has run, 13th of the 17 models with complete coverage of those tasks. Every other model on that board was released in 2025 or later, and the best of them reaches 61.30 — the audio-video board now has a point of comparison from before the current generation, which is what makes a gap measurable at all.
 
-MTEB integration by myang333, results by isaac-chung.
+Integration by myang333, results submitted by isaac-chung.
 ```
 
 ## The claim

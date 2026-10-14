@@ -1,0 +1,280 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>JuriFindIT first results</title>
+<!--
+  Dataset post: one new task (JuriFindITRetrieval), its first results as ranked bars.
+  Started from templates/model-release/card-bars.html, but there is no subject model:
+  every evaluated model is the same role (blue), and the two reference baselines (BM25,
+  random) are hatched grey because they are a different kind of thing, not a weaker model.
+
+    uv run posts/4-scheduled/2026-10-21-jurifindit-italian-legal/fetch.py
+    uv run mteb-render --card posts/4-scheduled/2026-10-21-jurifindit-italian-legal/card-1-jurifindit.html \
+      --out posts/4-scheduled/2026-10-21-jurifindit-italian-legal/card-1-jurifindit.png
+-->
+
+<script type="application/json" id="card-data">
+{
+  "task": "JuriFindITRetrieval",
+  "n_queries": 895,
+  "n_documents": 23113,
+  "n_models": 8,
+  "rows": [
+    {
+      "model": "Snowflake/snowflake-arctic-embed-m-v2.0",
+      "score": 62.92,
+      "baseline": false,
+      "n_active_parameters": 112963136,
+      "n_parameters": 305000000
+    },
+    {
+      "model": "jinaai/jina-embeddings-v3",
+      "score": 62.37,
+      "baseline": false,
+      "n_active_parameters": 316308348,
+      "n_parameters": 572310396
+    },
+    {
+      "model": "albertobarnabo/bge-m3-italian",
+      "score": 61.73,
+      "baseline": false,
+      "n_active_parameters": 311752704,
+      "n_parameters": 567754752
+    },
+    {
+      "model": "intfloat/multilingual-e5-large",
+      "score": 59.37,
+      "baseline": false,
+      "n_active_parameters": 303997952,
+      "n_parameters": 560000000
+    },
+    {
+      "model": "intfloat/multilingual-e5-small",
+      "score": 48.72,
+      "baseline": false,
+      "n_active_parameters": 21985792,
+      "n_parameters": 118000000
+    },
+    {
+      "model": "mteb/baseline-bm25s",
+      "score": 47.79,
+      "baseline": true,
+      "n_active_parameters": 0,
+      "n_parameters": 0
+    },
+    {
+      "model": "codefuse-ai/F2LLM-v2-80M",
+      "score": 39.51,
+      "baseline": false,
+      "n_active_parameters": 31550208,
+      "n_parameters": 80084288
+    },
+    {
+      "model": "sentence-transformers/static-similarity-mrl-multilingual-v1",
+      "score": 35.53,
+      "baseline": false,
+      "n_active_parameters": 0,
+      "n_parameters": 108420096
+    },
+    {
+      "model": "minishlab/potion-multilingual-128M",
+      "score": 30.75,
+      "baseline": false,
+      "n_active_parameters": 0,
+      "n_parameters": 128000000
+    },
+    {
+      "model": "mteb/baseline-random-encoder",
+      "score": 0.0,
+      "baseline": true,
+      "n_active_parameters": 0,
+      "n_parameters": 0
+    }
+  ]
+}
+</script>
+<script type="text/plain" id="alt-text">
+New task on MTEB: JuriFindIT: Italian legal questions written by legal professionals. 895 questions. For each, a model must find the statutory articles that answer it, out of 23,113. Bar chart of nDCG@10 on JuriFindITRetrieval (895 questions, 23113 statutory articles) for the 8 models with results so far, plus two baselines, highest first: Snowflake/snowflake-arctic-embed-m-v2.0, 62.92 (305M parameters); jinaai/jina-embeddings-v3, 62.37 (572M parameters); albertobarnabo/bge-m3-italian, 61.73 (568M parameters); intfloat/multilingual-e5-large, 59.37 (560M parameters); intfloat/multilingual-e5-small, 48.72 (118M parameters); mteb/baseline-bm25s, 47.79 (keyword-matching baseline); codefuse-ai/F2LLM-v2-80M, 39.51 (80M parameters); sentence-transformers/static-similarity-mrl-multilingual-v1, 35.53 (108M parameters, static (no active parameters)); minishlab/potion-multilingual-128M, 30.75 (128M parameters, static (no active parameters)); mteb/baseline-random-encoder, 0.00 (random baseline). Dataset: Dalla Noce et al., Findings of EACL 2026. Source: MTEB, leaderboard.mteb.org.
+</script>
+
+<style>
+  :root {
+    --logo-uri: url("data:image/png;base64,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");
+    --surface:        #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --accent:         #3d7bff;
+    --peer:           #b9b7b0;
+    --gridline:       #e1e0d9;
+    --axis:           #c3c2b7;
+    --hairline:       rgba(11, 11, 11, 0.10);
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  [data-mode="dark"] {
+    --surface:        #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --accent:         #5b8fff;
+    --peer:           #6f6d67;
+    --gridline:       #2c2c2a;
+    --axis:           #383835;
+    --hairline:       rgba(255, 255, 255, 0.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-mode="light"]) {
+      --surface: #1a1a19; --text-primary: #ffffff; --text-secondary: #c3c2b7;
+      --accent: #5b8fff; --peer: #6f6d67; --axis: #383835; --hairline: rgba(255,255,255,0.10);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 1200px; overflow: hidden;
+    background: var(--surface); color: var(--text-primary);
+    font-family: var(--font-sans);
+    display: flex; flex-direction: column;
+    padding: 44px 56px 32px;
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+  .eyebrow {
+    font-size: 18px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  h1 { font-size: 44px; font-weight: 640; letter-spacing: -0.02em; margin-top: 10px; line-height: 1.12; max-width: 900px; }
+  .subtitle { font-size: 22px; color: var(--text-secondary); margin-top: 12px; line-height: 1.35; max-width: 900px; }
+
+  .brand { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+  .brand-name { font-size: 30px; font-weight: 700; letter-spacing: 0.01em; color: var(--text-primary); }
+
+  .plot { flex: 1; margin-top: 18px; display: flex; flex-direction: column; min-height: 0; }
+  .bars { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+  .row, .axis {
+    display: grid;
+    grid-template-columns: 420px 1fr 84px;
+    align-items: center; gap: 14px;
+  }
+  .mname { line-height: 1.18; }
+  .mname .org { display: block; color: var(--text-muted); font-size: 14px; }
+  .mname .name { display: block; font-size: 19px; color: var(--text-primary); }
+  .mname .size { display: block; color: var(--text-muted); font-size: 14px; }
+  .row.baseline .mname .name { color: var(--text-secondary); font-style: italic; }
+
+  .track { height: 32px; position: relative; }
+  .fill {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    background: var(--accent); border-radius: 0 5px 5px 0;
+  }
+  .row.baseline .fill {
+    background: repeating-linear-gradient(45deg, var(--peer) 0 6px, transparent 6px 11px);
+    border: 1.5px solid var(--peer);
+  }
+  .val { font-size: 21px; color: var(--text-primary); text-align: right; font-variant-numeric: tabular-nums; }
+  .row.baseline .val { color: var(--text-secondary); }
+
+  .axis { margin-top: 10px; padding-top: 6px; row-gap: 4px; }
+  .axis .ticks { position: relative; height: 16px; }
+  .axis .ticks span { position: absolute; transform: translateX(-50%); font-size: 16px; color: var(--text-muted); }
+  .axis-name { display: block; font-size: 19px; color: var(--text-secondary); font-weight: 600; text-align: center; }
+  .axis-note { display: block; font-size: 15px; color: var(--text-muted); text-align: center; margin-top: 5px; }
+
+  footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--hairline);
+    font-size: 15px; color: var(--text-muted);
+  }
+  .logo { width: 39px; height: 41px; flex: none; background: var(--logo-uri) left center / contain no-repeat; }
+</style>
+
+<header>
+  <div>
+    <div class="eyebrow" id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div class="subtitle" id="subtitle"></div>
+  </div>
+  <div class="brand">
+    <span class="logo" role="img" aria-label="MTEB"></span>
+    <span class="brand-name">MTEB</span>
+  </div>
+</header>
+
+<div class="plot">
+  <div class="bars" id="bars"></div>
+  <div class="axis" id="axis"></div>
+</div>
+
+<footer>
+  <span id="footer"></span>
+  <span id="credit"></span>
+</footer>
+
+<script>
+const COPY = {
+  eyebrow: "New task on MTEB",
+  title: "JuriFindIT: Italian legal questions written by legal professionals",
+  subtitle: "{n_queries} questions. For each, a model must find the statutory articles that answer it, out of {n_documents}.",
+  axis_label: "nDCG@10",
+  axis_note: "Every model with results so far, plus keyword and random baselines",
+  footer: "JuriFindITRetrieval. Source: leaderboard.mteb.org",
+  credit: "Dataset: Dalla Noce et al., Findings of EACL 2026",
+  baseline_labels: {
+    "mteb/baseline-bm25s": "keyword-matching baseline",
+    "mteb/baseline-random-encoder": "random baseline",
+  },
+};
+
+const d = { ...COPY, ...JSON.parse(document.getElementById("card-data").textContent) };
+d.subtitle = d.subtitle.replace(/\{(\w+)\}/g, (_, k) => Number(d[k]).toLocaleString("en-US"));
+const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v ?? ""; };
+["eyebrow", "title", "subtitle", "footer", "credit"].forEach(k => set(k, d[k]));
+if (d.mode === "dark") document.documentElement.dataset.mode = "dark";
+
+const rows = d.rows || [];
+const AXIS_MAX = 80;
+
+const splitName = n => {
+  const i = n.indexOf("/");
+  return i === -1 ? ["", n] : [n.slice(0, i + 1), n.slice(i + 1)];
+};
+const fmtCount = n => n >= 1e9 ? `${(n/1e9).toFixed(1)}B` : `${Math.round(n/1e6)}M`;
+const sizeLine = r => {
+  if (r.baseline) return d.baseline_labels[r.model] || "baseline";
+  if (r.n_parameters == null) return "size not published";
+  if (r.n_active_parameters === 0) return `${fmtCount(r.n_parameters)} parameters, static (no active parameters)`;
+  return `${fmtCount(r.n_parameters)} parameters`;
+};
+
+document.getElementById("bars").innerHTML = rows.map(r => {
+  const [org, name] = splitName(r.model);
+  return `
+    <div class="row${r.baseline ? " baseline" : ""}">
+      <span class="mname">
+        <span class="org">${org}</span>
+        <span class="name">${name}</span>
+        <span class="size">${sizeLine(r)}</span>
+      </span>
+      <span class="track"><span class="fill" style="width:${(r.score / AXIS_MAX * 100).toFixed(2)}%"></span></span>
+      <span class="val">${r.score.toFixed(2)}</span>
+    </div>`;
+}).join("");
+
+const ticks = [];
+for (let v = 0; v <= AXIS_MAX; v += 20) ticks.push(v);
+document.getElementById("axis").innerHTML = `
+  <span></span>
+  <span class="ticks">${ticks.map(v =>
+    `<span style="left:${(v / AXIS_MAX * 100).toFixed(2)}%">${v}</span>`).join("")}</span>
+  <span></span>
+  <span></span>
+  <span><span class="axis-name">${d.axis_label}</span>
+        <span class="axis-note">${d.axis_note}</span></span>
+  <span></span>`;
+
+window.__altText = [
+  `${d.eyebrow}: ${d.title}. ${d.subtitle}`,
+  `Bar chart of nDCG@10 on JuriFindITRetrieval (${d.n_queries} questions, ${d.n_documents} statutory articles) for the ${d.n_models} models with results so far, plus two baselines, highest first:`,
+  rows.map(r => `${r.model}, ${r.score.toFixed(2)} (${sizeLine(r)})`).join("; ") + ".",
+  `${d.credit}. Source: MTEB, leaderboard.mteb.org.`,
+].join(" ");
+</script>

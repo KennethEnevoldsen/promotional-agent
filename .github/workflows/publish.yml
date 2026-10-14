@@ -13,7 +13,7 @@ name: Publish scheduled posts
 #
 # WHAT THIS DOES NOT DO: it does not decide anything. Every post it sends was written,
 # checked and approved by a person, and `mteb-publish` refuses to send one that was not
-# (AGENTS.md rule 10). What is automated here is the *trigger*, not the judgement.
+# (AGENTS.md, "Scheduling is publishing"). What is automated here is the *trigger*, not the judgement.
 
 on:
   schedule:

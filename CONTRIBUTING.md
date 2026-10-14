@@ -7,6 +7,12 @@ This file is the reasoning behind them, which is what you need while actually dr
 Written as instructions because that is what an agent needs, and read as documentation
 because that is what a person auditing it needs. Same text either way.
 
+Two criteria run through every stage: a post must be **newsworthy**, and it must be **easy
+to read and hard to misread**. Both are judgement calls that `mteb-validate` cannot make,
+and a post that fails either is rejected however correct its numbers are. Neither is
+new; each borrows from standards that journalism and science communication already use
+(see [References](#references); readable copies are in `docs/standards/`).
+
 ---
 
 ## 1 → 2: is this worth working up?
@@ -14,6 +20,23 @@ because that is what a person auditing it needs. Same text either way.
 A candidate is a PR and a guess. Most die here, and that is the point — the repos merge
 3-4 PRs a day, so the bottleneck is not finding things to post but choosing the one or
 two a week worth saying.
+
+**Is it news?** Someone who follows MTEB should be glad this showed up in their feed.
+Every post spends the attention of people who chose to follow us. A feed that posts every
+merge teaches them to scroll past, and then the posts that matter get scrolled past too.
+Journalism calls the properties that make something worth reporting *news values*. Four
+from Harcup and O'Neill's list [1] fit this account:
+
+- **Relevance:** it matters to people who build or choose embedding models, not mainly to
+  the people who made the change.
+- **Magnitude:** it is big enough to change what someone would do: a new benchmark to
+  evaluate on, a model that leads its class, a change that moves scores.
+- **Surprise:** the result is not what a reader would have guessed.
+- **Follow-up:** it moves a story we have already told, such as rerun results after a
+  settings change.
+
+When in doubt, don't post. A quiet week costs nothing, but a dull post costs followers.
+The rules below are this criterion applied to the cases that come up most often.
 
 **A model addition is postable only once results are merged.** A `ModelMeta`
 registration with no scores is plumbing, not news. The pairing — a PR in `mteb` plus its
@@ -62,6 +85,20 @@ repo through `Benchmark.get_score()` — the same aggregation the leaderboard us
 compare. If recomputation disagrees with the PR, the post does not run.
 
 `docs/mteb-data.md` covers the API and the several ways this goes silently wrong.
+
+### Say what MTEB measured, not what the authors claim
+
+A post reports what MTEB measured: scores, and the model facts MTEB records and shows on
+the leaderboard, such as active parameters. It does not pass on the authors' account of
+their own model, such as why it is small, how fast it runs, what it costs to serve, or
+what its architecture makes possible. Even when such a claim is true, MTEB did not
+measure it. Repeating it lends the benchmark's credibility to a message the authors are
+better placed to make themselves, and it reads as promotion.
+
+The test for each sentence: could a reader check it on the leaderboard or in the results
+repo? If not, cut it. Explaining a term the reader needs (what a sparse model is, what a
+benchmark measures) is fine. Claims about a model's speed or efficiency are not, unless
+MTEB measured them.
 
 ### Default to MTEB(Multilingual, v2)
 
@@ -183,6 +220,33 @@ long structurally.
 House style: factual, specific, understated. Lead with the concrete thing. No hype
 adjectives, no emoji strings, no hashtag stuffing.
 
+**Easy to read.** The plain-language standard ISO 24495-1 [2] calls a text plain when its
+readers can easily find what they need, understand what they find, and use it. In 300
+characters:
+
+- **Find:** the point comes first, and the card title states it.
+- **Understand:** no jargon that a reader would need the PR to decode, and no exact
+  numbers that don't carry the point.
+- **Use:** the post ends with what it means for the reader.
+
+**Hard to misread.** The SPJ Code of Ethics [3] asks journalists to "take special care not
+to misrepresent or oversimplify in promoting, previewing or summarizing a story", and
+reminds them that "neither speed nor format excuses inaccuracy". A 300-character post is
+exactly such a summary, and its format is no excuse. Sumner et al. [4] found that most
+exaggeration in science news was already in the press release: advice the study did not
+support, causation claimed from correlation, and conclusions about people drawn from
+animal studies. They also found that exaggeration did not win more coverage, and caveats
+did not cost any. We are the press release here. Our equivalents:
+
+- A ranking within a cohort read as a ranking of all models (see *Ask who is missing*).
+- A score on one benchmark read as general quality.
+- "Smallest", "first" or "best" without its scope.
+- Numbers that look comparable but aren't (different benchmark versions or settings).
+
+To check, ask what someone who reads only the first sentence, or only the card title,
+would now believe. If that is wrong or overstated, rewrite it. Put the scope in the same
+sentence as the claim, not in a later part of the thread.
+
 **Explain, don't list changes.** Write for a reader who has never seen the PR. A post
 about a change answers, in order: what the situation was and why it was that way, what
 changed and why, and what it means for the reader (what to do). A list of what changed
@@ -252,13 +316,26 @@ Every post names the people whose work it describes. This is a community project
 posts should read like it.
 
 Credit and tagging are separate. Credit is unconditional and uses the GitHub handle as
-plain text. Tagging requires an opt-in handle in `social-handles.yaml` — never infer one
-from a name or profile. A wrong-person mention is precisely the spammy, follower-farming
-behaviour this account exists to avoid.
+plain text. Say what each person did, in MTEB's terms: "results submitted by X" for
+whoever opened the results PR, "added to MTEB by X" for a task or model integration, and
+"Work by X" for a change to MTEB itself. Credit the model or dataset authors by
+organisation or paper ("Model from NAVER LABS Europe", "Dataset by Dalla Noce et al."),
+not by a handle that only looks like theirs. Tagging uses a handle recorded in `social-handles.yaml`, with `via:` saying
+where it came from.
 
-The same applies on LinkedIn: tag only someone with a `linkedin:` entry in
-`social-handles.yaml`, whose `via:` records who decided. Write the mention as
-`@Full Name` in the ```` ```linkedin ```` block. LinkedIn text is pasted by hand, and the
+**A handle the person links from their own GitHub profile can be used.** Check
+`gh api users/<handle>/social_accounts` and the profile's website and bio. If they link a
+Bluesky or LinkedIn account there, they have published it themselves, so add it to
+`social-handles.yaml` with `via:` naming the source and date (for example, "linked from
+GitHub profile, checked 2026-10-13") and tag them. The same goes for a handle the person
+or a maintainer has given us directly.
+
+Never infer a handle any other way: not by searching Bluesky or LinkedIn for the
+person's name, and not from a profile that only looks like the right person. A
+wrong-person mention is precisely the spammy, follower-farming behaviour this account
+exists to avoid.
+
+On LinkedIn, write the mention as `@Full Name` in the ```` ```linkedin ```` block. LinkedIn text is pasted by hand, and the
 person posting must pick the name from LinkedIn's mention dropdown, or it stays plain text.
 
 State-of-the-field posts describe no single person's submission and carry no credit line.
@@ -282,6 +359,11 @@ what the roundup shape exists for.
 
 Check `expires:` before scheduling. News older than about a month is not news, and a
 post that sat in review past its window should be rejected rather than shipped stale.
+
+Read the post once more as a follower would, against both criteria: is it still news on
+the day it goes out, and does the first sentence or the card title alone leave a true
+impression? Drafting makes a post feel finished; this is the check that it is worth
+sending.
 
 **This move is the human's, and only the human's.** `3-review` means "a person has not
 looked yet". An agent that drafts a post and then schedules it has removed the only step
@@ -321,6 +403,16 @@ Whether a cohort is fair, whether a claim is scoped to its evidence, whether the
 is worth anyone's attention — none of that is checkable, and all of it is in this file.
 Treat the validator as the floor, never the bar.
 
+So check by hand, every time a post moves forward:
+
+- **Newsworthy:** would a follower be glad to see it? (*Is it news?*, under 1 → 2)
+- **Easy to read:** is the point first, free of PR jargon, and does it say what it means
+  for the reader? (*Write the post*)
+- **Hard to misread:** what would someone who reads only the first sentence, or only the
+  card title, believe? Is that true? (*Write the post*)
+
+Record anything borderline in `## Notes` so the reviewer sees the call you made.
+
 ## Rejecting
 
 Every rejection needs a `reason:`. `rejected/` is the most auditable thing in the repo —
@@ -330,3 +422,26 @@ the account's judgement is ever questioned.
 Rejections stick: `mteb-scan` skips any PR already referenced anywhere in the pipeline,
 so a rejected candidate does not reappear the next morning. If circumstances change
 (results finally land), move the folder back to `1-candidates/` by hand.
+
+## References
+
+Readable copies, with licence notes and a record of what was changed, are in
+`docs/standards/`. The full text is included where the licence allows it; otherwise there
+is a summary with the relevant clauses quoted.
+
+1. Harcup, T. & O'Neill, D. (2017). What is news? News values revisited (again).
+   *Journalism Studies* 18(12), 1470–1488.
+   [doi:10.1080/1461670X.2016.1150193](https://doi.org/10.1080/1461670X.2016.1150193).
+   CC BY 4.0. Full text: `docs/standards/harcup-oneill-2017-what-is-news.md`.
+2. ISO 24495-1:2023. *Plain language — Part 1: Governing principles and guidelines.*
+   International Organization for Standardization. Paywalled; summary only:
+   `docs/standards/iso-24495-1-plain-language.md`.
+3. Society of Professional Journalists (2014). *SPJ Code of Ethics*, revised 6 September
+   2014. <https://www.spj.org/ethicscode.asp>. All rights reserved; relevant clauses quoted
+   in `docs/standards/spj-code-of-ethics.md`.
+4. Sumner, P., Vivian-Griffiths, S., Boivin, J., Williams, A., Venetis, C. A., Davies, A.,
+   Ogden, J., Whelan, L., Hughes, B., Dalton, B., Boy, F. & Chambers, C. D. (2014). The
+   association between exaggeration in health related science news and academic press
+   releases: retrospective observational study. *BMJ* 349, g7015.
+   [doi:10.1136/bmj.g7015](https://doi.org/10.1136/bmj.g7015). CC BY 4.0. Full text:
+   `docs/standards/sumner-2014-exaggeration-press-releases.md`.

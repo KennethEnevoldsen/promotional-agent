@@ -155,7 +155,7 @@ src/mtebpost/
   render.py          card.html -> png + alt text
 posts/               the pipeline (above)
 profile.md           account identity, voice, and the bio text
-social-handles.yaml  GitHub -> social handle map; opt-in, drives tagging
+social-handles.yaml  GitHub -> social handle map, with sources; drives tagging
 assets/              MTEB logo
 ```
 
