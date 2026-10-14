@@ -15,6 +15,8 @@ sources:
   - https://github.com/embeddings-benchmark/mteb/releases/tag/2.24.4
   - https://docs.mteb.org/whats_new/
   - https://github.com/embeddings-benchmark/mteb/issues/5460
+posted_on: 2026-10-13
+url: https://bsky.app/profile/mteb.org/post/3mxrf7wtrre2c
 ---
 
 ```
