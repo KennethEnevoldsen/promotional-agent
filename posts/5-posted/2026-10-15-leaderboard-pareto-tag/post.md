@@ -14,6 +14,8 @@ sources:
   - https://github.com/embeddings-benchmark/leaderboard-frontend/pull/40
   - https://github.com/embeddings-benchmark/mteb/issues/5408
   - https://leaderboard.mteb.org
+posted_on: 2026-10-15
+url: https://bsky.app/profile/mteb.org/post/3mxwcsr2xiz24
 ---
 
 ```
